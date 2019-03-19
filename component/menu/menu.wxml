@@ -1,0 +1,8 @@
+<!--component/menu/menu.wxml-->
+<view class="menu">
+  <view class="menuList">
+      <navigator wx:for="{{indexMenuList}}" wx:key="indexMenuList.linkName" class="indexMenuMod" url="{{item.url}}" redirect>
+          <view class="{{pageType == item.linkType?'select':'noSelect'}}">{{item.linkName}}</view>
+      </navigator>
+  </view>
+</view>

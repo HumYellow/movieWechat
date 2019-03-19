@@ -1,0 +1,4 @@
+<!--pages/cinema/cinemaList/cinemaList.wxml-->
+<text>pages/cinema/cinemaList/cinemaList.wxml</text>
+
+<menu pageType="{{pageType}}"></menu>

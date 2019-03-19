@@ -1,0 +1,17 @@
+/* component/menu/menu.wxss */
+
+.menuList {background:#fff;
+  display:flex;justify-content: center;align-items: center;
+  position:fixed;left:0;bottom:0;
+  width:100%;
+  height:50px;line-height:50px;
+  border-top:1px solid #999
+}
+.indexMenuMod {
+  width:25%;
+  margin:0 10px;
+  text-align:center;
+}
+.indexMenuMod .select{
+  color:red
+}

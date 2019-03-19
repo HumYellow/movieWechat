@@ -1,0 +1,4 @@
+<!--pages/order/confirmOrder/confirmOrder.wxml-->
+<view class="confirmOrde">
+  <view></view>
+</view>

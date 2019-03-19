@@ -1,0 +1,16 @@
+<!--pages/movie/movieList/movieList.wxml-->
+<view class="movieList">
+  <view id="movieScroll">
+      <scroll-view class="movieScrollList" scroll-x>
+          <view class="movieScroll_item" wx:for="{{movieList}}" wx:key="movieList.id">
+              <text class="movieListModLeft">{{item.name}}</text>
+              <text class="movieListModRight">{{item.price}}</text>
+          </view>
+      </scroll-view>
+  </view>
+  <view class="movieListMod" wx:for="{{movieList}}" wx:key="movieList.id" bindtap="toMovieDetails" data-id="{{item.id}}">
+    <text class="movieListModLeft">{{item.name}}</text>
+    <text class="movieListModRight">{{item.price}}</text>
+  </view>
+  <menu pageType="{{pageType}}"></menu>
+</view>

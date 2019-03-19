@@ -1,0 +1,13 @@
+/* pages/order/seatSelection/seatSelection.wxss */
+/* 选座 */
+.seatPicMod{padding:20px;width:100%;box-sizing: border-box}
+.seatPic{width:100%;overflow:auto;box-sizing: border-box;position:relative;padding:40px 0}
+.seatList{}
+.seatBox{width:100%;}
+.seatMod{width:20px;height:20px;box-sizing: border-box;border:1px solid #fff;float:left}
+.seatMod_N{background:#999}
+.seatMod_L{background:red}
+.seatMod_S{background:green}
+.midLine{position:absolute;width:1px;background:red;top:35px;}
+
+.toBuy{position:fixed;left:0;bottom:0;width:100%;height:50px;line-height:50px;text-align:center;background:#ce9a78;color:#fff}

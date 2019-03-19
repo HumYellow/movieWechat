@@ -1,0 +1,32 @@
+<!--pages/order/seatSelection/seatSelection.wxml-->
+<view>
+  <view class="seatPicMod">
+      <view class="seatPic">
+          <view class="seatList" style="width:{{seatList.columnnum*20}}px;height:{{seatList.rownum*20}}px">
+              <view class="seatBox clear" 
+              wx:for="{{seatList.rownum}}" wx:key="index+1" wx:for-index="seatBoxIndex">
+                  <view  class="seatMod seatMod_{{item.status}}"  bindtap="selectSeat"
+                  wx:for="{{seatList.seatList}}" 
+                  wx:if="{{seatBoxIndex+1 == item.rowId}}"
+                  wx:key="seatList.seatList.id"
+                  id = "{{item.id}}"
+                  data-status="{{item.status}}" 
+                  data-rownum="{{item.rowId}}" 
+                  data-column="{{item.columnId}}">
+                  <!-- {{item.status}} -->
+                  </view>
+              </view>
+          </view>
+          <view class="midLine" style="height:{{seatList.rownum*20+10}}px;left:{{seatList.midline*20}}px">
+          </view>
+      </view>
+  </view>
+  <view>
+    <view wx:for="{{selectSeatList}}" wx:key="index" bindtap="deleteSeat"
+          data-rownum="{{item.rownum}}" 
+          data-column="{{item.column}}">
+      {{item.rownum}}排{{item.column}}座  X
+    </view>
+  </view>
+   <navigator class="toBuy" url='/pages/movie/movieList/movieList'>立即购买</navigator>
+</view>
