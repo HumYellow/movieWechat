@@ -6,6 +6,8 @@ Page({
    */
   data: {
     pageType: 'movieList',
+    movie: null, //选中的电影
+    movies: null, //电影列表
     movieList:[{
       id:'1',
       name:'大闹天宫',

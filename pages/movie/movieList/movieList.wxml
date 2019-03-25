@@ -12,5 +12,6 @@
     <text class="movieListModLeft">{{item.name}}</text>
     <text class="movieListModRight">{{item.price}}</text>
   </view>
+  <select-movie movies='{{movies}}' bindselectMovie='selectMovie' defaultSelectID='{{movieId}}'/>
   <menu pageType="{{pageType}}"></menu>
 </view>
