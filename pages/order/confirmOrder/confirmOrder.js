@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    discount1: ['优惠活动1-1', '优惠活动1-2', '优惠活动1-3', '优惠活动1-4'],
+    discount2: ['优惠活动2-1', '优惠活动2-2', '优惠活动2-3', '优惠活动2-4'],
+    discount3: ['优惠活动3-1', '惠活动3-2', '惠活动3-3', '惠活动3-4'],
   },
 
   /**
@@ -62,5 +64,8 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  bindRegionChange: function (e) {
+    console.info('picker发送选择改变，携带值为', e.detail.value)
+  },
 })

@@ -11,7 +11,7 @@
 		"newFeature": true,
 		"autoAudits": false
 	},
-	"compileType": "plugin",
+	"compileType": "miniprogram",
 	"libVersion": "2.6.1",
 	"appid": "wxc311f02c1097954e",
 	"projectname": "movieWechat",
@@ -19,6 +19,8 @@
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -29,12 +31,13 @@
 			"list": []
 		},
 		"plugin": {
-			"current": 0,
+			"current": 8,
 			"list": [
 				{
 					"id": 0,
 					"name": "movieList",
 					"pathName": "pages/movie/movieList/movieList",
+					"query": "",
 					"scene": null
 				},
 				{
@@ -42,6 +45,54 @@
 					"name": "seat",
 					"pathName": "pages/order/seatSelection/seatSelection",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "cinemaList",
+					"pathName": "pages/cinema/cinemaList/cinemaList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "orderList",
+					"pathName": "pages/order/orderList/orderList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/order/orderDetail/orderDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选场次",
+					"pathName": "pages/movie/movieScene/movieScene",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "确认订单",
+					"pathName": "pages/order/confirmOrder/confirmOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "电影详情",
+					"pathName": "pages/movie/movieDetails/movieDetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/myCenter/myCenterPage/myCenterPage",
 					"scene": null
 				}
 			]
@@ -51,8 +102,50 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 5,
+			"list": [
+				{
+					"id": -1,
+					"name": "选座",
+					"pathName": "pages/order/seatSelection/seatSelection",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "电影详情",
+					"pathName": "pages/movie/movieDetails/movieDetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "预告片列表",
+					"pathName": "pages/movie/movieVideo/movieVideo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/myCenter/myCenterPage/myCenterPage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登陆",
+					"pathName": "pages/login/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "影院场次",
+					"pathName": "pages/movie/movieScene/movieScene",
+					"scene": null
+				}
+			]
 		}
 	}
 }

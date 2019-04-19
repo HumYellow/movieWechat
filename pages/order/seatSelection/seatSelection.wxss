@@ -1,13 +1,41 @@
 /* pages/order/seatSelection/seatSelection.wxss */
+.moveiBox{display:flex;padding:15px 40px;align-items: center;}
+.moveiBox-pic{width:60px;}
+.moveiBox-desc{padding-left:10px;}
+.moveiBox-title{display: flex;align-items: flex-end;}
+.moveiBox-movieName{margin-right:5px;font-size:16px;}
+.moveiBox-movieType{font-size:12px;color:#666;}
+.moveiBox-time{color:#666;font-size:12px;margin:6px 0;}
+.moveiBox-cinemaType{display:flex;}
+.moveiBox-cinemaType-item{font-size:10px;padding:2px 5px;border:1px solid #63a4fd;border-radius:3px;color:#63a4fd;margin-right:5px;}
+
+.seatTipsList{display:flex;align-items: center;margin:0 auto;justify-content: center;padding:15px 0;font-size:14px;color:#333;border-top:1px solid #ebebeb}
+.seatModTipsBox{display:flex;margin:0 10px;}
+.seatModTips{width:20px;height:18px;margin:0 5px;}
+.seatModTipsText{}
+
 /* 选座 */
-.seatPicMod{padding:20px;width:100%;box-sizing: border-box}
-.seatPic{width:100%;overflow:auto;box-sizing: border-box;position:relative;padding:40px 0}
+.seatPicMod{width:100%;box-sizing: border-box;position:relative;padding:0 20px 30px;background:#f7f7f7;border-bottom:1px solid #ebebeb;}
+.seatPic{width:100%;overflow:auto;box-sizing: border-box;position:relative;padding:50px 0;margin:0 auto;}
 .seatList{}
 .seatBox{width:100%;}
-.seatMod{width:20px;height:20px;box-sizing: border-box;border:1px solid #fff;float:left}
-.seatMod_N{background:#999}
-.seatMod_L{background:red}
-.seatMod_S{background:green}
-.midLine{position:absolute;width:1px;background:red;top:35px;}
+.seatMod{width:20px;height:20px;box-sizing: border-box;float:left;margin:2px;}
+.seatMod_N{background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAeCAYAAABJ/8wUAAAAAXNSR0IArs4c6QAAAUxJREFUWAntVztuhDAQHSODEJ+WCpGGG+xhtttb5QLb7QFyjbQ0dAgUGgoQ4ittPEhEZOJIG62DKDwSkmdkv3l+zGDDYGNpmp6nabrO82xtwkqHnPPRNM1LHMe3X4GTJBmaprn/pyE+5qEkjG0AlfA8bxtSPkZ8meLfiCjP+gdATYSKdRhFGG1Zxhi4rgtRFIFhqOUpuhGyLIO6rhdBRK67ZVkfonhPDFspDMOvbsHJeZ6DmABBEFAFn/KrqgLRvssmccNoRVFA13VvBm1ZnIAtJj5sTyWVLUZMVHslgXN83wex+Re12suyPxjTRKhQWhGtCFWA+rpGtCJUAeofpkY4Zbb64zgCnpYqre/75dCTYUqJ4BXAtm0Yhh+XbRnGw7EVV7ZASsRxHMBnTztMjWgi9LUvNVKWJY3v5q8NwUVRvrZtu1tiWSLxt/D+CScEzYdXrXqlAAAAAElFTkSuQmCC') no-repeat; background-size:100% auto;}
+.seatMod_L{background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAeCAYAAABJ/8wUAAAAAXNSR0IArs4c6QAAAWpJREFUWAntVs1Kw0AQnk3SbNLE6sGCIsSqj+BF8EG8+Va+gDcfwEcQPPkGYmmpCA2KaUnzt4m7LYV1uicTQw67EDLfkJn5+GZmCQHpzC6ubxhj9ywvbMndqGn2rMw0zduT16cHOTGRwWR0lR4Gge3uD2R3o/bqO4JwMsmC8TOVExsyEEr8JwlRS+RXKf6LiEyqbVsTwYp3RhGCV5YAAWfPh+HZCAzLxMRr4aosYf42hjiKACrglaCyKP0oWHJJdla2rMR6Af8ADo6PahXGwYt5CGJ9h+cjIAZvBifzOZ1CGq8ejZ2VNTaKsCzHeWpjludAfW9DQmTjkjgDfmdV5WlnZkQTwX3WimhFsAIY6xnRimAFMO7MjFiY2RbnSQKLMNzCRt5pHIPj+8pcSiI9xwHbdSGPE2XQX509mwLt95XhSiLU80A8bZ7OzIgmgtu+npGv2Tv2t4aLNF3Xshyvf5cul60VVhXi/9AvPzuDbJio/nz6AAAAAElFTkSuQmCC') no-repeat; background-size:100% auto;}
+.seatMod_S{background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAeCAYAAABJ/8wUAAAAAXNSR0IArs4c6QAAAWxJREFUWAntlr1OwzAQx8+J43wVCQlRRCXUgYGBkXfgFdh4D56gT8DE1o1X4CHYmRGlLf1AiZrmqzF2WZyTJ1KiDLYU5e4k3/38950SAsq6Hb3d8WI33pUFU8IHNW3q5MSx718erp7VxFR1JMTp2YD54ZEaPqidbGK2mE3GImkNxFKrSCX+E0LWCsQhdYrXQFSotm0DghXvjCIEjywRqF7Qg/7gAizLxuCNfF5xmH++Q5JEAFyksgh3qDMFwm8oHlnOOXxNPyBaL+H4pN+oMN4cRytRv4Lh5bU4pDgyB7KcT87TdPtk4ZElhIAfhFCWBc7T2C/LEnw//IWQ2QSLF/bka9iZHjEg+J6NIkYRrAD2TY8YRbAC2O9Mj9R+nlXKPM8g/l6pocZ2nm33Hz1dIi0IYy4w14MsT3V7/hyjDhN5fe1+LYjrByCfNldnesSA4Gvf98h6McPx1vxCTKdclHnBY5JsWiusK1RZ5PUHMrttTPOBH2wAAAAASUVORK5CYII=') no-repeat; background-size:100% auto;}
+.seatModPic{width:100%;}
+.midLine{position:absolute;width:1px;top:50px;border-left:1px dashed #b3b3b3}
+.screenCenter{position:absolute;top:0;padding:2px 10px;text-align:center;font-size:14px;background:#e8e8e8;}
+.seatNumList{position:absolute;top:45px;left:0;background:rgba(0,0,0,.4);padding:2px 2px 2px 0;border-radius:15px;color:#fff;width:20px;text-align:center;}
+.seatNumList-item{height:24px;line-height:24px;font-size:12px;}
 
-.toBuy{position:fixed;left:0;bottom:0;width:100%;height:50px;line-height:50px;text-align:center;background:#ce9a78;color:#fff}
+.seatCouponList{padding:10px;}
+.seatCouponList-item{text-align:center;padding:5px 0;display:inline-block;margin:5px 1%;width:23%;
+  background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAABECAYAAAAGGj65AAAAAXNSR0IArs4c6QAAA+FJREFUeAHtnc1KG1EUgCfjRGxJjIhBhbjQjEgXxVXpqvQdXHTZbttn6Qv0GbrIG3TVbrqU6kJM3FREaZBoFhETk54TKgQl8ehJchf9BkJ+vOec+PFx79xh7k0mkqNara7JU6Xdbm93Op2sfsYBgUkQSJKknc1mdyX3TpqmvzMqn4h3tLS0lCwsLETSYBJ1yQmBPgHp4KJGoxHV6/WOiLihtlVUPnmACAITJ6Ad3D/XkouLi0qsw672fBwQmCYBdU7di/Wcj2F3muippQTUOXUvBgcEQhJAwJD0qR0hIBIEJYCAQfFTHAFxICgBBAyKn+IIiANBCSBgUPwUR0AcCEoAAYPipzgC4kBQAggYFD/FERAHghJAwKD4KY6AOBCUAAIGxU9xBMSBoAQQMCh+iveXwB0eHkazs7NRLpeL5ufnI1mtBBkITIVALEe+1+u9kAUi72W53DdZptk5Pj6Orq+vp/IFKPJ/E8jc/fdPTk6et1qtzyLgx9XV1bhQKNxtwnsIjIXA3t5edE/A28wHBwfb0jP+WFxczBWLxduPeYbA2AiogEMnIVtbW7szMzMb5+fnLV3JzgGBSRAYKqAW29zc/CMTktenp6dd3VKBAwLjJjBSQC1WLpd/iYRfz87Oxl2bfBAYPgQPspGh+NPl5aWcEvYGP+Y1BNwEHuwBtcL6+npDesFqs9l0FyQBBAYJmATUALle+P3q6mowltcQcBMwC9jtdmtysdpdkAQQGCRgFlCDMpmhlw0Hc/IaAmYCZgFlCC6zjZuZKw2NBMwCyhD8Zm5uzpiWZhCwETAJWKvVCnL+l+bzeVtWWkHASMAkoFz/+yK3ackpIOeARq40MxJ4UEDp/V5K7/dueXnZmJJmELATGCmg3KhaFPl+rqysxExA7FBpaScwVEC9Hevm5uZIbsd6xi76dqC0fByBe79Kww2pjwNIax+BZH9/PyfDa0mu872SScYHuffvrcx2k1Kp1F8n4ktPNARGE0jk+l5TZ7e6EIlFSaNh8dfxE+gPwXLj6fgzkxECBgJDJyGGWJpAwE0AAd0ISeAhgIAeesS6CSCgGyEJPAQQ0EOPWDcBBHQjJIGHAAJ66BHrJoCAboQk8BBAQA89Yt0EENCNkAQeAgjooUesmwACuhGSwEMAAT30iHUTQEA3QhJ4CCCghx6xbgII6EZIAg8BBPTQI9ZNAAHdCEngIaDrfdvs/+xBSOxTCKhz6l4si5F22QX/KQiJ8RBQ59Q9HYJ36vV6Rx4RPaEHKbEWAuqYuqbOqXv93Ybk57nW5E1FtuHYlgb8UJyFJG2eRECHXe35JHgnTdPffwEUaO6y3CjyFAAAAABJRU5ErkJggg=='); background-size:100% 100%;background-position:center center;}
+.seatCouponList-item-box{display:flex;justify-content: center;align-items: center;}
+.seatCouponList-item .seatNum{font-size:14px; color:#333;}
+.seatCouponList-item .price{font-size:10px;color:#ff4d64;}
+.seatCouponList-delect{width:8px;height:8px;margin-left:8px;}
+
+.toBuyBox{position:fixed;left:0;bottom:0;width:100%;padding:5px 0;}
+.toBuy{width:90%;height:40px;line-height:40px;text-align:center;background:#63a4fd;color:#fff;border-radius:20px;margin:0 auto;font-size:16px;}

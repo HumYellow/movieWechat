@@ -1,4 +1,68 @@
 <!--pages/order/confirmOrder/confirmOrder.wxml-->
-<view class="confirmOrde">
-  <view></view>
+<view class="confirmOrder">
+  <view class="movieDescBox">
+      <view class="movieDesc">
+          <view class="movieName">雷霆沙赞</view>
+          <view class="movieTime">2019-02-29 17:30~18:03</view>
+          <view class="cinemaDesc">大地影院VIP厅</view>
+          <view class="cinemaSeat">
+            <text>9排09座 </text> 
+            <text>9排09座 </text>
+          </view>
+      </view>
+      <image class="moviePic" mode="widthFix" src='https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2552058346.webp'></image>
+  </view>
+  <image mode='widthFix' src="/static/image/orderDetailLine.png" class="orderDetailLine"></image>
+  <view class="discountBox">
+      <view class="discount-item">
+          <view class="discount-item-title">
+            优惠活动
+          </view>
+          <view class="discount-item-desc">
+              <picker class="cinemaListSelect-item" bindchange="bindRegionChangeLine" value="{{0}}" range='{{discount1}}'>
+                <view class="picker">
+                    {{discount1[0]}}
+                  <view class="cinemaListSelect-item-tip"></view>
+                </view>
+              </picker>
+          </view>
+      </view>
+      <view class="discount-item">
+          <view class="discount-item-title">
+            优惠券
+          </view>
+          <view class="discount-item-desc">
+              <picker class="cinemaListSelect-item" bindchange="bindRegionChangeLine" value="{{0}}" range='{{discount2}}'>
+                <view class="picker">
+                    {{discount2[0]}}
+                  <view class="cinemaListSelect-item-tip"></view>
+                </view>
+              </picker>
+          </view>
+      </view>
+      <view class="discount-item">
+          <view class="discount-item-title">
+            银行活动
+          </view>
+          <view class="discount-item-desc">
+              <picker class="cinemaListSelect-item" bindchange="bindRegionChangeLine" value="{{0}}" range='{{discount3}}'>
+                <view class="picker">
+                    {{discount3[0]}}
+                  <view class="cinemaListSelect-item-tip"></view>
+                </view>
+              </picker>
+          </view>
+      </view>
+  </view>
+  <view class="confimOrderBox">
+      <view class="confimOrder-text">
+          <view class="confimOrder-text-left">
+              不支持退票，改签
+          </view>
+          <view class="confimOrder-text-right">
+              应付 <text class="confimOrder-text-price">55元</text>
+          </view>
+      </view>
+      <view class="confimOrder-btn">确认支付</view>
+  </view>
 </view>

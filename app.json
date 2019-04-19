@@ -8,37 +8,57 @@
     "pages/order/seatSelection/seatSelection",
     "pages/order/confirmOrder/confirmOrder",
     "pages/myCenter/myCenterPage/myCenterPage",
-    "pages/movie/movieDetails/movieDetails"
+    "pages/movie/movieDetails/movieDetails",
+    "pages/order/orderList/orderList",
+    "pages/order/orderDetail/orderDetail",
+    "pages/movie/movieToCinema/movieToCinema",
+    "pages/movie/movieScene/movieScene",
+    "pages/cinema/cinemaToMovie/cinemaToMovie",
+    "pages/movie/movieVideo/movieVideo",
+    "pages/login/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "电影购票",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#63a4fd",
+    "navigationBarTitleText": "看电影",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "selectedIconPath": "",
-        "iconPath": ""
+        "selectedIconPath": "static/image/tabBar/index-select.png",
+        "iconPath": "static/image/tabBar/index.png"
       },
       {
         "pagePath": "pages/movie/movieList/movieList",
-        "text": "电影"
+        "text": "电影",
+        "selectedIconPath": "static/image/tabBar/movie-select.png",
+        "iconPath": "static/image/tabBar/movie.png"
       },
       {
         "pagePath": "pages/cinema/cinemaList/cinemaList",
-        "text": "影院"
+        "text": "影院",
+        "selectedIconPath": "static/image/tabBar/cinema-select.png",
+        "iconPath": "static/image/tabBar/cinema.png"
+      },
+      {
+        "pagePath": "pages/order/orderList/orderList",
+        "text": "电影票",
+        "selectedIconPath": "static/image/tabBar/order-select.png",
+        "iconPath": "static/image/tabBar/order.png"
       },
       {
         "pagePath": "pages/myCenter/myCenterPage/myCenterPage",
-        "text": "我的"
+        "text": "我的",
+        "selectedIconPath": "static/image/tabBar/myCenter-select.png",
+        "iconPath": "static/image/tabBar/myCenter.png"
       }
     ],
-    "color": "#8B4513",
-    "selectedColor": "#FF6347",
+    "color": "#777777",
+    "selectedColor": "#63a4fd",
     "position": "bottom"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

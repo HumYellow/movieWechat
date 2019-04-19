@@ -1,1 +1,24 @@
 /* pages/order/confirmOrder/confirmOrder.wxss */
+page{background:#f8f8f8;}
+.confirmOrder{padding:10px;}
+.movieDescBox{display:flex;border-radius:7px 7px 0 0;padding:40px 20px 20px;border-left:2px solid #ededed;border-top:2px solid #ededed;border-right:2px solid #ededed;background:#fff;}
+.movieDesc{width:70%}
+.movieName{font-size:22px;line-height:40px}
+.movieTime{font-size:14px;line-height:22px;}
+.cinemaDesc{font-size:14px;line-height:22px;}
+.cinemaSeat{font-size:14px;color:#999;line-height:22px;}
+.moviePic{width:30%;border-radius:3px;}
+.orderDetailLine{width:100%;display:block;}
+
+.discountBox{border-left:2px solid #ededed;border-bottom:2px solid #ededed;border-right:2px solid #ededed;background:#fff;border-radius:0 0 7px 7px;padding:0 20px 10px;}
+.discount-item{border-top:1px solid #f4f4f4;display:flex;padding:15px 0;align-items: center;}
+.discount-item:nth-child(1){border:none;}
+.discount-item-title{width:50%;font-size:16px;}
+.discount-item-desc{width:50%;text-align:right;font-size:12px;color:#63a4fd;}
+
+.confimOrderBox{border-top:2px solid #e4e4e4;position:fixed; bottom:0;left:0;padding:10px;width:100%;box-sizing: border-box;}
+.confimOrder-text{display:flex;font-size:12px;color:#666;width:100%;align-items: flex-end}
+.confimOrder-text-left,.confimOrder-text-right{width:50%;}
+.confimOrder-text-right{text-align:right;}
+.confimOrder-text-price{color:#ff4d64;font-size:18px;}
+.confimOrder-btn{background:#63a4fd;color:#fff;text-align:center;border-radius:3px;padding:10px 0;font-size:16px;margin-top:10px;}

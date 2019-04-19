@@ -1,0 +1,36 @@
+<!--pages/order/orderDetail/orderDetail.wxml-->
+<view class="orderDetail">
+    <view class="orderDetail-box">
+        <view class="orderDetail-movie">
+            <view class="orderDetail-movie-desc">
+                <view class="orderDetail-movie-title">
+                    海王
+                </view>
+                <view class="orderDetail-movie-time">
+                    2019-8-21  15：30~17：00
+                </view>
+                <view class="orderDetail-movie-time">
+                    大地影院（花草路店）
+                </view>
+                <view class="orderDetail-movie-seat">
+                    09排10座  09排11座
+                </view>
+            </view>
+            <image class="orderDetail-movie-pic" mode="widthFix" src="https://img3.doubanio.com/view/photo/l/public/p2537122220.webp"></image>
+        </view>
+        <image class="orderDetailLine" mode='widthFix' src="/static/image/orderDetailLine.png"></image>
+        <view class="QRcodeBox">
+            <image class="QRcode" mode='widthFix' src='/static/image/erweima.png'></image>
+        </view>
+        <image class="orderDetailLine" mode='widthFix' src="/static/image/orderDetailLine.png"></image>
+        <view class="orderDetail-desc">
+            <view class="orderDetail-desc-title">
+                  <view class="orderDetail-desc-titleBox1"> 实际金额</view>
+                  <view class="orderDetail-desc-titleBox2">98元</view>
+            </view>
+            <view class="orderDetail-desc-text">订单号:214131241511557374</view>
+            <view class="orderDetail-desc-text">购买时间:2013-1-22  15:30:23</view>
+            <view class="orderDetail-desc-text">手机号:13575569985</view>
+        </view>
+    </view>
+</view>

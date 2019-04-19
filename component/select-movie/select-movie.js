@@ -1,4 +1,3 @@
-
 Component({
   properties: {
     movies: {
@@ -17,7 +16,7 @@ Component({
     defaultSelectID: {
       type: String,
       value: '',
-      observer: function(movie) {
+      observer: function (movie) {
         // movie && this.selectMovie()
       }
     }
@@ -39,6 +38,7 @@ Component({
         return
       }
       const index = movies.findIndex(item => item.id === movie.id)
+      console.info(movie)
       if (this.data.size) {
         this.setData({
           movie,

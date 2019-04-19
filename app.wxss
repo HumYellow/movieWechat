@@ -11,3 +11,9 @@
 /*css为clearfix，清除浮动*/
 .clear::before,.clear::after{content:"";height:0;line-height:0;display:block;visibility:hidden;clear:both;}
 .clear:after{clear:both;}
+
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}

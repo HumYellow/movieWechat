@@ -4,7 +4,7 @@
   <scroll-view class='swiper-wrapper scroll-view_H' scroll-x scroll-with-animation scroll-left='{{scrollLeft}}'>
     <view class='movie-item' wx:for='{{movies}}' wx:key='{{item.id}}' data-movie='{{item}}' bindtap='selectMovie' id='item{{index}}'>
       <view class='post {{movie.id===item.id?"select":""}}'>
-        <image src='{{item.img}}'></image>
+        <image src='{{item.pic}}'></image>
       </view>
     </view>
   </scroll-view>

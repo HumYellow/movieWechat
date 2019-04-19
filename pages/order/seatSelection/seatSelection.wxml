@@ -1,11 +1,42 @@
 <!--pages/order/seatSelection/seatSelection.wxml-->
 <view>
+  <view class="moveiBox">
+      <image class="moveiBox-pic" mode="widthFix" src="https://img3.doubanio.com/view/photo/l/public/p2537122220.webp"></image>
+      <view class="moveiBox-desc">
+          <view class="moveiBox-title">
+              <view class="moveiBox-movieName">
+                  黄皮书
+              </view>
+              <view class="moveiBox-movieType">
+                  英语2D
+              </view>
+          </view>
+          <view class="moveiBox-time">
+              今日 3月19日 18：30~20：23
+          </view>
+          <view class="moveiBox-cinemaType">
+              <view class="moveiBox-cinemaType-item">IMAX厅</view>
+              <view class="moveiBox-cinemaType-item">VIP厅</view>
+          </view>
+      </view>
+  </view>
+  <view class="seatTipsList">
+      <view class="seatModTipsBox">
+          <view class="seatModTips seatMod_N"></view>可选
+      </view>
+      <view class="seatModTipsBox">
+          <view class="seatModTips seatMod_L"></view>不可选
+      </view>
+      <view class="seatModTipsBox">
+          <view class="seatModTips seatMod_S"></view>已选
+      </view>
+  </view>
   <view class="seatPicMod">
       <view class="seatPic">
-          <view class="seatList" style="width:{{seatList.columnnum*20}}px;height:{{seatList.rownum*20}}px">
+          <view class="seatList" style="width:{{seatList.columnnum*24}}px;height:{{seatList.rownum*24}}px">
               <view class="seatBox clear" 
               wx:for="{{seatList.rownum}}" wx:key="index+1" wx:for-index="seatBoxIndex">
-                  <view  class="seatMod seatMod_{{item.status}}"  bindtap="selectSeat"
+                 <view  class="seatMod seatMod_{{item.status}}" bindtap="selectSeat"
                   wx:for="{{seatList.seatList}}" 
                   wx:if="{{seatBoxIndex+1 == item.rowId}}"
                   wx:key="seatList.seatList.id"
@@ -13,20 +44,39 @@
                   data-status="{{item.status}}" 
                   data-rownum="{{item.rowId}}" 
                   data-column="{{item.columnId}}">
-                  <!-- {{item.status}} -->
+                      <!-- <image wx:if="{{item.status=='N'}}" class="seatModPic" mode="widthFix" src="/static/image/seat/seatPic.png"></image>
+                      <image wx:elif="{{item.status=='L'}}" class="seatModPic" mode="widthFix" src="/static/image/seat/seatPic_cont.png"></image>
+                      <image wx:elif="{{item.status=='S'}}" class="seatModPic" mode="widthFix" src="/static/image/seat/seatPic_select.png"></image> -->
                   </view>
               </view>
           </view>
-          <view class="midLine" style="height:{{seatList.rownum*20+10}}px;left:{{seatList.midline*20}}px">
+          <view class="midLine" style="height:{{seatList.rownum*24+5}}px;left:{{seatList.midline*24}}px"></view>
+          <view class="screenCenter" style="left:{{seatList.midline*24-85}}px;width:150px;">
+              3号厅银幕
+          </view>
+      </view>
+      <view class="seatNumList">
+          <view class="seatNumList-item" wx:for="{{seatList.rownum}}" wx:key="{{index+1}}">
+              {{index+1}}
           </view>
       </view>
   </view>
-  <view>
-    <view wx:for="{{selectSeatList}}" wx:key="index" bindtap="deleteSeat"
+  <view class="seatCouponList">
+    <view class="seatCouponList-item" catchtap="deleteSeat"
+       wx:for="{{selectSeatList}}" wx:key="index"
           data-rownum="{{item.rownum}}" 
           data-column="{{item.column}}">
-      {{item.rownum}}排{{item.column}}座  X
+          <view class="seatCouponList-item-box">
+              <view class="seatCouponList-item-desc">
+                  <view class="seatNum">{{item.rownum}}排{{item.column}}座</view>
+                  <view class="price">45.3元</view>
+              </view> 
+              <image class="seatCouponList-delect" mode="widthFix" src="/static/image/seat/delect.png"></image>
+          </view>
+      
     </view>
   </view>
-   <navigator class="toBuy" url='/pages/movie/movieList/movieList'>立即购买</navigator>
+  <view class="toBuyBox">
+      <navigator class="toBuy" url='/pages/order/confirmOrder/confirmOrder'>确认300元</navigator>
+  </view>
 </view>

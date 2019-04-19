@@ -1,2 +1,62 @@
 <!--pages/movie/movieDetails/movieDetails.wxml-->
-<text>pages/movie/movieDetails/movieDetails.wxml</text>
+<view class="movieHeadBox">
+    <image mode='widthFix' class="movieHead-pic" src="https://img3.doubanio.com/view/photo/l/public/p2552111731.webp" ></image>
+    <view class="movieDescBox">
+        <image class="moviePic" mode="widthFix" src="https://img3.doubanio.com/view/photo/l/public/p2537122220.webp"></image>
+        <view class="movieDesc">
+            <view class="movieDesc-title">
+                <view class="movieDesc-name">
+                    绿皮书
+                </view>
+                <view class="movieDesc-score">
+                    8.2<text>分</text>
+                </view>
+            </view>
+            <view class="movieDesc-type">
+              剧情/犯罪/科幻
+            </view>
+            <view class="movieDesc-time">
+              2019-03-22 在中国大陆上映
+            </view>
+        </view>
+    </view>
+</view>
+<view class="movieSurveyBox">
+    <view class="movieDetail-title">
+        电影简介
+    </view>
+    <view class="movieSurvey-desc">
+        漫威影业荣誉出品《复仇者联盟4：终局之战》，故事发生在灭霸消灭宇宙一半的生灵并重创复仇者联盟之后，剩余的英雄被迫背水一战，为22部漫威电影写下传奇终章
+    </view>
+</view>
+<view class="moviePerformerBox">
+    <view class="movieDetail-title">
+       演职人员
+    </view>
+    <view class="moviePerformerListBox">
+        <scroll-view class="moviePerformerList" scroll-x>
+            <view class="moviePerformerList-item" wx:for="{{moviePerformerList}}" wx:key="moviePerformerList.id">
+                <image class="movieScrollPic" src="{{item.img}}" mode='widthFix' lazy-load="true" style="width:100%;"></image>
+                <view class="movieName">{{item.name}}</view>
+                <view class="movieTitle" bindtap='toMovieDetails' data-id="moviePerformerList.id">{{item.title}}</view>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+
+<view class="videoAndPicBox">
+    <view class="movieDetail-title">
+       预告片和剧照
+    </view>
+    <scroll-view class="videoAndPicList" scroll-x>
+        <view class="videoAndPic-item">
+            <image class="videoAndPic" lazy-load="true" style="width:100%;" bindtap="toVideo" src="https://img1.doubanio.com/view/photo/l/public/p2552111746.webp" mode='aspectFill' ></image>
+            <image class="videoPlayIcon" src="https://img.alicdn.com/tps/i4/TB1GR_FGXXXXXbZXFXXiC47GVXX-44-44.png"></image>
+        </view>
+        <view class="videoAndPic-item" wx:for="{{picList}}" wx:key="picList.index">
+            <image class="videoAndPic" data-list="{{picList}}" data-src="{{item}}" src="{{item}}" mode='aspectFill' lazy-load="true" style="width:100%;" bindtap="imgYu"></image>
+        </view>
+    </scroll-view>
+    
+</view>
+<view class="toBuy" bindtap='movieToCinema'>立即购票</view>

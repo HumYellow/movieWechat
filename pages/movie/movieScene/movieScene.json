@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "select-movie": "/component/select-movie/select-movie"
+  }
+}

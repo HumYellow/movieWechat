@@ -1,4 +1,43 @@
 <!--pages/cinema/cinemaList/cinemaList.wxml-->
-<text>pages/cinema/cinemaList/cinemaList.wxml</text>
+<view class="cinemaListSelect">
+  <picker class="cinemaListSelect-item" mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker">
+       {{region[0]}} <!-- {{region[0]}}，{{region[1]}}，{{region[2]}} -->
+       <view class="cinemaListSelect-item-tip"></view>
+    </view>
+  </picker>
+  <picker class="cinemaListSelect-item" bindchange="bindRegionChangeLine" value="{{index}}" range='{{cinemaLine}}'>
+    <view class="picker">
+        {{cinemaLine[index]}}
+       <view class="cinemaListSelect-item-tip"></view>
+    </view>
+  </picker>
+</view>
+<view class="cinemaListBox">
+    <view class="cinemaListBox-item" wx:for="{{cinemaList}}" wx:key="cinemaList.id" bindtap="toCinemaToMovie" data-id="{{item.id}}">
+        <image mode="widthFix" class="cinemaListBox-pic" src="{{item.pic}}"></image>
+        <view class="cinemaListBox-desc">
+            <view class="cinemaListBox-desc-title">
+                <view class="cinemaListBox-desc-cinemaName">
+                    {{item.name}}
+                </view>
+                <view class="cinemaListBox-desc-price">
+                    {{item.price}}元<text style="color:#999">起 </text>
+                </view>
+            </view>
+            <view class="cinemaListBox-desc-address">
+                {{item.address}}
+            </view>
+            <view class="cinemaListBox-desc-typeList">
+                <view class="cinemaListBox-desc-type selectType">
+                  会员卡
+                </view>
+                <view class="cinemaListBox-desc-type">
+                  IMAX
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
 
-<menu pageType="{{pageType}}"></menu>
+

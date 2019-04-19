@@ -1,2 +1,28 @@
 <!--pages/myCenter/myCenterPage/myCenterPage.wxml-->
-<text>pages/myCenter/myCenterPage/myCenterPage.wxml</text>
+<view class="userBox">
+    <view class="userHead">
+      <image class="userHeadPic" mode="widthFix" src="https://img3.doubanio.com/view/photo/l/public/p2537122220.webp"></image>
+    
+    </view>
+    <view class="userName">我是用户</view>
+</view>
+<view class-="memberBox">
+    <view class="memberIconBox">
+        <image class="memberIcon" mode="widthFix" src="/static/image/myCenter/memberIcon.png"></image>
+        <view class="memberText">黄金会员</view>
+    </view>
+    <view class="integralBox">
+      <view class="allIntegral">1000积分</view>
+      <view class="upgradeIntegral">再积30000分可升级</view>
+    </view>
+</view>
+<view class="myCenterBox">
+  <view class="myCenterMod" bindtap='toTabBar' data-url="/pages/order/orderList/orderList">
+      <image class="myCenterMod-image" mode="widthFix" src="/static/image/myCenter/order.png"></image>
+      <view class="myCenterMod-text">订单</view>
+  </view>
+  <!-- <view class="myCenterMod" bindtap='getScancode' data-url="/pages/order/orderList/orderList">
+      <image class="myCenterMod-image" mode="widthFix" src="/static/image/myCenter/order.png"></image>
+      <view class="myCenterMod-text">扫一扫</view>
+  </view> -->
+</view>

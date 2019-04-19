@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  toTabBar: function (e) {
+    let url = e.currentTarget.dataset.url
+    wx.switchTab({
+      url: url
+    })
   }
 })

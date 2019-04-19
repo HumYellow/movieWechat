@@ -8,6 +8,43 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    swiperList: [
+      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
+      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
+      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
+    ],
+    movieListHot:[
+      {
+        'id':'1',
+        'name':'海王',
+        'url':'/pages/movie/movieList/movieList',
+        'pic':'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
+      },
+      {
+        'id': '2',
+        'name': '海王',
+        'url': '/pages/movie/movieList/movieList',
+        'pic': 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
+      },
+      {
+        'id': '3',
+        'name': '海王',
+        'url': '/pages/movie/movieList/movieList',
+        'pic': 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
+      },
+      {
+        'id': '4',
+        'name': '海王',
+        'url': '/pages/movie/movieList/movieList',
+        'pic': 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
+      },
+      {
+        'id': '5',
+        'name': '海王',
+        'url': '/pages/movie/movieList/movieList',
+        'pic': 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
+      },
+    ]
   },
   //事件处理函数
   bindViewTap: function() {
@@ -16,32 +53,6 @@ Page({
     })
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
   },
   getUserInfo: function (e) {
     console.log(e)
@@ -49,6 +60,26 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  toTabBar: function (e) {
+    let url = e.currentTarget.dataset.url
+    wx.switchTab({
+      url: url
+    })
+  },
+  toMovieDetails: function (e) {
+    let movieId = e.currentTarget.dataset.id
+    let url = "/pages/movie/movieDetails/movieDetails?id=" + movieId
+    wx.navigateTo({
+      url: url
+    })
+  },
+  movieToCinema: function (e) {
+    let movieId = e.currentTarget.dataset.id
+    let url = "/pages/movie/movieToCinema/movieToCinema?id=" + movieId
+    wx.navigateTo({
+      url: url
     })
   },
 })

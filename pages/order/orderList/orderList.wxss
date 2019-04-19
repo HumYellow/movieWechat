@@ -1,0 +1,18 @@
+/* pages/order/orderList/orderList.wxss */
+page{background:#f8f8f8}
+.orderList{padding:1px 10px;}
+
+.orderList-item{padding:0 20px;margin:10px 0;}
+.orderList-item-cinemaName{font-size:14px;height:35px;line-height:35px;}
+
+.orderList-item-box{display: flex;padding:15px 0;}
+.orderList-item-pic{width:20%;border-radius:3px;height:auto;}
+.orderList-item-descBox{width:80%;display: flex;padding:5px 10px;}
+.orderList-item-desc{width:75%;}
+.orderList-item-title{line-height:26px;font-size:16px;}
+.orderList-item-movieName{display:inline-block;margin-right:10px;font-weight:600;}
+.orderList-item-num{display: inline-block;}
+.orderList-item-time ,.orderList-item-seat{font-size:12px;color:#999;line-height:22px;}
+.orderList-item-type{width:25%;text-align:center;display: flex; align-items: center;justify-content: center;font-size:14px;}
+.orderList-item-toOrderDetail{background:#51a0f8;color:#fff;border-radius:20px;padding:5px 15px;}
+.orderList-item-isUsed{width:100%;}

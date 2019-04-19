@@ -1,0 +1,19 @@
+/* pages/order/orderDetail/orderDetail.wxss */
+.orderDetail{background: #63a4fd;padding:10px;min-height:100ch;}
+.orderDetail-box{overflow:hidden;border-radius:3px;}
+.orderDetail-movie{background:#fff;padding:30px 20px 20px;display:flex;align-items: center;}
+.orderDetail-movie-desc{width:70%;}
+.orderDetail-movie-pic{width:30%;height:auto;}
+.orderDetail-movie-title{font-size:20px;font-weight:600;color:#333;line-height:34px;}
+.orderDetail-movie-time{color:#333;font-size:12px;line-height:20px;}
+.orderDetail-movie-seat{color:#999;font-size:12px;line-height:20px;}
+.orderDetailLine{width:100%;height:auto;margin:0;display:block;}
+
+.QRcodeBox{text-align:center;background:#fff;padding:60px 0;}
+.QRcodeBox .QRcode{width:50%;}
+
+.orderDetail-desc{background:#fff;padding:20px 20px 30px;}
+.orderDetail-desc-title{display:flex;width:100%;align-items: center;}
+.orderDetail-desc-titleBox1{font-size:18px;width:70%;font-weight:600;color:#333;line-height:40px;}
+.orderDetail-desc-titleBox2{font-size:14px;width:30%;text-align:right;color:#666}
+.orderDetail-desc-text{color:#999;font-size:12px; line-height:20px;}

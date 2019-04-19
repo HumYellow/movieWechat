@@ -1,0 +1,25 @@
+/* pages/movie/movieVideo/movieVideo.wxss */
+page{background:#f8f8f8}
+.videoPlayBox{width:100%;}
+.videoPlay{width:100%;}
+
+.movieDescBox{display: flex;align-items: center;padding:15px;background:#fff}
+.movieDesc{width:75%}
+.movieName{font-size:16px;color:#333}
+.movieTime{font-size:12px;color:#999;line-height:20px;}
+.movieToBuy{width:25%;}
+.movieToBuyBtn{background:#4e9bf7;font-size:12px;color:#fff;text-align:center;width:80px;height:25px;line-height:25px;border-radius:4px;}
+
+.videoListBox{margin-top:10px;background:#fff}
+.videoListHead{border-bottom:1px solid #e0e0e0;font-size:14px;color:#666;padding:15px;}
+.videoList{}
+.videoList-item{display:flex;border-top:1px solid #e0e0e0;padding:10px;margin-left:10px;align-items: center;}
+.videoList-item:nth-child(1){border:none;}
+.videoList-item-picBox{width:120px;}
+.videoList-item-pic{width:100%;height:auto;}
+.videoList-item-desc{width:calc(100% - 160px);padding:10px;}
+.videoList-item-title{color:#333;font-size:16px;display: -webkit-box;
+overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;
+white-space: normal !important;-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;}
+.videoList-item-playTime{color:#999;font-size:12px;line-height:24px;}

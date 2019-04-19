@@ -1,0 +1,38 @@
+<!--pages/movie/movieScene/movieScene.wxml-->
+<view class="cinemaBox">
+  <view class="cinemaBoxTitle">上海临空影院</view>
+  <view class="cinemaBoxAddress">长宁区金钟路凌空333号</view>
+</view>
+<view class="movieList">
+  <select-movie movies='{{movieList}}' bindselectMovie='selectMovie' defaultSelectID='{{movieId}}'/>
+</view>
+<view class="movieDescBox">
+    <view class="movieDescBox-title">
+        <view class="movieName">{{movie.name}}</view>
+    </view>
+</view>
+<view class="timeList">
+    <view bindtap='selectTime' data-index="{{index}}" class="timeList-item {{time.id==item.id?'select':''}}" wx:for="{{timeList}}" wx:key="index">
+        <text wx:if="{{index==0}}">今天</text>{{item.time}}
+    </view>
+</view>
+<view class="movieSceneList">
+    <view class="movieScene-item" wx:for="{{movieSceneList}}" wx:key="{{movieSceneList.id}}">
+        <view class="movieScene-time">
+            <view class="startTime">
+                {{item.startTime}}
+            </view>
+            <view class="endTime">
+                {{item.endTime}}
+            </view>
+        </view>
+        <view class="movieScene-desc">
+            <view class="movieType">{{item.movieType}}</view>
+            <view class="roomType">{{item.roomType}}</view>
+        </view>
+        <view class="movieScene-price">{{item.price}}<text>元</text></view>
+        <view class="movieScene-toBuy">
+            <view class="toBuyBtn" bindtap='toSeat' data-id="{{item.id}}">购票</view>
+        </view>
+    </view>
+</view>

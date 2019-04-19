@@ -1,0 +1,27 @@
+<!--pages/movie/movieVideo/movieVideo.wxml-->
+<view class="videoPalyBox">
+    <video class="videoPlay" src='http://vt1.doubanio.com/201904151537/a149a22472b055866d3b35305f18c4ff/view/movie/M/402440458.mp4'></video>
+</view>
+<view class="movieDescBox">
+    <view class="movieDesc">
+      <view class="movieName">反贪风暴</view>
+      <view class="movieTime">大陆2019-08-03上映</view>
+    </view>
+    <view class="movieToBuy">
+        <view class="movieToBuyBtn" bindtap='toBuy'>特惠购票</view>
+    </view>
+</view>
+<view class="videoListBox">
+    <view class="videoListHead">播放列表</view>
+    <view class="videoList">
+        <view class="videoList-item" wx:for="{{3}}" wx:key="{{index}}">
+            <view class="videoList-item-picBox">
+                <image mode="widthFix"  class="videoList-item-pic" src="https://img3.doubanio.com/img/trailer/small/2550759113.jpg"></image>
+            </view>
+            <view class="videoList-item-desc">
+                <view class="videoList-item-title">这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题</view>
+                <view class="videoList-item-playTime">33.4万播放</view>
+            </view>
+        </view>
+    </view>
+</view>
