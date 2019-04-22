@@ -154,5 +154,14 @@ Page({
     wx.navigateTo({
       url: url
     })
+  },
+  toMap:function(){
+    wx.openLocation({
+      latitude: 40.058692,
+      longitude: 116.30799,
+      name: "七十一号豆汤饭",
+      address: '七十一号豆汤饭',
+      scale: 28
+    })
   }
 })

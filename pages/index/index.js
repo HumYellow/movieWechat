@@ -53,6 +53,7 @@ Page({
     })
   },
   onLoad: function () {
+    app.movieWx.wxLogin()
   },
   getUserInfo: function (e) {
     console.log(e)

@@ -142,6 +142,7 @@ Page({
     }, 1000)
   },
   wxLogin: function (e) {
+    console.info(e.detail)
     var ivObj = e.detail.iv
     var telObj = e.detail.encryptedData
     var codeObj = "";
@@ -151,7 +152,6 @@ Page({
     wx.login({
       success: res => {
         console.log('code转换', res.code); //用code传给服务器调换session_key
-
         wx.request({
           url: 'https://你的接口文件路径', //接口地址
           data: {
@@ -197,16 +197,6 @@ Page({
               }
             });
         }
-      }
-    });
-    //---------登录有效期检查
-    wx.checkSession({
-      success: function () {
-        //session_key 未过期，并且在本生命周期一直有效
-      },
-      fail: function () {
-        // session_key 已经失效，需要重新执行登录流程
-        wx.login() //重新登录
       }
     });
   },

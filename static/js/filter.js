@@ -1,8 +1,10 @@
+const app = getApp()
 function loginCheck(pageObj) {
   if (pageObj.onLoad) {
     let _onLoad = pageObj.onLoad;
     // 使用onLoad的话需要传递options
     pageObj.onLoad = function (options) {
+      app.movieWx.checkSession()
       if (wx.getStorageSync('USERID')) {
         // 获取当前页面
         let currentInstance = getPageInstance();
