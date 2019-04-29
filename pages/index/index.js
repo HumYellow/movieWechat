@@ -53,15 +53,7 @@ Page({
     })
   },
   onLoad: function () {
-    app.movieWx.wxLogin()
-  },
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+    
   },
   toTabBar: function (e) {
     let url = e.currentTarget.dataset.url

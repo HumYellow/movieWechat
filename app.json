@@ -15,7 +15,8 @@
     "pages/movie/movieScene/movieScene",
     "pages/cinema/cinemaToMovie/cinemaToMovie",
     "pages/movie/movieVideo/movieVideo",
-    "pages/login/login/login"
+    "pages/login/login/login",
+    "pages/login/bindPhone/bindPhone"
   ],
   "window": {
     "backgroundTextStyle": "light",

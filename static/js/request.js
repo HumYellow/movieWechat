@@ -89,7 +89,7 @@ module.exports = {
   }
 };
 //调用方法
-// const Request = require("/utils/request");//导入模块
+// const Request = require("/static/js/request");//导入模块
 // Request.post("/api/xcxWxLogin", {  //调用方法
 //   code: res.code,
 //   encryptedData: resp.encryptedData,

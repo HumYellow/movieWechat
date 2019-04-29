@@ -124,7 +124,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-  selectMovie(e) {console.info(e)
+  selectMovie(e) {
     const movie = e.detail.movie
     let days = []
     // movie.shows.forEach(item => {

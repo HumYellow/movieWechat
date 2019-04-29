@@ -1,10 +1,19 @@
 <!--pages/myCenter/myCenterPage/myCenterPage.wxml-->
 <view class="userBox">
     <view class="userHead">
-      <image class="userHeadPic" mode="widthFix" src="https://img3.doubanio.com/view/photo/l/public/p2537122220.webp"></image>
+      <image wx:if="{{userHeadPic}}" class="userHeadPic" mode="widthFix" src="{{userHeadPic}}"></image>
+      <image wx:else class="userHeadPic" mode="widthFix" src="https://img3.doubanio.com/view/photo/l/public/p2537122220.webp"></image>
     
     </view>
-    <view class="userName">我是用户</view>
+    <view wx:if="{{userName}}" class="userName">{{userName}}</view>
+    <!-- <button wx:else class="loginBtn userName"
+      open-type="getUserInfo"
+      bindgetuserinfo="toWxLogin">
+      点击登录
+    </button> -->
+    <view wx:else class="userName" bindtap="toLogin">登录</view>
+    
+  <view bindtap='toBindPhone'>绑定手机</view>
 </view>
 <view class-="memberBox">
     <view class="memberIconBox">

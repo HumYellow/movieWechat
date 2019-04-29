@@ -1,20 +1,10 @@
 <!--pages/login/login/login.wxml-->
 <view class="loginBox">
-    <view class="loginBoxTitle">手机号登陆</view>
-    <view class="loginInputBox">
-      <view class="loginInputBox-item">
-          <input type="number" placeholder="请输入手机号" class="loginInput" maxlength="11" bindinput='getPhone' />
-      </view>
-      <view class="loginInputBox-item">
-          <input sype="number" placeholder="短信验证码" class="loginInput msgCode" maxlength="4" bindinput="msgCode"></input>
-          <view class="getMsgCodeBox">
-              <view wx:if='{{!verifyGeting}}' class="getMsgCode {{getMsgCode_allow?'getMsgCodeTo':''}}" bindtap='getMsgCode'>获取短信</view>
-              <view wx:else class="getMsgCode">{{countdownData.sec}}</view>
-          </view>
-      </view>
-      <view class="agreeRules">表示同意<text class="rulesLink">《用户守则》</text></view>
-  </view>
-  <view class="subCode" bindtap='subCode'>确定</view>
-  <!-- <button class='wxLogin'
-  open-type='getPhoneNumber' bindgetphonenumber="wxLogin">微信登陆</button> -->
+  <button class='wxLogin'
+    open-type="getUserInfo"
+    bindgetuserinfo="toLogin">
+    授权登录
+  </button>
+  <view bindtap='toBindPhone'>绑定手机</view>
+  <view bindtap='text'>测试</view>
 </view>

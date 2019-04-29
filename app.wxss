@@ -17,3 +17,8 @@ width: 0;
 height: 0;
 color: transparent;
 }
+
+.loginBtn{background:none;display:block;}
+.loginBtn::after{
+  border: none; 
+}

@@ -17,8 +17,6 @@ const formatNumber = n => {
 module.exports = {
   formatTime: formatTime
 }
-
-
 Array.prototype.removeArray = function( _obj) {
   var length = this.length;
   var that = this

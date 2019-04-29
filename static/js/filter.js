@@ -1,5 +1,6 @@
 const app = getApp()
 function loginCheck(pageObj) {
+  console.info(234)
   if (pageObj.onLoad) {
     let _onLoad = pageObj.onLoad;
     // 使用onLoad的话需要传递options
@@ -16,6 +17,22 @@ function loginCheck(pageObj) {
           url: "/pages/login/login/login"
         });
       }
+      // wx.getSetting({
+      //   success(res) {
+      //     if (res.authSetting) {
+      //       console.info
+      //       // 获取当前页面
+      //       let currentInstance = getPageInstance();
+      //       _onLoad.call(currentInstance, options);
+
+      //     } else {
+      //       //跳转到登录页
+      //       wx.redirectTo({
+      //         url: "/pages/login/login/login"
+      //       });
+      //     }
+      //   }
+      // })
     }
   }
   return pageObj;

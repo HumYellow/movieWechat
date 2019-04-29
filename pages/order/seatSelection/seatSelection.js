@@ -1,8 +1,6 @@
-//index.js
-//获取应用实例
 const app = getApp()
 const filter = require('./../../../static/js/filter');
-Page(filter.loginCheck({
+Page({
   data: {
     seatList: {
       "rownum": 10,
@@ -100,5 +98,5 @@ Page(filter.loginCheck({
       hasUserInfo: true
     })
   },
-})
+}
 )

@@ -1,0 +1,15 @@
+/* pages/login/bindPhone/bindPhone.wxss */
+.loginBox{padding:40rpx;display:flex; align-items: center; flex-direction:column;height:100vh;box-sizing: border-box;}
+.loginBoxTitle{margin:20rpx 0;font-size:32rpx;text-align:left;width:90%;}
+.loginInputBox{margin:20rpx 0;width:90%;}
+.loginInputBox-item{display:flex;margin:20rpx 0;}
+.loginInput{border:2rpx solid #999;border-radius:5px;padding:0 20rpx;font-size:28rpx;width:100%;height:80rpx;line-height:80rpx;}
+.msgCode{width:60%;}
+.getMsgCodeBox{width:40%;padding-left:20rpx;}
+.getMsgCode{font-size:28rpx;text-align:center;background:#999;color:#fff;height:100%;line-height:80rpx;border-radius:10rpx;}
+.getMsgCode.getMsgCodeTo{background:#63a4fd}
+.agreeRules{font-size:24rpx;color:#666;width:100%;text-align:right;}
+.rulesLink{color:#63a4fd}
+
+.subCode ,.wxLogin{color:#fff;background:#63a4fd;font-size:32rpx; width:90%;border-radius:10rpx;text-align:center;height:80rpx;line-height:80rpx;margin:20rpx 0;}
+.wxLogin{background-color: #1AAD16;color: #FFF;}

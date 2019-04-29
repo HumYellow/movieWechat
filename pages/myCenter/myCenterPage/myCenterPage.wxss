@@ -2,7 +2,7 @@
 .userBox{display: flex;justify-content: flex-start;padding:20px 5% 30px;background:#63a4fd}
 .userBox .userHead{width:50px;height:50px;overflow:hidden;border-radius:50%;}
 .userBox .userHead .userHeadPic{width:100%;height:100%;}
-.userBox .userName{color:#fff;margin-left:15px;height:50px;line-height:50px;font-size:16px;}
+.userBox .userName{color:#fff;margin-left:15px;height:50px;line-height:50px;font-size:16px;display:inline-block;}
 
 .memberBox{width:90%;position:relative;left:5%;top:-15px;background:#fff;box-shadow: 0 0 10px #e8e8e8;border-radius:4px;padding:15px 10px;display: flex; align-items: center; box-sizing: border-box}
 .memberIconBox{text-align:center;width:100px;border-right:1px solid #eeeeee}

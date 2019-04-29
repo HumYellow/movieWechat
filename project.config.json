@@ -13,7 +13,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.6.1",
-	"appid": "wxc311f02c1097954e",
+	"appid": "wx9a5d10294c87fafd",
 	"projectname": "movieWechat",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -102,7 +102,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -143,6 +143,20 @@
 					"id": -1,
 					"name": "影院场次",
 					"pathName": "pages/movie/movieScene/movieScene",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "绑定手机号",
+					"pathName": "pages/login/bindPhone/bindPhone",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单确认",
+					"pathName": "pages/order/confirmOrder/confirmOrder",
 					"scene": null
 				}
 			]

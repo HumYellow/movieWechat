@@ -1,6 +1,6 @@
 <!--pages/order/orderList/orderList.wxml-->
 <view class="orderList">
-    <view class="orderList-item" wx:for="{{orderList}}" wx:key="{{orderList.id}}" style="background:url('/static/image/orderLisytBg.png') no-repeat;background-size:100% 100%;">
+    <view class="orderList-item" wx:for="{{orderList}}" wx:key="{{orderList.id}}" style="background:url('/static/image/orderListBg.png') no-repeat;background-size:100% 100%;">
       <view class="orderList-item-cinemaName">
           {{item.cinemaName}}
       </view>
@@ -22,12 +22,10 @@
                   <view class="orderList-item-seat">
                       {{item.seat}}
                   </view>
-
               </view>
               <view class="orderList-item-type">
                   <view class="orderList-item-toOrderDetail" data-id="{{item.id}}" bindtap='toOrderDetail'>验票</view>
                   <!-- <image class="orderList-item-isUsed" mode='widthFix' src='/static/image/used.png'></image> -->
-                    
               </view>
           </view>
       </view>
