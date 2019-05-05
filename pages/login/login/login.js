@@ -74,7 +74,7 @@ Page({
 
   },
   toLogin:function(){
-    app.movieWx.wxLogin()
+    app.wxLogin()
   },
   toBindPhone: function () {
     //跳转到绑定页
