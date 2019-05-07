@@ -16,10 +16,11 @@
     "pages/cinema/cinemaToMovie/cinemaToMovie",
     "pages/movie/movieVideo/movieVideo",
     "pages/login/login/login",
-    "pages/login/bindPhone/bindPhone"
+    "pages/login/bindPhone/bindPhone",
+    "pages/movie/moviePic/moviePic"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#63a4fd",
     "navigationBarTitleText": "看电影",
     "navigationBarTextStyle": "white"

@@ -1,41 +1,74 @@
 <!--pages/movie/movieList/movieList.wxml-->
 <view class="movieListTab">
-  <view bindtap='tabMovieList' class="movieListTab_item {{listTabType ==1?'select':''}}" data-tabType="1">
+  <view bindtap='tabMovieList' class="movieListTab_item {{listTabType =='movieIng'?'select':''}}" data-tabType="movieIng">
     正在热映
     <view class="selectLine"></view>
   </view>
-  <view bindtap='tabMovieList' class="movieListTab_item {{listTabType ==2?'select':''}}" data-tabType="2">
+  <view bindtap='tabMovieList' class="movieListTab_item {{listTabType =='movieSoon'?'select':''}}" data-tabType="movieSoon">
     即将上映
     <view class="selectLine"></view>
   </view>
 </view>
 <view class="movieList">
-  <view class="movieList-item" wx:for="{{movieList}}" wx:key="movieList.id" bindtap="toMovieDetails" data-id="{{item.id}}">
-      <image class="movieList-item-pic" src='{{item.pic}}' mode='widthFix'></image>
-      <view class="movieList-item-desc">
-          <view class="movieList-item-desc-box movieList-item-desc-box1">
-              <view class="movieList-item-desc-name">
-                  {{item.name}}
-              </view>
-              <view class="movieList-item-desc-perf">
-                  导演：{{item.name}}
-              </view>
-              <view class="movieList-item-desc-perf">
-                  主演：{{item.name}}
-              </view>
-              <view class="movieList-item-desc-data">
-                  今天300家影院放映2000场
-              </view>
-          </view>
-          <view class="movieList-item-desc-box movieList-item-desc-box2">
-              <view class="movieList-item-desc-score">
-                  4.8
-              </view>
-              <view class="movieList-item-desc-toBuy"  catchtap="movieToCinema" data-id="{{item.id}}">
-                  购票
-              </view>
-          </view>
-      </view>
+  <view wx:if="{{listTabType == 'movieIng'}}">
+    <view class="movieList-item" wx:for="{{movieIng.movieList}}" wx:key="movieIng.movieList.id" bindtap="toMovieDetails" data-id="{{item.id}}">
+        <image class="movieList-item-pic" src='{{item.img}}' mode='widthFix'></image>
+        <view class="movieList-item-desc">
+            <view class="movieList-item-desc-box movieList-item-desc-box1">
+                <view class="movieList-item-desc-name">
+                    {{item.name}}
+                </view>
+                <view class="movieList-item-desc-perf">
+                    导演：{{item.name}}
+                </view>
+                <view class="movieList-item-desc-perf">
+                    主演：{{item.name}}
+                </view>
+                <view class="movieList-item-desc-data">
+                    今天300家影院放映2000场
+                </view>
+            </view>
+            <view class="movieList-item-desc-box movieList-item-desc-box2">
+                <view class="movieList-item-desc-score">
+                    4.8
+                </view>
+                <view class="movieList-item-desc-toBuy"  catchtap="movieToCinema" data-id="{{item.id}}">
+                    购票
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{movieIng.lastPage}}">没有更多拉</view>
+  </view>
+  <view wx:else>
+    <view class="movieList-item" wx:for="{{movieSoon.movieList}}" wx:key="movieSoon.movieList.id" bindtap="toMovieDetails" data-id="{{item.id}}">
+        <image class="movieList-item-pic" src='{{item.img}}' mode='widthFix'></image>
+        <view class="movieList-item-desc">
+            <view class="movieList-item-desc-box movieList-item-desc-box1">
+                <view class="movieList-item-desc-name">
+                    {{item.name}}
+                </view>
+                <view class="movieList-item-desc-perf">
+                    导演：{{item.name}}
+                </view>
+                <view class="movieList-item-desc-perf">
+                    主演：{{item.name}}
+                </view>
+                <view class="movieList-item-desc-data">
+                    今天300家影院放映2000场
+                </view>
+            </view>
+            <view class="movieList-item-desc-box movieList-item-desc-box2">
+                <view class="movieList-item-desc-score">
+                    4.8
+                </view>
+                <view class="movieList-item-desc-toBuy"  catchtap="movieToCinema" data-id="{{item.id}}">
+                    预购
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{movieSoon.lastPage}}">没有更多拉</view>
   </view>
 </view>
 <!-- <view class="movieList">

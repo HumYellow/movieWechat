@@ -1,11 +1,25 @@
 // pages/movie/movieDetails/movieDetails.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    moviePerformerList:[
+    movieId:'',
+    movieName:'',
+    movieImg:'',
+    movieType:'',
+    movieSummary:'',
+    movieDate:'',
+    movieVideoList:[
+      {
+        pic: "https://img1.doubanio.com/view/photo/l/public/p2552111746.webp",
+        id:'2'
+      },
+
+    ],
+    movieStaffList:[
       {
         id:1,
         name:'安东尼·罗',
@@ -49,14 +63,7 @@ Page({
         img: 'https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p51466.webp'
       }
     ],
-    picList:[
-      'https://img1.doubanio.com/view/photo/l/public/p2552111747.webp',
-      'https://img1.doubanio.com/view/photo/l/public/p2552111748.webp',
-      'https://img1.doubanio.com/view/photo/l/public/p2552111749.webp',
-      'https://img1.doubanio.com/view/photo/l/public/p2552111750.webp',
-      'https://img1.doubanio.com/view/photo/l/public/p2552111751.webp',
-
-    ]
+    picList:[]
 
   },
 
@@ -64,7 +71,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.info(options)
+    let movieId = options.id
+    this.setData({
+      movieId: movieId
+    })
+    this.getMovieDetails(movieId)//获取电影信息
+    this.getMoviePhoto(movieId)//获取电影剧照
+    this.getMovieVideo(movieId)//获取电影预告片
+    this.getMovieStaff(movieId)//获取电影演职人员
+    wx.stopPullDownRefresh()
   },
 
   /**
@@ -92,13 +107,13 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    this.onLoad()
 
   },
 
@@ -125,17 +140,75 @@ Page({
       })
   },
   movieToCinema: function (e) {
-    let movieId = e.currentTarget.dataset.id
+    let movieId = this.data.movieId
     let url = "/pages/movie/movieToCinema/movieToCinema?id=" + movieId
     wx.navigateTo({
       url: url
     })
   },
   toVideo: function (e) {
-    let movieId = e.currentTarget.dataset.id
+    let movieId = this.data.movieId
     let url = "/pages/movie/movieVideo/movieVideo?id=" + movieId
     wx.navigateTo({
       url: url
+    })
+
+  },
+  toPic: function (e) {
+    let movieId = this.data.movieId
+    let url = "/pages/movie/moviePic/moviePic?id=" + movieId
+    wx.navigateTo({
+      url: url
+    })
+  },
+  getMovieDetails: function (movieId){
+    let id = movieId, url = "/movie/detailData"
+    console.info(movieId)
+    let data = {
+      id: id
+    }
+    app.request('get', url, data, (res) => {
+        this.setData({
+          movieName: res.data.name,
+          movieImg: res.data.img,
+          movieType: res.data.type,
+          movieSummary: res.data.name,
+          movieDate: res.data.releaseDate,
+        })
+    })
+  },
+  getMoviePhoto:function(movieId){
+    let url = "/photo/listData";
+    let data = {
+      id: movieId
+    }
+    app.request('get', url, data, (res) => {
+      this.setData({
+        picList: res.data.photoVOList,
+      })
+    })
+  },
+  getMovieVideo: function (movieId){
+    let url = "/video/listData"
+    let data = {
+      id: movieId
+    }
+    app.request('get', url, data, (res) => {
+      this.setData({
+        movieVideoList: res.data.videoVOList,
+      })
+    })
+
+  },
+  getMovieStaff: function (movieId) {
+    let url = "/cast/listData"
+    let data = {
+      id: movieId
+    }
+    app.request('get', url, data, (res) => {
+      this.setData({
+        movieStaffList: res.data.castVOList,
+      })
     })
 
   }

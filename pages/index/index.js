@@ -53,7 +53,13 @@ Page({
     })
   },
   onLoad: function () {
-    
+    wx.stopPullDownRefresh()
+  },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    this.onLoad()
   },
   toTabBar: function (e) {
     let url = e.currentTarget.dataset.url

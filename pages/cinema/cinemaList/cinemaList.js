@@ -1,4 +1,5 @@
 // pages/cinema/cinemaList/cinemaList.js
+const app = getApp()
 Page({
 
   /**
@@ -55,7 +56,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let cityCode = options.cityCode
+    this.getCInemaList(cityCode)
+    wx.stopPullDownRefresh()
   },
 
   /**
@@ -90,7 +93,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoad()
   },
 
   /**
@@ -121,6 +124,20 @@ Page({
     wx.navigateTo({
       url: url
     })
+  },
+  getCInemaList:function(cityCode){
+    let url = "/cinema/listData"
+    let data = {
+      cityCode: cityCode
+    }
+    app.request('get', url, data, (res) => {
+        this.setData({
+          cinemaList: res.data.cinemaVOList
+        })
+    })
+  },
+  getCityList:function(){
+    
   }
 
 })

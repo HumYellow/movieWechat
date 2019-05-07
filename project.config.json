@@ -102,7 +102,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 11,
 			"list": [
 				{
 					"id": -1,
@@ -112,10 +112,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "电影详情",
 					"pathName": "pages/movie/movieDetails/movieDetails",
-					"query": "",
+					"query": "id=2",
 					"scene": null
 				},
 				{
@@ -140,10 +140,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "影院场次",
 					"pathName": "pages/movie/movieScene/movieScene",
-					"query": "",
+					"query": "id=12&movieId=2",
 					"scene": null
 				},
 				{
@@ -157,6 +157,35 @@
 					"id": -1,
 					"name": "订单确认",
 					"pathName": "pages/order/confirmOrder/confirmOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "剧照",
+					"pathName": "pages/movie/moviePic/moviePic",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "电影列表",
+					"pathName": "pages/movie/movieList/movieList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "影院列表",
+					"pathName": "pages/cinema/cinemaList/cinemaList",
+					"query": "cityCode=12",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选座",
+					"pathName": "pages/order/seatSelection/seatSelection",
+					"query": "seatId",
 					"scene": null
 				}
 			]

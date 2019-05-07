@@ -17,7 +17,7 @@ const formatNumber = n => {
 module.exports = {
   formatTime: formatTime
 }
-Array.prototype.removeArray = function( _obj) {
+Array.prototype.removeArray = function( _obj) {//删除数组中某个对象
   var length = this.length;
   var that = this
   for (var i = 0; i < length; i++) {
@@ -38,7 +38,7 @@ Array.prototype.removeArray = function( _obj) {
   } 
 }
 
-function isObjectValueEqual(a, b) {
+function isObjectValueEqual(a, b) {//比对两个数组
 //取对象a和b的属性名
   var aProps = Object.getOwnPropertyNames(a);
   var bProps = Object.getOwnPropertyNames(b);

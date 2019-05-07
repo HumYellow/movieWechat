@@ -1,4 +1,5 @@
 // pages/movie/movieScene/movieScene.js
+const app = getApp()
 Page({
 
   /**
@@ -7,7 +8,9 @@ Page({
   data: {
     movie:{},
     time:{},
-    movieId:3,
+    movieId:2,
+    cinemaId:12,
+    cinemaDetails:{},
     timeList:[
       {
         id:'1',
@@ -73,7 +76,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let cinemaId = options.id
+    this.setData({
+      cinemaId: cinemaId
+    })
+    this.getCinemaDetails(cinemaId)
   },
 
   /**
@@ -163,5 +170,17 @@ Page({
       address: '七十一号豆汤饭',
       scale: 28
     })
+  },
+  getCinemaDetails: function (cinemaId) {
+    let url = "/cinema/detailData"
+    let data = {
+      id: cinemaId
+    }
+    app.request('get', url, data, (res) => {
+        this.setData({
+          cinemaDetails:res.data
+        })
+    })
+
   }
 })

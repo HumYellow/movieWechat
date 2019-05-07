@@ -10,7 +10,7 @@ Page({
   },
   selectSeatList: [],
   selectSeatNum: 0,
-  selectSeat: function (event) {
+  selectSeat: function (event) {//选择座位
     let selectSeatList = this.selectSeatList
     let id = event.currentTarget.id
     let status = event.currentTarget.dataset.status
@@ -53,7 +53,7 @@ Page({
       })
     }
   },
-  deleteSeat: function (event) {
+  deleteSeat: function (event) {//点击票删除座位
     let rownum = event.currentTarget.dataset.rownum
     let column = event.currentTarget.dataset.column
     let seatList = this.data.seatList.seatList

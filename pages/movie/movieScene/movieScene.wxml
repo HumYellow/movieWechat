@@ -1,7 +1,7 @@
 <!--pages/movie/movieScene/movieScene.wxml-->
 <view class="cinemaBox">
-  <view class="cinemaBoxTitle">上海临空影院</view>
-  <view class="cinemaBoxAddress">长宁区金钟路凌空333号</view>
+  <view class="cinemaBoxTitle">{{cinemaDetails.name}}</view>
+  <view class="cinemaBoxAddress">{{cinemaDetails.address}}</view>
   <!-- <view id="" bindtap='toMap'>跳地图</view> -->
 </view>
 <view class="movieList">

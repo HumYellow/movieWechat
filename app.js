@@ -34,7 +34,7 @@ App({
       }
     });
   },
-  wxLogin: function (fn) {
+  wxLogin: function (fn) {//微信登录获取用户凭证
     let that = this
     wx.login({
       success: (r) => {
@@ -43,8 +43,7 @@ App({
             wx.getSetting({//获取用户当前权限设置
               success(res) {
                 if (res.authSetting['scope.userInfo']){
-                  //2、调用获取用户信息接口
-                  wx.getUserInfo({
+                  wx.getUserInfo({//调用获取用户信息接口
                     success: (res) => {
                       var data = {
                         encryptedData: res.encryptedData,
