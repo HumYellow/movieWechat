@@ -7,80 +7,64 @@ Page({
    */
   data: {
     movie:{},
-    time:{},
-    movieId:2,
+    movieId:3,
     cinemaId:12,
-    cinemaDetails:{},
-    timeList:[
-      {
-        id:'1',
-        time:'4月10号',
-      },
-      {
-        id: '2',
-        time: '4月11号',
-      },
-      {
-        id: '3',
-        time: '4月12号',
-      },
-    ],
+    cinemaDetails: {},
+    time: {},//当前日期场次
+    timeList:[],//所有场次列表
     movieList: [{
       id: '1',
       name: '大闹天宫',
       price: '35.5',
       score: '5.0',
-      pic: 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
+      img: 'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2552058346.webp'
     }, {
       id: '2',
       name: '复仇者联盟',
       price: '45.5',
       score: '3.0',
-      pic: 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
+        img: 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
     }, {
       id: '3',
       name: '马可波罗历险记',
       price: '25.5',
       score: '5.0',
-      pic: 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
-    },],
-    movieSceneList:[
-      {
-        id:'33',
-        startTime:'12:30',
-        endTime:'14:30',
-        movieType:'英语IMAX',
-        roomType:'1号厅',
-        price:'35.5',
+        img: 'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2542973862.jpg'
+      }, {
+        id: '4',
+        name: '马可波罗历险记',
+        price: '25.5',
+        score: '5.0',
+        img: 'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2542973862.jpg'
+      }, {
+        id: '5',
+        name: '马可波罗历险记',
+        price: '25.5',
+        score: '5.0',
+        img: 'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2542973862.jpg'
+      }, {
+        id: '6',
+        name: '马可波罗历险记',
+        price: '25.5',
+        score: '5.0',
+        img: 'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2542973862.jpg'
       },
-      {
-        id: '34',
-        startTime: '13:30',
-        endTime: '15:30',
-        movieType: '英语IMAX',
-        roomType: '2号厅',
-        price: '35.5',
-      },
-      {
-        id: '35',
-        startTime: '14:30',
-        endTime: '16:30',
-        movieType: '英语IMAX',
-        roomType: '3号厅',
-        price: '35.5',
-      },
-    ]
+    ],
+    movieSceneList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let cinemaId = options.id
+    let cinemaId = options.cinemaId ? options.cinemaId:''
+    let movieId = options.movieId ? options.movieId:''
     this.setData({
-      cinemaId: cinemaId
+      cinemaId,
+      movieId
     })
-    this.getCinemaDetails(cinemaId)
+    this.getCinemaDetails(cinemaId)//获取影院详情
+    this.getSceneList(cinemaId)//获取影院场次
   },
 
   /**
@@ -131,29 +115,29 @@ Page({
   onShareAppMessage: function () {
 
   },
-  selectMovie(e) {
-    const movie = e.detail.movie
-    let days = []
-    // movie.shows.forEach(item => {
-    //   days.push({
-    //     title: item.dateShow,
-    //     day: item.showDate
-    //   })
-    // })
+  selectMovie(e) {//组件选择电影后调用此方法
+    let movie = e.detail.movie
+    let movieId = movie.movieId
+    let movieSceneList = this.data.movieSceneList
+    let time,timeList;
+    for (let i = 0; i < movieSceneList.length;i++){
+      if (movieSceneList[i].movieId == movieId) {//根据ID查询场次
+        timeList = movieSceneList[i].playDateItemList
+      }
+    }
+    time = timeList[0]//第一天场次默认选中
     this.setData({
       movie,
-      days,
-      time:this.data.timeList[0]
-      // timeList: this.createEndTime(movie.shows[0].plist, movie.dur)
+      movieId,
+      time,
+      timeList
     })
   },
   selectTime: function (e) {
     let index = e.currentTarget.dataset.index
-    console.info(index)
     this.setData({
       time: this.data.timeList[index]
     })
-
   },
   toSeat: function (e) {
     let movieId = e.currentTarget.dataset.id
@@ -181,6 +165,16 @@ Page({
           cinemaDetails:res.data
         })
     })
-
+  },
+  getSceneList: function (cinemaId) {
+    let url = "/playItem/listData"
+    let data = {
+      cinemaId: cinemaId
+    }
+    app.request('get', url, data, (res) => {
+      this.setData({
+        movieSceneList: res.data.moviePlayList
+      })
+    })
   }
 })

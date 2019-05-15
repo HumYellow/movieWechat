@@ -71,9 +71,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let movieId = options.id
+    let movieId = options.movieId
+    console.info(movieId)
     this.setData({
-      movieId: movieId
+      movieId
     })
     this.getMovieDetails(movieId)//获取电影信息
     this.getMoviePhoto(movieId)//获取电影剧照
@@ -141,7 +142,8 @@ Page({
   },
   movieToCinema: function (e) {
     let movieId = this.data.movieId
-    let url = "/pages/movie/movieToCinema/movieToCinema?id=" + movieId
+    console.info(movieId)
+    let url = "/pages/movie/movieToCinema/movieToCinema?movieId=" + movieId
     wx.navigateTo({
       url: url
     })
@@ -156,7 +158,7 @@ Page({
   },
   toPic: function (e) {
     let movieId = this.data.movieId
-    let url = "/pages/movie/moviePic/moviePic?id=" + movieId
+    let url = "/pages/movie/moviePic/moviePic?movieId=" + movieId
     wx.navigateTo({
       url: url
     })

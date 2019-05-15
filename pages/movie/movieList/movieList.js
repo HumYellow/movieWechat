@@ -13,25 +13,7 @@ Page({
     movieIng: {
       pageNo: 1,
       lastPage: false,
-      movieList: [{
-        id: '1',
-        name: '大闹天宫',
-        price: '35.5',
-        score: '5.0',
-        img: 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
-      }, {
-        id: '2',
-        name: '复仇者联盟',
-        price: '45.5',
-        score: '3.0',
-        img: 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
-      }, {
-        id: '3',
-        name: '马可波罗历险记',
-        price: '25.5',
-        score: '5.0',
-        img: 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
-      },],
+      movieList: [],
 
     },
     movieSoon: {
@@ -140,7 +122,6 @@ Page({
         [movieListText]: movieList,
         [pageNoText]: pageNo
       })
-      console.info(movieList)
     }, (err) => {
       console.log(err)
     })
@@ -159,17 +140,19 @@ Page({
   },
   toMovieDetails: function (e) {
     let movieId = e.currentTarget.dataset.id
-    console.info(movieId)
-    let url = "/pages/movie/movieDetails/movieDetails?id=" + movieId
+    let url = "/pages/movie/movieDetails/movieDetails?movieId=" + movieId
     wx.navigateTo({
       url:url
     })
   },
   movieToCinema: function (e) {
     let movieId = e.currentTarget.dataset.id
-    let url = "/pages/movie/movieToCinema/movieToCinema?id=" + movieId
+    let url = "/pages/movie/movieToCinema/movieToCinema?movieId=" + movieId
     wx.navigateTo({
       url: url
     })
+  },
+  toCityList:function(e){
+    
   }
 })

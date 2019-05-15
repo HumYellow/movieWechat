@@ -1,7 +1,7 @@
 /* pages/movie/movieScene/movieScene.wxss */
 .cinemaBox{padding:10px;}
-.cinemaBoxTitle{font-size:14px;line-height:20px;}
-.cinemaBoxAddress{color:#999;font-size:12px;line-height:20px;}
+.cinemaBoxTitle{font-size:32rpx;line-height:46rpx;color:#333;}
+.cinemaBoxAddress{color:#999;font-size:24rpx;line-height:40rpx;}
 
 #movieScroll{width: 100%;
   height: 307rpx;
@@ -16,24 +16,28 @@ height: auto;
 margin-right: 23rpx;
 display: inline-block;background:red}
 
-.movieListMod{margin:20px; border-bottom:1px solid #e6e6e6;padding:20px 0;box-sizing: border-box;display: flex;flex-flow: row nowrap}
+.movieListMod{margin:20px; border-bottom:1px solid #e6e6e6;padding:40rpx 0;box-sizing: border-box;display: flex;flex-flow: row nowrap}
 .movieListModLeft{flex:1 1 auto}
-.movieListModRight{width:80px;text-align:center;} 
+.movieListModRight{width:160rpx;text-align:center;} 
+.movieDescBox{display:flex;justify-content: center;border-top:2rpx solid #eeeeee;border-bottom:2rpx solid #e6e6e6}
+.movieDescBox-title{padding:20rpx 0;text-align:center;}
+.movieDescBox-title .movieName{font-size:32rpx;color:#333;}
+.movieDescBox-titleDesc{font-size:24rpx;color:#999;margin-top:10rpx;}
 
-.movieDescBox-title{display:flex;justify-content: center;padding:10px 0;border-top:1px solid #eeeeee;border-bottom:1px solid #eeeeee}
-
-.timeList{display: flex;}
-.timeList-item{padding:10px;font-size:14px;border-bottom:1px solid #eee}
+.timeList{white-space:nowrap;width:100%;border-bottom:2rpx solid #eee;}
+.timeList-item{padding:20rpx 25rpx;font-size:24rpx;border-bottom:1px solid #eee;display:inline-block;color:#666}
 .timeList-item.select{color:#509df7;border-bottom:2px solid #509df7;}
 
-.movieSceneList{padding:0 10px;border:1px solid #eee;}
-.movieScene-item{display: flex;align-items: center;padding:10px 0;border-top:1px solid #eee;font-size:14px;}
-.movieScene-item:nth-child(0){border:none;}
-.movieScene-time{width:20%;}
-.movieScene-time .startTime{font-size:16px;}
-.movieScene-time .endTime{font-size:12px;color:#999}
-.movieScene-desc{width:30%;color:#666}
-.movieScene-desc .roomType{color:#999;font-size:12px;}
-.movieScene-price{width:30%;color:#509df7}
-.movieScene-toBuy{width:20%;}
-.toBuyBtn{color:#fff;background:#509df7;border-radius:3px;width:80%;text-align:center; font-size:12px;padding:5px 0;}
+.movieSceneList{padding:0 5%;border-bottom:1rpx solid #e6e6e6;margin-bottom:40rpx;}
+.movieScene-item{display: flex;align-items: center;padding:25rpx 0;border-top:1rpx solid #eee;font-size:28rpx;}
+.movieScene-item:nth-child(1){border:none;}
+.movieScene-time{width:25%;}
+.movieScene-time .startTime{font-size:34rpx;}
+.movieScene-time .endTime{font-size:22rpx;color:#b7b7b7}
+.movieScene-desc{width:30%;color:#333;}
+.movieType{font-size:26rpx;line-height:36rpx;}
+.movieScene-desc .roomType{color:#b7b7b7;font-size:20rpx;margin-top:5rpx;}
+.movieScene-price{width:25%;color:#509df7;font-size:34rpx;}
+.movieScene-price text{font-size:22rpx;}
+.movieScene-toBuy{width:20%;display:flex;justify-content: flex-end}
+.toBuyBtn{color:#fff;background:#509df7;border-radius:3px;width:70%;text-align:center; font-size:12px;padding:5px 0;}

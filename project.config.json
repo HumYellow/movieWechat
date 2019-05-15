@@ -102,7 +102,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 12,
 			"list": [
 				{
 					"id": -1,
@@ -143,7 +143,7 @@
 					"id": 5,
 					"name": "影院场次",
 					"pathName": "pages/movie/movieScene/movieScene",
-					"query": "id=12&movieId=2",
+					"query": "cinemaId=1",
 					"scene": null
 				},
 				{
@@ -186,6 +186,13 @@
 					"name": "选座",
 					"pathName": "pages/order/seatSelection/seatSelection",
 					"query": "seatId",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "电影选影院",
+					"pathName": "pages/movie/movieToCinema/movieToCinema",
+					"query": "movieId=1",
 					"scene": null
 				}
 			]

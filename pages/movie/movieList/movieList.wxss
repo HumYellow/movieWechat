@@ -1,9 +1,10 @@
 /* pages/movie/movieList/movieList.wxss */
 page{background:#f8f8f8;}
-.movieListTab{text-align:center;background:#fff}
+.movieListTab{text-align:center;background:#fff;position:relative;}
 .movieListTab_item{width:100px;text-align:center;display:inline-block;padding-top:10px;font-size:16px;color:#999}
 .movieListTab_item.select{color:#63a4fd}
 .movieListTab_item.select .selectLine{width:40px;height:3px;background:#63a4fd;margin:10px auto 0;}
+.cityInlet{position:absolute;left:20rpx;top:20rpx;}
 
 .movieList{padding:1px 10px;}
 .movieList-item{display: flex;background:#fff;border-radius:5px;padding:10px;margin:10px 0;box-shadow: 2px 2px #f3f3f3}

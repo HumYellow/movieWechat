@@ -8,6 +8,7 @@
     即将上映
     <view class="selectLine"></view>
   </view>
+  <!-- <view class="cityInlet" bindtap='toCityList'>上海</view> -->
 </view>
 <view class="movieList">
   <view wx:if="{{listTabType == 'movieIng'}}">

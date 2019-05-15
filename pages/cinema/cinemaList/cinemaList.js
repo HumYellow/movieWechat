@@ -57,7 +57,7 @@ Page({
    */
   onLoad: function (options) {
     let cityCode = options.cityCode
-    this.getCInemaList(cityCode)
+    this.getCinemaList(cityCode)
     wx.stopPullDownRefresh()
   },
 
@@ -119,16 +119,16 @@ Page({
     })
   },
   toCinemaToMovie: function (e) {
-    let movieId = e.currentTarget.dataset.id
-    let url = "/pages/movie/movieScene/movieScene?id=" + movieId
+    let cinemaId = e.currentTarget.dataset.id
+    let url = "/pages/movie/movieScene/movieScene?cinemaId=" + cinemaId
     wx.navigateTo({
       url: url
     })
   },
-  getCInemaList:function(cityCode){
+  getCinemaList:function(cityCode){
     let url = "/cinema/listData"
     let data = {
-      cityCode: cityCode
+      cityCode: cityCode ? cityCode:'310100'
     }
     app.request('get', url, data, (res) => {
         this.setData({

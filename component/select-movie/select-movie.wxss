@@ -12,11 +12,23 @@
   height: 100%;
   z-index: -1;
   overflow: hidden;
-  -webkit-filter: blur(30px);
-  filter: blur(30px);
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
   background-position-y: 40%;
+  background-size:100% auto;
 }
-
+.post-an-mask{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  background-position-y: 40%;
+  background-size:100% auto;
+}
 .post-bg-mask {
   position: absolute;
   top: 0;
@@ -24,7 +36,7 @@
   width: 100%;
   height: 100%;
   background-color: #40454d;
-  opacity: 0.55;
+  opacity: 0.5;
 }
 
 .scroll-view_H {

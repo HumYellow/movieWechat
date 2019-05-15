@@ -1,4 +1,5 @@
 // pages/movie/movieVideo/movieVideo.js
+const app = getApp()
 Page({
 
   /**

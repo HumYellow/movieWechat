@@ -1,10 +1,12 @@
 // pages/cinema/cinemaList/cinemaList.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    movieId:'',
     pageType: 'cinemaList',
     nowCity: '上海',
     region: ['广东省', '广州市', '海珠区'],
@@ -26,35 +28,19 @@ Page({
       id: 3,
       name: '日本'
     }],
-    cinemaList: [
-      {
-        id: "1",
-        name: '影院1',
-        price: '38.8',
-        address: '外滩18号',
-        pic: 'https://p1.meituan.net/deal/a63489de34a41fc04e01d1518df437ab58254.jpg@292w_292h_1e_1c',
-      },
-      {
-        id: "2",
-        name: '影院1',
-        price: '38.8',
-        address: '外滩18号',
-        pic: 'https://p1.meituan.net/deal/a63489de34a41fc04e01d1518df437ab58254.jpg@292w_292h_1e_1c',
-      },
-      {
-        id: "3",
-        name: '影院1',
-        price: '38.8',
-        address: '外滩18号',
-        pic: 'https://p1.meituan.net/deal/a63489de34a41fc04e01d1518df437ab58254.jpg@292w_292h_1e_1c',
-      },
-    ]
+    cinemaList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let cityCode = options.cityCode
+    this.setData({
+      movieId: options.movieId
+    })
+    this.getCityList(cityCode)
+    this.getCinemaList()
     wx.stopPullDownRefresh()
 
   },
@@ -112,15 +98,41 @@ Page({
   },
   bindRegionChangeLine: function (e) {
     console.info('picker发送选择改变，携带值为', e.detail.value)
+    let index = e.detail.value
+    let city = this.data.cityList[index]
+    let cityCode = city.cityCode
     this.setData({
       index: e.detail.value,
     })
+    this.getCinemaList(cityCode)
   },
   toMovieScene: function (e) {
     let movieId = e.currentTarget.dataset.id
-    let url = "/pages/movie/movieScene/movieScene?id=" + movieId
+    let url = "/pages/movie/movieScene/movieScene?movieId=" + movieId
     wx.navigateTo({
-      url: url
+      url
+    })
+  },
+  getCityList: function () {
+    let url = '/openCity/listData'
+    let data = {}
+    app.request('get', url, data, (res) => {
+      console.info(res.data.openCityList)
+      this.setData({
+        cityList: res.data.openCityList
+      })
+    })
+
+  },
+  getCinemaList: function (cityCode) {
+    let url = "/cinema/listData"
+    let data = {
+      cityCode: cityCode ? cityCode : '310100'
+    }
+    app.request('get', url, data, (res) => {
+      this.setData({
+        cinemaList: res.data.cinemaVOList
+      })
     })
   }
 

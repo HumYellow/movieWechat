@@ -6,16 +6,16 @@
        <view class="cinemaListSelect-item-tip"></view>
     </view>
   </picker>
-  <picker class="cinemaListSelect-item" bindchange="bindRegionChangeLine" value="{{index}}" range='{{cinemaLine}}'>
+  <picker class="cinemaListSelect-item" bindchange="bindRegionChangeLine" value="{{index}}" range='{{cityList}}' range-key="{{'cityBriefName'}}">
     <view class="picker">
-        {{cinemaLine[index]}}
+        {{cityList[index].cityBriefName}}
        <view class="cinemaListSelect-item-tip"></view>
     </view>
   </picker>
 </view>
 <view class="cinemaListBox">
     <view class="cinemaListBox-item" wx:for="{{cinemaList}}" wx:key="cinemaList.id" bindtap="toMovieScene" data-id="{{item.id}}">
-        <image mode="widthFix" class="cinemaListBox-pic" src="{{item.pic}}"></image>
+        <image mode="widthFix" class="cinemaListBox-pic" src="{{item.img}}"></image>
         <view class="cinemaListBox-desc">
             <view class="cinemaListBox-desc-title">
                 <view class="cinemaListBox-desc-cinemaName">

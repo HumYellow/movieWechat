@@ -16,7 +16,7 @@ Page({
     movieListHot:[
       {
         'id':'1',
-        'name':'海王',
+        'name':'海王11',
         'url':'/pages/movie/movieList/movieList',
         'pic':'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
       },

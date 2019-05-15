@@ -33,7 +33,7 @@
     <view class="movieDetail-title">
        演职人员
     </view>
-    <view class="movieStaffListListBox">
+    <view class="movieStaffListBox">
         <scroll-view class="movieStaffList" scroll-x>
             <view class="movieStaffList-item" wx:for="{{movieStaffList}}" wx:key="movieStaffList.id">
                 <image class="movieScrollPic" src="{{item.img}}" mode='widthFix' lazy-load="true" style="width:100%;"></image>

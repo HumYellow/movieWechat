@@ -14,8 +14,8 @@
   </picker>
 </view>
 <view class="cinemaListBox">
-    <view class="cinemaListBox-item" wx:for="{{cinemaList}}" wx:key="cinemaList.id" bindtap="toCinemaToMovie" data-id="{{item.id}}">
-        <image mode="widthFix" class="cinemaListBox-pic" src="{{item.pic}}"></image>
+    <view class="cinemaListBox-item" wx:for="{{cinemaList}}" wx:key="cinemaList.cinemaId" bindtap="toCinemaToMovie" data-id="{{item.cinemaId}}">
+        <image mode="widthFix" class="cinemaListBox-pic" src="{{item.img}}"></image>
         <view class="cinemaListBox-desc">
             <view class="cinemaListBox-desc-title">
                 <view class="cinemaListBox-desc-cinemaName">
