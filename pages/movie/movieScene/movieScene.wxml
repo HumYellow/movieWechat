@@ -1,40 +1,42 @@
 <!--pages/movie/movieScene/movieScene.wxml-->
-<view class="cinemaBox">
+<view class="cinemaBox" wx:if="{{cinemaDetails}}">
   <view class="cinemaBoxTitle">{{cinemaDetails.name}}</view>
   <view class="cinemaBoxAddress">{{cinemaDetails.address}}</view>
   <!-- <view id="" bindtap='toMap'>跳地图</view> -->
 </view>
-<view class="movieList">
-  <select-movie movies='{{movieSceneList}}' bindselectMovie='selectMovie' defaultSelectID='{{movieId}}'/>
-</view>
-<view class="movieDescBox">
-    <view class="movieDescBox-title">
-        <view class="movieName">{{movie.name}}</view>
-        <view class="movieDescBox-titleDesc">{{movie.duration}}分钟 | {{movie.type}} | {{movie.state}}</view>
-    </view>
-</view>
-<scroll-view scroll-x class="timeList">
-    <view bindtap='selectTime' data-index="{{index}}" class="timeList-item {{time.playDate==item.playDate?'select':''}}" wx:for="{{timeList}}" wx:key="index">
-        <text>{{item.weekDay}}</text>{{item.playDate}}
-    </view>
-</scroll-view>
-<view class="movieSceneList">
-    <view class="movieScene-item" wx:for="{{time.playItemList}}" wx:key="{{item.mpiId}}">
-        <view class="movieScene-time">
-            <view class="startTime">
-                {{item.showTime}}
-            </view>
-            <view class="endTime">
-                {{item.endTime}}散场
-            </view>
-        </view>
-        <view class="movieScene-desc">
-            <view class="movieType">{{item.edition}}</view>
-            <view class="roomType">{{item.roomName}}</view>
-        </view>
-        <view class="movieScene-price">{{item.selfPrice2Yuan}}<text>元</text></view>
-        <view class="movieScene-toBuy">
-            <view class="toBuyBtn" bindtap='toSeat' data-id="{{item.mpiId}}">购票</view>
-        </view>
-    </view>
+<view wx:if="{{movieSceneList}}">
+  <view class="movieList">
+    <select-movie movies='{{movieSceneList}}' bindselectMovie='selectMovie' defaultSelectID='{{movieId}}'/>
+  </view>
+  <view class="movieDescBox" wx:if="{{movie}}">
+      <view class="movieDescBox-title">
+          <view class="movieName">{{movie.name}}</view>
+          <view class="movieDescBox-titleDesc">{{movie.duration}}分钟 | {{movie.type}} | {{movie.state}}</view>
+      </view>
+  </view>
+  <scroll-view scroll-x class="timeList">
+      <view bindtap='selectTime' data-index="{{index}}" class="timeList-item {{time.playDate==item.playDate?'select':''}}" wx:for="{{timeList}}" wx:key="index">
+          <text>{{item.weekDay}}</text>{{item.playDate}}
+      </view>
+  </scroll-view>
+  <view class="movieSceneList">
+      <view class="movieScene-item" wx:for="{{time.playItemList}}" wx:key="{{item.mpiId}}">
+          <view class="movieScene-time">
+              <view class="startTime">
+                  {{item.showTime}}
+              </view>
+              <view class="endTime">
+                  {{item.endTime}}散场
+              </view>
+          </view>
+          <view class="movieScene-desc">
+              <view class="movieType">{{item.edition}}</view>
+              <view class="roomType">{{item.roomName}}</view>
+          </view>
+          <view class="movieScene-price">{{item.selfPrice2Yuan}}<text>元</text></view>
+          <view class="movieScene-toBuy">
+              <view class="toBuyBtn" bindtap='toSeat' data-id="{{item.mpiId}}">购票</view>
+          </view>
+      </view>
+  </view>
 </view>

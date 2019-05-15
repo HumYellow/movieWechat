@@ -18,6 +18,8 @@ page{background:#f8f8f8;}
 .movieList-item-desc-box1 .movieList-item-desc-data{color:#999;font-size:12px;}
 .movieList-item-desc-box2 .movieList-item-desc-score{color:#ff4d64; font-size:16px;margin:3px auto;text-align:center;width:100%;}
 .movieList-item-desc-box2 .movieList-item-desc-toBuy{background:#63a4fd;color:#fff;border-radius:20px;width:80%;height:22px;line-height:22px;text-align:center;font-size:12px;margin:5px auto;}
+
+.noMore{font-size:28rpx;color:#999;width:100%;text-align:center;padding:20rpx 0 40rpx;}
 /* #movieScroll{width: 100%;
   height: 307rpx;
   overflow: hidden;

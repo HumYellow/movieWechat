@@ -27,29 +27,7 @@ Page({
         id: 3,
         name: '日本'
       }],
-      cinemaList:[
-        {
-          id:"1",
-          name:'影院1',
-          price:'38.8',
-          address:'外滩18号',
-          pic:'https://p1.meituan.net/deal/a63489de34a41fc04e01d1518df437ab58254.jpg@292w_292h_1e_1c',
-        },
-        {
-          id: "2",
-          name: '影院1',
-          price: '38.8',
-          address: '外滩18号',
-          pic: 'https://p1.meituan.net/deal/a63489de34a41fc04e01d1518df437ab58254.jpg@292w_292h_1e_1c',
-        },
-        {
-          id: "3",
-          name: '影院1',
-          price: '38.8',
-          address: '外滩18号',
-          pic: 'https://p1.meituan.net/deal/a63489de34a41fc04e01d1518df437ab58254.jpg@292w_292h_1e_1c',
-        },
-      ]
+      cinemaList:[]
   },
 
   /**

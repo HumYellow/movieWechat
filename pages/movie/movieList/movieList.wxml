@@ -39,7 +39,7 @@
             </view>
         </view>
     </view>
-    <view wx:if="{{movieIng.lastPage}}">没有更多拉</view>
+    <view wx:if="{{movieIng.lastPage}}" class="noMore">没有更多拉</view>
   </view>
   <view wx:else>
     <view class="movieList-item" wx:for="{{movieSoon.movieList}}" wx:key="movieSoon.movieList.id" bindtap="toMovieDetails" data-id="{{item.id}}">
@@ -69,7 +69,7 @@
             </view>
         </view>
     </view>
-    <view wx:if="{{movieSoon.lastPage}}">没有更多拉</view>
+    <view wx:if="{{movieSoon.lastPage}}" class="noMore">没有更多拉</view>
   </view>
 </view>
 <!-- <view class="movieList">

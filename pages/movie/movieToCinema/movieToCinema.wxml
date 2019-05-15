@@ -14,16 +14,16 @@
   </picker>
 </view>
 <view class="cinemaListBox">
-    <view class="cinemaListBox-item" wx:for="{{cinemaList}}" wx:key="cinemaList.id" bindtap="toMovieScene" data-id="{{item.id}}">
+    <view class="cinemaListBox-item" wx:for="{{cinemaList}}" wx:key="cinemaList.cinemaId" bindtap="toMovieScene" data-id="{{item.cinemaId}}">
         <image mode="widthFix" class="cinemaListBox-pic" src="{{item.img}}"></image>
         <view class="cinemaListBox-desc">
             <view class="cinemaListBox-desc-title">
                 <view class="cinemaListBox-desc-cinemaName">
                     {{item.name}}
                 </view>
-                <view class="cinemaListBox-desc-price">
+                <!-- <view class="cinemaListBox-desc-price">
                     {{item.price}}元<text style="color:#999">起 </text>
-                </view>
+                </view> -->
             </view>
             <view class="cinemaListBox-desc-address">
                 {{item.address}}

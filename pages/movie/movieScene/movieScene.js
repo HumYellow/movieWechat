@@ -6,50 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    movie:{},
+    movie:null,
     movieId:3,
     cinemaId:12,
     cinemaDetails: {},
     time: {},//当前日期场次
     timeList:[],//所有场次列表
-    movieList: [{
-      id: '1',
-      name: '大闹天宫',
-      price: '35.5',
-      score: '5.0',
-      img: 'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2552058346.webp'
-    }, {
-      id: '2',
-      name: '复仇者联盟',
-      price: '45.5',
-      score: '3.0',
-        img: 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
-    }, {
-      id: '3',
-      name: '马可波罗历险记',
-      price: '25.5',
-      score: '5.0',
-        img: 'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2542973862.jpg'
-      }, {
-        id: '4',
-        name: '马可波罗历险记',
-        price: '25.5',
-        score: '5.0',
-        img: 'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2542973862.jpg'
-      }, {
-        id: '5',
-        name: '马可波罗历险记',
-        price: '25.5',
-        score: '5.0',
-        img: 'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2542973862.jpg'
-      }, {
-        id: '6',
-        name: '马可波罗历险记',
-        price: '25.5',
-        score: '5.0',
-        img: 'https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2542973862.jpg'
-      },
-    ],
+    movieList: [],
     movieSceneList:[]
   },
 

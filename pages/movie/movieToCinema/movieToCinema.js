@@ -107,8 +107,8 @@ Page({
     this.getCinemaList(cityCode)
   },
   toMovieScene: function (e) {
-    let movieId = e.currentTarget.dataset.id
-    let url = "/pages/movie/movieScene/movieScene?movieId=" + movieId
+    let cinemaId = e.currentTarget.dataset.id
+    let url = "/pages/movie/movieScene/movieScene?movieId=" + this.data.movieId + "&cinemaId=" + cinemaId
     wx.navigateTo({
       url
     })
@@ -117,7 +117,6 @@ Page({
     let url = '/openCity/listData'
     let data = {}
     app.request('get', url, data, (res) => {
-      console.info(res.data.openCityList)
       this.setData({
         cityList: res.data.openCityList
       })
