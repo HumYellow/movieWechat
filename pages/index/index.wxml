@@ -11,7 +11,7 @@
     <view class="headTitleLeft">
       <text>正在热映</text>
     </view>
-    <view class="headTitleRight" bindtap="toTabBar" data-url="/pages/movie/movieList/movieList">
+    <view class="headTitleRight" bindtap="toTabBar" data-tab="movieIng" data-url="/pages/movie/movieList/movieList">
       全部50部 >
     </view>
   </view>
@@ -33,7 +33,7 @@
     <view class="headTitleLeft">
       即将上映
     </view>
-    <view class="headTitleRight" bindtap="toTabBar" data-url="/pages/movie/movieList/movieList">
+    <view class="headTitleRight" bindtap="toTabBar" data-tab="movieSoon" data-url="/pages/movie/movieList/movieList">
       全部50部 >
     </view>
   </view>

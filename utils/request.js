@@ -12,7 +12,7 @@ const request = {//请求封装
         appType: 'applet',
         appKey: 'CT_APPKEY_APPLET',
         appVersion: '1.0.0',
-        memberEncode:wx.getStorageSync('memberEncode')
+        MemberEncode: wx.getStorageSync('MemberEncode')
       }
       let dataNew = Object.assign(dataBox, data)
       dataNew = this.treeMap(dataNew)
@@ -34,7 +34,7 @@ const request = {//请求封装
         header: {
           'content-type': method == 'GET' ? 'application/json' : 'application/x-www-form-urlencoded',
           'Accept': 'application/json',
-          'MemberToken': wx.getStorageSync('memberEncode')
+          'MemberEncode': wx.getStorageSync('MemberEncode')
         },
         dataType: 'json',
         success: function (res) {
@@ -48,7 +48,30 @@ const request = {//请求封装
             wx.redirectTo({
               url: "/pages/login/bindPhone/bindPhone"
             });
+          } else if (res.data.errcode == '9999') {
+            let msg = res.data.msg
+              wx.showModal({
+                title: '提示',
+                content: msg,
+                showCancel: false,
+                success: function (res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                  }
+                }
+              })
           } else {
+            let msg = res.data.msg
+            wx.showModal({
+              title: '提示',
+              content: msg,
+              showCancel: false,
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                }
+              }
+            })
             console.info(res)
           }
 

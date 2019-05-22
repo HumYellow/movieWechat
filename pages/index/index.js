@@ -5,7 +5,6 @@ const app = getApp()
 Page({
   data: {
     pageType: 'index',
-    userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     swiperList: [
@@ -61,12 +60,6 @@ Page({
   onPullDownRefresh: function () {
     this.onLoad()
   },
-  toTabBar: function (e) {
-    let url = e.currentTarget.dataset.url
-    wx.switchTab({
-      url: url
-    })
-  },
   toMovieDetails: function (e) {
     let movieId = e.currentTarget.dataset.id
     let url = "/pages/movie/movieDetails/movieDetails?id=" + movieId
@@ -80,5 +73,10 @@ Page({
     wx.navigateTo({
       url: url
     })
+  },
+  toTabBar: function (e) {
+    app.globalData.movieListType = e.currentTarget.dataset.tab; 
+    let url = e.currentTarget.dataset.url
+    app.toTabBar(url)
   },
 })

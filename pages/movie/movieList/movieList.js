@@ -44,8 +44,9 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.getMovieList()
+  onLoad: function (options) {//查看是否带切换参数，如果不带正常请求
+    let listTabType = app.globalData.movieListType
+    if (!listTabType)this.getMovieList()
     wx.stopPullDownRefresh()
   },
 
@@ -59,7 +60,12 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function () {//查看是否带切换参数，如果带，按照参数切换，然后清空
+    let listTabType = app.globalData.movieListType
+    if (listTabType){
+      this.tabMovieListFn(listTabType)
+      app.globalData.movieListType = null
+    }
 
   },
 
@@ -129,14 +135,19 @@ Page({
   },
   tabMovieList: function (e) {
     let tabType = e.currentTarget.dataset.tabtype
+    this.tabMovieListFn(tabType)
+  },
+  tabMovieListFn: function (tabType) {
+    console.info(tabType)
     this.setData({//修改tab切换type
       listTabType: tabType,
     })
     let movieBox = this.data.listTabType == 'movieIng' ? this.data.movieIng : this.data.movieSoon
     let movieList = movieBox.movieList
-    if (movieBox.pageNo == 1){//根据type，如果没请求过，去请求数据
+    if (movieBox.pageNo == 1) {//根据type，如果没请求过，去请求数据
       this.getMovieList()
     }
+
   },
   toMovieDetails: function (e) {
     let movieId = e.currentTarget.dataset.id

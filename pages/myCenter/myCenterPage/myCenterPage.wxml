@@ -13,7 +13,7 @@
     </button> -->
     <view wx:else class="userName" bindtap="toLogin">登录</view>
     
-  <view bindtap='toBindPhone'>绑定手机</view>
+  <!-- <view bindtap='toBindPhone'>绑定手机</view> -->
 </view>
 <view class-="memberBox">
     <view class="memberIconBox">

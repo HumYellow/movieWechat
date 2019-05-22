@@ -37,7 +37,25 @@ Array.prototype.removeArray = function( _obj) {//删除数组中某个对象
     }
   } 
 }
+Number.prototype.toFixed = function (scale) {
+  var s, s1, s2, start;
 
+  s1 = this + "";
+  start = s1.indexOf(".");
+  s = s1.movePoint(scale);
+
+  if (start >= 0) {
+    s2 = Number(s1.substr(start + scale + 1, 1));
+    if (s2 >= 5 && this >= 0 || s2 < 5 && this < 0) {
+      s = Math.ceil(s);
+    }
+    else {
+      s = Math.floor(s);
+    }
+  }
+
+  return s.toString().movePoint(-scale);
+}  
 function isObjectValueEqual(a, b) {//比对两个数组
 //取对象a和b的属性名
   var aProps = Object.getOwnPropertyNames(a);

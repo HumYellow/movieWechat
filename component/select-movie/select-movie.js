@@ -112,10 +112,9 @@ Component({
           }).exec()
       })
     },
-    /**
-     * 本来想用touchend事件来做滚动结束后“选择电影”功能，但是获取scrollOffset有两三秒的延迟，所以就放弃了 */
     handleTouchend(e) {//滑动结束选择电影触发
-      if (!this.data.isScroll || this.data.isClick)return
+      if (!this.data.isScroll || this.data.isClick) return
+      if (this.data.movie) this.movieMaskFlash(this.data.movie.img)
       const size = this.data.size
       const query = wx.createSelectorQuery().in(this)
       query.select('.swiper-wrapper').scrollOffset((res) => {//计算选择的电影

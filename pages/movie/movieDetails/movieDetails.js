@@ -72,7 +72,6 @@ Page({
    */
   onLoad: function (options) {
     let movieId = options.movieId
-    console.info(movieId)
     this.setData({
       movieId
     })
@@ -142,7 +141,6 @@ Page({
   },
   movieToCinema: function (e) {
     let movieId = this.data.movieId
-    console.info(movieId)
     let url = "/pages/movie/movieToCinema/movieToCinema?movieId=" + movieId
     wx.navigateTo({
       url: url
@@ -165,7 +163,6 @@ Page({
   },
   getMovieDetails: function (movieId){
     let id = movieId, url = "/movie/detailData"
-    console.info(movieId)
     let data = {
       id: id
     }

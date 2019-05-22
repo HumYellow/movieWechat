@@ -103,8 +103,8 @@ Page({
     })
   },
   toSeat: function (e) {
-    let movieId = e.currentTarget.dataset.id
-    let url = "/pages/order/seatSelection/seatSelection?id=" + movieId
+    let mpiId = e.currentTarget.dataset.id
+    let url = "/pages/order/seatSelection/seatSelection?mpiId=" + mpiId
     wx.navigateTo({
       url: url
     })

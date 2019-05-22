@@ -9,7 +9,8 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.6.1",
@@ -102,7 +103,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 12,
+			"current": 11,
 			"list": [
 				{
 					"id": -1,
@@ -141,9 +142,9 @@
 				},
 				{
 					"id": 5,
-					"name": "影院场次",
+					"name": "影院场次列表",
 					"pathName": "pages/movie/movieScene/movieScene",
-					"query": "cinemaId=1",
+					"query": "cinemaId=4",
 					"scene": null
 				},
 				{
@@ -178,14 +179,14 @@
 					"id": 10,
 					"name": "影院列表",
 					"pathName": "pages/cinema/cinemaList/cinemaList",
-					"query": "cityCode=12",
+					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 11,
 					"name": "选座",
 					"pathName": "pages/order/seatSelection/seatSelection",
-					"query": "seatId",
+					"query": "mpiId=312",
 					"scene": null
 				},
 				{
@@ -193,6 +194,13 @@
 					"name": "电影选影院",
 					"pathName": "pages/movie/movieToCinema/movieToCinema",
 					"query": "movieId=1",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "订单确认",
+					"pathName": "pages/order/confirmOrder/confirmOrder",
+					"query": "orderId=27",
 					"scene": null
 				}
 			]

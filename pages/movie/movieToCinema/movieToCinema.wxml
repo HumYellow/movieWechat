@@ -15,7 +15,7 @@
 </view>
 <view class="cinemaListBox">
     <view class="cinemaListBox-item" wx:for="{{cinemaList}}" wx:key="cinemaList.cinemaId" bindtap="toMovieScene" data-id="{{item.cinemaId}}">
-        <image mode="widthFix" class="cinemaListBox-pic" src="{{item.img}}"></image>
+        <image wx:if="item.img" mode="widthFix" class="cinemaListBox-pic" src="{{item.img}}"></image>
         <view class="cinemaListBox-desc">
             <view class="cinemaListBox-desc-title">
                 <view class="cinemaListBox-desc-cinemaName">

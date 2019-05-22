@@ -66,9 +66,7 @@ Page({
   },
   toTabBar: function (e) {
     let url = e.currentTarget.dataset.url
-    wx.switchTab({
-      url: url
-    })
+    app.toTabBar(url)
   },
   getUserInfo:function(){
     let data = '';

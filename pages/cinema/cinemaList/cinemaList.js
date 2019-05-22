@@ -35,6 +35,8 @@ Page({
    */
   onLoad: function (options) {
     let cityCode = options.cityCode
+
+    this.getCityList(cityCode)
     this.getCinemaList(cityCode)
     wx.stopPullDownRefresh()
   },
@@ -114,8 +116,17 @@ Page({
         })
     })
   },
-  getCityList:function(){
-    
-  }
+  getCityList: function (cityCode) {
+    let url = '/openCity/listData'
+    let data = {
+      cityCode: cityCode ? cityCode : '310100'
+    }
+    app.request('get', url, data, (res) => {
+      this.setData({
+        cityList: res.data.openCityList
+      })
+    })
+
+  },
 
 })

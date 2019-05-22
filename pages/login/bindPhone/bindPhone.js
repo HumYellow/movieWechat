@@ -102,10 +102,11 @@ Page({
         }
       })
     } else {
+      let url = '/home/member/sendDynamicCode'
       let data = {
         phone: this.data.phone
       };
-      app.request('post', '/home/member/sendDynamicCode', data, (res) => {
+      app.request('post', url , data, (res) => {
         console.info(res)
         wx.showToast({
           title: '短信已发送',
@@ -131,11 +132,12 @@ Page({
     })
   },
   subCode: function () {
+    let url = '/home/member/bindPhoneByDynamicCode'
     let data = {
       phone: this.data.phone,
       dynamicCode: this.data.msgCode
     }
-    app.request('post', '/home/member/bindPhoneByDynamicCode', data, (res) => {
+    app.request('post', url, data, (res) => {
       console.info(res)
       wx.showModal({
         title: '提示',

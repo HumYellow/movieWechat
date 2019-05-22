@@ -126,7 +126,6 @@ Page({
   tabMovieList: function (e) {
     let tabType = e.currentTarget.dataset.tabtype
     let movieList = tabType == 1 ? this.data.movieList1 : this.data.movieList2
-    console.info(movieList)
     this.setData({
       listTabType: tabType,
       movieList: movieList

@@ -13,7 +13,7 @@ App({
   globalData: {
     userInfo: null,
   },
-  request: function (method, url, data, callback, errFun) {
+  request: function (method, url, data, callback, errFun) {//整合请求接口
     request.wxRequest(method, url, data, callback, errFun)
   },
   thisLoad:function(){//刷新当前页面
@@ -51,8 +51,8 @@ App({
                         code: code
                       }
                       that.request('POST', '/login/decodeUserInfo', data, (res) => {
-                        let code = res.data.memberEncode
-                        wx.setStorageSync('memberEncode', code)
+                        let code = res.data.MemberEncode
+                        wx.setStorageSync('MemberEncode', code)
                         if (fn){
                           fn()
                         }else{
@@ -118,7 +118,6 @@ App({
     return md5.md5(data)
   },
   requestPay:function(){//支付接口
-
     wx.requestPayment({
       timeStamp: new Date(),
       nonceStr: '',
@@ -131,6 +130,11 @@ App({
       fail(res) {
         
       }
+    })
+  },
+  toTabBar: function (url) {
+    wx.switchTab({
+      url: url
     })
   }
 
