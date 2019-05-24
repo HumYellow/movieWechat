@@ -14,30 +14,11 @@ Page({
       pageNo: 1,
       lastPage: false,
       movieList: [],
-
     },
     movieSoon: {
       pageNo: 1,
       lastPage: false,
-      movieList: [{
-        id: '1',
-        name: '大闹天宫2',
-        price: '35.5',
-        score: '5.0',
-        img: 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
-      }, {
-        id: '2',
-        name: '复仇者联盟2',
-        price: '45.5',
-        score: '3.0',
-        img: 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
-      }, {
-        id: '3',
-        name: '马可波罗历险记2',
-        price: '25.5',
-        score: '5.0',
-        img: 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
-      },]
+      movieList: [],
     },
   },
 
@@ -106,7 +87,7 @@ Page({
   getMovieList: function (e) {
     let movieBox = this.data.listTabType == 'movieIng' ? this.data.movieIng : this.data.movieSoon
     if (movieBox.lastPage)return
-    let url = this.data.listTabType == 'movieIng' ? "/movie/listData" : "/movie/listData"
+    let url = this.data.listTabType == 'movieIng' ? "/movie/listCurrentHotData" : "/movie/listCurrentSoonData"
     let data = {
       pageNo: movieBox.pageNo,
       number: this.data.number
@@ -138,7 +119,6 @@ Page({
     this.tabMovieListFn(tabType)
   },
   tabMovieListFn: function (tabType) {
-    console.info(tabType)
     this.setData({//修改tab切换type
       listTabType: tabType,
     })

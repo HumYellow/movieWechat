@@ -7,43 +7,10 @@ Page({
     pageType: 'index',
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    swiperList: [
-      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
-    ],
-    movieListHot:[
-      {
-        'id':'1',
-        'name':'海王11',
-        'url':'/pages/movie/movieList/movieList',
-        'pic':'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
-      },
-      {
-        'id': '2',
-        'name': '海王',
-        'url': '/pages/movie/movieList/movieList',
-        'pic': 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
-      },
-      {
-        'id': '3',
-        'name': '海王',
-        'url': '/pages/movie/movieList/movieList',
-        'pic': 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
-      },
-      {
-        'id': '4',
-        'name': '海王',
-        'url': '/pages/movie/movieList/movieList',
-        'pic': 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
-      },
-      {
-        'id': '5',
-        'name': '海王',
-        'url': '/pages/movie/movieList/movieList',
-        'pic': 'https://img3.doubanio.com/view/photo/l/public/p2537122220.webp'
-      },
-    ]
+    bannerList: [],
+    bannerList2: '',
+    movieListHot:[],
+    movieListSoon:[]
   },
   //事件处理函数
   bindViewTap: function() {
@@ -52,6 +19,10 @@ Page({
     })
   },
   onLoad: function () {
+    this.getBannerList()
+    this.getBannerList2()
+    this.getHotMovie()
+    this.getSoonMovie()
     wx.stopPullDownRefresh()
   },
   /**
@@ -62,14 +33,14 @@ Page({
   },
   toMovieDetails: function (e) {
     let movieId = e.currentTarget.dataset.id
-    let url = "/pages/movie/movieDetails/movieDetails?id=" + movieId
+    let url = "/pages/movie/movieDetails/movieDetails?movieId=" + movieId
     wx.navigateTo({
       url: url
     })
   },
   movieToCinema: function (e) {
     let movieId = e.currentTarget.dataset.id
-    let url = "/pages/movie/movieToCinema/movieToCinema?id=" + movieId
+    let url = "/pages/movie/movieToCinema/movieToCinema?movieId=" + movieId
     wx.navigateTo({
       url: url
     })
@@ -78,5 +49,51 @@ Page({
     app.globalData.movieListType = e.currentTarget.dataset.tab; 
     let url = e.currentTarget.dataset.url
     app.toTabBar(url)
+  },
+  getBannerList: function () {
+    let url = '/recommend/bannerListData'
+    let data = {
+      type: 1,
+    }
+    app.request('get', url, data, (res) => {//获取订单ID
+      this.setData({
+        bannerList: res.data.recommendBannerVOList
+      })
+    })
+  },
+  getBannerList2: function () {
+    let url = '/recommend/bannerListData'
+    let data = {
+      type: 3,
+      number: 1
+    }
+    app.request('get', url, data, (res) => {//获取订单ID
+      this.setData({
+        bannerList2: res.data.recommendBannerVOList
+      })
+    })
+  },
+  getHotMovie: function () {
+    let url = '/recommend/movieListData'
+    let data = {
+      type: 2,
+    }
+    app.request('get', url, data, (res) => {//获取订单ID
+      this.setData({
+        movieListHot: res.data.recommendMovieVOList
+      })
+    })
+  },
+  getSoonMovie: function () {
+    let url = '/recommend/movieListData'
+    let data = {
+      type: 4,
+    }
+    app.request('get', url, data, (res) => {//获取订单ID
+      this.setData({
+        movieListSoon: res.data.recommendMovieVOList
+      })
+    })
+
   },
 })

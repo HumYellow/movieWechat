@@ -62,5 +62,10 @@
     "selectedColor": "#63a4fd",
     "position": "bottom"
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息将用于我们定位您的城市"
+    }
+  },
   "sitemapLocation": "sitemap.json"
 }

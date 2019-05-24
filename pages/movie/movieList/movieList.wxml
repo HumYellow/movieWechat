@@ -26,7 +26,7 @@
                     主演：{{item.name}}
                 </view>
                 <view class="movieList-item-desc-data">
-                    今天300家影院放映2000场
+                    上映时间：{{item.releaseDate}}
                 </view>
             </view>
             <view class="movieList-item-desc-box movieList-item-desc-box2">

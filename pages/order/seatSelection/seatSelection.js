@@ -120,7 +120,6 @@ Page({
         seatLabel: seatLabel.substring(0, seatLabel.length - 1),
         quantity:selectSeatList.length
       }
-      console.info(data)
       app.request('post', url, data, (res) => {//获取订单ID
         console.info(res.data.orderId)
         this.toOrder(res.data.orderId)

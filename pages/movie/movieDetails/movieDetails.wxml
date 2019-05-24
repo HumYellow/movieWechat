@@ -2,18 +2,18 @@
 <view class="movieHeadBox">
     <image mode='widthFix' class="movieHead-pic" src="https://img3.doubanio.com/view/photo/l/public/p2552111731.webp" ></image>
     <view class="movieDescBox">
-        <image class="moviePic" mode="widthFix" src="{{movieImg}}"></image>
+        <image class="moviePic" mode="widthFix" src="{{movieDetails.img}}"></image>
         <view class="movieDesc">
             <view class="movieDesc-title">
                 <view class="movieDesc-name">
-                    {{movieName}}
+                    {{movieDetails.name}}
                 </view>
                 <view class="movieDesc-score">
                     8.2<text>分</text>
                 </view>
             </view>
             <view class="movieDesc-type">
-              {{movieType}}
+              {{movieDetails.type}}
             </view>
             <view class="movieDesc-time">
               {{movieDate}} 在中国大陆上映
@@ -21,21 +21,21 @@
         </view>
     </view>
 </view>
-<view class="movieSurveyBox">
+<view class="movieSurveyBox" wx:if="{{movieDetails.summary}}">
     <view class="movieDetail-title">
         电影简介
     </view>
     <view class="movieSurvey-desc">
-        {{movieSummary}}
+        {{movieDetails.summary}}
     </view>
 </view>
-<view class="movieStaffListBox">
+<view class="movieStaffListBox" wx:if="{{movieStaffList.length>0}}">
     <view class="movieDetail-title">
        演职人员
     </view>
     <view class="movieStaffListBox">
         <scroll-view class="movieStaffList" scroll-x>
-            <view class="movieStaffList-item" wx:for="{{movieStaffList}}" wx:key="movieStaffList.id">
+            <view class="movieStaffList-item" wx:for="{{movieStaffList}}" wx:key="item.id">
                 <image class="movieScrollPic" src="{{item.img}}" mode='widthFix' lazy-load="true" style="width:100%;"></image>
                 <view class="movieName">{{item.starName}}</view>
                 <view class="movieTitle" bindtap='toMovieDetails' data-id="movieStaffList.id">{{item.typeTitle}}</view>
@@ -44,7 +44,7 @@
     </view>
 </view>
 
-<view class="videoAndPicBox">
+<view class="videoAndPicBox" wx:if="{{movieVideoList.length>0 || picList.length>0}}">
     <view class="movieDetail-title">
        <view class="movieDetail-titleBox">预告片和剧照</view>
        <view class="videoAndPic-toPic" bindtap="toPic">全部剧照</view>

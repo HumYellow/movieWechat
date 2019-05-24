@@ -6,63 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    movieId:'',
-    movieName:'',
-    movieImg:'',
-    movieType:'',
-    movieSummary:'',
-    movieDate:'',
-    movieVideoList:[
-      {
-        pic: "https://img1.doubanio.com/view/photo/l/public/p2552111746.webp",
-        id:'2'
-      },
-
-    ],
-    movieStaffList:[
-      {
-        id:1,
-        name:'安东尼·罗',
-        title:'导演',
-        img:'https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p51466.webp'
-      },
-      {
-        id: 2,
-        name: '安东尼·罗',
-        title: '导演',
-        img: 'https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p51466.webp'
-      },
-      {
-        id: 3,
-        name: '安东尼·罗',
-        title: '导演',
-        img: 'https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p51466.webp'
-      },
-      {
-        id: 4,
-        name: '安东尼·罗',
-        title: '导演',
-        img: 'https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p51466.webp'
-      },
-      {
-        id: 5,
-        name: '安东尼·罗',
-        title: '导演/制片主任',
-        img: 'https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p51466.webp'
-      },
-      {
-        id: 6,
-        name: '安东尼·罗',
-        title: '导演',
-        img: 'https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p51466.webp'
-      },
-      {
-        id: 7,
-        name: '安东尼·罗',
-        title: '导演',
-        img: 'https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p51466.webp'
-      }
-    ],
+    movieDetails:'',
+    movieVideoList:[],
+    movieStaffList:[],
     picList:[]
 
   },
@@ -167,13 +113,9 @@ Page({
       id: id
     }
     app.request('get', url, data, (res) => {
-        this.setData({
-          movieName: res.data.name,
-          movieImg: res.data.img,
-          movieType: res.data.type,
-          movieSummary: res.data.name,
-          movieDate: res.data.releaseDate,
-        })
+      this.setData({
+        movieDetails: res.data
+      })
     })
   },
   getMoviePhoto:function(movieId){

@@ -1,11 +1,11 @@
 <!--pages/cinema/cinemaList/cinemaList.wxml-->
 <view class="cinemaListSelect">
-  <picker class="cinemaListSelect-item" mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+  <!-- <picker class="cinemaListSelect-item" mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
     <view class="picker">
-       {{region[0]}} <!-- {{region[0]}}，{{region[1]}}，{{region[2]}} -->
+       {{region[0]}}
        <view class="cinemaListSelect-item-tip"></view>
     </view>
-  </picker>
+  </picker> -->
   <picker class="cinemaListSelect-item" bindchange="bindRegionChangeLine" value="{{index}}" range='{{cityList}}' range-key="{{'cityBriefName'}}">
     <view class="picker">
         {{cityList[index].cityBriefName}}

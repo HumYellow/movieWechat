@@ -1,17 +1,18 @@
 //app.js
-const app = getApp()
 const util = require('/utils/util.js')
 const md5 = require('/utils/md5.js')
 const request = require('/utils/request.js')
 App({
   onLaunch: function () {
+    let that = this
     // 展示本地存储能力
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
-  },
+  }, 
   globalData: {
     userInfo: null,
+    locationData:'',
   },
   request: function (method, url, data, callback, errFun) {//整合请求接口
     request.wxRequest(method, url, data, callback, errFun)
@@ -136,6 +137,29 @@ App({
     wx.switchTab({
       url: url
     })
+  },
+  getLocation: function () {//获取用户经纬度
+    wx.getLocation({
+      type: 'wgs84',
+      success(res) {
+        const latitude = res.latitude
+        const longitude = res.longitude
+        const speed = res.speed
+        const accuracy = res.accuracy
+
+        that.globalData.locationData = {
+          latitude,
+          longitude,
+          speed,
+          accuracy
+        }
+        console.info(that.globalData.locationData)
+      },
+      fail(res) {
+        console.info('失败')
+      }
+    })
+
   }
 
 })

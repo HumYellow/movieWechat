@@ -27,7 +27,7 @@
 .midLine{position:absolute;width:2rpx;top:90rpx;border-left:1px dashed #dadada;z-index:0}
 .screenCenter{position:absolute;top:0;text-align:center;font-size:24rpx;line-height:50rpx;background:#e8e8e8;color:#333;border-radius: 0 0 20rpx 20rpx;}
 .seatNumList{position:absolute;top:90rpx;left:0;background:rgba(0,0,0,.3);padding:4rpx 4rpx 4rpx 0;border-radius:15px;color:#fff;width:40rpx;text-align:center;}
-.seatNumList-item{height:40rpx;line-height:40rpx;padding:4rpx 0;font-size:24rpx;}
+.seatNumList-item{height:40rpx;line-height:40rpx;padding:4rpx 0;font-size:28rpx;}
 
 .seatCouponList{padding:20rpx 20rpx 50rpx;}
 .seatCouponList-item{text-align:center;padding:5px 0;display:inline-block;margin:5px 1%;width:23%;

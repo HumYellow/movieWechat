@@ -89,7 +89,7 @@ Page({
     })
   },
   toPay:function(e){
-
+        
   },
   leftTimeFn: function () {
     let nowTime = new Date()
