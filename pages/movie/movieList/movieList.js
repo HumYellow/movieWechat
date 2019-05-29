@@ -7,7 +7,6 @@ Page({
    */
   data: {
     listTabType:'movieIng',
-    pageType: 'movieList',
     lastPage: false,
     number:10,
     movieIng: {
@@ -68,6 +67,20 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    this.setData({
+      lastPage: false,
+      number: 10,
+      movieIng: {
+        pageNo: 1,
+        lastPage: false,
+        movieList: [],
+      },
+      movieSoon: {
+        pageNo: 1,
+        lastPage: false,
+        movieList: [],
+      },
+    })
     this.onLoad()
   },
 

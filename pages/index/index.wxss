@@ -20,17 +20,19 @@
 }
 .indexMovieMod{padding:0 10px 20px;}
 .indexMovieMod .headTitle{font-size:14px;display: flex; justify-content: center;width:100%;align-items: center;padding:10px 0;}
-.headTitleLeft{width:70%;color:#333333;font-weight:600;font-size:16px;}
+.headTitleLeft{width:70%;color:#333333;font-weight:600;font-size:32rpx;}
 .headTitleRight{width:30%;text-align:right;font-size:12px;color:#999}
 
 .indexMovieList{}
 .indexScrollList{width:auto;overflow:hidden;white-space: nowrap;}
-.indexScroll_item{width:27%;display: inline-block;padding-left:10px;font-size:14px;
+.indexScroll_item{width:200rpx;display: inline-block;padding-left:15rpx;font-size:28rpx;
 height: auto;}
 .indexScroll_item:nth-child(1){padding:0;}
-.movieScrollPic{border-radius:2px;width:110px;height:150px;}
-.movieName{margin:5px 0;}
-.movieBuy{border-radius: 15px;background:#63a4fd;color:#fff;width:45px;height:20px;font-size:12px;text-align:center;line-height:20px;}
+.movieScrollPic{height:300rpx;width:100%;object-fit: cover;order-radius:2px;}
+.movieName{margin:5px 0;overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;}
+.movieBuy{border-radius: 15px;background:#63a4fd;color:#fff;width:45px;font-size:24rpx;text-align:center;padding:10rpx;}
 
 .picLink{border-top:5px solid #f2f2f2;border-bottom:5px solid #f2f2f2;height:100px;overflow:hidden;}
 .picLink-pic{width:100%;}

@@ -1,0 +1,24 @@
+<!--pages/cityList/cityList.wxml-->
+<scroll-view class="">
+    <view class="cityListMod">
+        <view class="cityListType">
+            当前城市：
+        </view>
+        <view class="cityListBox">
+            <view class="cityItem">
+                {{cityNow}}
+            </view>
+        </view>
+    </view>
+    <view class="cityListMod">
+        <view class="cityListType">
+            热门城市：
+        </view>
+        <view class="cityListBox">
+          <view class="cityItem" wx:for="{{cityList}}" wx:key="{{index}}">
+              {{item.cityBriefName}}
+          </view>
+        </view>
+    </view>
+
+</scroll-view>

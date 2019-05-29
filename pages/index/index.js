@@ -29,6 +29,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    this.setData({
+      pageType: 'index',
+      hasUserInfo: false,
+      canIUse: wx.canIUse('button.open-type.getUserInfo'),
+      bannerList: [],
+      bannerList2: '',
+      movieListHot: [],
+      movieListSoon: []
+    })
     this.onLoad()
   },
   toMovieDetails: function (e) {

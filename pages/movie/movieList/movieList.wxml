@@ -19,19 +19,19 @@
                 <view class="movieList-item-desc-name">
                     {{item.name}}
                 </view>
-                <view class="movieList-item-desc-perf">
-                    导演：{{item.name}}
+                <view class="movieList-item-desc-perf" wx:if="{{item.director}}">
+                    导演：{{item.director}}
                 </view>
-                <view class="movieList-item-desc-perf">
-                    主演：{{item.name}}
+                <view class="movieList-item-desc-perf" wx:if="{{item.actors}}">
+                    主演：{{item.actors}}
                 </view>
-                <view class="movieList-item-desc-data">
-                    上映时间：{{item.releaseDate}}
+                <view class="movieList-item-desc-data" wx:if="{{item.releaseDate}}">
+                    类型：{{item.type}}
                 </view>
             </view>
             <view class="movieList-item-desc-box movieList-item-desc-box2">
                 <view class="movieList-item-desc-score">
-                    4.8
+                    
                 </view>
                 <view class="movieList-item-desc-toBuy"  catchtap="movieToCinema" data-id="{{item.id}}">
                     购票
@@ -49,19 +49,19 @@
                 <view class="movieList-item-desc-name">
                     {{item.name}}
                 </view>
-                <view class="movieList-item-desc-perf">
-                    导演：{{item.name}}
+                <view class="movieList-item-desc-perf" wx:if="{{item.director}}">
+                    导演：{{item.director}}
                 </view>
-                <view class="movieList-item-desc-perf">
-                    主演：{{item.name}}
+                <view class="movieList-item-desc-perf" wx:if="{{item.actors}}">
+                    主演：{{item.actors}}
                 </view>
-                <view class="movieList-item-desc-data">
-                    今天300家影院放映2000场
+                <view class="movieList-item-desc-data" wx:if="{{item.releaseDate}}">
+                    上映时间：{{item.releaseDate}}
                 </view>
             </view>
             <view class="movieList-item-desc-box movieList-item-desc-box2">
-                <view class="movieList-item-desc-score">
-                    4.8
+               <view class="movieList-item-desc-score">
+                    
                 </view>
                 <view class="movieList-item-desc-toBuy"  catchtap="movieToCinema" data-id="{{item.id}}">
                     预购
@@ -69,7 +69,7 @@
             </view>
         </view>
     </view>
-    <view wx:if="{{movieSoon.lastPage}}" class="noMore">没有更多拉</view>
+    <view wx:if="{{movieSoon.lastPage}}" class="noMore">没有更多啦</view>
   </view>
 </view>
 <!-- <view class="movieList">

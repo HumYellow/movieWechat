@@ -4,7 +4,7 @@
       <swiper-item>
         <view class="swiper-itemBox">
           <view class="swiper-box-item">
-              <image src="{{item.img}}" mode='aspectFill' style='width:100%; overflow:show;' />
+              <image src="{{item.img}}" mode='widthFix' style='width:100%; overflow:show;' />
           </view>
         </view>
       </swiper-item>
@@ -22,14 +22,14 @@
   <view class="indexMovieList">
       <scroll-view class="indexScrollList" scroll-x>
           <view class="indexScroll_item" wx:for="{{movieListHot}}" wx:key="item.movieId" bindtap='toMovieDetails' data-id="{{item.movieId}}">
-              <image class="movieScrollPic" src="{{item.movieImg}}" mode='widthFix' lazy-load="true" style="width:100%;"></image>
+              <image class="movieScrollPic" src="{{item.movieImg}}" lazy-load="true"></image>
               <view class="movieName">{{item.movieName}}</view>
               <view class="movieBuy" catchtap="movieToCinema" data-id="{{item.movieId}}">购票</view>
           </view>
       </scroll-view>
   </view>
 </view>
-<view class="picLink" bindtap='toMovieDetails' data-id="movieListHot.id">
+<view class="picLink" data-id="{{movieListHot.id}}">
   <image wx:for="{{bannerList2}}" wx:key="index" class="picLink-pic" mode='widthFix' src="{{item.img}}"></image>
 </view>
 <view class="indexMovieMod">
@@ -44,7 +44,7 @@
   <view class="indexMovieList">
       <scroll-view class="indexScrollList" scroll-x>
           <view class="indexScroll_item" wx:for="{{movieListSoon}}" wx:key="movieListSoon.movieId" bindtap='toMovieDetails' data-id="{{item.movieId}}">
-              <image class="movieScrollPic" src="{{item.movieImg}}" mode='widthFix' lazy-load="true" style="width:100%;"></image>
+              <image class="movieScrollPic" src="{{item.movieImg}}" lazy-load="true"></image>
               <view class="movieName">{{item.movieName}}</view>
               <navigator class="movieBuy" catchtap="movieToCinema" data-id="{{item.movieId}}">预售</navigator>
           </view>

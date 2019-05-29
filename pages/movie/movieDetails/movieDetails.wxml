@@ -1,6 +1,6 @@
 <!--pages/movie/movieDetails/movieDetails.wxml-->
 <view class="movieHeadBox">
-    <image mode='widthFix' class="movieHead-pic" src="https://img3.doubanio.com/view/photo/l/public/p2552111731.webp" ></image>
+    <image mode='widthFix' class="movieHead-pic" src="{{movieDetails.firstImg}}" ></image>
     <view class="movieDescBox">
         <image class="moviePic" mode="widthFix" src="{{movieDetails.img}}"></image>
         <view class="movieDesc">
@@ -9,14 +9,14 @@
                     {{movieDetails.name}}
                 </view>
                 <view class="movieDesc-score">
-                    8.2<text>分</text>
+                    <!-- 8.2<text>分</text> -->
                 </view>
             </view>
             <view class="movieDesc-type">
               {{movieDetails.type}}
             </view>
             <view class="movieDesc-time">
-              {{movieDate}} 在中国大陆上映
+              {{movieDetails.playDate}}
             </view>
         </view>
     </view>
@@ -33,10 +33,10 @@
     <view class="movieDetail-title">
        演职人员
     </view>
-    <view class="movieStaffListBox">
+    <view class="movieStaffListBox-item">
         <scroll-view class="movieStaffList" scroll-x>
             <view class="movieStaffList-item" wx:for="{{movieStaffList}}" wx:key="item.id">
-                <image class="movieScrollPic" src="{{item.img}}" mode='widthFix' lazy-load="true" style="width:100%;"></image>
+                <image class="movieScrollPic" src="{{item.starImg}}" mode='widthFix' lazy-load="true" style="width:100%;"></image>
                 <view class="movieName">{{item.starName}}</view>
                 <view class="movieTitle" bindtap='toMovieDetails' data-id="movieStaffList.id">{{item.typeTitle}}</view>
             </view>
@@ -55,7 +55,7 @@
             <image class="videoPlayIcon" src="https://img.alicdn.com/tps/i4/TB1GR_FGXXXXXbZXFXXiC47GVXX-44-44.png"></image>
         </view>
         <view class="videoAndPic-item" wx:if="{{picList}}" wx:for="{{picList}}" wx:key="picList.index">
-            <image class="videoAndPic" data-list="{{picList}}" data-src="{{item}}" src="{{item.img}}" mode='aspectFill' lazy-load="true" style="width:100%;" bindtap="imgYu"></image>
+            <image class="videoAndPic" data-src="{{item.img}}" src="{{item.img}}" mode='aspectFill' lazy-load="true" style="width:100%;" bindtap="imgYu"></image>
         </view>
     </scroll-view>
     

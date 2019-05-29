@@ -7,8 +7,8 @@ Page({
    */
   data: {
     movie:null,
-    movieId:3,
-    cinemaId:12,
+    movieId:'',
+    cinemaId:'',
     cinemaDetails: {},
     time: {},//当前日期场次
     timeList:[],//所有场次列表
@@ -20,6 +20,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.info(options)
     let cinemaId = options.cinemaId ? options.cinemaId:''
     let movieId = options.movieId ? options.movieId:''
     this.setData({

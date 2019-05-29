@@ -9,7 +9,8 @@ Page({
     movieDetails:'',
     movieVideoList:[],
     movieStaffList:[],
-    picList:[]
+    picList:[],
+    imgList:[],
 
   },
 
@@ -77,13 +78,13 @@ Page({
 
   },
   imgYu: function (event) {
-      var src = event.currentTarget.dataset.src;//获取data-src
-      var imgList = event.currentTarget.dataset.list;//获取data-list
-      //图片预览
-      wx.previewImage({
-        current: src, // 当前显示图片的http链接
-        urls: imgList // 需要预览的图片http链接列表
-      })
+    var src = event.currentTarget.dataset.src;//获取data-src
+    var imgList = this.data.imgList;//获取data-list
+    //图片预览
+    wx.previewImage({
+      current: src, // 当前显示图片的http链接
+      urls: imgList // 需要预览的图片http链接列表
+    })
   },
   movieToCinema: function (e) {
     let movieId = this.data.movieId
@@ -120,19 +121,25 @@ Page({
   },
   getMoviePhoto:function(movieId){
     let url = "/photo/listData";
+    let imgList = []
     let data = {
-      id: movieId
+      relatedId: movieId
     }
     app.request('get', url, data, (res) => {
+      let picList = res.data.photoVOList
+      for (let i = 0; i < picList.length; i++) {
+        imgList.push(picList[i].img)
+      }
       this.setData({
-        picList: res.data.photoVOList,
+        picList,
+        imgList
       })
     })
   },
   getMovieVideo: function (movieId){
     let url = "/video/listData"
     let data = {
-      id: movieId
+      relatedId: movieId
     }
     app.request('get', url, data, (res) => {
       this.setData({
@@ -144,7 +151,7 @@ Page({
   getMovieStaff: function (movieId) {
     let url = "/cast/listData"
     let data = {
-      id: movieId
+      movieId: movieId
     }
     app.request('get', url, data, (res) => {
       this.setData({

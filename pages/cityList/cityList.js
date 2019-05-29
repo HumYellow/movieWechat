@@ -1,4 +1,4 @@
-// pages/order/orderDetail/orderDetail.js
+// pages/cityList/cityList.js
 const app = getApp()
 Page({
 
@@ -6,20 +6,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orderId:'',
-    orderDetail:{}
+    cityList:[],
+    cityCode:'',
+    cityNow:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.info(options)
-    let orderId = options.orderId
-    this.setData({
-      orderId
-    })
-    this.getOrderDetail()
+    app.getLocation()
+    this.getNowCity()
+    this.getCityList()
   },
 
   /**
@@ -47,8 +45,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    let url = '/pages/order/orderList/orderList'
-    app.toTabBar(url)
 
   },
 
@@ -72,16 +68,27 @@ Page({
   onShareAppMessage: function () {
 
   },
-  getOrderDetail:function(){
-
-    let url = '/home/ticketOrder/detailData'
+  getCityList: function () {
+    let url = '/openCity/listData'
     let data = {
-      orderId: this.data.orderId
+
     }
     app.request('get', url, data, (res) => {
       this.setData({
-        orderDetail: res.data
+        cityList: res.data.openCityList
       })
+      console.info(this.data.cityList)
+
     })
-  }
+  },
+  getNowCity:function(){
+    let cityNow = wx.getStorageSync('cityNow')
+    let cityCode = wx.getStorageSync('cityCode')
+    this.setData({
+      cityNow,
+      cityCode
+    })
+      
+  },
+  
 })

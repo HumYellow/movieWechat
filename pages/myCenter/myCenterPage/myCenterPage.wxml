@@ -18,11 +18,11 @@
 <view class-="memberBox">
     <view class="memberIconBox">
         <image class="memberIcon" mode="widthFix" src="/static/image/myCenter/memberIcon.png"></image>
-        <view class="memberText">黄金会员</view>
+        <view class="memberText">普通会员</view>
     </view>
     <view class="integralBox">
-      <view class="allIntegral">1000积分</view>
-      <view class="upgradeIntegral">再积30000分可升级</view>
+      <view class="allIntegral">0积分</view>
+      <view class="upgradeIntegral">再积100分可升级</view>
     </view>
 </view>
 <view class="myCenterBox">

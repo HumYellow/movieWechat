@@ -6,9 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    discount1: ['优惠活动1-1', '优惠活动1-2', '优惠活动1-3', '优惠活动1-4'],
-    discount2: ['优惠活动2-1', '优惠活动2-2', '优惠活动2-3', '优惠活动2-4'],
-    discount3: ['优惠活动3-1', '惠活动3-2', '惠活动3-3', '惠活动3-4'],
+    discount1: ['敬请期待'],
+    discount2: ['无可用优惠券'],
+    discount3: ['敬请期待'],
+    orderId:'',
     orderDetail:{},
     leftTime:'',
     getTime:'',
@@ -19,6 +20,9 @@ Page({
    */
   onLoad: function (options) {
     let orderId = options.orderId
+    this.setData({
+      orderId
+    })
     this.getOrderDetail(orderId)
   },
 
@@ -89,7 +93,11 @@ Page({
     })
   },
   toPay:function(e){
-        
+    let orderId = this.data.orderId
+    let url = '/pages/order/orderDetail/orderDetail?orderId=' + orderId
+    wx.navigateTo({
+      url
+    })
   },
   leftTimeFn: function () {
     let nowTime = new Date()
@@ -128,7 +136,7 @@ Page({
               }
             }
           })
-          clearTimeout(getTime)
+          clearTimeout(this.data.getTime)
           return
         } else {
           that.countDown(leftTime - 1000)

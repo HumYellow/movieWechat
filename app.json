@@ -17,7 +17,8 @@
     "pages/movie/movieVideo/movieVideo",
     "pages/login/login/login",
     "pages/login/bindPhone/bindPhone",
-    "pages/movie/moviePic/moviePic"
+    "pages/movie/moviePic/moviePic",
+    "pages/cityList/cityList"
   ],
   "window": {
     "backgroundTextStyle": "dark",

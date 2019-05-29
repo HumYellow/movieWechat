@@ -7,37 +7,39 @@ Page({
    */
   data: {
     pageType:'cinemaList',
+    sortType:'',
+    pageNo:1,
+    number:10,
+    cinemaLineId:'',
+    lastPage:false,
     nowCity:'上海',
+    cityCode:'310100',
+    lat:'',
+    lng:'',
     region: ['广东省', '广州市', '海珠区'],
-    index:0,
-    cinemaLine: ['全部院线','院线1', '院线2', '院线3'],
-    cityList: [{
-        id: 0,
-        name: '美国'
-      },
-      {
-        id: 1,
-        name: '中国'
-      },
-      {
-        id: 2,
-        name: '巴西'
-      },
-      {
-        id: 3,
-        name: '日本'
-      }],
-      cinemaList:[]
+    regionNo: 0,
+    sortTypeList: [{
+        value: '综合排序',
+        sortType:'',
+      }, {
+        value: '离我最近',
+        sortType: 'distance',
+      }
+    ],
+    sortTypeNo: 0,
+    cinemaLineList: [],
+    cinemaLineNo:0,
+    cityList: [],
+    cinemaList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let cityCode = options.cityCode
-
-    this.getCityList(cityCode)
-    this.getCinemaList(cityCode)
+    //let cityCode = options.cityCode
+    this.getCinemaLine()
+    this.getCinemaList()
     wx.stopPullDownRefresh()
   },
 
@@ -80,7 +82,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getCinemaList()
   },
 
   /**
@@ -93,9 +95,8 @@ Page({
     console.info('picker发送选择改变，携带值为', e.detail.value)
   },
   bindRegionChangeLine: function (e) {
-    console.info('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      index: e.detail.value,
+      regionNo: e.detail.value,
     })
   },
   toCinemaToMovie: function (e) {
@@ -105,28 +106,120 @@ Page({
       url: url
     })
   },
-  getCinemaList:function(cityCode){
+  getCinemaList:function(type){
+    if (this.data.lastPage)return
     let url = "/cinema/listData"
+    let pageNo = this.data.pageNo
     let data = {
-      cityCode: cityCode ? cityCode:'310100'
+      cityCode: this.data.cityCode,
+      pageNo,
+      sortType: this.data.sortType,
+      lat: this.data.lat,
+      lng: this.data.lng,
+      cinemaLineId: this.data.cinemaLineId
     }
     app.request('get', url, data, (res) => {
+      let cinemaVOList = res.data.cinemaVOList
+      let number = this.data.number
+      let cinemaList = pageNo == 1 ? cinemaVOList : this.data.cinemaList.concat(cinemaVOList)
+      pageNo++
+      this.setData({
+        cinemaList,
+        pageNo
+      })
+      if (cinemaVOList.length < this.data.number) {
         this.setData({
-          cinemaList: res.data.cinemaVOList
+          lastPage: true
         })
+      }
     })
   },
-  getCityList: function (cityCode) {
-    let url = '/openCity/listData'
-    let data = {
-      cityCode: cityCode ? cityCode : '310100'
-    }
-    app.request('get', url, data, (res) => {
-      this.setData({
-        cityList: res.data.openCityList
-      })
+  tabSortType: function (e) {
+    let val = e.detail.value
+    let sortTypeList = this.data.sortTypeList
+    let sortType = sortTypeList[val].sortType
+    console.info(sortType)
+    let that = this
+    wx.getLocation({
+      type: 'wgs84',
+      success(res) {
+        let latitude = res.latitude
+        let longitude = res.longitude
+        let speed = res.speed
+        let accuracy = res.accuracy
+        let url = '/cinema/listData';
+        that.setData({
+          lat: latitude,
+          lng: longitude,
+          sortTypeNo: val,
+          pageNo: 1,
+          sortType,
+          lastPage:false
+        })
+        // wx.openLocation({
+        //   latitude,
+        //   longitude
+        // })
+        that.getCinemaList()
+      },
+      fail(res) {
+        console.info('失败')
+        wx.showModal({
+          title: '提示',
+          content: '如果您不进行授权，无法使用此功能，点击确定去授权',
+          success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+              wx.openSetting({
+                success(res) {
+                  console.log(res.authSetting)
+                  // res.authSetting = {
+                  //   "scope.userInfo": true,
+                  //   "scope.userLocation": true
+                  // }
+                }
+              })
+            }
+          }
+        })
+      }
     })
+  },
+  tabCinemaLine: function (e) {
+    let val = e.detail.value
+    let cinemaLineList = this.data.cinemaLineList
+    let cinemaLineId = cinemaLineList[val].cinemaLineId
+    this.setData({
+      cinemaLineNo:val,
+      cinemaLineId,
+      pageNo: 1,
+      lastPage: false
+    })
+    this.getCinemaList()
 
   },
+  toCityList: function (e) {
+    let url = "/pages/cityList/cityList"
+    wx.navigateTo({
+      url: url
+    })
+  },
+  getCinemaLine: function () {
+    let url = "/cinemaLine/listData"
+    let data = {}
+    app.request('get', url, data, (res) => {
+      let cinemaLineList = [{
+        name: '全部院线',
+        cinemaLineId:''
+      }]
+      cinemaLineList = cinemaLineList.concat(res.data.cinemaLineVOList)
+      this.setData({
+        cinemaLineList
+      })
+    })
+   
+    
+  }
+
 
 })

@@ -9,10 +9,13 @@ App({
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
+    this.getLocation()
   }, 
   globalData: {
     userInfo: null,
-    locationData:'',
+    locationData: '', 
+    cityCode:'',
+    defaultCity:'上海'
   },
   request: function (method, url, data, callback, errFun) {//整合请求接口
     request.wxRequest(method, url, data, callback, errFun)
@@ -135,31 +138,64 @@ App({
   },
   toTabBar: function (url) {
     wx.switchTab({
-      url: url
-    })
-  },
-  getLocation: function () {//获取用户经纬度
-    wx.getLocation({
-      type: 'wgs84',
-      success(res) {
-        const latitude = res.latitude
-        const longitude = res.longitude
-        const speed = res.speed
-        const accuracy = res.accuracy
-
-        that.globalData.locationData = {
-          latitude,
-          longitude,
-          speed,
-          accuracy
-        }
-        console.info(that.globalData.locationData)
-      },
-      fail(res) {
-        console.info('失败')
+      url: url,
+      success: function(){
+        var page = getCurrentPages().pop();
+        if (page == undefined || page == null) return;
+        page.onPullDownRefresh();
       }
     })
+  },
+  getLocation: function () {
+    var page = this
+    wx.getLocation({
+      type: 'wgs84',   //默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标 
+      success: function (res) {
+        // success  
+        var longitude = res.longitude
+        var latitude = res.latitude
+        page.loadCity(longitude, latitude)
+      },
+      fail: function () {//如果不授权，直接设置默认城市
+        page.getCityCode(page.globalData.defaultCity)
+        
+      },
+    })
+  },
+  loadCity: function (longitude, latitude) {
+    var page = this
+    var baiduAK = 'BGBFcP7Cs2Ip0Fy2WSAnAObSOIB3UdCd'
+    let url = 'https://api.map.baidu.com/geocoder/v2/?ak=' + baiduAK + '&location=' + latitude + ',' + longitude + '&output=json'
+    wx.request({
+      url: url ,
+      data: {},
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        // success  
+        console.info(111)
+        var city = res.data.result.addressComponent.city;
+        page.getCityCode(city)
+        //page.setData({ currentCity: city });
+      },
+      fail: function () {//如果用户不
+        //page.setData({ currentCity: "获取定位失败" });
+      },
 
+    })
+  },
+  getCityCode: function (city) {
+    console.info(city)
+    let url = '/openCity/searchCityCodeData'
+    let data = {
+      cityName: city
+    }
+    this.request('post', url, data, (res) => {
+      let cityCode = res.data
+      wx.setStorageSync('cityCode', cityCode)
+      wx.setStorageSync('cityNow', city)
+    })
   }
 
 })

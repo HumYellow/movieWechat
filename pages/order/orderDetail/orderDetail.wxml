@@ -4,19 +4,26 @@
         <view class="orderDetail-movie">
             <view class="orderDetail-movie-desc">
                 <view class="orderDetail-movie-title">
-                    海王
+                    {{orderDetail.movieName}}
                 </view>
                 <view class="orderDetail-movie-time">
-                    2019-8-21  15：30~17：00
+                    {{orderDetail.playDate}}  {{orderDetail.showTime}}~{{orderDetail.endTime}}
                 </view>
                 <view class="orderDetail-movie-time">
-                    大地影院（花草路店）
+                    {{orderDetail.cinemaName}} 
+                    {{orderDetail.roomName}}
+                </view>
+                <view class="orderDetail-movie-time">
+                    {{orderDetail.edition}}
+                    {{orderDetail.language}}
                 </view>
                 <view class="orderDetail-movie-seat">
-                    09排10座  09排11座
+                    <view class="orderDetail-movie-seat-item" wx-for="{{orderDetail.seatList}}" wx:key="index">
+                        {{item}}
+                    </view>
                 </view>
             </view>
-            <image class="orderDetail-movie-pic" mode="widthFix" src="https://img3.doubanio.com/view/photo/l/public/p2537122220.webp"></image>
+            <image class="orderDetail-movie-pic" mode="widthFix" src="{{orderDetail.movieImg}}"></image>
         </view>
         <image class="orderDetailLine" mode='widthFix' src="/static/image/orderDetailLine.png"></image>
         <view class="QRcodeBox">
@@ -26,11 +33,11 @@
         <view class="orderDetail-desc">
             <view class="orderDetail-desc-title">
                   <view class="orderDetail-desc-titleBox1"> 实际金额</view>
-                  <view class="orderDetail-desc-titleBox2">98元</view>
+                  <view class="orderDetail-desc-titleBox2">{{orderDetail.dueFee2Yuan}}元</view>
             </view>
-            <view class="orderDetail-desc-text">订单号:214131241511557374</view>
+            <view class="orderDetail-desc-text">订单号:{{orderDetail.tradeNo}}</view>
             <view class="orderDetail-desc-text">购买时间:2013-1-22  15:30:23</view>
-            <view class="orderDetail-desc-text">手机号:13575569985</view>
+            <view class="orderDetail-desc-text">手机号:{{orderDetail.mobile}}</view>
         </view>
     </view>
 </view>

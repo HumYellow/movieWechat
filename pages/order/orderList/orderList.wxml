@@ -1,11 +1,11 @@
 <!--pages/order/orderList/orderList.wxml-->
 <view class="orderList">
-    <view class="orderList-item" wx:for="{{orderList}}" wx:key="{{orderList.id}}" style="background:url('/static/image/orderListBg.png') no-repeat;background-size:100% 100%;">
+    <view class="orderList-item" wx:for="{{orderList}}" wx:key="{{orderList.id}}" data-id="{{item.orderId}}" bindtap='toOrderDetail'>
       <view class="orderList-item-cinemaName">
           {{item.cinemaName}}
       </view>
       <view class="orderList-item-box">
-          <image class="orderList-item-pic" mode='widthFix' src="{{item.moviePic}}"></image>
+          <image class="orderList-item-pic" mode='widthFix' src="{{item.movieImg}}"></image>
           <view class="orderList-item-descBox">
               <view class="orderList-item-desc">
                   <view class="orderList-item-title">
@@ -13,21 +13,28 @@
                           {{item.movieName}}
                       </view>
                       <view class="orderList-item-num">
-                          {{item.num}}张
+                          {{item.quantity}}张
                       </view>
                   </view>
                   <view class="orderList-item-time">
-                      {{item.time}}
+                      {{item.playDate}}
                   </view>
                   <view class="orderList-item-seat">
-                      {{item.seat}}
+                      <view class="orderList-item-seat-item">
+                        {{item.roomName}}
+                      </view>
+                      <view class="orderList-item-seat-item" wx:for="{{item.seatList}}" wx:key="index">
+                        {{item}}
+                      </view>
+                      
                   </view>
               </view>
               <view class="orderList-item-type">
-                  <view class="orderList-item-toOrderDetail" data-id="{{item.id}}" bindtap='toOrderDetail'>验票</view>
-                  <!-- <image class="orderList-item-isUsed" mode='widthFix' src='/static/image/used.png'></image> -->
+                  <!-- <view class="orderList-item-toOrderDetail">验票</view> -->
+                  <image class="orderList-item-isUsed" mode='widthFix' src='/static/image/order_finish.png'></image>
               </view>
           </view>
       </view>
     </view>
+    <view wx:if="{{lastPage}}" class="lastPage">没有更多啦</view>
 </view>

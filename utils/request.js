@@ -1,3 +1,4 @@
+const app = getApp()
 const util = require('./util.js')
 const md5 = require('./md5.js')
 const request = {//请求封装
@@ -26,6 +27,9 @@ const request = {//请求封装
       sign = sign.slice(1) + this.appleKey
       sign = md5.md5(sign).toUpperCase()
       dataNew.sign = sign
+      console.info(wx.getStorageSync('cityCode'))
+      let cityCode = wx.getStorageSync('cityCode').cityCode ? wx.getStorageSync('cityCode').cityCode:'310100'
+      console.info(cityCode)
       //发起请求
       wx.request({
         url: api,
@@ -34,7 +38,8 @@ const request = {//请求封装
         header: {
           'content-type': method == 'GET' ? 'application/json' : 'application/x-www-form-urlencoded',
           'Accept': 'application/json',
-          'MemberEncode': wx.getStorageSync('MemberEncode')
+          'MemberEncode': wx.getStorageSync('MemberEncode'),
+          'CityCode': cityCode
         },
         dataType: 'json',
         success: function (res) {
@@ -72,12 +77,12 @@ const request = {//请求封装
                 }
               }
             })
-            console.info(res)
           }
-
+          wx.hideLoading()
         },
         fail: function (err) {
           errFun(err);
+          wx.hideLoading()
         }
       })
     },

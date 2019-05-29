@@ -110,6 +110,9 @@ Page({
     let selectSeatList = this.data.selectSeatList
     //buyLimit = [1, 3, 4]
     if (buyLimit.indexOf(selectSeatList.length) > -1) {//检验选票数量是否符合规则
+      wx.showLoading({
+        title: '正在锁座'
+      })
       let url = '/order/createData';
       let seatLabel = '';
       for (let i = 0; i < selectSeatList.length; i++) {
@@ -121,7 +124,6 @@ Page({
         quantity:selectSeatList.length
       }
       app.request('post', url, data, (res) => {//获取订单ID
-        console.info(res.data.orderId)
         this.toOrder(res.data.orderId)
       })
     } else {

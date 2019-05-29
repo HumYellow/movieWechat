@@ -6,9 +6,21 @@
        <view class="cinemaListSelect-item-tip"></view>
     </view>
   </picker> -->
-  <picker class="cinemaListSelect-item" bindchange="bindRegionChangeLine" value="{{index}}" range='{{cityList}}' range-key="{{'cityBriefName'}}">
+  <view class="cinemaListSelect-item" bindtap='toCityList'>
+      {{nowCity}}
+      <view class="cinemaListSelect-item-tip"></view>
+  </view>
+  <picker class="cinemaListSelect-item" bindchange="tabCinemaLine" value="{{index}}" range='{{cinemaLineList}}'
+  range-key="{{'name'}}" data-type="{{cinemaLineList[cinemaLineNo].cinemaLineId}}">
     <view class="picker">
-        {{cityList[index].cityBriefName}}
+        {{cinemaLineList[cinemaLineNo].name}}
+       <view class="cinemaListSelect-item-tip"></view>
+    </view>
+  </picker>
+  
+  <picker class="cinemaListSelect-item" bindchange="tabSortType" value="{{index}}" range='{{sortTypeList}}' range-key="{{'value'}}" data-type="{{sortTypeList[sortTypeNo].sortType}}">
+    <view class="picker">
+        {{sortTypeList[sortTypeNo].value}}
        <view class="cinemaListSelect-item-tip"></view>
     </view>
   </picker>
@@ -21,6 +33,8 @@
                 <view class="cinemaListBox-desc-cinemaName">
                     {{item.name}}
                 </view>
+                
+                <view class="distance" wx:if="{{item.distance2KM}}">距离{{item.distance2KM}}km</view>
                 <!-- <view class="cinemaListBox-desc-price">
                     {{item.price}}元<text style="color:#999">起 </text>
                 </view> -->
@@ -29,15 +43,18 @@
                 {{item.address}}
             </view>
             <view class="cinemaListBox-desc-typeList">
-                <view class="cinemaListBox-desc-type selectType">
+                <!-- <view class="cinemaListBox-desc-type selectType">
                   会员卡
-                </view>
-                <view class="cinemaListBox-desc-type">
-                  IMAX
+                </view> -->
+                <view class="cinemaListBox-desc-type" wx:for="{{item.labelList}}" wx:key="index">
+                  {{item}}
                 </view>
             </view>
         </view>
     </view>
+</view>
+<view wx:if="{{lastPage}}" class="lastPage">
+    没有更多啦
 </view>
 
 
