@@ -8,6 +8,7 @@ Page({
   data: {
     phone:'',
     msgCode:'',
+    toIndex:false,
     getMsgCode_allow:false,
     verifyGeting:false,
     countdownData: {
@@ -22,7 +23,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let page = getCurrentPages()//获取栈
+    if (page.length<=1){//无后退按钮
+        this.setData({
+          toIndex:true
+        })
+    }
   },
 
   /**
@@ -87,9 +93,11 @@ Page({
     let data = {}
     app.request('get', '/login/info', data, (res) => {
       let userName = res.data.userName
-      console.info(res.data)
     }, (err) => {
       console.log(err)
     })
+  },
+  toIndex:function(){
+    app.toTabBar('/pages/index/index')
   }
 })

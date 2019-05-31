@@ -93,9 +93,9 @@ Page({
       url: url
     })
   },
-  toVideo: function (e) {
+  toVideoList: function (e) {
     let movieId = this.data.movieId
-    let url = "/pages/movie/movieVideo/movieVideo?id=" + movieId
+    let url = "/pages/movie/movieVideo/movieVideo?movieId=" + movieId
     wx.navigateTo({
       url: url
     })

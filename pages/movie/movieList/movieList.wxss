@@ -2,8 +2,8 @@
 page{background:#f8f8f8;}
 .movieListTab{text-align:center;background:#fff;position:relative;}
 .movieListTab_item{width:200rpx;text-align:center;display:inline-block;padding-top:20rpx;font-size:32rpx;color:#999}
-.movieListTab_item.select{color:#63a4fd}
-.movieListTab_item.select .selectLine{width:80rpx;height:6rpx;background:#63a4fd;margin:20rpx auto 0;}
+.movieListTab_item.select{color:#2ba245}
+.movieListTab_item.select .selectLine{width:80rpx;height:6rpx;background:#2ba245;margin:20rpx auto 0;}
 .cityInlet{position:absolute;left:20rpx;top:20rpx;}
 
 .movieList{padding:2rpx 20rpx;}
@@ -12,12 +12,12 @@ page{background:#f8f8f8;}
 .movieList-item-desc{width:80%;display:flex;justify-content: center;}
 .movieList-item-desc-box{}
 .movieList-item-desc-box1{width:75%;padding:0 20rpx;line-height:40rpx;}
-.movieList-item-desc-box2{width:25%;}
+.movieList-item-desc-box2{width:25%;text-align:center;}
 .movieList-item-desc-box1 .movieList-item-desc-name{font-size:32rpx;color:#333;font-weight:600;line-height:52rpx;}
 .movieList-item-desc-box1 .movieList-item-desc-perf{color:#666;font-size:24rpx;}
 .movieList-item-desc-box1 .movieList-item-desc-data{color:#999;font-size:24rpx;margin-top:5rpx;}
 .movieList-item-desc-box2 .movieList-item-desc-score{color:#ff4d64; font-size:32rpx;height:50rpx;line-height:50rpx;text-align:center;width:100%;}
-.movieList-item-desc-box2 .movieList-item-desc-toBuy{background:#63a4fd;color:#fff;border-radius:20px;width:80%;height:44rpx;line-height:44rpx;text-align:center;font-size:24rpx;margin:10rpx auto;}
+.movieList-item-desc-toBuy{display:inline-block;background:#fff;color:#2ba245;border:2rpx solid #2ba245;border-radius:20px;padding:6rpx 25rpx;font-size:24rpx;margin:10rpx auto;left: 0;right: 0;}
 
 .noMore{font-size:28rpx;color:#999;width:100%;text-align:center;padding:20rpx 0 40rpx;}
 

@@ -1,11 +1,9 @@
 <!--pages/movie/movieList/movieList.wxml-->
 <view class="movieListTab">
-  <view bindtap='tabMovieList' class="movieListTab_item {{listTabType =='movieIng'?'select':''}}" data-tabType="movieIng">
-    正在热映
+  <view bindtap='tabMovieList' class="movieListTab_item {{listTabType =='movieIng'?'select':''}}" data-tabType="movieIng">正在热映
     <view class="selectLine"></view>
   </view>
-  <view bindtap='tabMovieList' class="movieListTab_item {{listTabType =='movieSoon'?'select':''}}" data-tabType="movieSoon">
-    即将上映
+  <view bindtap='tabMovieList' class="movieListTab_item {{listTabType =='movieSoon'?'select':''}}" data-tabType="movieSoon">即将上映
     <view class="selectLine"></view>
   </view>
   <!-- <view class="cityInlet" bindtap='toCityList'>上海</view> -->
@@ -16,26 +14,16 @@
         <image class="movieList-item-pic" src='{{item.img}}' mode='widthFix'></image>
         <view class="movieList-item-desc">
             <view class="movieList-item-desc-box movieList-item-desc-box1">
-                <view class="movieList-item-desc-name">
-                    {{item.name}}
-                </view>
-                <view class="movieList-item-desc-perf" wx:if="{{item.director}}">
-                    导演：{{item.director}}
-                </view>
-                <view class="movieList-item-desc-perf" wx:if="{{item.actors}}">
-                    主演：{{item.actors}}
-                </view>
-                <view class="movieList-item-desc-data" wx:if="{{item.releaseDate}}">
-                    类型：{{item.type}}
-                </view>
+                <view class="movieList-item-desc-name">{{item.name}}</view>
+                <view class="movieList-item-desc-perf" wx:if="{{item.director}}">导演：{{item.director}}</view>
+                <view class="movieList-item-desc-perf" wx:if="{{item.actors}}">主演：{{item.actors}}</view>
+                <view class="movieList-item-desc-data" wx:if="{{item.releaseDate}}">类型：{{item.type}}</view>
             </view>
             <view class="movieList-item-desc-box movieList-item-desc-box2">
                 <view class="movieList-item-desc-score">
                     
                 </view>
-                <view class="movieList-item-desc-toBuy"  catchtap="movieToCinema" data-id="{{item.id}}">
-                    购票
-                </view>
+                <view class="movieList-item-desc-toBuy"  catchtap="movieToCinema" data-id="{{item.id}}">购票</view>
             </view>
         </view>
     </view>
@@ -46,26 +34,16 @@
         <image class="movieList-item-pic" src='{{item.img}}' mode='widthFix'></image>
         <view class="movieList-item-desc">
             <view class="movieList-item-desc-box movieList-item-desc-box1">
-                <view class="movieList-item-desc-name">
-                    {{item.name}}
-                </view>
-                <view class="movieList-item-desc-perf" wx:if="{{item.director}}">
-                    导演：{{item.director}}
-                </view>
-                <view class="movieList-item-desc-perf" wx:if="{{item.actors}}">
-                    主演：{{item.actors}}
-                </view>
-                <view class="movieList-item-desc-data" wx:if="{{item.releaseDate}}">
-                    上映时间：{{item.releaseDate}}
-                </view>
+                <view class="movieList-item-desc-name">{{item.name}}</view>
+                <view class="movieList-item-desc-perf" wx:if="{{item.director}}">导演：{{item.director}}</view>
+                <view class="movieList-item-desc-perf" wx:if="{{item.actors}}">主演：{{item.actors}}</view>
+                <view class="movieList-item-desc-data" wx:if="{{item.releaseDate}}">上映时间：{{item.releaseDate}}</view>
             </view>
             <view class="movieList-item-desc-box movieList-item-desc-box2">
                <view class="movieList-item-desc-score">
                     
                 </view>
-                <view class="movieList-item-desc-toBuy"  catchtap="movieToCinema" data-id="{{item.id}}">
-                    预购
-                </view>
+                <view class="movieList-item-desc-toBuy"  catchtap="movieToCinema" data-id="{{item.id}}">预购</view>
             </view>
         </view>
     </view>

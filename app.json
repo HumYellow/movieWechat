@@ -22,9 +22,9 @@
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#63a4fd",
+    "navigationBarBackgroundColor": "#eeeeee",
     "navigationBarTitleText": "看电影",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [
@@ -60,7 +60,7 @@
       }
     ],
     "color": "#777777",
-    "selectedColor": "#63a4fd",
+    "selectedColor": "#2ba245",
     "position": "bottom"
   },
   "permission": {

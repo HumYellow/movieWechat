@@ -3,5 +3,6 @@
     "menu": "/component/menu/menu",
     "select-movie": "/component/select-movie/select-movie"
   },
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "看电影"
 }

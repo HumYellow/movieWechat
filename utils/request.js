@@ -27,10 +27,8 @@ const request = {//请求封装
       sign = sign.slice(1) + this.appleKey
       sign = md5.md5(sign).toUpperCase()
       dataNew.sign = sign
-      console.info(wx.getStorageSync('cityCode'))
-      let cityCode = wx.getStorageSync('cityCode').cityCode ? wx.getStorageSync('cityCode').cityCode:'310100'
-      console.info(cityCode)
-      //发起请求
+      let cityCode = wx.getStorageSync('cityCode') ? wx.getStorageSync('cityCode'):'310100'
+     //发起请求
       wx.request({
         url: api,
         method: method,
@@ -45,15 +43,16 @@ const request = {//请求封装
         success: function (res) {
           if (res.data.errcode == '0000') {
             callback(res.data);
-          } else if (res.data.errcode == '5001') {
+          } else if (res.data.errcode == '5001') {//未登录
             wx.redirectTo({
               url: "/pages/login/login/login"
             });
-          } else if (res.data.errcode == '5005') {
+            
+          } else if (res.data.errcode == '5005') {//未绑定手机
             wx.redirectTo({
               url: "/pages/login/bindPhone/bindPhone"
             });
-          } else if (res.data.errcode == '9999') {
+          } else if (res.data.errcode == '9999') {//报错
             let msg = res.data.msg
               wx.showModal({
                 title: '提示',

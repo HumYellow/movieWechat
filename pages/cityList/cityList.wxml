@@ -1,24 +1,13 @@
 <!--pages/cityList/cityList.wxml-->
 <scroll-view class="">
-    <view class="cityListMod">
-        <view class="cityListType">
-            当前城市：
-        </view>
-        <view class="cityListBox">
-            <view class="cityItem">
-                {{cityNow}}
-            </view>
-        </view>
+    <view class="cityListTitle nowCity">
+        <view class="nowCityBox">{{cityNow}}</view>
+        <view class="cityText">定位城市</view>
     </view>
     <view class="cityListMod">
-        <view class="cityListType">
-            热门城市：
-        </view>
+        <view class="cityListTitle cityListType">热门城市：</view>
         <view class="cityListBox">
-          <view class="cityItem" wx:for="{{cityList}}" wx:key="{{index}}">
-              {{item.cityBriefName}}
-          </view>
+          <view class="cityItem" wx:for="{{cityList}}" wx:key="{{index}}" data-name="{{item.cityBriefName}}" data-code="{{item.cityCode}}" bindtap='selectCity'>{{item.cityBriefName}}</view>
         </view>
     </view>
-
 </scroll-view>

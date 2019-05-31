@@ -2,5 +2,6 @@
   "usingComponents": {
     "menu": "../../../component/menu/menu"
   },
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "找影院"
 }

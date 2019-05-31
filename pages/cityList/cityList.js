@@ -15,7 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.getLocation()
+    app.locationCheck()
     this.getNowCity()
     this.getCityList()
   },
@@ -88,7 +88,14 @@ Page({
       cityNow,
       cityCode
     })
-      
   },
-  
+  selectCity:function(e){
+    let cityName = e.currentTarget.dataset.name
+    let cityCode = e.currentTarget.dataset.code
+    console.info(cityName)
+    app.setCityStorage(cityName, cityCode)
+
+    wx.navigateBack()
+  }
+
 })

@@ -1,29 +1,34 @@
 <!--index.wxml-->
-<swiper autoplay='true' interval='5000' duration='300' circular='true' class='swiper-box' indicator-dots='true' indicator-color='#fff' indicator-active-color='#4e9bf7'>
-  <block wx:for="{{bannerList}}" wx:key="index">
-      <swiper-item>
-        <view class="swiper-itemBox">
-          <view class="swiper-box-item">
-              <image src="{{item.img}}" mode='widthFix' style='width:100%; overflow:show;' />
+<view class="swiper-mod">
+  <swiper autoplay='false' interval='5000' duration='300' circular='true' class='swiper-box' previous-margin="80rpx" next-margin="80rpx" bindchange="tabSwiper">
+    <block wx:for="{{bannerList}}" wx:key="index" >
+        <swiper-item class="swiper-item {{swiperSelect==index?'swiper-select':''}}">
+          <view class="swiper-itemBox">
+            <view class="swiper-box-item">
+                <image class="swiper-item-img" src="{{item.img}}" mode='widthFix' />
+            </view>
           </view>
-        </view>
-      </swiper-item>
-  </block>
-</swiper>
+        </swiper-item>
+    </block>
+  </swiper>
+  <view class="indList">
+      <view class="indItem {{swiperSelect == index?'indSelect':''}}" wx:for="{{bannerList}}" wx:key="index"></view>
+  </view>
+</view>
 <view class="indexMovieMod">
   <view class="headTitle">
     <view class="headTitleLeft">
       <text>正在热映</text>
     </view>
-    <view class="headTitleRight" bindtap="toTabBar" data-tab="movieIng" data-url="/pages/movie/movieList/movieList">
-      全部 >
-    </view>
+    <view class="headTitleRight" bindtap="toTabBar" data-tab="movieIng" data-url="/pages/movie/movieList/movieList">查看全部 ></view>
   </view>
   <view class="indexMovieList">
       <scroll-view class="indexScrollList" scroll-x>
           <view class="indexScroll_item" wx:for="{{movieListHot}}" wx:key="item.movieId" bindtap='toMovieDetails' data-id="{{item.movieId}}">
-              <image class="movieScrollPic" src="{{item.movieImg}}" lazy-load="true"></image>
-              <view class="movieName">{{item.movieName}}</view>
+              <view class="indexScroll_itemBox">
+                  <image class="movieScrollPic" src="{{item.movieImg}}" lazy-load="true"></image>
+                  <view class="movieName">{{item.movieName}}</view>
+              </view>
               <view class="movieBuy" catchtap="movieToCinema" data-id="{{item.movieId}}">购票</view>
           </view>
       </scroll-view>
@@ -34,18 +39,16 @@
 </view>
 <view class="indexMovieMod">
   <view class="headTitle">
-    <view class="headTitleLeft">
-      即将上映
-    </view>
-    <view class="headTitleRight" bindtap="toTabBar" data-tab="movieSoon" data-url="/pages/movie/movieList/movieList">
-      全部 >
-    </view>
+    <view class="headTitleLeft">即将上映</view>
+    <view class="headTitleRight" bindtap="toTabBar" data-tab="movieSoon" data-url="/pages/movie/movieList/movieList">查看全部 ></view>
   </view>
   <view class="indexMovieList">
       <scroll-view class="indexScrollList" scroll-x>
           <view class="indexScroll_item" wx:for="{{movieListSoon}}" wx:key="movieListSoon.movieId" bindtap='toMovieDetails' data-id="{{item.movieId}}">
-              <image class="movieScrollPic" src="{{item.movieImg}}" lazy-load="true"></image>
-              <view class="movieName">{{item.movieName}}</view>
+              <view class="indexScroll_itemBox">
+                  <image class="movieScrollPic" src="{{item.movieImg}}" lazy-load="true"></image>
+                  <view class="movieName">{{item.movieName}}</view>
+              </view>
               <navigator class="movieBuy" catchtap="movieToCinema" data-id="{{item.movieId}}">预售</navigator>
           </view>
       </scroll-view>

@@ -13,3 +13,6 @@
 
 .subCode ,.wxLogin{color:#fff;background:#63a4fd;font-size:32rpx; width:90%;border-radius:10rpx;text-align:center;height:80rpx;line-height:80rpx;margin:20rpx 0;}
 .wxLogin{background-color: #1AAD16;color: #FFF;}
+.loginLogo{width:50%;margin:200rpx;}
+
+.toIndex{width:90%;font-size:32rpx;color:#1AAD16;border:1px solid #1AAD16;text-align:center;height:80rpx;line-height:80rpx;margin:20rpx 0;border-radius:10rpx;}

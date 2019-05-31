@@ -35,7 +35,7 @@
     </view>
     <view class="movieStaffListBox-item">
         <scroll-view class="movieStaffList" scroll-x>
-            <view class="movieStaffList-item" wx:for="{{movieStaffList}}" wx:key="item.id">
+            <view class="movieStaffList-item" wx:for="{{movieStaffList}}" wx:key="index">
                 <image class="movieScrollPic" src="{{item.starImg}}" mode='widthFix' lazy-load="true" style="width:100%;"></image>
                 <view class="movieName">{{item.starName}}</view>
                 <view class="movieTitle" bindtap='toMovieDetails' data-id="movieStaffList.id">{{item.typeTitle}}</view>
@@ -50,8 +50,8 @@
        <view class="videoAndPic-toPic" bindtap="toPic">全部剧照</view>
     </view>
     <scroll-view class="videoAndPicList" scroll-x>
-        <view class="videoAndPic-item" wx:for="{{movieVideoList}}" wx:key="movieVideoList.index">
-            <image class="videoAndPic" lazy-load="true" style="width:100%;" bindtap="toVideo" src="{{item.img}}" mode='aspectFill' data-id="{{item.id}}"></image>
+        <view class="videoAndPic-item" wx:if="{{index == 0}}" wx:for="{{movieVideoList}}" wx:key="movieVideoList.index">
+            <image class="videoAndPic" lazy-load="true" style="width:100%;" bindtap="toVideoList" src="{{item.img}}" mode='aspectFill' data-id="{{item.id}}"></image>
             <image class="videoPlayIcon" src="https://img.alicdn.com/tps/i4/TB1GR_FGXXXXXbZXFXXiC47GVXX-44-44.png"></image>
         </view>
         <view class="videoAndPic-item" wx:if="{{picList}}" wx:for="{{picList}}" wx:key="picList.index">

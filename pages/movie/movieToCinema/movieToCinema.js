@@ -7,22 +7,26 @@ Page({
    */
   data: {
     pageNo: 1,
-    nowCity: '上海',
-    cityCode: '310100',
+    number: 10,
+    sortType: '',
+    nowCity: '',
     cinemaLineId:'',
     lat: '',
     lng: '',
-    region: ['广东省', '广州市', '海珠区'],
-    regionNo: 0,
     sortTypeList: [{
-      value: '综合排序'
-    }, {
-      value: '离我最近'
-    }
+        value: '综合排序',
+        sortType: '',
+      }, {
+        value: '离我最近',
+        sortType: 'distance',
+      }
     ],
     sortTypeNo: 0,
-    cinemaLine: ['全部院线', '院线1', '院线2', '院线3'],
+    cinemaLineList: ['全部院线', '院线1', '院线2', '院线3'],
     cinemaLineNo: 0,
+    countyList: [],
+    countyListNo: 0,
+    countyCode: '',
     cityList: [],
     cinemaList: []
   },
@@ -31,15 +35,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let cityCode = options.cityCode
     let movieId = options.movieId
     this.setData({
       movieId,
     })
-    this.getCityList()
-    this.getCinemaLine()
-    this.getCinemaList()
-    wx.stopPullDownRefresh()
   },
 
   /**
@@ -52,7 +51,17 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function (options) {
+    this.setData({
+      pageNo: 1,
+      lastPage: false,
+      cinemaList: '',
+    })
+    this.getCinemaLine()
+    this.getCountyList()
+    this.getCinemaList()
+    this.getCityNow()
+    wx.stopPullDownRefresh()
 
   },
 
@@ -74,29 +83,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.setData({
-      pageNo: 1,
-      nowCity: '上海',
-      cityCode: '310100',
-      cinemaLineId:'',
-      lat: '',
-      lng: '',
-      region: ['广东省', '广州市', '海珠区'],
-      regionNo: 0,
-      sortTypeList: [
-        {
-          value: '综合排序'
-        }, {
-          value: '离我最近'
-        }
-      ],
-      sortTypeNo: 0,
-      cinemaLineList: [],
-      cinemaLineNo: 0,
-      cityList: [],
-      cinemaList: []
-    })
-    this.onLoad()
+    this.onShow()
   },
 
   /**
@@ -130,40 +117,68 @@ Page({
     })
   },
   getCinemaList: function (type) {
+    if (this.data.lastPage) return
     let url = "/cinema/listData"
     let pageNo = this.data.pageNo
     let data = {
-      cityCode: this.data.cityCode,
       movieId: this.data.movieId,
       pageNo,
-      cinemaLineId: this.data.cinemaLineId,
+      sortType: this.data.sortType,
       lat: this.data.lat,
-      lng: this.data.lng
+      lng: this.data.lng,
+      cinemaLineId: this.data.cinemaLineId,
+      countyCode: this.data.countyCode
     }
     app.request('get', url, data, (res) => {
-      console.info(res.data)
+      let cinemaVOList = res.data.cinemaVOList
+      let number = this.data.number
+      let cinemaList = pageNo == 1 ? cinemaVOList : this.data.cinemaList.concat(cinemaVOList)
       pageNo++
       this.setData({
-        cinemaList: res.data.cinemaVOList,
+        cinemaList,
         pageNo
+      })
+      if (cinemaVOList.length < this.data.number) {
+        this.setData({
+          lastPage: true
+        })
+      }
+    })
+  },
+  getCinemaLine: function () {
+    let url = "/cinemaLine/listData"
+    let data = {}
+    app.request('get', url, data, (res) => {
+      let cinemaLineList = [{
+        name: '全部院线',
+        cinemaLineId: ''
+      }]
+      cinemaLineList = cinemaLineList.concat(res.data.cinemaLineVOList)
+      console.info(cinemaLineList)
+      this.setData({
+        cinemaLineList
       })
     })
   },
-  getCityList: function (type) {
-    let url = '/openCity/listData'
-    let data = {
-
-    }
+  getCountyList: function () {
+    let url = "/city/listCountyData"
+    let data = {}
     app.request('get', url, data, (res) => {
+      console.info(res.data.countyVOList)
+      let countyList = [{
+        countyBriefName: '区域',
+        countyCode: ''
+      }]
+      countyList = countyList.concat(res.data.countyVOList)
       this.setData({
-        cityList: res.data.openCityList
+        countyList
       })
-
     })
   },
   tabSortType: function (e) {
     let val = e.detail.value
     let sortTypeList = this.data.sortTypeList
+    let sortType = sortTypeList[val].sortType
     let that = this
     wx.getLocation({
       type: 'wgs84',
@@ -178,6 +193,7 @@ Page({
           lng: longitude,
           sortTypeNo: val,
           pageNo: 1,
+          sortType,
           lastPage: false
         })
         // wx.openLocation({
@@ -208,8 +224,6 @@ Page({
         })
       }
     })
-    console.info('picker发送选择改变，携带值为', e.detail.value)
-
   },
   tabCinemaLine: function (e) {
     let val = e.detail.value
@@ -222,7 +236,18 @@ Page({
       lastPage: false
     })
     this.getCinemaList()
-
+  },
+  tabCounty: function (e) {
+    let val = e.detail.value
+    let countyList = this.data.countyList
+    let countyCode = countyList[val].countyCode
+    this.setData({
+      countyListNo: val,
+      countyCode,
+      pageNo: 1,
+      lastPage: false
+    })
+    this.getCinemaList()
   },
   toCityList: function (e) {
     let url = "/pages/cityList/cityList"
@@ -230,20 +255,10 @@ Page({
       url: url
     })
   },
-  getCinemaLine: function () {
-    let url = "/cinemaLine/listData"
-    let data = {}
-    app.request('get', url, data, (res) => {
-      let cinemaLineList = [{
-        name: '全部院线',
-        cinemaLineId: ''
-      }]
-      cinemaLineList = cinemaLineList.concat(res.data.cinemaLineVOList)
-      console.info(cinemaLineList)
-      this.setData({
-        cinemaLineList
-      })
+  getCityNow: function () {
+    let cityNow = wx.getStorageSync('cityNow')
+    this.setData({
+      cityNow
     })
   }
-
 })

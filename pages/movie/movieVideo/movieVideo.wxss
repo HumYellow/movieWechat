@@ -12,11 +12,11 @@ page{background:#f8f8f8}
 
 .videoListBox{margin-top:10px;background:#fff}
 .videoListHead{border-bottom:1px solid #e0e0e0;font-size:14px;color:#666;padding:15px;}
-.videoList{}
+.videoList-item.select .videoList-item-title{color:#4e9bf7}
 .videoList-item{display:flex;border-top:1px solid #e0e0e0;padding:10px;margin-left:10px;align-items: center;}
 .videoList-item:nth-child(1){border:none;}
-.videoList-item-picBox{width:120px;}
-.videoList-item-pic{width:100%;height:auto;}
+.videoList-item-picBox{width:120px;height:90px;object-fit: cover;overflow:hidden;}
+.videoList-item-pic{width:100%;}
 .videoList-item-desc{width:calc(100% - 160px);padding:10px;}
 .videoList-item-title{color:#333;font-size:16px;display: -webkit-box;
 overflow: hidden;text-overflow: ellipsis;word-wrap: break-word;

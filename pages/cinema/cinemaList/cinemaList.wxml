@@ -1,26 +1,21 @@
 <!--pages/cinema/cinemaList/cinemaList.wxml-->
 <view class="cinemaListSelect">
-  <!-- <picker class="cinemaListSelect-item" mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-    <view class="picker">
-       {{region[0]}}
-       <view class="cinemaListSelect-item-tip"></view>
-    </view>
-  </picker> -->
-  <view class="cinemaListSelect-item" bindtap='toCityList'>
-      {{nowCity}}
+  <view class="cinemaListSelect-item" bindtap='toCityList'>{{cityNow}}
       <view class="cinemaListSelect-item-tip"></view>
   </view>
-  <picker class="cinemaListSelect-item" bindchange="tabCinemaLine" value="{{index}}" range='{{cinemaLineList}}'
-  range-key="{{'name'}}" data-type="{{cinemaLineList[cinemaLineNo].cinemaLineId}}">
-    <view class="picker">
-        {{cinemaLineList[cinemaLineNo].name}}
+   <picker class="cinemaListSelect-item" bindchange="tabCounty" value="{{index}}" range='{{countyList}}' range-key="{{'countyBriefName'}}" data-code="{{countyList[countyListNo].countyCode}}">
+    <view class="picker">{{countyList[countyListNo].countyBriefName}}
        <view class="cinemaListSelect-item-tip"></view>
     </view>
   </picker>
-  
-  <picker class="cinemaListSelect-item" bindchange="tabSortType" value="{{index}}" range='{{sortTypeList}}' range-key="{{'value'}}" data-type="{{sortTypeList[sortTypeNo].sortType}}">
-    <view class="picker">
-        {{sortTypeList[sortTypeNo].value}}
+  <picker class="cinemaListSelect-item" bindchange="tabCinemaLine" value="{{index}}" range='{{cinemaLineList}}'
+  range-key="{{'name'}}" data-type="{{cinemaLineList[cinemaLineNo].cinemaLineId}}">
+    <view class="picker">{{cinemaLineList[cinemaLineNo].name}}
+       <view class="cinemaListSelect-item-tip"></view>
+    </view>
+  </picker>
+   <picker class="cinemaListSelect-item" bindchange="tabSortType" value="{{index}}" range='{{sortTypeList}}' range-key="{{'value'}}" data-type="{{sortTypeList[sortTypeNo].sortType}}">
+    <view class="picker">{{sortTypeList[sortTypeNo].value}}
        <view class="cinemaListSelect-item-tip"></view>
     </view>
   </picker>
@@ -30,25 +25,18 @@
         <image wx:if="{{item.img}}" mode="widthFix" class="cinemaListBox-pic" src="{{item.img}}"></image>
         <view class="cinemaListBox-desc">
             <view class="cinemaListBox-desc-title">
-                <view class="cinemaListBox-desc-cinemaName">
-                    {{item.name}}
-                </view>
-                
+                <view class="cinemaListBox-desc-cinemaName">{{item.name}}</view>
                 <view class="distance" wx:if="{{item.distance2KM}}">距离{{item.distance2KM}}km</view>
                 <!-- <view class="cinemaListBox-desc-price">
                     {{item.price}}元<text style="color:#999">起 </text>
                 </view> -->
             </view>
-            <view class="cinemaListBox-desc-address">
-                {{item.address}}
-            </view>
+            <view class="cinemaListBox-desc-address">{{item.address}}</view>
             <view class="cinemaListBox-desc-typeList">
                 <!-- <view class="cinemaListBox-desc-type selectType">
                   会员卡
                 </view> -->
-                <view class="cinemaListBox-desc-type" wx:for="{{item.labelList}}" wx:key="index">
-                  {{item}}
-                </view>
+                <view class="cinemaListBox-desc-type" wx:for="{{item.labelList}}" wx:key="index">{{item}}</view>
             </view>
         </view>
     </view>

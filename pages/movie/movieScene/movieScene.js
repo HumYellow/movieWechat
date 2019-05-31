@@ -111,13 +111,20 @@ Page({
     })
   },
   toMap:function(){
+    let pointX = this.data.cinemaDetails.pointX
+    let pointY = this.data.cinemaDetails.pointY
+    let cinemaName = this.data.cinemaDetails.name
+    let address = this.data.cinemaDetails.address 
+    console.info(pointX)
     wx.openLocation({
-      latitude: 40.058692,
-      longitude: 116.30799,
-      name: "七十一号豆汤饭",
-      address: '七十一号豆汤饭',
+      latitude: parseFloat(pointX),
+      longitude: parseFloat(pointY),
+      name: cinemaName,
+      address: address,
       scale: 28
     })
+    console.info(this.data.cinemaDetails)
+      
   },
   getCinemaDetails: function (cinemaId) {
     let url = "/cinema/detailData"

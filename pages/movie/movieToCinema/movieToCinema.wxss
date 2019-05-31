@@ -10,9 +10,10 @@ border-left: 8rpx solid transparent; border-right: 8rpx solid transparent;border
 .cinemaListBox-pic{width:15%;max-height:13vw;border:1px solid #e6e6e6;border-radius:3px;margin-top:6rpx;}
 .cinemaListBox-desc{width:85%;padding-left:20rpx;}
 .cinemaListBox-desc-title{display: flex;align-items: center;}
-.cinemaListBox-desc-cinemaName{width:60%;font-size:16px;font-weight:400;}
+.cinemaListBox-desc-cinemaName{font-size:16px;font-weight:400;}
 .cinemaListBox-desc-price{width:40%;color:#ff4d64;text-align:right;font-size:26rpx;}
 .cinemaListBox-desc-address{color:#999; font-size:12px;margin:5px 0;}
 .cinemaListBox-desc-typeList{margin:0;overflow:hidden;display:flex;}
 .cinemaListBox-desc-type{margin:0 14rpx 0 0;border-radius:3px;font-size:10px;padding:4rpx 10rpx;color:#63a4fd;border:2rpx solid #63a4fd;background:#fff;}
 .cinemaListBox-desc-type.selectType{color:#fff;background:#63a4fd}
+.lastPage{text-align:center;color:#666;font-size:24rpx;width:100%;padding:30rpx 0;}

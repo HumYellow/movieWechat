@@ -6,14 +6,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    movieId:'',
+    videoList:[],
+    selectVideoIndex:0,
+    videoPlayItem:{},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let movieId = options.movieId
+    this.setData({
+      movieId
+    })
+    this.getVideoList()
   },
 
   /**
@@ -65,10 +72,35 @@ Page({
 
   },
   toBuy: function (e) {
-    let movieId = e.currentTarget.dataset.id
-    let url = "/pages/movie/movieToCinema/movieToCinema?id=" + movieId
+    let movieId = this.data.movieId
+    let url = "/pages/movie/movieToCinema/movieToCinema?movieId=" + movieId
     wx.redirectTo({
       url: url
     })
+  },
+  getVideoList:function(){
+    let url = "/video/listData"
+    let data = {
+      relatedId:this.data.movieId
+    }
+    app.request('get', url, data, (res) => {
+      let videoList = res.data.videoVOList
+      let selectVideoIndex = this.data.selectVideoIndex
+      this.setData({
+        videoList,
+        videoPlayItem: videoList[selectVideoIndex]
+      })
+    })
+  },
+  videoSelect: function (e) {
+    let videoList = this.data.videoList
+    let selectVideoIndex = this.data.selectVideoIndex
+    let selectIndex = e.currentTarget.dataset.index
+    console.info(selectIndex)
+    console.info(videoList)
+    this.setData({
+      videoPlayItem: videoList[selectIndex]
+    })
+
   }
 })

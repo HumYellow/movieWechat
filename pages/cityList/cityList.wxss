@@ -1,2 +1,10 @@
 /* pages/cityList/cityList.wxss */
-.cityItem{border:1px solid #999;display:inline-block;padding:5px 10px;font-size:28rpx;margin:5px;}
+.cityListMod{}
+.nowCity{display:flex; align-items: center}
+.nowCityBox{color:#333; font-size:28rpx; }
+.cityText{color:#999; font-size:24rpx; margin-left:15rpx;}
+
+.cityListTitle{padding:20rpx 40rpx;font-size:26rpx;}
+.cityListType{background:#e9f6ec;color:#2ba245;}
+.cityListBox{}
+.cityItem{float:left;border-right:1rpx solid #f3f3f3;border-bottom:1rpx solid #f3f3f3;font-size:28rpx;width:33.33vw;box-sizing: border-box;text-align:center;padding:15rpx 0;color:#333;}

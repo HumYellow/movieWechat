@@ -1,7 +1,6 @@
 // pages/cinema/cinemaList/cinemaList.js
 const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -12,12 +11,9 @@ Page({
     number:10,
     cinemaLineId:'',
     lastPage:false,
-    nowCity:'上海',
-    cityCode:'310100',
+    cityNow:'',
     lat:'',
     lng:'',
-    region: ['广东省', '广州市', '海珠区'],
-    regionNo: 0,
     sortTypeList: [{
         value: '综合排序',
         sortType:'',
@@ -28,19 +24,17 @@ Page({
     ],
     sortTypeNo: 0,
     cinemaLineList: [],
-    cinemaLineNo:0,
-    cityList: [],
-    cinemaList:[]
+    countyList: [],
+    countyListNo: 0,
+    countyCode:'',
+    cinemaList: [],
+    cinemaLineNo: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //let cityCode = options.cityCode
-    this.getCinemaLine()
-    this.getCinemaList()
-    wx.stopPullDownRefresh()
   },
 
   /**
@@ -54,7 +48,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      pageNo:1,
+      lastPage:false,
+      cinemaList:'',
+    })
+    this.getCinemaLine()
+    this.getCountyList()
+    this.getCinemaList()
+    this.getCityNow()
+    wx.stopPullDownRefresh()
   },
 
   /**
@@ -75,7 +78,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.onLoad()
+    this.onShow()
   },
 
   /**
@@ -106,17 +109,17 @@ Page({
       url: url
     })
   },
-  getCinemaList:function(type){
+  getCinemaList:function(type){//获取影院列表，设置条件重复调用
     if (this.data.lastPage)return
     let url = "/cinema/listData"
     let pageNo = this.data.pageNo
     let data = {
-      cityCode: this.data.cityCode,
       pageNo,
       sortType: this.data.sortType,
       lat: this.data.lat,
       lng: this.data.lng,
-      cinemaLineId: this.data.cinemaLineId
+      cinemaLineId: this.data.cinemaLineId,
+      countyCode: this.data.countyCode
     }
     app.request('get', url, data, (res) => {
       let cinemaVOList = res.data.cinemaVOList
@@ -134,11 +137,39 @@ Page({
       }
     })
   },
+  getCinemaLine: function () {
+    let url = "/cinemaLine/listData"
+    let data = {}
+    app.request('get', url, data, (res) => {
+      let cinemaLineList = [{
+        name: '院线',
+        cinemaLineId: ''
+      }]
+      cinemaLineList = cinemaLineList.concat(res.data.cinemaLineVOList)
+      this.setData({
+        cinemaLineList
+      })
+    })
+  },
+  getCountyList: function () {
+    let url = "/city/listCountyData"
+    let data = {}
+    app.request('get', url, data, (res) => {
+      console.info(res.data.countyVOList)
+      let countyList = [{
+        countyBriefName: '区域',
+        countyCode: ''
+      }]
+      countyList = countyList.concat(res.data.countyVOList)
+      this.setData({
+        countyList
+      })
+    })
+  },
   tabSortType: function (e) {
     let val = e.detail.value
     let sortTypeList = this.data.sortTypeList
     let sortType = sortTypeList[val].sortType
-    console.info(sortType)
     let that = this
     wx.getLocation({
       type: 'wgs84',
@@ -156,10 +187,6 @@ Page({
           sortType,
           lastPage:false
         })
-        // wx.openLocation({
-        //   latitude,
-        //   longitude
-        // })
         that.getCinemaList()
       },
       fail(res) {
@@ -198,28 +225,30 @@ Page({
     this.getCinemaList()
 
   },
+  tabCounty: function (e) {
+    let val = e.detail.value
+    let countyList = this.data.countyList
+    let countyCode = countyList[val].countyCode
+    this.setData({
+      countyListNo: val,
+      countyCode,
+      pageNo: 1,
+      lastPage: false
+    })
+    this.getCinemaList()
+
+  },
   toCityList: function (e) {
     let url = "/pages/cityList/cityList"
     wx.navigateTo({
       url: url
     })
   },
-  getCinemaLine: function () {
-    let url = "/cinemaLine/listData"
-    let data = {}
-    app.request('get', url, data, (res) => {
-      let cinemaLineList = [{
-        name: '全部院线',
-        cinemaLineId:''
-      }]
-      cinemaLineList = cinemaLineList.concat(res.data.cinemaLineVOList)
-      this.setData({
-        cinemaLineList
-      })
+  getCityNow:function(){
+    let cityNow = wx.getStorageSync('cityNow')
+    this.setData({
+      cityNow
     })
-   
-    
   }
-
 
 })

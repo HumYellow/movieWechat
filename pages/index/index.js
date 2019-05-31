@@ -5,6 +5,7 @@ const app = getApp()
 Page({
   data: {
     pageType: 'index',
+    swiperSelect:0,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     bannerList: [],
@@ -103,6 +104,11 @@ Page({
         movieListSoon: res.data.recommendMovieVOList
       })
     })
-
   },
+  tabSwiper: function (e){
+    let current = e.detail.current
+    this.setData({
+      swiperSelect: current
+    })
+  }
 })

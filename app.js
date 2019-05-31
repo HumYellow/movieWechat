@@ -5,11 +5,8 @@ const request = require('/utils/request.js')
 App({
   onLaunch: function () {
     let that = this
-    // 展示本地存储能力
-    // var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
-    this.getLocation()
+    this.getCityCode(this.globalData.defaultCity)//存默认城市
+    this.locationCheck()
   }, 
   globalData: {
     userInfo: null,
@@ -46,7 +43,7 @@ App({
         if (code) {
             wx.getSetting({//获取用户当前权限设置
               success(res) {
-                if (res.authSetting['scope.userInfo']){
+                if (res.authSetting['scope.userInfo']){//如果用户授予了权限
                   wx.getUserInfo({//调用获取用户信息接口
                     success: (res) => {
                       var data = {
@@ -56,11 +53,14 @@ App({
                       }
                       that.request('POST', '/login/decodeUserInfo', data, (res) => {
                         let code = res.data.MemberEncode
+                        let phone = res.data.phone
                         wx.setStorageSync('MemberEncode', code)
-                        if (fn){
-                          fn()
-                        }else{
+                        if (phone) {
                           wx.navigateBack()
+                        } else {
+                          wx.navigateTo({
+                            url: "/pages/login/bindPhone/bindPhone"
+                          });
                         }
                       }, (err) => {
                         console.log(err)
@@ -70,7 +70,7 @@ App({
                       console.info('获取用户信息失败'+err)
                     }
                   })
-                } else {
+                } else {//如果用户没有授权
                   wx.showModal({
                     title: '提示',
                     content: '请您授权，否则无法完成购票',
@@ -136,7 +136,7 @@ App({
       }
     })
   },
-  toTabBar: function (url) {
+  toTabBar: function (url) {//主页面跳转
     wx.switchTab({
       url: url,
       success: function(){
@@ -146,23 +146,55 @@ App({
       }
     })
   },
-  getLocation: function () {
+  locationCheck: function () {//校验用户定位权限
+    let that = this
+    wx.getSetting({//检查用户授予权限
+      success: function (res) {
+        if (!res.authSetting) {//如果请求过用户权限
+          if (res.authSetting['scope.userLocation']) {//如果有权限直接获取经纬度
+            that.getLocation()
+          } else {//如果没有权限直接让用户设置
+            wx.showModal({
+              title: '提示',
+              content: '请授权位置信息，点击确定去授权',
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                  wx.openSetting({
+                    success(res) {
+                      console.log(res.authSetting)
+                      // res.authSetting = {
+                      //   "scope.userInfo": true,
+                      //   "scope.userLocation": true
+                      // }
+                    }
+                  })
+                }
+              }
+            })
+          }
+        } else {//没请求过则直接请求弹窗权限
+            that.getLocation()
+        }
+      }
+    })
+  },
+  getLocation: function () {//获取用户定位
     var page = this
     wx.getLocation({
-      type: 'wgs84',   //默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标 
+      type: 'gcj02',   //默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标 
       success: function (res) {
         // success  
-        var longitude = res.longitude
         var latitude = res.latitude
+        var longitude = res.longitude
         page.loadCity(longitude, latitude)
       },
       fail: function () {//如果不授权，直接设置默认城市
-        page.getCityCode(page.globalData.defaultCity)
-        
+
       },
     })
   },
-  loadCity: function (longitude, latitude) {
+  loadCity: function (longitude, latitude) {//用经纬度去请求百度地图获取城市名
     var page = this
     var baiduAK = 'BGBFcP7Cs2Ip0Fy2WSAnAObSOIB3UdCd'
     let url = 'https://api.map.baidu.com/geocoder/v2/?ak=' + baiduAK + '&location=' + latitude + ',' + longitude + '&output=json'
@@ -174,28 +206,30 @@ App({
       },
       success: function (res) {
         // success  
-        console.info(111)
         var city = res.data.result.addressComponent.city;
         page.getCityCode(city)
         //page.setData({ currentCity: city });
       },
-      fail: function () {//如果用户不
-        //page.setData({ currentCity: "获取定位失败" });
-      },
+      fail: function () {
 
+      },
     })
   },
-  getCityCode: function (city) {
-    console.info(city)
+  getCityCode: function (city) {//用城市名请求cityCode
+    let that = this
     let url = '/openCity/searchCityCodeData'
     let data = {
       cityName: city
     }
     this.request('post', url, data, (res) => {
-      let cityCode = res.data
-      wx.setStorageSync('cityCode', cityCode)
-      wx.setStorageSync('cityNow', city)
+      let cityCode = res.data.cityCode
+      let cityName = res.data.cityBriefName
+      that.setCityStorage(cityName, cityCode)
     })
+  },
+  setCityStorage: function (cityName, cityCode) {//储存城市和cityCode
+    wx.setStorageSync('cityCode', cityCode)
+    wx.setStorageSync('cityNow', cityName)
   }
 
 })
