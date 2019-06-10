@@ -1,18 +1,24 @@
 /* pages/movie/movieDetails/movieDetails.wxss */
-page{padding-bottom:40px;}
+page{padding-bottom:40px;background:#fff;}
 .movieHeadBox{position:relative;padding-bottom:70px;}
 .movieHead-pic{width:100%;height:180px;overflow:hidden;}
-.movieDescBox{display:flex;padding:0 10px;align-items: flex-end;position:absolute;left:0;bottom:0px;width:100%;box-sizing: border-box;}
-.moviePic{width:80px;height:auto;border-radius:3px;}
+.movieDescBox{display:flex;padding:0 30rpx;align-items: flex-end;position:absolute;left:0;bottom:0px;width:100%;box-sizing: border-box;}
+.moviePic{flex:0 0 160rpx;height:215rpx;border-radius:4px;}
 .movieDesc{font-size:14px;line-height:22px;padding-left:10px;}
-.movieDesc-title{display:flex;font-size:16px;}
+.movieDesc-title{display:flex;font-size:32rpx;}
 .movieDesc-score{color:#ff4d64;margin-left:10px;}
 .movieDesc-score text{font-size:12px;}
 .movieDesc-type ,.movieDesc-time{color:#666;font-size:12px;line-height:22px;}
 
-.movieSurveyBox{margin:0 20px;padding:20px 0;border-bottom:1px solid #e4e4e4}
-.movieDetail-title{font-size:18px;color:#333;display:flex;}
-.movieSurvey-desc{color:#999;font-size:14px;padding-left:20px;margin-top:5px;line-height:20px;}
+.movieUserBox{display:flex; justify-content: center;padding:50rpx 30rpx 0;}
+.movieUserBox-item:nth-child(1){margin-right:4%;}
+.movieUserBox-item{width:48%;border:1px solid #f2f2f2;background:#f2f2f2;font-size:26rpx;padding:20rpx;text-align:center; color:#bcbcbc;border-radius:40rpx;}
+.movieUserBox-item.select{color:#80c78f;border-color:#80c78f;background:#fff;}
+.movieUserBox-item-icon{width:26rpx;height:26rpx;margin-right:10rpx;}
+
+.movieSurveyBox{margin:0 30rpx;padding:40rpx 0;}
+.movieDetail-title{font-size:32rpx;color:#333;display:flex;}
+.movieSurvey-desc{color:#999;font-size:24rpx;margin-top:20rpx;line-height:40rpx;}
 .movieDetail-titleBox{width:70%;}
 .videoAndPic-toPic{width:30%;text-align:right;font-size:12px;color:#999}
 
@@ -34,4 +40,5 @@ page{padding-bottom:40px;}
 .videoAndPic{height:100px;width:auto;}
 .videoPlayIcon{position:absolute;right:10px;bottom:10px;width:25px;height:25px;}
 
-.toBuy{width:100%;font-size:16px;position:fixed;left:0;bottom:0;background:#4e9bf7; color:#fff;text-align:center;height:50px;line-height:50px;}
+.toBuy{width:100%;position:fixed;left:0;bottom:0;background:#fff; color:#fff;text-align:center;border-top:1px solid #e0e0e0;padding:20rpx 0;}
+.toBuyBtn{border-radius:50rpx;width:300rpx;padding:15rpx 0;margin:0 auto;font-size:32rpx;}

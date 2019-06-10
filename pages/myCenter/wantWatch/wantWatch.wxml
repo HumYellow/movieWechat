@@ -1,0 +1,21 @@
+<!--pages/myCenter/wantWacth/wantWatch.wxml-->
+<view class="movieList">
+    <view class="movieList-item" wx:for="{{watchList}}" wx:key="watchList.id" bindtap="toMovieDetails" data-id="{{item.id}}">
+        <image class="movieList-item-pic" src='{{item.img}}' mode='aspectFill'></image>
+        <view class="movieList-item-desc">
+            <view class="movieList-item-desc-box movieList-item-desc-box1">
+                <view class="movieList-item-desc-name">{{item.name}}</view>
+                <view class="movieList-item-desc-perf" wx:if="{{item.director}}">导演：{{item.director}}</view>
+                <view class="movieList-item-desc-perf" wx:if="{{item.actors}}">主演：{{item.actors}}</view>
+                <view class="movieList-item-desc-data" wx:if="{{item.releaseDate}}">类型：{{item.type}}</view>
+            </view>
+            <view class="movieList-item-desc-box movieList-item-desc-box2">
+                <view class="movieList-item-desc-score">
+                    
+                </view>
+                <view class="movieList-item-desc-toBuy btnColor"  catchtap="movieToCinema" data-id="{{item.id}}">购票</view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{movieIng.lastPage}}" class="noMore">没有更多拉</view>
+</view>

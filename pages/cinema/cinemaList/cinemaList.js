@@ -9,7 +9,8 @@ Page({
     sortType:'',
     pageNo:1,
     number:10,
-    cinemaLineId:'',
+    cinemaLineId: '',
+    labelId: '',
     lastPage:false,
     cityNow:'',
     lat:'',
@@ -24,17 +25,23 @@ Page({
     ],
     sortTypeNo: 0,
     cinemaLineList: [],
+    cinemaLineNo: 0,
     countyList: [],
     countyListNo: 0,
     countyCode:'',
     cinemaList: [],
-    cinemaLineNo: 0,
+    labelList: [],
+    labelListNo: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getCinemaLine()
+    this.getCountyList()
+    this.getLabelList()
+    wx.stopPullDownRefresh()
   },
 
   /**
@@ -48,16 +55,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      pageNo:1,
-      lastPage:false,
-      cinemaList:'',
-    })
-    this.getCinemaLine()
-    this.getCountyList()
-    this.getCinemaList()
     this.getCityNow()
-    wx.stopPullDownRefresh()
+    this.sortGetCinemaList('distance')
   },
 
   /**
@@ -78,6 +77,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    this.setData({
+      pageNo: 1,
+      lastPage: false,
+      cinemaList: '',
+    })
+    this.onLoad()
     this.onShow()
   },
 
@@ -119,7 +124,8 @@ Page({
       lat: this.data.lat,
       lng: this.data.lng,
       cinemaLineId: this.data.cinemaLineId,
-      countyCode: this.data.countyCode
+      countyCode: this.data.countyCode,
+      labelId: this.data.labelId
     }
     app.request('get', url, data, (res) => {
       let cinemaVOList = res.data.cinemaVOList
@@ -170,6 +176,12 @@ Page({
     let val = e.detail.value
     let sortTypeList = this.data.sortTypeList
     let sortType = sortTypeList[val].sortType
+    this.sortGetCinemaList(sortType)
+    this.setData({
+      sortTypeNo: val
+    })
+  },
+  sortGetCinemaList: function (sortType) {
     let that = this
     wx.getLocation({
       type: 'wgs84',
@@ -182,10 +194,9 @@ Page({
         that.setData({
           lat: latitude,
           lng: longitude,
-          sortTypeNo: val,
           pageNo: 1,
           sortType,
-          lastPage:false
+          lastPage: false
         })
         that.getCinemaList()
       },
@@ -209,6 +220,7 @@ Page({
             }
           }
         })
+        that.getCinemaList()
       }
     })
   },
@@ -249,6 +261,34 @@ Page({
     this.setData({
       cityNow
     })
-  }
+  },
+  getLabelList:function(){
+    let url = '/cinema/labelListData'
+    app.request('get', url, '', (res) => {
+
+      let labelList = [{
+        name: '特色',
+        labelId: ''
+      }]
+      labelList = labelList.concat(res.data.labelList)
+      this.setData({
+        labelList
+      })
+      console.info(this.data.labelList)
+    })
+  },
+  tabLabel: function (e) {
+    let val = e.detail.value
+    let labelList = this.data.labelList
+    let labelId = labelList[val].id
+    this.setData({
+      labelListNo: val,
+      labelId,
+      pageNo: 1,
+      lastPage: false
+    })
+    this.getCinemaList()
+
+  },
 
 })

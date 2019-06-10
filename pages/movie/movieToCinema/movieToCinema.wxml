@@ -1,25 +1,40 @@
 <!--pages/cinema/cinemaList/cinemaList.wxml-->
-<view class="cinemaListSelect">
-  <view class="cinemaListSelect-item" bindtap='toCityList'>{{cityNow}}
-      <view class="cinemaListSelect-item-tip"></view>
-  </view>
-   <picker class="cinemaListSelect-item" bindchange="tabCounty" value="{{index}}" range='{{countyList}}' range-key="{{'countyBriefName'}}" data-code="{{countyList[countyListNo].countyCode}}">
-    <view class="picker">{{countyList[countyListNo].countyBriefName}}
-       <view class="cinemaListSelect-item-tip"></view>
+<view class="movieDescBoxBg">
+  <view class="movieDescBox">
+      <view class="movieDesc">
+          <image class="moviePic" mode='aspectFill' src="{{movieDetails.img}}"></image>
+          <view class="movieDescItem">
+              <view class="movieName">{{movieDetails.briefName}}</view>
+              <view class="moviePerf" wx:if="{{movieDetails.director}}">导演：{{movieDetails.director}}</view>
+              <view class="moviePerf" wx:if="{{movieDetails.actors}}">主演：{{movieDetails.actors}}</view>
+              <view class="movieType" wx:if="{{movieDetails.releaseDate}}">上映时间：{{movieDetails.releaseDate}}</view>
+              <view class="movieType" wx:if="{{movieDetails.type}}">{{movieDetails.type}}</view>
+          </view>
+          <view class="movieScore"></view>
+      </view>
+      <view class="cinemaListSelect">
+        <view class="cinemaListSelect-item" bindtap='toCityList'>{{cityNow}}
+            <view class="cinemaListSelect-item-tip"></view>
+        </view>
+        <picker class="cinemaListSelect-item" bindchange="tabCounty" value="{{index}}" range='{{countyList}}' range-key="{{'countyBriefName'}}" data-code="{{countyList[countyListNo].countyCode}}">
+          <view class="picker">{{countyList[countyListNo].countyBriefName}}
+            <view class="cinemaListSelect-item-tip"></view>
+          </view>
+        </picker>
+        <picker class="cinemaListSelect-item" bindchange="tabCinemaLine" value="{{index}}" range='{{cinemaLineList}}'
+        range-key="{{'name'}}" data-type="{{cinemaLineList[cinemaLineNo].cinemaLineId}}">
+          <view class="picker">{{cinemaLineList[cinemaLineNo].name}}
+            <view class="cinemaListSelect-item-tip"></view>
+          </view>
+        </picker>
+        <!-- 排序功能不要删
+        <picker class="cinemaListSelect-item" bindchange="tabSortType" value="{{index}}" range='{{sortTypeList}}' range-key="{{'value'}}">
+          <view class="picker">{{sortTypeList[sortTypeNo].value}}
+            <view class="cinemaListSelect-item-tip"></view>
+          </view>
+        </picker> -->
+      </view>
     </view>
-  </picker>
-  <picker class="cinemaListSelect-item" bindchange="tabCinemaLine" value="{{index}}" range='{{cinemaLineList}}'
-  range-key="{{'name'}}" data-type="{{cinemaLineList[cinemaLineNo].cinemaLineId}}">
-    <view class="picker">{{cinemaLineList[cinemaLineNo].name}}
-       <view class="cinemaListSelect-item-tip"></view>
-    </view>
-  </picker>
-  
-  <picker class="cinemaListSelect-item" bindchange="tabSortType" value="{{index}}" range='{{sortTypeList}}' range-key="{{'value'}}">
-    <view class="picker">{{sortTypeList[sortTypeNo].value}}
-       <view class="cinemaListSelect-item-tip"></view>
-    </view>
-  </picker>
 </view>
 <view class="cinemaListBox">
     <view class="cinemaListBox-item" wx:if="{{cinemaList}}" wx:for="{{cinemaList}}" wx:key="cinemaList.cinemaId" bindtap="toCinemaToMovie" data-id="{{item.cinemaId}}">
@@ -40,7 +55,7 @@
             </view>
         </view>
     </view>
-</view>
 <view wx:if="{{lastPage}}" class="lastPage">
     没有更多啦
+</view>
 </view>

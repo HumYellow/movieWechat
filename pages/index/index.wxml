@@ -4,9 +4,7 @@
     <block wx:for="{{bannerList}}" wx:key="index" >
         <swiper-item class="swiper-item {{swiperSelect==index?'swiper-select':''}}">
           <view class="swiper-itemBox">
-            <view class="swiper-box-item">
                 <image class="swiper-item-img" src="{{item.img}}" mode='widthFix' />
-            </view>
           </view>
         </swiper-item>
     </block>
@@ -25,11 +23,11 @@
   <view class="indexMovieList">
       <scroll-view class="indexScrollList" scroll-x>
           <view class="indexScroll_item" wx:for="{{movieListHot}}" wx:key="item.movieId" bindtap='toMovieDetails' data-id="{{item.movieId}}">
-              <view class="indexScroll_itemBox">
+              <view class="indexScroll_itemBox shadowBox">
                   <image class="movieScrollPic" src="{{item.movieImg}}" lazy-load="true"></image>
                   <view class="movieName">{{item.movieName}}</view>
               </view>
-              <view class="movieBuy" catchtap="movieToCinema" data-id="{{item.movieId}}">购票</view>
+              <view class="movieBuy btnColor" catchtap="movieToCinema" data-id="{{item.movieId}}">购票</view>
           </view>
       </scroll-view>
   </view>
@@ -45,11 +43,11 @@
   <view class="indexMovieList">
       <scroll-view class="indexScrollList" scroll-x>
           <view class="indexScroll_item" wx:for="{{movieListSoon}}" wx:key="movieListSoon.movieId" bindtap='toMovieDetails' data-id="{{item.movieId}}">
-              <view class="indexScroll_itemBox">
+              <view class="indexScroll_itemBox shadowBox">
                   <image class="movieScrollPic" src="{{item.movieImg}}" lazy-load="true"></image>
                   <view class="movieName">{{item.movieName}}</view>
               </view>
-              <navigator class="movieBuy" catchtap="movieToCinema" data-id="{{item.movieId}}">预售</navigator>
+              <navigator class="movieBuy btnColor" catchtap="movieToCinema" data-id="{{item.movieId}}">预售</navigator>
           </view>
       </scroll-view>
   </view>

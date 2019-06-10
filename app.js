@@ -2,6 +2,7 @@
 const util = require('/utils/util.js')
 const md5 = require('/utils/md5.js')
 const request = require('/utils/request.js')
+const QRCode = require('/utils/qrcode.js')
 App({
   onLaunch: function () {
     let that = this
@@ -56,7 +57,12 @@ App({
                         let phone = res.data.phone
                         wx.setStorageSync('MemberEncode', code)
                         if (phone) {
-                          wx.navigateBack()
+                          let page = getCurrentPages()//获取栈
+                          if (page.length <= 1) {//无后退按钮
+                            that.toTabBar('/pages/index/index')
+                          }else{
+                            wx.navigateBack()
+                          }
                         } else {
                           wx.navigateTo({
                             url: "/pages/login/bindPhone/bindPhone"
@@ -94,7 +100,7 @@ App({
   },
   checkWxLogin:function(){//检查登陆
     let data = '';
-    this.wxRequest('get', '/login/info', data, (res) => {
+    this.request('get', '/login/info', data, (res) => {
       if (!res.data.nickName) {
         //跳转到登录页
         wx.navigateTo({
@@ -107,7 +113,7 @@ App({
   },
   outWxLogin:function(){//退出登陆
     let data = '';
-    this.wxRequest('get', '/login/info', data, (res) => {
+    this.request('get', '/login/info', data, (res) => {
       if (!res.data.nickName) {
         //跳转到登录页
         wx.navigateTo({
@@ -230,6 +236,17 @@ App({
   setCityStorage: function (cityName, cityCode) {//储存城市和cityCode
     wx.setStorageSync('cityCode', cityCode)
     wx.setStorageSync('cityNow', cityName)
-  }
+  },
+  getQRCode: function (code) {
+    let qrcode = new QRCode('canvas', {
+      text: code,
+      width: 150,
+      height: 150,
+      colorDark: "#6ab778",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H,
+    });
+    //qrcode.makeCode('aabbcc') 手动添加字符串
+  },
 
 })

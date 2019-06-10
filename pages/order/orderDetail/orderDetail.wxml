@@ -1,6 +1,9 @@
 <!--pages/order/orderDetail/orderDetail.wxml-->
 <view class="orderDetail">
     <view class="orderDetail-box">
+        <view class="orderDetail-addr" data-id="{{orderDetail.cinemaId}}" bindtap='toCinemaDetail'>
+            {{orderDetail.cinemaName}} 
+        </view>
         <view class="orderDetail-movie">
             <view class="orderDetail-movie-desc">
                 <view class="orderDetail-movie-title">
@@ -10,34 +13,34 @@
                     {{orderDetail.playDate}}  {{orderDetail.showTime}}~{{orderDetail.endTime}}
                 </view>
                 <view class="orderDetail-movie-time">
-                    {{orderDetail.cinemaName}} 
                     {{orderDetail.roomName}}
-                </view>
-                <view class="orderDetail-movie-time">
                     {{orderDetail.edition}}
                     {{orderDetail.language}}
                 </view>
                 <view class="orderDetail-movie-seat">
-                    <view class="orderDetail-movie-seat-item" wx-for="{{orderDetail.seatList}}" wx:key="index">
-                        {{item}}
+                    <view class="orderDetail-movie-seat-item">
+                        {{orderDetail.seatList}}
                     </view>
                 </view>
             </view>
-            <image class="orderDetail-movie-pic" mode="widthFix" src="{{orderDetail.movieImg}}"></image>
+            <image class="orderDetail-movie-pic" mode="aspectFill" src="{{orderDetail.movieImg}}"></image>
         </view>
         <image class="orderDetailLine" mode='widthFix' src="/static/image/orderDetailLine.png"></image>
         <view class="QRcodeBox">
-            <image class="QRcode" mode='widthFix' src='/static/image/erweima.png'></image>
+            <!-- <image class="QRcode" mode='widthFix' src='/static/image/erweima.png'></image> -->
+            <canvas class='canvas' canvas-id='canvas'></canvas>
+            <view class="couponCode">取票码:{{orderDetail.bookingNumber}}</view>
+            <view class="couponCode c999">验票码:{{orderDetail.bookingCode}}</view>
         </view>
         <image class="orderDetailLine" mode='widthFix' src="/static/image/orderDetailLine.png"></image>
         <view class="orderDetail-desc">
             <view class="orderDetail-desc-title">
                   <view class="orderDetail-desc-titleBox1"> 实际金额</view>
-                  <view class="orderDetail-desc-titleBox2">{{orderDetail.dueFee2Yuan}}元</view>
+                  <view class="orderDetail-desc-titleBox2">￥{{orderDetail.dueFee2Yuan}}</view>
             </view>
-            <view class="orderDetail-desc-text">订单号:{{orderDetail.tradeNo}}</view>
-            <view class="orderDetail-desc-text">购买时间:2013-1-22  15:30:23</view>
-            <view class="orderDetail-desc-text">手机号:{{orderDetail.mobile}}</view>
+            <view class="orderDetail-desc-text">订单号: {{orderDetail.tradeNo}}</view>
+            <view class="orderDetail-desc-text">购买时间: 2013-1-22  15:30:23</view>
+            <view class="orderDetail-desc-text">手机号: {{orderDetail.mobile}}</view>
         </view>
     </view>
 </view>

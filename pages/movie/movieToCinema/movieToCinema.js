@@ -13,6 +13,7 @@ Page({
     cinemaLineId:'',
     lat: '',
     lng: '',
+    movieDetails:{},
     sortTypeList: [{
         value: '综合排序',
         sortType: '',
@@ -37,8 +38,17 @@ Page({
   onLoad: function (options) {
     let movieId = options.movieId
     this.setData({
+      pageNo: 1,
       movieId,
+      lastPage: false,
+      cinemaList: '',
     })
+    this.getMovieDetails()
+    this.getCinemaLine()
+    this.getCountyList()
+    this.getCinemaList()
+    this.getCityNow()
+    wx.stopPullDownRefresh()
   },
 
   /**
@@ -52,16 +62,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function (options) {
-    this.setData({
-      pageNo: 1,
-      lastPage: false,
-      cinemaList: '',
-    })
-    this.getCinemaLine()
-    this.getCountyList()
-    this.getCinemaList()
-    this.getCityNow()
-    wx.stopPullDownRefresh()
 
   },
 
@@ -83,7 +83,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.onShow()
+    this.onLoad()
   },
 
   /**
@@ -114,6 +114,17 @@ Page({
     let url = "/pages/movie/movieScene/movieScene?cinemaId=" + cinemaId + "&movieId=" + movieId
     wx.navigateTo({
       url: url
+    })
+  },
+  getMovieDetails: function () {
+    let id = this.data.movieId, url = "/movie/detailData"
+    let data = {
+      id
+    }
+    app.request('get', url, data, (res) => {
+      this.setData({
+        movieDetails: res.data
+      })
     })
   },
   getCinemaList: function (type) {

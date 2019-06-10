@@ -1,11 +1,4 @@
-/* pages/movie/movieList/movieList.wxss */
-page{background:#f8f8f8;}
-.movieListTab{text-align:center;background:#fff;position:relative;}
-.movieListTab_item{width:200rpx;text-align:center;display:inline-block;padding-top:20rpx;font-size:32rpx;color:#999}
-.movieListTab_item.select{color:#6ab778}
-.movieListTab_item.select .selectLine{width:80rpx;height:6rpx;background:#6ab778;margin:20rpx auto 0;}
-.cityInlet{position:absolute;left:20rpx;top:20rpx;}
-
+/* pages/myCenter/wantWacth/wantWatch.wxss */
 .movieList{padding:2rpx 20rpx;}
 .movieList-item{display: flex;background:#fff;border-radius:5px;padding:10px;margin:10px 0;box-shadow: 2px 2px #f3f3f3}
 .movieList-item-pic{flex:0 0 135rpx;height:190rpx;border-radius:3px;}
@@ -18,6 +11,3 @@ page{background:#f8f8f8;}
 .movieList-item-desc-box1 .movieList-item-desc-data{color:#999;font-size:24rpx;margin-top:5rpx;}
 .movieList-item-desc-box2 .movieList-item-desc-score{color:#ff4d64; font-size:32rpx;height:50rpx;line-height:50rpx;text-align:center;width:100%;}
 .movieList-item-desc-toBuy{display:inline-block;background:#fff;border-radius:20px;padding:6rpx 25rpx;font-size:24rpx;margin:10rpx auto;left: 0;right: 0;}
-
-.noMore{font-size:28rpx;color:#999;width:100%;text-align:center;padding:20rpx 0 40rpx;}
-

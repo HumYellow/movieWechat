@@ -1,0 +1,8 @@
+/* component/scorePopup/scorePopup.wxss */
+.scoreBoxMod{background:#fff;position:absolute;z-index:1;width:90%;margin:-150rpx 5% 0;border-radius:5px;top:50%;padding:20rpx;display:flex;justify-content: center;align-items: center;height:300rpx;box-sizing: border-box;}
+.scoreLine{display:flex; justify-content:center;align-items:center;}
+.scoreLine-item{width:64rpx;margin:0 10rpx;}
+.scoreLine-item image{width:64rpx;height:63rpx;}
+.scoreBox{color:#666;text-align:center;}
+.scoreText{font-size:22rpx;}
+.pushScore{font-size:28rpx;color:#6ab778;border-radius:40rpx;border:1px solid #6ab778; padding:10rpx;width:120rpx;margin:40rpx auto 0;text-align:center;}

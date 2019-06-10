@@ -13,14 +13,14 @@
   border-radius: 50%;
 }
 .swiper-mod{position:relative;}
-.swiper-box{height:360rpx;}
+.swiper-box{height:440rpx;margin-top:10rpx;}
 .swiper-item{overflow: visible !important;}
-.swiper-itemBox{width:100%;height:100%;box-sizing: border-box;transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1)}
-.swiper-box-item{width:100%;height:100%; display:flex;align-items: center; justify-content: center}
-.swiper-item-img{width:100%;}
+.swiper-itemBox{width:100%;height:100%;box-sizing: border-box;transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1); display:flex;align-items: center; justify-content: center}
+.swiper-box-item{width:100%;height:100%;}
+.swiper-item-img{width:100%;border-radius: 8rpx;box-shadow:2px 2px 10px rgba(0, 0,0,.2)}
 .swiper-select{z-index: 1;}
 .swiper-select .swiper-itemBox { transform: scale(1.2);}
-.swiper-select .swiper-itemBox .swiper-item-img{border-radius: 8rpx;box-shadow:2px 2px 20rpx rgba(0, 0,0,.2)}
+.swiper-select .swiper-itemBox .swiper-item-img{}
 .indList{position:absolute;right:40rpx;bottom:30rpx;}
 .indList .indItem{display:inline-block;margin:0;background:rgba(255,255,255,.2);width:30rpx;height:8rpx;}
 .indList .indSelect{background:rgba(255,255,255,.6)}
@@ -30,21 +30,21 @@
 }
 
 .indexMovieMod{padding:0 30rpx 30rpx;}
-.indexMovieMod .headTitle{font-size:26rpx;display: flex; justify-content: center;width:100%;align-items: center;padding:30rpx 0;}
+.indexMovieMod .headTitle{font-size:26rpx;display: flex; justify-content: center;width:100%;align-items: center;padding:20rpx 0;}
 .headTitleLeft{width:70%;color:#333333;font-size:32rpx;}
 .headTitleRight{width:30%;text-align:right;font-size:22rpx;color:#999;}
 
 .indexMovieList{}
-.indexScrollList{width:auto;overflow:hidden;white-space: nowrap;}
-.indexScroll_item{width:200rpx;display: inline-block;padding-left:15rpx;font-size:28rpx;
+.indexScrollList{width:auto;white-space: nowrap;}
+.indexScroll_item{width:200rpx;display: inline-block;padding:8rpx;font-size:28rpx;
 height: auto;text-align:center;}
-.indexScroll_item:nth-child(1){padding:0;}
+.indexScroll_item:nth-child(1){}
 .movieScrollPic{height:300rpx;width:100%;object-fit: cover;border-radius:2px;}
 .movieName{padding:20rpx;overflow: hidden;font-size:26rpx;
 text-overflow:ellipsis;
 white-space: nowrap;}
-.movieBuy{border-radius: 15px;background:#fff;border:1px solid #2ba245;color:#2ba245;width:45px;font-size:24rpx;text-align:center;padding:6rpx 8rpx;margin:0 auto;margin-top:20rpx;}
-.indexScroll_itemBox{border-radius:5rpx;box-shadow: 2px 2px 10px rgba(0,0,0,.1);border:1px solid #e0e0e0}
+.movieBuy{border-radius: 15px;width:45px;font-size:24rpx;text-align:center;padding:6rpx 8rpx;margin:0 auto;margin-top:20rpx;}
+.indexScroll_itemBox{border-radius:5rpx;}
 
-.picLink{height:100px;overflow:hidden;}
+.picLink{margin-bottom:5rpx;}
 .picLink-pic{width:100%;}

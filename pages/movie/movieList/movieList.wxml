@@ -11,7 +11,7 @@
 <view class="movieList">
   <view wx:if="{{listTabType == 'movieIng'}}">
     <view class="movieList-item" wx:for="{{movieIng.movieList}}" wx:key="movieIng.movieList.id" bindtap="toMovieDetails" data-id="{{item.id}}">
-        <image class="movieList-item-pic" src='{{item.img}}' mode='widthFix'></image>
+        <image class="movieList-item-pic" src='{{item.img}}' mode='aspectFill'></image>
         <view class="movieList-item-desc">
             <view class="movieList-item-desc-box movieList-item-desc-box1">
                 <view class="movieList-item-desc-name">{{item.name}}</view>
@@ -23,7 +23,7 @@
                 <view class="movieList-item-desc-score">
                     
                 </view>
-                <view class="movieList-item-desc-toBuy"  catchtap="movieToCinema" data-id="{{item.id}}">购票</view>
+                <view class="movieList-item-desc-toBuy btnColor"  catchtap="movieToCinema" data-id="{{item.id}}">购票</view>
             </view>
         </view>
     </view>
@@ -43,7 +43,7 @@
                <view class="movieList-item-desc-score">
                     
                 </view>
-                <view class="movieList-item-desc-toBuy"  catchtap="movieToCinema" data-id="{{item.id}}">预购</view>
+                <view class="movieList-item-desc-toBuy btnColor"  catchtap="movieToCinema" data-id="{{item.id}}">预购</view>
             </view>
         </view>
     </view>

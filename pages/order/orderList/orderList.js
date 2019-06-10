@@ -16,6 +16,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getOrderList()
+    wx.stopPullDownRefresh()
   },
 
   /**
@@ -28,8 +30,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getOrderList()
-    wx.stopPullDownRefresh()
 
   },
 
@@ -57,7 +57,7 @@ Page({
       lastPage: false,
       orderList: [],
     })
-    this.onShow()
+    this.onLoad()
   },
 
   /**
@@ -85,11 +85,11 @@ Page({
       let orderVOList = res.data.orderVOList
       let orderList = this.data.orderList.concat(orderVOList)
       console.info(orderList)
+      pageNo++
       this.setData({
         orderList,
         pageNo
       })
-      pageNo++
       if (orderVOList.length < this.data.number) {
         this.setData({
           lastPage: true

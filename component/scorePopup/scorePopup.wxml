@@ -1,0 +1,15 @@
+<!--component/scorePopup/scorePopup.wxml-->
+<popup popupShow="{{scorePopupShow}}" bindclosePopup='closePopup'>
+    <view class="scoreBoxMod">
+        <view class="scoreBox">
+            <view class="scoreLine">
+                <view class="scoreLine-item" wx:for="{{scoreList}}" wx:key="index" bindtap='scoreSelect' data-score="{{index}}">
+                    <image mode='widthFix' wx:if="{{index > scoreNo}}" src="https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/score/star.png"></image>
+                    <image mode='widthFix' wx:else src="https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/score/star_on.png"></image>
+                    <view class="scoreText">{{item}}</view>
+                </view>
+            </view>
+            <view bindtap='pushScore' class="pushScore">提交</view>
+        </view>
+    </view>
+</popup>

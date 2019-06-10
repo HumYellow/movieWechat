@@ -1,5 +1,15 @@
 /* pages/cinema/cinemaList/cinemaList.wxss */
-.cinemaListSelect{display:flex;justify-content: center; flex-grow: 2;margin:20rpx 0;}
+.movieDescBoxBg{background:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/movieBg.png') no-repeat;background-position:center center;background-size:100% 100%;padding:40rpx;position:sticky;left:0;top:0;}
+.movieDescBox{border-radius:10rpx;background:#fff;overflow:hidden;}
+.movieDesc{display:flex;padding:40rpx 20rpx;}
+.movieDesc .moviePic{flex:0 0 135rpx;height:190rpx;border-radius:6rpx;}
+.movieDesc .movieDescItem{padding-left:20rpx;}
+.movieDesc .movieDescItem .movieName{color:#333;font-size:32rpx;}
+.movieDesc .movieDescItem .moviePerf{color:#666;font-size:22rpx;}
+.movieDesc .movieDescItem .movieType{color:#999;font-size:22rpx;line-height:38rpx;}
+.movieDesc .movieScore{}
+
+.cinemaListSelect{display:flex;justify-content: center; flex-grow: 2;padding:20rpx 0;background:#fff;}
 .cinemaListSelect-item{text-align:center;width:50%;color:#6e6e6e;border-left:2rpx solid #e2e2e2;font-size:28rpx;}
 .cinemaListSelect-item:nth-child(1){border:none;}
 .cinemaListSelect-item-tip{width: 0;display:inline-block;height: 0;margin-left:4rpx;

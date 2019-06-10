@@ -20,7 +20,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.info(options)
     let cinemaId = options.cinemaId ? options.cinemaId:''
     let movieId = options.movieId ? options.movieId:''
     this.setData({
@@ -123,7 +122,6 @@ Page({
       address: address,
       scale: 28
     })
-    console.info(this.data.cinemaDetails)
       
   },
   getCinemaDetails: function (cinemaId) {

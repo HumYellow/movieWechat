@@ -1,14 +1,21 @@
 <!--pages/movie/movieScene/movieScene.wxml-->
 <view class="cinemaBox" wx:if="{{cinemaDetails}}">
-    <view class="cinemaBoxDesc">
-        <view class="cinemaBoxTitle">{{cinemaDetails.name}}</view>
-        <view class="cinemaBoxAddress">{{cinemaDetails.address}}</view>
+  <view class="cinemaDesc">
+      <image class="cinemaImg shadowBox" mode='widthFix' src='{{cinemaDetails.img}}'></image>
+      <view class="cinemaBoxDesc">
+          <view class="cinemaBoxTitle">{{cinemaDetails.name}}</view>
+          <view class="cinemaBoxAddress">{{cinemaDetails.address}}</view>
+          <view class="cinemaType">
+              <view class="cinemaType-item btnColor" wx:for="{{cinemaDetails.labelList}}" wx:key="index">{{item}}</view>
+          </view>
+      </view>
+      <view class="cinemaBoxMap" bindtap='toMap'>
+          <image src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAiCAMAAAB7o0l7AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABWVBMVEUrokX///8rokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUrokUAAAA/tSoHAAAAcXRSTlMAAChtosDVzbuhaSRCtf2sPBmwDDjp3CY5/vInG/bmC7JaP+PZjGZupffGR3cDuCmcYL550K8X+O0+pPX5EWzh8/QKY+XqhdF6273xdlnXIWF/MA0UqH5cB+7UcJh9j8KnBN/LAhjs2i376xr6JU7vO3fZqEgAAAABYktHRHI2Dg1YAAAACXBIWXMAAAsSAAALEgHS3X78AAAAB3RJTUUH4wYDDwkYCAP94AAAAUFJREFUKM9101dDwjAQB/CLCxCV4UBBRVBcuK0DFVAEFBX33nuvfP8XW5JLOuL/6XK/hza9KwCmqrqmts7l9tR7CQapoZFimnx+CwaC1BJPs8SWVmpLWwixvYM6Eo4w7OyiinRHK+iiyvQYGKP/JK5jrzj1JfoHBofEcZhAUhxGRo23846JxjhMYDnJrkzIFHamQePVDCDOzvFWEOZ5lRJIFnhLg0VWLKUlZjhmYZkVKzmJqxzzUOBVSGIRrwZrvFqXWOKtDcCnbwYQt/AqCShjub3DcFd8BD9Ew2JKe/sHh8kjYSX92x6bp2ie3omOp2fqoZxX5hlXY4StyYXKyrhgRadl5Gpe2u3KvNQ+q11bN/7GbLe23+FOk+a2/yuQvkd7eHQgPD0ze8kRJ8Lrm2HvH0SFkNLt84uoEb5/Cr8mI38ljfLs26CGigAAAABJRU5ErkJggg=='></image>
+      </view>
     </view>
-    <view class="cinemaBoxMap" bindtap='toMap'>
-        <image src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkJEMzcxODhEODJBQTExRTk4MjlFOTVBMzU3NjU2RjkzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkJEMzcxODhFODJBQTExRTk4MjlFOTVBMzU3NjU2RjkzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QkQzNzE4OEI4MkFBMTFFOTgyOUU5NUEzNTc2NTZGOTMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QkQzNzE4OEM4MkFBMTFFOTgyOUU5NUEzNTc2NTZGOTMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5+FVJPAAACx0lEQVR42uyaX2iPURjH3592QZpSrORPiJIrLRpuxqRJiflXVhRXSi6kTKlJipSyi5XcLEltF2QmpYj8q10oSRKbcqGN/C3zf9vP58m5WOvXe8553/O8v1nvU5/Or9953ufZ93fe8z7nnHeFYrEYjQebEI0Ty4XkQnIhuZD/yyrSBmho+zn6q0WwFpbBHJgO4vQJ+qAbbkKvOF/ZM3FsCBlhdXAQ1lv8dsGwaIAWeBAieSFtZWdEZtCchY0JQ1yAfYzMQNmEIGI5zVWoSvmDvpKRRMzLzIUgYgXNQ4kR6Nb8KvMKMS8yE4KImTQ9MCnww6cfFiLmW1aP3y4FEWIy39ozqSOMRiNNtWJJ2ECO2iwev6cc/WTiXjOtFIsa2Gw+2+wkrFSbI/xS9TQ3HFwPw2kYGvX9AmiFeocYi5krz7VurW0OPrvNqA2V6JNqvg7uOMTZpDlHllr6O+G8Q5wd8MviU6MpZLal/4xjnHdwyeIzV1NI3ET9DU89YnVb+qdqChmO6fvjcLuMtB8hn6i+QuKST4ZZHrHmW/oHNIX0W/q3esTabul/oynENgeazDLDZodMTYmzx5pCrlv6p8BtmOdQZ2zWqSmkyyy340y2uk/gKCyBSphmqnkHtDnk6aWqe+0cvZfxLFOaaY557jMqPFfLOxFyUXsZL7fFZw//Sk8Rz3xFJBJCEqkVDYrL+C2Z7EeMmLs0BxRENCbd6iY+oCOhHOWcCChiPzHbk16c6qSRxEdozgUQ0Uys1jQBQhyZ7oXLKa5vQcTxtH9EqLNfWZrcT3BdByKCzLWQh9h1phC62i2zwYrGmpBBWA2vHXwfOe7byyIkMoVSTiA/xvjIwV6tZW9TdiFib83IDJbo+wCr4HvopFovemS5v6bEDlLOqvo0Emq+sboX/XvV8AXem1Hq0UpWyP/zIReSC8mF5EJyISnsrwADAFQwqOGOpvWsAAAAAElFTkSuQmCC'></image>
-        地图
-    </view>
+    <view class="cinemaBoxBg" wx:if="{{cinemaDetails.firstImg}}" style="background-image:url('{{cinemaDetails.firstImg}}')"></view>
 </view>
+<view class=""></view>
 <view wx:if="{{movieSceneList}}">
   <view class="movieList">
     <select-movie movies='{{movieSceneList}}' bindselectMovie='selectMovie' defaultSelectID='{{movieId}}'/>
@@ -21,7 +28,9 @@
   </view>
   <scroll-view scroll-x class="timeList">
       <view bindtap='selectTime' data-index="{{index}}" class="timeList-item {{time.playDate==item.playDate?'select':''}}" wx:for="{{timeList}}" wx:key="index">
-          <text>{{item.weekDay}}</text>{{item.playDate}}
+        <view class="timeList-itemBox">
+            <text>{{item.weekDay}}</text>{{item.playDate}}
+        </view>
       </view>
   </scroll-view>
   <view class="movieSceneList">

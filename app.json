@@ -18,7 +18,8 @@
     "pages/login/login/login",
     "pages/login/bindPhone/bindPhone",
     "pages/movie/moviePic/moviePic",
-    "pages/cityList/cityList"
+    "pages/cityList/cityList",
+    "pages/myCenter/wantWatch/wantWatch"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -60,7 +61,7 @@
       }
     ],
     "color": "#777777",
-    "selectedColor": "#2ba245",
+    "selectedColor": "#6ab778",
     "position": "bottom"
   },
   "permission": {

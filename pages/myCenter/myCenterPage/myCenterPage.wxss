@@ -1,18 +1,17 @@
 /* pages/myCenter/myCenterPage/myCenterPage.wxss */
-.userBox{display: flex;justify-content: flex-start;padding:20px 5% 30px;background:#63a4fd}
+page{background:#fff;}
+.userBox{display: flex;justify-content: flex-start;padding:30rpx 5%;}
 .userBox .userHead{width:50px;height:50px;overflow:hidden;border-radius:50%;}
 .userBox .userHead .userHeadPic{width:100%;height:100%;}
-.userBox .userName{color:#fff;margin-left:15px;height:50px;line-height:50px;font-size:16px;display:inline-block;}
+.userBox .userDetail{color:#333;margin-left:30rpx;font-size:32rpx;display:flex;align-items: center;flex:1;}
+.userName{flex: 1 1 auto;}
+.getOurCode{color:#6ab778;font-size:24rpx;width:260rpx;text-align:right;}
 
-.memberBox{width:90%;position:relative;left:5%;top:-15px;background:#fff;box-shadow: 0 0 10px #e8e8e8;border-radius:4px;padding:15px 10px;display: flex; align-items: center; box-sizing: border-box}
-.memberIconBox{text-align:center;width:100px;border-right:1px solid #eeeeee}
-.memberIcon{width:25px;height:auto;}
-.memberText{font-size:14px;color:#333;}
-.integralBox{display: flex;align-items: center;justify-content: center;width:calc(100% - 30px);text-align:center;}
-.allIntegral{color:#63a4fd;font-size:16px;width:40%;padding-left:20px;}
-.upgradeIntegral{font-size:12px;width:60%;color:#666}
+.userType{display:flex;}
+.userType-item{color:#999;border:1px solid #999;font-size:20rpx;border-radius:10px;padding:2rpx 10rpx;margin:10rpx 10rpx 0 0;}
 
-.myCenterBox{display:flex;width:90%;padding:0 5%;}
+
+.myCenterBox{display:flex;width:90%;padding:60rpx 5%;border-top:20rpx solid #f8f8f8;}
 .myCenterMod{width:25%;text-align:center;}
-.myCenterMod-image{width:35px;height:auto;}
-.myCenterMod-text{font-size:12px;color:#333;}
+.myCenterMod-image{width:56rpx;height:auto;}
+.myCenterMod-text{font-size:24rpx;color:#333;margin-top:20rpx;}

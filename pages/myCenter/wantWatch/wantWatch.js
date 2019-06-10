@@ -1,25 +1,18 @@
-// pages/order/orderDetail/orderDetail.js
-const app = getApp()
+// pages/myCenter/wantWacth/wantWatch.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    orderId:'',
-    orderDetail:{}
+      watchList:[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.info(options)
-    let orderId = options.orderId
-    this.setData({
-      orderId
-    })
-    this.getOrderDetail()
+    this.getWatchList()
   },
 
   /**
@@ -47,8 +40,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    let url = '/pages/order/orderList/orderList'
-    app.toTabBar(url)
 
   },
 
@@ -72,26 +63,10 @@ Page({
   onShareAppMessage: function () {
 
   },
-  getOrderDetail:function(){
+  getWatchList:function(){
 
-    let url = '/home/ticketOrder/detailData'
-    let data = {
-      orderId: this.data.orderId
-    }
     app.request('get', url, data, (res) => {
-      this.setData({
-        orderDetail: res.data
-      })
 
-      app.getQRCode(res.data.qrCodeParams)
     })
-  },
-  toCinemaDetail: function () {
-    let cinemaId = this.data.orderDetail.cinemaId
-    let url = "/pages/movie/movieScene/movieScene?cinemaId=" + cinemaId
-    wx.navigateTo({
-      url,
-    });
-
   }
 })

@@ -6,12 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    movieId:'',
     movieDetails:'',
     movieVideoList:[],
     movieStaffList:[],
     picList:[],
     imgList:[],
-
+    scoreShow:false,
+    scoreNo:0,
   },
 
   /**
@@ -157,6 +159,27 @@ Page({
       this.setData({
         movieStaffList: res.data.castVOList,
       })
+    })
+
+  },
+  scoreSelect:function(){
+    this.setData({
+      scoreShow:true
+    })
+  },
+  closePopup: function () {
+    this.setData({
+      scoreShow: false
+    })
+  },
+  getScore: function () {
+    let type = 2, movieId = this.data.movieId, url = '';
+    let data = {
+      type,
+      relatedId: movieId
+    }
+    app.request('get', url, data, (res) => {
+
     })
 
   }

@@ -1,0 +1,5 @@
+<!--component/popup/popup.wxml-->
+<view class="popupBox" wx:if="{{popupShow}}">
+    <slot></slot>
+    <view class="popupBoxBg" bindtap='closePopup'></view>
+</view> 

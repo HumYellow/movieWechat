@@ -2,7 +2,7 @@
 <view class="movieHeadBox">
     <image mode='widthFix' class="movieHead-pic" src="{{movieDetails.firstImg}}" ></image>
     <view class="movieDescBox">
-        <image class="moviePic" mode="widthFix" src="{{movieDetails.img}}"></image>
+        <image class="moviePic shadowBox" mode="aspectFill" src="{{movieDetails.img}}"></image>
         <view class="movieDesc">
             <view class="movieDesc-title">
                 <view class="movieDesc-name">
@@ -13,11 +13,25 @@
                 </view>
             </view>
             <view class="movieDesc-type">
-              {{movieDetails.type}}
+              {{movieDetails.type}}/{{movieDetails.duration}}分钟
             </view>
             <view class="movieDesc-time">
               {{movieDetails.playDate}}
             </view>
+        </view>
+    </view>
+</view>
+<view class="movieUserBox">
+    <view class="movieUserBox-item select">
+        <view class="wantMovie">
+            <image class="movieUserBox-item-icon"  mode="widthFix" src="https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/movie/want.png"></image>
+            想看
+        </view>
+    </view>
+    <view class="movieUserBox-item" bindtap='scoreSelect'>
+        <view class="scoreMovie">
+            <image class="movieUserBox-item-icon"  mode="widthFix" src="https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/movie/score.png"></image>
+            评分
         </view>
     </view>
 </view>
@@ -60,4 +74,7 @@
     </scroll-view>
     
 </view>
-<view class="toBuy" bindtap='movieToCinema'>立即购票</view>
+<view class="toBuy">
+  <view class="toBuyBtn btnColor" bindtap='movieToCinema'>立即购票</view>
+</view>
+<scorePopup relatedId="{{movieId}}" type="2" scorePopupShow="{{scoreShow}}" bindclosePopup='closePopup'></scorePopup>

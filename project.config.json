@@ -103,7 +103,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 16,
+			"current": 23,
 			"list": [
 				{
 					"id": -1,
@@ -190,10 +190,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 12,
 					"name": "电影选影院",
 					"pathName": "pages/movie/movieToCinema/movieToCinema",
-					"query": "movieId=1",
+					"query": "movieId=8",
 					"scene": null
 				},
 				{
@@ -221,6 +221,55 @@
 					"id": -1,
 					"name": "城市列表",
 					"pathName": "pages/cityList/cityList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "影院列表",
+					"pathName": "pages/cinema/cinemaList/cinemaList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单列表（电影票）",
+					"pathName": "pages/order/orderList/orderList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 19,
+					"name": "场次列表",
+					"pathName": "pages/movie/movieScene/movieScene",
+					"query": "cinemaId=4",
+					"scene": null
+				},
+				{
+					"id": 20,
+					"name": "影片详情",
+					"pathName": "pages/movie/movieDetails/movieDetails",
+					"query": "movieId=6",
+					"scene": null
+				},
+				{
+					"id": 21,
+					"name": "订单详情",
+					"pathName": "pages/order/orderDetail/orderDetail",
+					"query": "orderId=142",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/myCenter/myCenterPage/myCenterPage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "想看列表",
+					"pathName": "pages/myCenter/wantWatch/wantWatch",
 					"scene": null
 				}
 			]

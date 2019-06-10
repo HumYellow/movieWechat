@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-      userName:'',
+    userName:'',
     userHeadPic:'',
 
   },
@@ -67,6 +67,13 @@ Page({
   toTabBar: function (e) {
     let url = e.currentTarget.dataset.url
     app.toTabBar(url)
+  },
+  toLink: function (e) {
+    let url = e.currentTarget.dataset.url
+    wx.navigateTo({
+      url: url
+    });
+
   },
   getUserInfo:function(){
     let data = '';

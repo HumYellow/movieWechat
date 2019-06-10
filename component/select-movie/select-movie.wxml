@@ -1,12 +1,14 @@
 <view class='swiper-container'>
-  <view class='post-bg' style='background-image:url({{movie.img}})'></view>
+  <!-- <view class='post-bg' style='background-image:url({{movie.img}})'></view>
   <view class='post-an-mask' animation="{{movieMask}}" style="background-image:url('{{movieMaskImg}}');"></view>
-  <view class='post-bg-mask'></view>
-  <scroll-view id="swiper-wrapper" class='swiper-wrapper scroll-view_H' scroll-x scroll-with-animation scroll-left='{{scrollLeft}}' bindscroll="handleScroll" bindtouchend='handleTouchend'>
-    <view class='movie-item' wx:for='{{movies}}' wx:key='{{item.movieId}}' data-movie='{{item}}' bindtap='selectMovieClick' id='item{{index}}'>
-      <view class='post {{movie.movieId===item.movieId?"select":""}}'>
+  <view class='post-bg-mask'></view> -->
+  <!-- <scroll-view id="swiper-wrapper" class='swiper-wrapper scroll-view_H' scroll-x scroll-with-animation scroll-left='{{scrollLeft}}' bindscroll="handleScroll" bindtouchend='handleTouchend' bindscrolltoupper="scrollToLeft" bindscrolltolower="scrollToRight" bindtouchstart="touchFn"> -->
+  <scroll-view id="swiper-wrapper" class='swiper-wrapper scroll-view_H' scroll-x scroll-with-animation scroll-left='{{scrollLeft}}'>
+    <view class='movie-item {{movie.movieId===item.movieId?"select":""}}' wx:for='{{movies}}' wx:key='{{item.movieId}}' data-movie='{{item}}' bindtap='selectMovieClick' id='item{{index}}'>
+      <view class='post'>
         <image src='{{item.img}}'></image>
       </view>
     </view>
   </scroll-view>
+  
 </view>
