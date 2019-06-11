@@ -1,21 +1,18 @@
-// pages/myCenter/wantWacth/wantWatch.js
-const app = getApp()
+// pages/myCenter/couponList/couponList.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      watchList:[],
-      pageNo:1,
-      number:10,
+      canUse:true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getWatchList()
+
   },
 
   /**
@@ -66,25 +63,15 @@ Page({
   onShareAppMessage: function () {
 
   },
-  getWatchList:function(){
-    let url ="/home/collect/listData";
-    let data={
-        type:2,
-        pageNo: this.data.pageNo,
-        number: this.data.number
-    }
-    app.request('get', url, data, (res) => {
-      this.setData({
-        watchList: res.data.movieList
-      })
-      console.info(this.data.watchList)
+  tabList:function(e){
+    let type = e.currentTarget.dataset.type
+    this.setData({
+      canUse: type == 'can' ?true:false
     })
+    
   },
-  toMovieDetails: function (e) {
-    let movieId = e.currentTarget.dataset.id
-    let url = "/pages/movie/movieDetails/movieDetails?movieId=" + movieId
-    wx.navigateTo({
-      url: url
-    })
-  },
+  getcanList:function(){
+    
+  }
+
 })

@@ -5,15 +5,15 @@ page{background:#f8f8f8}
 
 .movieDescBox{display: flex;align-items: center;padding:15px;background:#fff}
 .movieDesc{width:75%}
-.movieName{font-size:16px;color:#333}
-.movieTime{font-size:12px;color:#999;line-height:20px;}
+.movieName{font-size:32rpx;color:#333}
+.movieTime{font-size:22rpx;color:#999;line-height:20px;}
 .movieToBuy{width:25%;}
-.movieToBuyBtn{background:#4e9bf7;font-size:12px;color:#fff;text-align:center;width:80px;height:25px;line-height:25px;border-radius:4px;}
+.movieToBuyBtn{background:#fff;border:1px solid #6ab778;font-size:24rpx;text-align:center;width:80px;padding:10rpx 0;color:#6ab778;border-radius:20px;}
 
 .videoListBox{margin-top:10px;background:#fff}
-.videoListHead{border-bottom:1px solid #e0e0e0;font-size:14px;color:#666;padding:15px;}
-.videoList-item.select .videoList-item-title{color:#4e9bf7}
-.videoList-item{display:flex;border-top:1px solid #e0e0e0;padding:10px;margin-left:10px;align-items: center;}
+.videoListHead{border-bottom:1px solid #f8f8f8;font-size:28rpx;color:#666;padding:15px;}
+.videoList-item.select .videoList-item-title{color:#6ab778}
+.videoList-item{display:flex;border-top:1px solid #f8f8f8;padding:10px;margin-left:10px;align-items: center;}
 .videoList-item:nth-child(1){border:none;}
 .videoList-item-picBox{width:120px;height:90px;object-fit: cover;overflow:hidden;}
 .videoList-item-pic{width:100%;}

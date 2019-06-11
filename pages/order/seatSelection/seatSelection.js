@@ -21,6 +21,7 @@ Page({
     this.getScene(mpiId)
   },
   onShow:function(){
+    
   },
   onReady:function(){
     

@@ -33,7 +33,7 @@
   </view>
 </view>
 <view class="picLink" data-id="{{movieListHot.id}}">
-  <image wx:for="{{bannerList2}}" wx:key="index" class="picLink-pic" mode='widthFix' src="{{item.img}}"></image>
+  <image wx:for="{{bannerList2}}" wx:key="index" class="picLink-pic" mode='aspectFill' src="{{item.img}}"></image>
 </view>
 <view class="indexMovieMod">
   <view class="headTitle">

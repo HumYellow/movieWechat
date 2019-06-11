@@ -3,10 +3,11 @@ page{padding-bottom:40px;background:#fff;}
 .movieHeadBox{position:relative;padding-bottom:70px;}
 .movieHead-pic{width:100%;height:180px;overflow:hidden;}
 .movieDescBox{display:flex;padding:0 30rpx;align-items: flex-end;position:absolute;left:0;bottom:0px;width:100%;box-sizing: border-box;}
-.moviePic{flex:0 0 160rpx;height:215rpx;border-radius:4px;}
-.movieDesc{font-size:14px;line-height:22px;padding-left:10px;}
+.moviePic{flex:0 0 160rpx;height:215rpx;border-radius:3px;}
+.movieDesc{font-size:14px;line-height:22px;padding-left:10px;flex:1;}
 .movieDesc-title{display:flex;font-size:32rpx;}
-.movieDesc-score{color:#ff4d64;margin-left:10px;}
+.movieDesc-name{flex:1;}
+.movieDesc-score{color:#6ab778;margin-left:10px;}
 .movieDesc-score text{font-size:12px;}
 .movieDesc-type ,.movieDesc-time{color:#666;font-size:12px;line-height:22px;}
 
@@ -16,7 +17,7 @@ page{padding-bottom:40px;background:#fff;}
 .movieUserBox-item.select{color:#80c78f;border-color:#80c78f;background:#fff;}
 .movieUserBox-item-icon{width:26rpx;height:26rpx;margin-right:10rpx;}
 
-.movieSurveyBox{margin:0 30rpx;padding:40rpx 0;}
+.movieSurveyBox{margin:0 30rpx;padding:40rpx 0 0;}
 .movieDetail-title{font-size:32rpx;color:#333;display:flex;}
 .movieSurvey-desc{color:#999;font-size:24rpx;margin-top:20rpx;line-height:40rpx;}
 .movieDetail-titleBox{width:70%;}

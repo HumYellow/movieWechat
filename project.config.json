@@ -103,7 +103,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 23,
+			"current": 25,
 			"list": [
 				{
 					"id": -1,
@@ -270,6 +270,21 @@
 					"id": -1,
 					"name": "想看列表",
 					"pathName": "pages/myCenter/wantWatch/wantWatch",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "优惠券列表",
+					"pathName": "pages/myCenter/couponList/couponList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选座",
+					"pathName": "pages/order/seatSelection/seatSelection",
+					"query": "mpiId=1569",
 					"scene": null
 				}
 			]

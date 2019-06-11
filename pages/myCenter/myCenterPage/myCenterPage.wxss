@@ -1,6 +1,6 @@
 /* pages/myCenter/myCenterPage/myCenterPage.wxss */
 page{background:#fff;}
-.userBox{display: flex;justify-content: flex-start;padding:30rpx 5%;}
+.userBox{display: flex;justify-content: flex-start;padding:60rpx 45rpx;}
 .userBox .userHead{width:50px;height:50px;overflow:hidden;border-radius:50%;}
 .userBox .userHead .userHeadPic{width:100%;height:100%;}
 .userBox .userDetail{color:#333;margin-left:30rpx;font-size:32rpx;display:flex;align-items: center;flex:1;}
@@ -11,7 +11,7 @@ page{background:#fff;}
 .userType-item{color:#999;border:1px solid #999;font-size:20rpx;border-radius:10px;padding:2rpx 10rpx;margin:10rpx 10rpx 0 0;}
 
 
-.myCenterBox{display:flex;width:90%;padding:60rpx 5%;border-top:20rpx solid #f8f8f8;}
+.myCenterBox{display:flex;padding:60rpx 0;border-top:20rpx solid #f8f8f8;}
 .myCenterMod{width:25%;text-align:center;}
 .myCenterMod-image{width:56rpx;height:auto;}
 .myCenterMod-text{font-size:24rpx;color:#333;margin-top:20rpx;}

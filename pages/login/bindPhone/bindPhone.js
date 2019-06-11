@@ -107,7 +107,6 @@ Page({
         phone: this.data.phone
       };
       app.request('post', url , data, (res) => {
-        console.info(res)
         wx.showToast({
           title: '短信已发送',
           icon: 'succes',

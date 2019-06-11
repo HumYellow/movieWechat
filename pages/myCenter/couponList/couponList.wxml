@@ -1,0 +1,53 @@
+<!--pages/myCenter/couponList/couponList.wxml-->
+<view class="couponListBox">
+    <view class="bindCoupon">
+        <input class="bindCouponInput" placeholder='请输入优惠券码' />
+        <view class="bindCouponBtn">验证绑定</view>
+    </view>
+    <view class="couponListTab">
+        <view class="couponListTab-itemBox {{canUse?'select':''}}" bindtap='tabList' data-type='can'>
+            <view class="couponListTab-item">
+                可用
+            </view>
+        </view>
+        <view class="couponListTab-itemBox {{!canUse?'select':''}}" bindtap='tabList' data-type='cant'>
+            <view class="couponListTab-item">
+                不可用
+            </view>
+        </view>
+    </view>
+    <view class="couponList" wx:if="{{canUse}}">
+        <view class="couponList-item shadowBox2">
+            <view class="couponDetail">
+                <image made='widthFix' class="couponIcon" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/icon_coupon.png'></image>
+                <view class="couponDesc">
+                    <view class="couponTitle">低值券</view>
+                    <view class="couponTest">啦啦啦啦啦啦我是卖报的小行家</view>
+                </view>
+                <view class="couponAmount">
+                    5元
+                </view>
+            </view>
+            <view class="couponDate">
+                有效期：2020年8月8日
+            </view>
+        </view>
+    </view>
+    <view class="couponList contUse" wx:else>
+        <view class="couponList-item shadowBox2">
+            <view class="couponDetail">
+                <image made='widthFix' class="couponIcon" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/icon_coupon.png'></image>
+                <view class="couponDesc">
+                    <view class="couponTitle">低值券</view>
+                    <view class="couponTest">啦啦啦啦啦啦我是卖报的小行家</view>
+                </view>
+                <view class="couponAmount">
+                    5元
+                </view>
+            </view>
+            <view class="couponDate">
+                有效期：2020年8月8日
+            </view>
+        </view>
+    </view>
+</view>

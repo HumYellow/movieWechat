@@ -4,7 +4,6 @@ Component({
   lifetimes: {
     attached: function () {
       // 在组件实例进入页面节点树时执行,
-      this.getScore()
     },
     detached: function () {
       // 在组件实例被从页面节点树移除时执行
@@ -18,6 +17,9 @@ Component({
       type: Boolean,
       value: false,
       observer: function (newVal, oldVal, changedPath) {
+        if (newVal) {
+          this.getScore()
+        }
 
       }
     },
@@ -86,13 +88,19 @@ Component({
       })
     },
     getScore: function () {
-      let type = 2, movieId = this.data.movieId, url = '';
+      let type = 2, relatedId = this.properties.relatedId, url = '/home/score/detailData';
       let data = {
         type,
-        relatedId: movieId
+        relatedId: relatedId
       }
       app.request('get', url, data, (res) => {
+        console.info(res.data.score)
+        if (res.data.score) {
+          this.setData({
+            scoreNo:res.data.score
+          })
 
+        }
       })
 
     }

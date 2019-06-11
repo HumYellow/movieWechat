@@ -9,7 +9,7 @@
                     {{movieDetails.name}}
                 </view>
                 <view class="movieDesc-score">
-                    <!-- 8.2<text>分</text> -->
+                    {{movieDetails.generalMark}}<text>分</text>
                 </view>
             </view>
             <view class="movieDesc-type">
@@ -22,15 +22,20 @@
     </view>
 </view>
 <view class="movieUserBox">
-    <view class="movieUserBox-item select">
+    <view class="movieUserBox-item {{movieDetails.hasCollect?'select':''}}" bindtap='wantWatch'>
         <view class="wantMovie">
-            <image class="movieUserBox-item-icon"  mode="widthFix" src="https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/movie/want.png"></image>
+            <image wx:if="{{movieDetails.hasCollect}}" class="movieUserBox-item-icon"  mode="widthFix" src="https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/movie/want_ed.png"></image>
+            <image wx:else class="movieUserBox-item-icon"  mode="widthFix" src="https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/movie/want.png"></image>
             想看
         </view>
     </view>
-    <view class="movieUserBox-item" bindtap='scoreSelect'>
-        <view class="scoreMovie">
-            <image class="movieUserBox-item-icon"  mode="widthFix" src="https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/movie/score.png"></image>
+    <view class="movieUserBox-item {{movieDetails.memberScore?'select':''}}" bindtap='scoreSelect'>
+        <view class="scoreMovie" wx:if="{{movieDetails.memberScore}}">
+            <image class="movieUserBox-item-icon" mode="widthFix" src="https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/movie/score_ed.png"></image>
+            已评分
+        </view>
+        <view class="scoreMovie" wx:else>
+            <image class="movieUserBox-item-icon" mode="widthFix" src="https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/movie/score.png"></image>
             评分
         </view>
     </view>

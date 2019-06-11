@@ -31,7 +31,7 @@
       <image class="myCenterMod-image" mode="widthFix" src="/static/image/myCenter/icon_cardbag.png"></image>
       <view class="myCenterMod-text">我的卡包</view>
   </view>
-  <view class="myCenterMod" bindtap='toLink' data-url="/pages/order/orderList/orderList">
+  <view class="myCenterMod" bindtap='toLink' data-url="/pages/myCenter/couponList/couponList">
       <image class="myCenterMod-image" mode="widthFix" src="/static/image/myCenter/icon_coupon.png"></image>
       <view class="myCenterMod-text">优惠券</view>
   </view>

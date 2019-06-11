@@ -9,7 +9,7 @@
                     <view class="scoreText">{{item}}</view>
                 </view>
             </view>
-            <view bindtap='pushScore' class="pushScore">提交</view>
+            <view bindtap='pushScore' class="pushScore">确定</view>
         </view>
     </view>
 </popup>

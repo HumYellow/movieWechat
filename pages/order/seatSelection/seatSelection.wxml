@@ -8,27 +8,16 @@
                   {{sceneDetail.opiDetailInfo.movieName}}
               </view>
               <view class="moveiBox-movieType">
-                  {{sceneDetail.opiDetailInfo.language}}{{sceneDetail.opiDetailInfo.edition}}
+                 
               </view>
           </view>
           <view class="moveiBox-time">
-              {{sceneDetail.opiDetailInfo.weekDay}} {{sceneDetail.opiDetailInfo.playDate}}{{sceneDetail.opiDetailInfo.showTime}}
+              {{sceneDetail.opiDetailInfo.weekDay}} {{sceneDetail.opiDetailInfo.playDate}}{{sceneDetail.opiDetailInfo.showTime}} ({{sceneDetail.opiDetailInfo.language}})
           </view>
           <view class="moveiBox-cinemaType">
-              <view class="moveiBox-cinemaType-item">IMAX厅</view>
-              <view class="moveiBox-cinemaType-item">VIP厅</view>
+              <view class="moveiBox-cinemaType-item">{{sceneDetail.opiDetailInfo.edition}}</view>
+              <view class="moveiBox-cinemaType-item">{{sceneDetail.opiDetailInfo.roomName}}</view>
           </view>
-      </view>
-  </view>
-  <view class="seatTipsList" wx:if="{{sceneDetail.opiRoomSeat.lineOpiShowSeatVOMap}}">
-      <view class="seatModTipsBox">
-          <view class="seatModTips seatMod_N"></view>可选
-      </view>
-      <view class="seatModTipsBox">
-          <view class="seatModTips seatMod_L"></view>不可选
-      </view>
-      <view class="seatModTipsBox">
-          <view class="seatModTips seatMod_S"></view>已选
       </view>
   </view>
   <view class="seatPicMod" wx:if="{{sceneDetail.opiRoomSeat.opiLineSeatVOList}}">
@@ -56,21 +45,35 @@
           </view>
       </view>
   </view>
-  <view class="seatCouponList">
-    <view class="seatCouponList-item" catchtap="deleteSeat"
-       wx:for="{{selectSeatList}}" wx:key="index"
-          data-line="{{item.line}}" 
-          data-rank="{{item.rank}}">
-          <view class="seatCouponList-item-box">
-              <view class="seatCouponList-item-desc">
-                  <view class="seatNum">{{item.line}}排{{item.rank}}座</view>
-                  <view class="price">{{sceneDetail.opiDetailInfo.selfPrice2Yuan}}元</view>
-              </view> 
-              <image class="seatCouponList-delect" mode="widthFix" src="/static/image/seat/delect.png"></image>
-          </view>
-    </view>
+  <view class="seatTipsList">
+      <view class="seatModTipsBox">
+          <view class="seatModTips seatMod_N"></view>可选
+      </view>
+      <view class="seatModTipsBox">
+          <view class="seatModTips seatMod_L"></view>不可选
+      </view>
+      <view class="seatModTipsBox">
+          <view class="seatModTips seatMod_S"></view>已选
+      </view>
   </view>
-  <view class="toBuyBox" wx:if="{{selectSeatList.length>0}}">
-      <view class="toBuy" bindtap='toBuy'>确认{{(sceneDetail.opiDetailInfo.selfPrice2Yuan*10*10)*selectSeatList.length/100}}元</view>
+  <view class="btBox">
+      <view class="seatCouponList">
+        <view class="seatCouponList-item" catchtap="deleteSeat"
+          wx:for="{{selectSeatList}}" wx:key="index"
+              data-line="{{item.line}}" 
+              data-rank="{{item.rank}}">
+              <view class="seatCouponList-item-box">
+                  <view class="seatCouponList-item-desc">
+                      <view class="seatNum">{{item.line}}排{{item.rank}}座</view>
+                      <view class="price">{{sceneDetail.opiDetailInfo.selfPrice2Yuan}}元</view>
+                  </view> 
+                  <image class="seatCouponList-delect" mode="widthFix" src="/static/image/seat/delect.png"></image>
+              </view>
+        </view>
+      </view>
+      <view class="toBuyBox" wx:if="{{selectSeatList.length>0}}">
+        <view class="allAmount"><view class="allAmountText">合计</view>￥{{(sceneDetail.opiDetailInfo.selfPrice2Yuan*10*10)*selectSeatList.length/100}}</view>
+          <view class="toBuy" bindtap='toBuy'>确认选座</view>
+      </view>
   </view>
 </view>

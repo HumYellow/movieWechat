@@ -171,15 +171,58 @@ Page({
     this.setData({
       scoreShow: false
     })
+    this.getScore()
+    
   },
   getScore: function () {
-    let type = 2, movieId = this.data.movieId, url = '';
+    let type = 2, relatedId = this.data.movieId, url = '/home/score/detailData';
     let data = {
       type,
-      relatedId: movieId
+      relatedId: relatedId
     }
     app.request('get', url, data, (res) => {
+      if (res.data.score) {
+        console.info(res.data.score)
+        this.setData({
+          scoreNo: res.data.score,
+          'movieDetails.memberScore': res.data.score
+        })
 
+      }
+    })
+
+  },
+  wantWatch:function(){
+    let url,hasCollect = this.data.movieDetails.hasCollect;
+    let data = {
+      type:2,
+      relatedId:this.data.movieId
+    }
+    if (hasCollect){
+      url = '/home/collect/deleteData'
+    }else{
+      url = '/home/collect/saveData'
+    }
+    app.request('post', url, data, (res) => {
+        hasCollect = !hasCollect
+        this.setData({
+          'movieDetails.hasCollect': hasCollect
+        })
+        if (hasCollect){
+            wx.showToast({
+              title: '已关注',
+              icon: 'succes',
+              duration: 1500,
+              mask: true
+            })
+        } else {
+            wx.showToast({
+              title: '已取消关注',
+              icon: 'succes',
+              duration: 1500,
+              mask: true
+            })
+        }
     })
 
   }
