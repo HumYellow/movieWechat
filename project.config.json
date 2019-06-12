@@ -103,13 +103,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 25,
+			"current": 27,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "选座",
 					"pathName": "pages/order/seatSelection/seatSelection",
-					"query": "",
+					"query": "mpiId=1569",
 					"scene": null
 				},
 				{
@@ -281,10 +281,24 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 25,
 					"name": "选座",
 					"pathName": "pages/order/seatSelection/seatSelection",
-					"query": "mpiId=1569",
+					"query": "mpiId=1589",
+					"scene": null
+				},
+				{
+					"id": 26,
+					"name": "我的卡包",
+					"pathName": "pages/myCenter/myCard/myCard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "绑卡页",
+					"pathName": "pages/myCenter/bindCard/bindCard",
+					"query": "",
 					"scene": null
 				}
 			]

@@ -1,0 +1,8 @@
+/* pages/myCenter/bindCard/bindCard.wxss */
+.bindCardBox{margin:20rpx;background:#fff;padding:50rpx 20rpx;border-radius:5px;font-size:28rpx;color:#666;}
+.bindCard-item{display:flex;margin-bottom:50rpx;align-items: center;}
+.bindCard-item .bindCardTitle{width:100rpx;color:#666;}
+.bindCard-item .bindCardDesc{height:100%;flex:1;color:#333;}
+.bindCard-item .bindCardDesc input{background:#f8f8f8;border-radius:3px;height:88rpx;width:100%;box-sizing: border-box;padding:0 20rpx;}
+
+.checkCard{color:#6ab778;border:1px solid #6ab778;border-radius:40rpx;width:40%;height:60rpx;display:flex;justify-content: center; align-items: center;font-size:28rpx;margin:0 auto;}

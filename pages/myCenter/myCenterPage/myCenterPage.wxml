@@ -27,7 +27,7 @@
   <!-- <view bindtap='toBindPhone'>绑定手机</view> -->
 </view>
 <view class="myCenterBox">
-  <view class="myCenterMod" bindtap='toLink' data-url="/pages/order/orderList/orderList">
+  <view class="myCenterMod" bindtap='toLink' data-url="/pages/myCenter/myCard/myCard">
       <image class="myCenterMod-image" mode="widthFix" src="/static/image/myCenter/icon_cardbag.png"></image>
       <view class="myCenterMod-text">我的卡包</view>
   </view>

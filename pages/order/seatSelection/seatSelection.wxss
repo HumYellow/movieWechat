@@ -1,5 +1,6 @@
 /* pages/order/seatSelection/seatSelection.wxss */
-.moveiBox{display:flex;padding:30rpx 40rpx;align-items: center;}
+/* 选座模块不可使用rpx */
+.moveiBox{display:flex;padding:30rpx;align-items: center;background:#fff;margin:20rpx;border-radius:3px;}
 .moveiBox-pic{width:120rpx;}
 .moveiBox-desc{padding-left:20rpx;}
 .moveiBox-title{display: flex;align-items: flex-end;}
@@ -7,25 +8,26 @@
 .moveiBox-movieType{font-size:24rpx;color:#666;}
 .moveiBox-time{color:#666;font-size:24rpx;margin:12rpx 0;}
 .moveiBox-cinemaType{display:flex;}
-.moveiBox-cinemaType-item{font-size:20rpx;padding:5rpx 10rpx;border:1px solid #63a4fd;border-radius:3px;color:#63a4fd;margin-right:10rpx;}
+.moveiBox-cinemaType-item{font-size:20rpx;padding:5rpx 10rpx;border:1px solid #6ab778;border-radius:3px;color:#6ab778;margin-right:10rpx;}
 
-.seatTipsList{display:flex;align-items: center;margin:0 auto;justify-content: center;padding:30rpx 0;font-size:14px;color:#333;}
-.seatModTipsBox{display:flex;margin:0 20rpx;}
-.seatModTips{width:42rpx;height:36rpx;margin:0 10rpx;}
+.seatTipsList{display:flex;align-items: center;margin:0 auto;justify-content: center;padding:50rpx 0;font-size:14px;color:#333;}
+.seatModTipsBox{display:flex;margin:0 20rpx;align-items: center; justify-content: center;}
+.seatModTips{width:40rpx;height:40rpx;margin:0 10rpx;}
 
 
 /* 选座 */
-.seatPicMod{width:100%;box-sizing: border-box;position:relative;padding:0 40rpx 0 60rpx;background:#f7f7f7;border-bottom:1px solid #ebebeb;}
+.seatPicMod{width:100%;box-sizing: border-box;position:relative;padding:0 40rpx 0 60rpx;background:#f7f7f7;margin-top:50rpx;}
 .seatPic{width:100%;box-sizing: border-box;}
-.seatPicBox{position:relative;padding:50px 0;margin:0 auto;}
-.seatBox{width:100%;height:48rpx;}
-.seatMod{width:40rpx;height:40rpx;box-sizing: border-box;float:left;margin:4rpx;position:relative;z-index:1;}
-.seatMod_N{background: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/seat/seat_2.png') no-repeat; background-size:100% auto;}
-.seatMod_L{background: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/seat/seat_1.png') no-repeat; background-size:100% auto;}
-.seatMod_S{background: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/seat/seat_3.png') no-repeat; background-size:100% auto;}
+.seatPicBox{position:relative;padding:100rpx 0 0;margin:0 auto;}
+.seatBox{width:100%;height:24px;}
+.seatMod{width:20px;height:20px;box-sizing: border-box;float:left;margin:2px;position:relative;z-index:1;}
+.seatMod_N{background: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/seat/seat_2.png') no-repeat; background-size:100% auto;background-position:center center;}
+.seatMod_L{background: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/seat/seat_1.png') no-repeat; background-size:100% auto;background-position:center center;}
+.seatMod_S{background: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/seat/seat_3.png') no-repeat; background-size:100% auto;background-position:center center;}
 .seatModPic{width:100%;}
 .midLine{position:absolute;width:2rpx;top:90rpx;border-left:1px dashed #dadada;z-index:0}
-.screenCenter{position:absolute;top:0;text-align:center;font-size:24rpx;line-height:50rpx;background:#e8e8e8;color:#333;border-radius: 0 0 20rpx 20rpx;}
+.screenCenter{position:absolute;top:0;text-align:center;font-size:24rpx;color:#666;border-radius: 0 0 20rpx 20rpx;background: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/seat/screen.png') no-repeat; background-size:100% auto;background-position:center top;padding:20rpx 0;}
+.screenImg{width:100%;}
 .seatNumList{position:absolute;top:90rpx;left:0;background:rgba(0,0,0,.3);padding:4rpx 4rpx 4rpx 0;border-radius:15px;color:#fff;width:40rpx;text-align:center;}
 .seatNumList-item{height:40rpx;line-height:40rpx;padding:4rpx 0;font-size:28rpx;}
 
@@ -34,11 +36,11 @@
   background:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/seat/seatCoupon.png'); background-size:100% 100%;background-position:center center;}
 .seatCouponList-item-box{display:flex;justify-content: center;align-items: center;}
 .seatCouponList-item .seatNum{font-size:28rpx; color:#333;}
-.seatCouponList-item .price{font-size:20rpx;color:#ff4d64;}
+.seatCouponList-item .price{font-size:20rpx;color:#6ab778;}
 .seatCouponList-delect{width:16rpx;height:16rpx;margin-left:8px;}
 
 .btBox{position:fixed;left:0;bottom:0;width:100%;background:#fff;}
-.toBuyBox{padding:20rpx;display:flex;align-items: center; box-sizing: border-box}
+.toBuyBox{padding:20rpx;display:flex;align-items: center; box-sizing: border-box;border-top:1px solid #f2f2f2}
 .allAmount{flex:1;font-size:36rpx;margin-left:20rpx;color:#6ab778}
 .allAmountText{color:#999;font-size:24rpx;display:inline-block;}
 .toBuy{flex:0 0 250rpx;padding:10rpx 0;text-align:center;color:#6ab778;border:1px solid #6ab778;border-radius:20px;margin:0 auto;font-size:28rpx;}

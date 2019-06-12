@@ -14,6 +14,9 @@
                 <view class="movieList-item-desc-score" wx:if="{{item.generalMark}}">
                     {{item.generalMark}}分
                 </view>
+                <view class="movieList-item-desc-wantWacth" wx:else>
+                    {{item.collectCount}}人想看
+                </view>
                 <!-- <view class="movieList-item-desc-toBuy btnColor"  catchtap="movieToCinema" data-id="{{item.id}}">购票</view> -->
             </view>
         </view>

@@ -1,0 +1,22 @@
+<!--pages/myCenter/bindCard/bindCard.wxml-->
+<view class="bindCardBox shadowBox2">
+    <view class="bindCard-item">
+        <view class="bindCardTitle">影院 :</view>
+        <view class="bindCardDesc" style="padding-left:20rpx;">
+            海上明珠略略略
+        </view>
+    </view>
+    <view class="bindCard-item">
+        <view class="bindCardTitle">卡号 :</view>
+        <view class="bindCardDesc">
+            <input type='number' value='' placeholder='请输入会员卡号' placeholder-style="color:#999"></input>
+        </view>
+    </view>
+    <view class="bindCard-item">
+        <view class="bindCardTitle">密码 :</view>
+        <view class="bindCardDesc">
+            <input password="true" value='' placeholder='请输入会员卡密码' placeholder-style="color:#999"></input>
+        </view>
+    </view>
+    <view class="checkCard">提交</view>
+</view>

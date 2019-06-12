@@ -1,0 +1,20 @@
+/* component/couponPopup/couponPopup.wxss */
+.couponListBox{background:#fff;position:absolute;bottom:0;left:0;width:100%;z-index:10;}
+
+.bindCoupon{display:flex;background:#fff;padding:20rpx;justify-content: center;align-items: center;}
+.bindCouponInput{background:#f8f8f8;color:#666;font-size:22rpx;padding:10rpx 30rpx;flex:1;border-radius:3px;}
+.bindCouponBtn{width:130rpx;padding:10rpx 0;color:#6ab778;font-size:28rpx;text-align:right;}
+.pageTitle{color:#666;font-size:32rpx;display:flex;justify-content: center; align-items: center;height:80rpx;border-bottom:1px solid #f0f0f0}
+.couponList{padding:0 20rpx;height:50vh;box-sizing: border-box}
+.couponList-item{border-radius:5px;margin:0 5rpx 20rpx;box-shadow: 0px 0px 6px rgba(0,0,0,.1);}
+.couponDetail{background:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/couponBg.png') no-repeat; background-size:100% auto; display:flex;height:200rpx;justify-content: center;align-items: center;}
+.couponList.contUse .couponDetail{background-image: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/couponBg_no.png')}
+.couponIcon{width:150rpx;height:175rpx;}
+.couponDesc{flex:1;color:#fff;padding-right:20rpx;}
+.couponDesc .couponTitle{font-size:36rpx;}
+.couponDesc .couponTest{font-size:24rpx;}
+.couponAmount{border-left:1px dashed #fff;width:220rpx;height:100%;color:#fff; font-size:60rpx; display:flex; justify-content: center; align-items: center;}
+.couponDate{background:#fff;font-size:24rpx;color:#666;padding:20rpx;}
+.couponList.contUse .couponDate{color:#999;}
+
+.noNeed{border-top:1px solid #f0f0f0;text-align:center;color:#666;font-size:28rpx;height:100rpx;display:flex;justify-content: center;align-items: center;}

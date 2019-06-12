@@ -1,0 +1,17 @@
+<!--pages/myCenter/myCard/myCard.wxml-->
+<view class="toBindCard">
+    <view class="bindCardBox">会员卡</view>
+    <view class="toAdd" bindtap='toBindCard'>去添加</view>
+</view>
+<view class="cardList">
+    <view class="cardBox">
+        <view class="cardBoxMod">
+            <view class="cardTitle">会员卡
+                <view class="seeMore">查看详情</view>
+            </view>
+            <view class="cinemaLine">海上明珠等20家影院均可使用</view>
+            <view class="time">有效期：2019.08.13</view>
+        </view>
+        <view class="cardNo">卡号：123555121313</view>
+    </view>
+</view>

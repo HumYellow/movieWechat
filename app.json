@@ -19,7 +19,10 @@
     "pages/login/bindPhone/bindPhone",
     "pages/movie/moviePic/moviePic",
     "pages/cityList/cityList",
-    "pages/myCenter/wantWatch/wantWatch"
+    "pages/myCenter/wantWatch/wantWatch",
+    "pages/myCenter/myCard/myCard",
+    "pages/myCenter/bindCard/bindCard",
+    "pages/myCenter/cardDetail/cardDetail"
   ],
   "window": {
     "backgroundTextStyle": "dark",
