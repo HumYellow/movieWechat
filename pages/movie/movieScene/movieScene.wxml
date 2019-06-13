@@ -15,7 +15,33 @@
     </view>
     <view class="cinemaBoxBg" wx:if="{{cinemaDetails.firstImg}}" style="background-image:url('{{cinemaDetails.firstImg}}')"></view>
 </view>
-<view class=""></view>
+<view class="extendBox">
+    <view class="extendBox-item">
+        <view class="extendItemBox">
+            <view class="extendItemTitle">
+                影城卡
+            </view>
+            <view class="extendItemDetail">
+                balabala
+            </view>
+        </view>
+        <view class="toBindCard" bindtap='toBindCard'>
+            <view class="toBindCardText">去绑卡</view>
+            
+        </view>
+    </view>
+    <view class="extendBox-item">
+        <view class="extendItemBox">
+            <view class="extendItemTitle">
+                影城卡
+            </view>
+            <view class="extendItemDetail">
+                balabala小魔仙变身
+            </view>
+        </view>
+        
+    </view>
+</view>
 <view wx:if="{{movieSceneList}}">
   <view class="movieList">
     <select-movie movies='{{movieSceneList}}' bindselectMovie='selectMovie' defaultSelectID='{{movieId}}'/>

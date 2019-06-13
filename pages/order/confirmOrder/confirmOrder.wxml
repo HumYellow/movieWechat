@@ -1,4 +1,7 @@
 <!--pages/order/confirmOrder/confirmOrder.wxml-->
+<view class="leftTimeLine">
+    支付剩余时间{{leftTime}}
+</view>
 <view class="confirmOrder">
   <view class="movieDescBox">
       <view class="movieDesc">
@@ -8,7 +11,6 @@
           <view class="cinemaSeat">
               <text wx:for="{{orderDetail.seatList}}" wx:key="index">{{item}}</text> 
           </view>
-          <view class="leftTime">{{leftTime}}</view>
       </view>
       <image class="moviePic" mode="widthFix" src='{{orderDetail.movieImg}}'></image>
   </view>
@@ -66,3 +68,4 @@
       <view class="confimOrder-btn" bindtap='toPay'>确认支付</view>
   </view>
 </view>
+<couponPopup couponPopupShow="{{couponPopupShow}}"  bindclosePopup='closePopup'></couponPopup>

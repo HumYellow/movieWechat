@@ -1,1 +1,15 @@
 /* component/cardPopup/cardPopup.wxss */
+.cardPopupBox{background:#fff;position:absolute;bottom:0;left:0;width:100%;z-index:10;}
+
+.cardPopupTitle{position:relative;text-align:center;font-size:32rpx;padding:25rpx 30rpx;border-bottom:1px solid #f8f8f8;}
+.noCard{color:#6ab788;position:absolute;right:30rpx;top:30rpx;font-size:22rpx;}
+
+.cardBody{padding:0 30rpx;font-size:28rpx;}
+.cardBody-item{margin:30rpx 0;display:flex;align-items: center;}
+.cardBody-key{width:100rpx;color:#333;}
+.cardBody-value{flex:1;color:#666;padding:20rpx;}
+input.cardBody-value ,picker.cardBody-value{background:#f8f8f8;border-radius:3px;}
+picker.cardBody-value .picker{position:relative;}
+.cinemaListSelect-item-tip{background:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/dropdown.png') no-repeat;width:20rpx;height:100%;background-size:100% auto;position:absolute;right:0rpx;top:0rpx;background-position:center center;}
+
+.checkCard{width:220rpx;height:60rpx;margin:30rpx auto;color:#6ab778;border:1px solid #6ab778;border-radius:100rpx;display:flex; justify-content: center; align-items: center;font-size:28rpx;}

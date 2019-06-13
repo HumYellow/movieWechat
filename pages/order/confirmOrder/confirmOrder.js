@@ -13,6 +13,7 @@ Page({
     orderDetail:{},
     leftTime:'',
     getTime:'',
+    couponPopupShow:false,
   },
 
   /**

@@ -4,7 +4,7 @@
     <view class="toAdd" bindtap='toBindCard'>去添加</view>
 </view>
 <view class="cardList">
-    <view class="cardBox">
+    <view class="cardBox" bindtap='toCardDetail'>
         <view class="cardBoxMod">
             <view class="cardTitle">会员卡
                 <view class="seeMore">查看详情</view>

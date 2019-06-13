@@ -1,4 +1,5 @@
 /* pages/movie/movieScene/movieScene.wxss */
+page{background:#fff;}
 .cinemaBox{}
 .cinemaDesc{padding:20rpx;display:flex;border:1px solid rgba(43,162,69,.15);border-radius:3px;background:#fff;margin:370rpx 30rpx 10rpx;position:relative;z-index:1;}
 .cinemaBoxBg{position:absolute;left:0;top:0;width:100%;height:440rpx;background-size:100% auto; background-position:center top;background-repeat: no-repeat}
@@ -6,10 +7,10 @@
 .cinemaBoxDesc{width:90%;padding-left:20rpx;}
 .cinemaBoxMap{width:10%;font-size:24rpx;color:#999;display:flex;align-items: center;flex-flow:column}
 .cinemaBoxMap image{width:28rpx;height:34rpx;margin-top:5rpx;}
-.cinemaBoxTitle{font-size:32rpx;line-height:46rpx;color:#333;}
+.cinemaBoxTitle{font-size:32rpx;line-height:40rpx;color:#333;}
 .cinemaBoxAddress{color:#999;font-size:24rpx;line-height:40rpx;}
 .cinemaType{}
-.cinemaType-item{display:inline-block;margin-right:14rpx;font-size:20rpx;border-radius:3px;padding:4rpx 10rpx;}
+.cinemaType-item{display:inline-block;margin-right:10rpx;font-size:20rpx;border-radius:3px;padding:2rpx 10rpx;}
 
 #movieScroll{width: 100%;
   height: 307rpx;
@@ -24,15 +25,25 @@ height: auto;
 margin-right: 23rpx;
 display: inline-block;background:red}
 
+.extendBox{display:flex;padding:5rpx 30rpx 20rpx;}
+.extendBox-item{border:1px solid #d3eada;border-radius:4px;box-sizing: border-box;color:#6ab778;height:110rpx;display:flex;align-items: center;background-position:110% 180%;background-size:90rpx 67rpx;background-repeat:no-repeat }
+.extendBox-item:nth-child(1){flex:0 0 49%;margin-right:2%;background-color:#e9f3ed;background-image:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/movie/icon_vip.png');}
+.extendBox-item:nth-child(2){flex:1;background-color:#ebf3fa;background-image:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/movie/card.png');}
+.extendBox-item .extendItemBox{flex:1;padding:0 30rpx;}
+.extendItemTitle{font-size:26rpx;}
+.extendItemDetail{font-size:22rpx;}
+.toBindCard{font-size:22rpx;border-left:1px dashed #cee6d4;height:100%;flex:0 0 120rpx;display:flex;justify-content: center; align-items: center;}
+.toBindCardText{background:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/toRight_green.png') no-repeat;padding-right:15rpx;background-position:right center; background-size:auto 20rpx}
+
 .movieListMod{margin:40rpx; border-bottom:1px solid #e6e6e6;padding:40rpx 0;box-sizing: border-box;display: flex;flex-flow: row nowrap}
 .movieListModLeft{flex:1 1 auto}
 .movieListModRight{width:160rpx;text-align:center;}
-.movieDescBox{display:flex;justify-content: center;border-bottom:10px solid #f8f8f8}
+.movieDescBox{display:flex;justify-content: center;border-bottom:10px solid #f8f8f8;padding-bottom:20rpx;}
 .movieDescBox-title{padding:20rpx 0;text-align:center;}
 .movieDescBox-title .movieName{font-size:32rpx;color:#333;}
 .movieDescBox-titleDesc{font-size:24rpx;color:#999;margin-top:10rpx;}
 
-.timeList{white-space:nowrap;width:100%;border-bottom:2rpx solid #eee;}
+.timeList{white-space:nowrap;width:100%;border-bottom:2rpx solid #eee;padding-top:20rpx;}
 .timeList-item{padding:0 25rpx;font-size:24rpx;display:inline-block;color:#666}
 .timeList-item.select{color:#2ba245;}
 .timeList-item.select .timeList-itemBox{padding:20rpx 0;border-bottom:4rpx solid #2ba245;}

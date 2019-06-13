@@ -1,8 +1,11 @@
 <!--pages/order/orderList/orderList.wxml-->
 <view class="orderList">
     <view class="orderList-item" wx:for="{{orderList}}" wx:key="{{orderList.id}}" data-id="{{item.orderId}}" bindtap='toOrderDetail'>
-      <view class="orderList-item-cinemaName">
-          {{item.cinemaName}}
+      <view class="orderList-item-cinemaTitle">
+          <view class="orderList-item-cinemaName">{{item.cinemaName}}</view>
+          <view class="orderList-item-orderState">
+              <view class="orderStateBox">交易成功</view>
+          </view>
       </view>
       <view class="orderList-item-box">
           <image class="orderList-item-pic" mode='aspectFill' src="{{item.movieImg}}"></image>
@@ -10,11 +13,11 @@
               <view class="orderList-item-desc">
                   <view class="orderList-item-title">
                       <view class="orderList-item-movieName">
-                          {{item.movieName}}
+                          {{item.movieName}}  {{item.quantity}}张
                       </view>
-                      <view class="orderList-item-num">
+                      <!-- <view class="orderList-item-num">
                           {{item.quantity}}张
-                      </view>
+                      </view> -->
                   </view>
                   <view class="orderList-item-time">
                       {{item.playDate}}
@@ -26,12 +29,13 @@
                       <view class="orderList-item-seat-item" wx:for="{{item.seatList}}" wx:key="index">
                         {{item}}
                       </view>
-                      
+                  </view>
+                  <view class="orderList-item-time">
+                     共计支付 : ￥{{item.allFee2Yuan}}
                   </view>
               </view>
               <view class="orderList-item-type">
-                  <!-- <view class="orderList-item-toOrderDetail">验票</view> -->
-                  <image class="orderList-item-isUsed" mode='widthFix' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGIAAABKCAMAAAB3hHFnAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABs1BMVEUAAAAisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikisikrokUrokUisikrokUrokUrokUrokUrokUrokUrokUrokUisikisikrokUrokUisikisikrokUisikrokUrokUisikisikisikisikisikisikisikisikisikisikAAACs8qWBAAAAkHRSTlMABiI6T2BueIB8bV5NHwUZQGV+PxcLO2xqUDwoFg8IAQcnN05/ChJ9eiwqUXcMS18tAytMeVgaDhVUNWJKIWMRdhR1DUNbCRAcRQJcRCBWNlMkQQRZe3ETWl0YNHBCdGsxLjBySUhhOR1mJWcvPilobx9HaVyZhT0KKXpwHmQUZiMyjzgzUnMbUkcmV1U9RjMLeGgmAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB+MGBAsNIam0IIkAAAkPSURBVFjDrVn3QxNLEL6QSIYiJZDQSYBAqEJiEAWBSDf0XqQIIk1QOHKpkvjOxIbvvX/57e71vQMF3/xCdnZvvpuZb2f2Fob5TTFlmS0Psq0AkGPNzcs3Pyz43Sd/TwqLim1Aia24pPT/sm93lGGT5RWVVdU1tU7GZS+tq28odyNdrrnxfwBoyvcANFe02OkJV2tb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'></image>
+                  <view class="orderList-item-toOrderDetail">去验票</view>
               </view>
           </view>
       </view>

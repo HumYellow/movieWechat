@@ -1,12 +1,13 @@
 /* pages/order/confirmOrder/confirmOrder.wxss */
 page{background:#f8f8f8;}
+.leftTimeLine{background:#e3efe6;color:#6ab778;height:55rpx;font-size:26rpx;display:flex;justify-content: center; align-items: center;}
 .confirmOrder{padding:20rpx;}
 .movieDescBox{display:flex;border-radius:7px 7px 0 0;padding:80rpx 40rpx 40rpx;border-left:4rpx solid #ededed;border-top:4rpx solid #ededed;border-right:4rpx solid #ededed;background:#fff;}
 .movieDesc{width:70%}
-.movieName{font-size:44rpx;line-height:80rpx}
-.movieTime{font-size:28rpx;line-height:44rpx;}
-.cinemaDesc{font-size:28rpx;line-height:44rpx;}
-.cinemaSeat{font-size:28rpx;color:#999;line-height:50rpx;}
+.movieName{font-size:32rpx;line-height:80rpx}
+.movieTime{font-size:24rpx;line-height:44rpx;}
+.cinemaDesc{font-size:24rpx;line-height:44rpx;}
+.cinemaSeat{font-size:24rpx;color:#999;line-height:50rpx;}
 .cinemaSeat text{margin-right:10rpx;}
 .moviePic{width:30%;border-radius:3px;}
 .orderDetailLine{width:100%;display:block;}

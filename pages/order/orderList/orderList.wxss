@@ -3,18 +3,20 @@ page{background:#f8f8f8}
 .orderList{padding:2rpx 20rpx;}
 
 .orderList-item{padding:0 40rpx;margin:20rpx 0;background:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/orderLisyBg.png') no-repeat;background-size:100% 100%;}
-.orderList-item-cinemaName{font-size:14px;height:35px;line-height:35px;color:#666;}
+.orderList-item-cinemaTitle{font-size:26rpx;height:35px;color:#666; align-items: center;display:flex;padding-top:10rpx;}
+.orderList-item-cinemaName{width:60%;}
+.orderList-item-orderState{color:#6ab778;font-size:22rpx;width:40%;text-align:right;}
 
 .orderList-item-box{display: flex;padding:15px 0;}
 .orderList-item-pic{flex:0 0 135rpx;height:190rpx;border-radius:3px;}
-.orderList-item-descBox{display: flex;padding:10rpx 20rpx; flex-grow: 1}
-.orderList-item-desc{width:75%;}
+.orderList-item-descBox{display: flex; flex-grow: 1}
+.orderList-item-desc{flex:1;padding-left:20rpx;}
 .orderList-item-title{line-height:52rpx;font-size:32rpx;color:#333;}
 .orderList-item-movieName{display:inline-block;margin-right:20rpx;font-weight:600;}
 .orderList-item-num{display: inline-block;}
 .orderList-item-time ,.orderList-item-seat{font-size:24rpx;color:#999;line-height:44rpx;}
 .orderList-item-seat-item{display:inline-block;margin-right:10rpx;}
-.orderList-item-type{width:25%;text-align:center;display: flex; align-items: center;justify-content: center;font-size:28rpx;}
-.orderList-item-toOrderDetail{background:#51a0f8;color:#fff;border-radius:20px;padding:10rpx 30rpx;}
+.orderList-item-type{flex:0 0 150rpx;text-align:center;display: flex; align-items: center;justify-content: center;font-size:28rpx;padding-left:30rpx;}
+.orderList-item-toOrderDetail{background:#fff;color:#6ab778;border:1px solid #6ab778;border-radius:20px;height:50rpx;width:100%;display:flex;justify-content: center;align-items: center;}
 .orderList-item-isUsed{width:98rpx;height:74rpx;}
 .lastPage{text-align:center;color:#666;font-size:24rpx;width:100%;padding:30rpx 0;}

@@ -2,7 +2,7 @@
 <popup popupShow="{{couponPopupShow}}" bindclosePopup='closePopup'>
     <view class="couponListBox">
         <view class="bindCoupon">
-            <input class="bindCouponInput" placeholder='请输入优惠券码' />
+            <input class="bindCouponInput" placeholder='请输入优惠券码' type='number' />
             <view class="bindCouponBtn">验证绑定</view>
         </view>
         <view class="pageTitle">请选择优惠券</view>
@@ -17,6 +17,7 @@
                     <view class="couponAmount">
                         5元
                     </view>
+                    <image mode='scaleToFill' class="selectIcon" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/select_icon.png'></image>
                 </view>
                 <view class="couponDate">
                     有效期：2020年8月8日

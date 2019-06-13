@@ -1,14 +1,14 @@
 /* pages/myCenter/myCard/myCard.wxss */
 .toBindCard{padding:30rpx;display:flex; align-items: center;background:#fff;}
 .bindCardBox{background: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/myCenter/bindCard.png') no-repeat;background-size:auto 100%;background-position:left center;height:35rpx;font-size:28rpx;color:#333;padding-left:60rpx;width:50%;display:flex; align-items: center;}
-.toAdd{background: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/toRight_green.png') no-repeat;background-size:auto 20rpx;background-position:right 9rpx;padding-right:30rpx;color:#6ab778;width:50%;text-align:right;font-size:22rpx;}
+.toAdd{background: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/toRight_green.png') no-repeat;background-size:auto 20rpx;background-position:right 9rpx;padding-right:30rpx;color:#6ab778;width:50%;text-align:right;font-size:24rpx;}
 
 .cardList{margin-top:20rpx;background:#fff;padding:10rpx 0;}
 .cardBox{background: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/myCenter/cardBg.png') no-repeat;background-size:100% 100%;color:#fff;margin:10rpx 20rpx;}
 .cardBoxMod{padding:60rpx 40rpx 0;}
-.cardTitle{font-size:44rpx;position:relative;padding-bottom:40rpx;}
-.seeMore{position:absolute;right:0;top:20rpx;font-size:24rpx;background: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/toRight_white.png') no-repeat;background-size:auto 20rpx;background-position:right 9rpx;padding-right:30rpx;}
-.cinemaLine{font-size:28rpx;margin:20rpx 0;}
+.cardTitle{font-size:40rpx;position:relative;padding-bottom:40rpx;}
+.seeMore{position:absolute;right:0;top:14rpx;font-size:24rpx;background: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/toRight_white.png') no-repeat;background-size:auto 20rpx;background-position:right 9rpx;padding-right:30rpx;}
+.cinemaLine{font-size:28rpx;margin:10rpx 0;}
 .time{font-size:24rpx;}
 
 .cardNo{margin-top:60rpx;font-size:24rpx;height:70rpx;display:flex;align-items: center;padding:0 40rpx 10rpx;background: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/myCenter/cardTextBg.png') no-repeat; }

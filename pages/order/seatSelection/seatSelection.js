@@ -9,6 +9,9 @@ Page({
     seatPicWidth:null,
     scrollLeft:'',
     isShow:false,
+    cardList:['33','44','55'],
+    cardPopupShow:false,
+
   },
   /**
    * 生命周期函数--监听页面加载
@@ -106,6 +109,16 @@ Page({
       return true
     }
   },
+  lockingSeat:function(){
+    this.setData({
+      cardPopupShow:true
+    })
+  },
+  vipToBuy:function(e){
+    let card = e.detail.card
+    console.info(card)
+    this.toBuy()
+  },
   toBuy: function () {//提交场次座位获取订单号
     let buyLimit = this.data.sceneDetail.opiDetailInfo.buyLimit
     let selectSeatList = this.data.selectSeatList
@@ -180,5 +193,10 @@ Page({
         scrollLeft,
       })
     }).exec();
-  }
+  },
+  closePopup: function () {
+    this.setData({
+      cardPopupShow: false
+    })
+  },
 })

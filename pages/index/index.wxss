@@ -41,7 +41,7 @@ page{background:#fff;}
 height: auto;text-align:center;}
 .indexScroll_item:nth-child(1){}
 .movieScrollPic{height:300rpx;width:100%;object-fit: cover;}
-.movieName{height:75rpx;display:flex;overflow: hidden;font-size:26rpx; align-items: center;justify-content: center;text-overflow:ellipsis;white-space: nowrap;}
+.movieName{overflow: hidden;font-size:26rpx; padding:20rpx 10rpx;text-overflow:ellipsis;white-space: nowrap;}
 .movieBuy{border-radius: 15px;width:45px;font-size:24rpx;text-align:center;padding:6rpx 8rpx;margin:0 auto;margin-top:20rpx;}
 .indexScroll_itemBox{border-radius:5rpx;}
 

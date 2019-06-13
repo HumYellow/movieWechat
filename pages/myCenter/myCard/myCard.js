@@ -71,6 +71,12 @@ Page({
     wx.navigateTo({
       url: url
     })
+  },
+  toCardDetail: function (e) {
+    let url = '/pages/myCenter/cardDetail/cardDetail'
+    wx.navigateTo({
+      url: url
+    })
 
   }
 })

@@ -103,7 +103,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 27,
+			"current": 32,
 			"list": [
 				{
 					"id": 0,
@@ -284,7 +284,7 @@
 					"id": 25,
 					"name": "选座",
 					"pathName": "pages/order/seatSelection/seatSelection",
-					"query": "mpiId=1589",
+					"query": "mpiId=1643",
 					"scene": null
 				},
 				{
@@ -299,6 +299,41 @@
 					"name": "绑卡页",
 					"pathName": "pages/myCenter/bindCard/bindCard",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "卡片详情",
+					"pathName": "pages/myCenter/cardDetail/cardDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "d电影选影院",
+					"pathName": "pages/movie/movieToCinema/movieToCinema",
+					"query": "movieId=8",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "场次",
+					"pathName": "pages/movie/movieScene/movieScene",
+					"query": "cinemaId=4",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单列表",
+					"pathName": "pages/order/orderList/orderList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单确认",
+					"pathName": "pages/order/confirmOrder/confirmOrder",
+					"query": "orderId=235",
 					"scene": null
 				}
 			]

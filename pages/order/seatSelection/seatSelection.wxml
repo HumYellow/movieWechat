@@ -70,8 +70,8 @@
       </view>
       <view class="toBuyBox">
         <view class="allAmount"><view class="allAmountText">合计</view>￥{{(sceneDetail.opiDetailInfo.selfPrice2Yuan*10*10)*selectSeatList.length/100}}</view>
-          <view class="toBuy" bindtap='toBuy'>确认选座</view>
+          <view class="toBuy" bindtap='lockingSeat'>确认选座</view>
       </view>
   </view>
 </view>
-<!-- <couponPopup couponPopupShow="true"></couponPopup> -->
+<cardPopup cardPopupShow="{{cardPopupShow}}" bindclosePopup='closePopup' bindtoBuy='toBuy' cardList="{{cardList}}" bindvipToBuy='vipToBuy'></cardPopup>

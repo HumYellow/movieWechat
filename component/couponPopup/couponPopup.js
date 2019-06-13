@@ -27,6 +27,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    closePopup: function () {console.info(11)
+      this.triggerEvent('closePopup', {//执行父组件方法
+
+      })
+    },
 
   }
 })

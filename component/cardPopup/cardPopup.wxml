@@ -1,2 +1,31 @@
 <!--component/cardPopup/cardPopup.wxml-->
-<text>component/cardPopup/cardPopup.wxml</text>
+
+<popup popupShow="{{cardPopupShow}}" bindclosePopup='closePopup'>
+    <view class="cardPopupBox">
+        <view class="cardPopupTitle">
+            请选择会员卡
+            <view class="noCard" bindtap='toBuy'>不使用会员卡</view>
+        </view>
+        <view class="cardBody">
+            <view class="cardBody-item">
+                <view class="cardBody-key">影院:</view>
+                <view class="cardBody-value">巴拉拉影院</view>
+            </view>
+            <view class="cardBody-item">
+                <view class="cardBody-key">卡号:</view>
+                <view wx:if="{{cardList.length<=1}}" class="cardBody-value">{{cardList[0]}}</view>
+                <picker wx:else class="cardBody-value" bindchange="tabCard" value="{{index}}" range='{{cardList}}'
+                range-key="">
+                      <view class="picker">{{cardList[cardListNo]}}
+                          <view class="cinemaListSelect-item-tip"></view>
+                      </view>
+                </picker>
+            </view>
+            <view class="cardBody-item">
+                <view class="cardBody-key">密码:</view>
+                <input class="cardBody-value" type='' password="true" placeholder="请输入密码" />
+            </view>
+        </view>
+        <view class="checkCard" bindtap='vipToBuy'>确认</view>
+    </view>
+</popup>

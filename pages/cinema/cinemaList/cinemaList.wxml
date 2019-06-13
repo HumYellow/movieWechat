@@ -50,9 +50,9 @@
               </view>
           </view>
         </view>
-        <view class="cinemaListImg">
-            <view class="cinemaListImg-item" wx:for="{{3}}" wx:key="index">
-                <image src='https://img3.doubanio.com/view/photo/l/public/p2181521432.webp' mode='aspectFill'></image>
+        <view class="cinemaListImg" wx:if="{{item.showImgList}}">
+            <view class="cinemaListImg-item" wx:if="{{index<=3}}" wx:for="{{item.showImgList}}" wx:for-item="items" wx:key="index">
+                <image src='{{items}}' mode='aspectFill'></image>
             </view>
         </view>
     </view>

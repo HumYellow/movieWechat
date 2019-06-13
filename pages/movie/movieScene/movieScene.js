@@ -109,6 +109,13 @@ Page({
       url: url
     })
   },
+  toBindCard: function () {
+    let cinemaId = this.data.cinemaId
+    let url = "/pages/myCenter/bindCard/bindCard?cinemaId=" + cinemaId
+    wx.navigateTo({
+      url: url
+    })
+  },
   toMap:function(){
     let pointX = this.data.cinemaDetails.pointX
     let pointY = this.data.cinemaDetails.pointY
