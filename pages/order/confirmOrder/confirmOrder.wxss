@@ -2,7 +2,12 @@
 page{background:#f8f8f8;}
 .leftTimeLine{background:#e3efe6;color:#6ab778;height:55rpx;font-size:26rpx;display:flex;justify-content: center; align-items: center;}
 .confirmOrder{padding:20rpx;}
-.movieDescBox{display:flex;border-radius:7px 7px 0 0;padding:80rpx 40rpx 40rpx;border-left:4rpx solid #ededed;border-top:4rpx solid #ededed;border-right:4rpx solid #ededed;background:#fff;}
+.movieDescBox{border-radius:7px 7px 0 0;padding:80rpx 40rpx 40rpx;border-left:4rpx solid #ededed;border-top:4rpx solid #ededed;border-right:4rpx solid #ededed;background:#fff;}
+.movieDescTop{display:flex;}
+.movieDescBottom{margin-top:50rpx;}
+.movieDescBottom .allPrice{display:flex;}
+.allPrice-key{flex:1;text-align:left;color:#333;font-size:24rpx;}
+.allPrice-value{flex:1;text-align:right;color:#6ab778;font-size:24rpx;}
 .movieDesc{width:70%}
 .movieName{font-size:32rpx;line-height:80rpx}
 .movieTime{font-size:24rpx;line-height:44rpx;}
@@ -15,12 +20,14 @@ page{background:#f8f8f8;}
 .discountBox{border-left:4rpx solid #ededed;border-bottom:4rpx solid #ededed;border-right:4rpx solid #ededed;background:#fff;border-radius:0 0 7px 7px;padding:0 40rpx 20rpx;}
 .discount-item{border-top:2rpx solid #f4f4f4;display:flex;padding:30rpx 0;align-items: center;}
 .discount-item:nth-child(1){border:none;}
-.discount-item-title{width:50%;font-size:32rpx;}
+.discount-item-title{width:50%;background-repeat:no-repeat;background-position:left center;padding-left:50rpx;background-size:40rpx auto;font-size:28rpx;color:#333;}
+.discount-item-coupon .discount-item-title{background-image:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/order/voucher.png');}
+.discount-item-vip .discount-item-title{background-image:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/order/icon_vip.png');}
 .discount-item-desc{width:50%;text-align:right;font-size:24rpx;color:#63a4fd;}
 
-.confimOrderBox{border-top:4rpx solid #e4e4e4;position:fixed; bottom:0;left:0;padding:20rpx;width:100%;box-sizing: border-box;}
-.confimOrder-text{display:flex;font-size:24rpx;color:#666;width:100%;align-items: flex-end}
-.confimOrder-text-left,.confimOrder-text-right{width:50%;}
+.confimOrderBox{position:fixed; bottom:0;left:0;padding:20rpx;width:100%;box-sizing: border-box;display:flex;background:#fff;}
+.confimOrder-text{display:flex;font-size:24rpx;color:#666;align-items: flex-end;flex:1;}
+.confimOrder-text-item {height:100%;font-size:22rpx;color:#666;display:flex;align-items: center;}
+.confimOrder-text-price{color:#6ab778;font-size:32rpx;}
 .confimOrder-text-right{text-align:right;}
-.confimOrder-text-price{color:#ff4d64;font-size:36rpx;}
-.confimOrder-btn{background:#63a4fd;color:#fff;text-align:center;border-radius:3px;padding:20rpx 0;font-size:32rpx;margin-top:20rpx;}
+.confimOrder-btn{background:#fff;color:#6ab778;border:1px solid #6ab778;border-radius:50rpx;font-size:32rpx;display:flex;justify-content: center; align-items: center;width:240rpx;height:60rpx;}

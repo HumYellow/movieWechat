@@ -4,65 +4,59 @@
 </view>
 <view class="confirmOrder">
   <view class="movieDescBox">
-      <view class="movieDesc">
-          <view class="movieName">{{orderDetail.movieName}}</view>
-          <view class="movieTime">{{orderDetail.playDate}} {{orderDetail.showTime}}~{{orderDetail.endTime}}</view>
-          <view class="cinemaDesc">{{orderDetail.cinemaName}} {{orderDetail.roomName}}</view>
-          <view class="cinemaSeat">
-              <text wx:for="{{orderDetail.seatList}}" wx:key="index">{{item}}</text> 
+      <view class="movieDescTop">
+          <view class="movieDesc">
+              <view class="movieName">{{orderDetail.movieName}}</view>
+              <view class="movieTime">{{orderDetail.playDate}} {{orderDetail.showTime}}~{{orderDetail.endTime}}</view>
+              <view class="cinemaDesc">{{orderDetail.cinemaName}} {{orderDetail.roomName}}</view>
+              <view class="cinemaSeat">
+                  <text wx:for="{{orderDetail.seatList}}" wx:key="index">{{item}}</text> 
+              </view>
+          </view>
+          <image class="moviePic" mode="widthFix" src='{{orderDetail.movieImg}}'></image>
+      </view>
+      <view class="movieDescBottom">
+          <view class="allPrice">
+              <view class="allPrice-key">票价</view>
+              <view class="allPrice-value">13元</view>
+          </view>
+          <view class="c666 fs22">
+              注意只享受一种优惠
           </view>
       </view>
-      <image class="moviePic" mode="widthFix" src='{{orderDetail.movieImg}}'></image>
   </view>
   <image mode='widthFix' src="/static/image/orderDetailLine.png" class="orderDetailLine"></image>
   <view class="discountBox">
-      <view class="discount-item">
-          <view class="discount-item-title">
-            优惠活动
-          </view>
-          <view class="discount-item-desc">
-              <picker class="cinemaListSelect-item" bindchange="bindRegionChangeLine" value="{{0}}" range='{{discount1}}'>
-                <view class="picker">
-                    {{discount1[0]}}
-                  <view class="cinemaListSelect-item-tip"></view>
-                </view>
-              </picker>
-          </view>
-      </view>
-      <view class="discount-item">
+      <view class="discount-item discount-item-coupon">
           <view class="discount-item-title">
             优惠券
+            
           </view>
           <view class="discount-item-desc">
-              <picker class="cinemaListSelect-item" bindchange="bindRegionChangeLine" value="{{0}}" range='{{discount2}}'>
-                <view class="picker">
-                    {{discount2[0]}}
-                  <view class="cinemaListSelect-item-tip"></view>
-                </view>
-              </picker>
+              <view>无可用</view>
           </view>
       </view>
-      <view class="discount-item">
+      <view class="discount-item discount-item-vip">
           <view class="discount-item-title">
-            银行活动
+            是否使用会员卡
           </view>
           <view class="discount-item-desc">
-              <picker class="cinemaListSelect-item" bindchange="bindRegionChangeLine" value="{{0}}" range='{{discount3}}'>
-                <view class="picker">
-                    {{discount3[0]}}
-                  <view class="cinemaListSelect-item-tip"></view>
-                </view>
-              </picker>
+              <view>余额331元</view>
+              <view class="useCard">
+                  
+              </view>
           </view>
       </view>
   </view>
   <view class="confimOrderBox">
       <view class="confimOrder-text">
-          <view class="confimOrder-text-left">
-              不支持退票，改签
+          <view class="confimOrder-text-item">
+              应付
           </view>
-          <view class="confimOrder-text-right">
-              应付 <text class="confimOrder-text-price">{{orderDetail.dueFee2Yuan}}元</text>
+          <view class="confimOrder-text-item confimOrder-text-price">{{orderDetail.dueFee2Yuan}}</view>
+          <view class="confimOrder-text-item"> 元</view>
+          <view class="confimOrder-text-item c999 ml20">
+              不支持退票，改签
           </view>
       </view>
       <view class="confimOrder-btn" bindtap='toPay'>确认支付</view>

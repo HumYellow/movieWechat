@@ -9,6 +9,8 @@ Page({
     seatPicWidth:null,
     scrollLeft:'',
     isShow:false,
+    selectCard: {},
+    cardPassword: {},
     cardList:['33','44','55'],
     cardPopupShow:false,
 
@@ -22,6 +24,7 @@ Page({
       mpiId,
     })
     this.getScene(mpiId)
+    this.getCardList()
   },
   onShow:function(){
     
@@ -110,9 +113,14 @@ Page({
     }
   },
   lockingSeat:function(){
-    this.setData({
-      cardPopupShow:true
-    })
+    let cardList = this.data.cardList
+    if (cardList.length>=1) {
+      this.setData({
+        cardPopupShow: true
+      })
+    }else{
+      this.toBuy()
+    }
   },
   vipToBuy:function(e){
     let card = e.detail.card
@@ -198,5 +206,17 @@ Page({
     this.setData({
       cardPopupShow: false
     })
+  },
+  getCardList: function () {
+    let url = "/home/vip/listData"
+    let data = {
+      mpiId: this.data.mpiId
+    }
+    app.request('get', url, data, (res) => {
+      this.setData({
+        cardList: res.data
+      })
+    })
+
   },
 })

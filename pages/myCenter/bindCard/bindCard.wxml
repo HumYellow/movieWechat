@@ -3,20 +3,20 @@
     <view class="bindCard-item">
         <view class="bindCardTitle">影院 :</view>
         <view class="bindCardDesc" style="padding-left:20rpx;">
-            海上明珠略略略
+            {{cinemaDetail.briefName}}
         </view>
     </view>
     <view class="bindCard-item">
         <view class="bindCardTitle">卡号 :</view>
         <view class="bindCardDesc">
-            <input type='number' value='' placeholder='请输入会员卡号' placeholder-style="color:#999"></input>
+            <input type='number' value='{{memberCardNumber}}' placeholder='请输入会员卡号' placeholder-style="color:#999" bindinput='getCardNumber'></input>
         </view>
     </view>
     <view class="bindCard-item">
         <view class="bindCardTitle">密码 :</view>
         <view class="bindCardDesc">
-            <input password="true" value='' placeholder='请输入会员卡密码' placeholder-style="color:#999"></input>
+            <input password="true" value='{{pinNumber}}' placeholder='请输入会员卡密码' placeholder-style="color:#999" bindinput='getCardPassword'></input>
         </view>
     </view>
-    <view class="checkCard">提交</view>
+    <view class="checkCard" bindtap='bindCard'>提交</view>
 </view>

@@ -330,10 +330,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 32,
 					"name": "订单确认",
 					"pathName": "pages/order/confirmOrder/confirmOrder",
-					"query": "orderId=235",
+					"query": "orderId=249",
 					"scene": null
 				}
 			]

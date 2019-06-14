@@ -2,7 +2,7 @@ const app = getApp()
 const util = require('./util.js')
 const md5 = require('./md5.js')
 const request = {//请求封装
-    apiHttp: 'http://129.211.85.17:8031/wxspapi/v1',
+  apiHttp: 'http://192.168.110.16:8031/wxspapi/v1',
     appleKey: 'RWSF2JhLXNWkmygnsNb3yA4Ach8Pb6HNjkEH9GwZL49sC8bFg4n4k8j2jUuUFt9HSamb7fkUaVcQrBuvELv6a9Uyx2H4s58BtDz',
     wxRequest: function (method, url, data, callback, errFun) {
       let that = this

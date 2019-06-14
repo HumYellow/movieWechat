@@ -19,6 +19,14 @@ Component({
 
 
       }
+    }, 
+    cinemaName: {
+      type: String,
+      value: '',
+      observer: function (newVal, oldVal, changedPath) {
+
+
+      }
     },
     
   },
@@ -27,7 +35,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    cardListNo:0
+    cardListNo:0,
+    cardPassword:'',
   },
 
   /**
@@ -35,12 +44,28 @@ Component({
    */
   methods: {
     vipToBuy: function () {
-      this.closePopup()
-      let cardList = this.properties.cardList
-      let card = cardList[this.data.cardListNo]
-      this.triggerEvent('vipToBuy', {
-        card
-      })
+      let cardPassword = this.data.cardPassword
+      if (cardPassword == '') {
+        wx.showModal({
+          title: '提示',
+          content: '会员卡密码不能为空',
+          success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+            }
+          }
+        })
+      } else {
+        this.closePopup()
+        let cardList = this.properties.cardList
+        let card = cardList[this.data.cardListNo]
+        card.cardPassword = cardPassword
+        console.info(card)
+        this.triggerEvent('vipToBuy', {
+          card
+        })
+
+      }
 
     },
     toBuy: function () {
@@ -64,5 +89,11 @@ Component({
       
 
     },
+    getPassword: function (e) {
+      let password = e.detail.value;
+      this.setData({
+        cardPassword: password
+      })
+    }
   }
 })

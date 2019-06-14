@@ -74,9 +74,6 @@ Page({
   onShareAppMessage: function () {
 
   },
-  bindRegionChangeLine: function (e) {
-    console.info('picker发送选择改变，携带值为', e.detail.value)
-  },
   getOrderDetail: function (orderId){
     let orderDetail = this.data.orderDetail
     let url = "/order/payDetailData"
