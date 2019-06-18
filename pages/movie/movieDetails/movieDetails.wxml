@@ -1,6 +1,8 @@
 <!--pages/movie/movieDetails/movieDetails.wxml-->
 <view class="movieHeadBox">
-    <image mode='widthFix' class="movieHead-pic" src="{{movieDetails.firstImg}}" ></image>
+    <view class="movieHead-pic">
+        <image mode='widthFix' src="{{movieDetails.firstImg}}" ></image>
+    </view>
     <view class="movieDescBox">
         <image class="moviePic shadowBox" mode="aspectFill" src="{{movieDetails.img}}"></image>
         <view class="movieDesc">

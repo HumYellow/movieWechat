@@ -18,7 +18,7 @@
       <view class="movieDescBottom">
           <view class="allPrice">
               <view class="allPrice-key">票价</view>
-              <view class="allPrice-value">13元</view>
+              <view class="allPrice-value">{{orderDetail.dueFee2Yuan}}元</view>
           </view>
           <view class="c666 fs22">
               注意只享受一种优惠
@@ -33,33 +33,41 @@
             
           </view>
           <view class="discount-item-desc">
-              <view>无可用</view>
-          </view>
-      </view>
-      <view class="discount-item discount-item-vip">
-          <view class="discount-item-title">
-            是否使用会员卡
-          </view>
-          <view class="discount-item-desc">
-              <view>余额331元</view>
-              <view class="useCard">
-                  
+              <view class="useCoupon">
+                  <view wx:if="{{couponList.length>0}}" class="canUse">请选择优惠券</view>
+                  <view wx:else class="noUse">无可用</view>
               </view>
           </view>
       </view>
   </view>
   <view class="confimOrderBox">
-      <view class="confimOrder-text">
-          <view class="confimOrder-text-item">
-              应付
+      <view class="cardPay" wx:if="{{orderDetail.cinemaMemberVO}}">
+          <view class="discount-item-title">
+            是否使用会员卡
           </view>
-          <view class="confimOrder-text-item confimOrder-text-price">{{orderDetail.dueFee2Yuan}}</view>
-          <view class="confimOrder-text-item"> 元</view>
-          <view class="confimOrder-text-item c999 ml20">
-              不支持退票，改签
+          <view class="discount-item-desc">
+              <view class="useCard" bindtap='tabUseCard'>
+                  <view class="balance">余额{{orderDetail.cinemaMemberVO.balance2Yuan}}元</view>
+                  <image wx:if="{{useCard}}" mode='widthFix'
+        src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/order/selection.png'></image>
+                  <image wx:else mode='widthFix'
+        src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/order/noSelect.png'></image>
+              </view>
           </view>
       </view>
-      <view class="confimOrder-btn" bindtap='toPay'>确认支付</view>
+      <view class="wxPay">
+          <view class="confimOrder-text">
+              <view class="confimOrder-text-item">
+                  应付
+              </view>
+              <view class="confimOrder-text-item confimOrder-text-price">{{orderDetail.dueFee2Yuan}}</view>
+              <view class="confimOrder-text-item"> 元</view>
+              <view class="confimOrder-text-item c999 ml20">
+                  不支持退票，改签
+              </view>
+          </view>
+          <view class="confimOrder-btn" bindtap='toPay'>确认支付</view>
+      </view>
   </view>
 </view>
 <couponPopup couponPopupShow="{{couponPopupShow}}"  bindclosePopup='closePopup'></couponPopup>

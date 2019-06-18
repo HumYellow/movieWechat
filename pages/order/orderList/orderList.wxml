@@ -1,12 +1,13 @@
 <!--pages/order/orderList/orderList.wxml-->
 <view class="orderList">
-    <view class="orderList-item" wx:for="{{orderList}}" wx:key="{{orderList.id}}" data-id="{{item.orderId}}" bindtap='toOrderDetail'>
+    <view class="orderList-item" wx:for="{{orderList}}" wx:key="{{orderList.id}}" data-id="{{item.orderId}}" bindtap='toOrderDetail' data-state="{{item.busStatus}}">
       <view class="orderList-item-cinemaTitle">
           <view class="orderList-item-cinemaName">{{item.cinemaName}}</view>
-          <view class="orderList-item-orderState">
-              <view class="orderStateBox">交易成功</view>
+          <view class="orderList-item-orderState" wx:if="{{item.busStatus=='new'}}">
+              <view class="orderStateBox">{{item.leftTime}}</view>
           </view>
       </view>
+      <image mode="scaleToFill" class="orderListLine" src="https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/order/orderLine.png"></image>
       <view class="orderList-item-box">
           <image class="orderList-item-pic" mode='aspectFill' src="{{item.movieImg}}"></image>
           <view class="orderList-item-descBox">
@@ -35,7 +36,11 @@
                   </view>
               </view>
               <view class="orderList-item-type">
-                  <view class="orderList-item-toOrderDetail">去验票</view>
+                  <view class="orderList-item-toOrderDetail" wx:if="{{item.busStatus=='new'}}">去支付</view>
+                  <view class="orderList-item-toOrderDetail" wx:elif="{{item.busStatus=='paid'}}">出票中</view>
+                  <view class="orderList-item-toOrderDetail" wx:elif="{{item.busStatus=='success'}}">交易成功</view>
+                  <view class="orderList-item-toOrderDetail c666" wx:elif="{{item.busStatus=='return'}}">已退款</view>
+                  <view class="orderList-item-toOrderDetail c666" wx:elif="{{item.busStatus=='fail'}}">交易失败</view>
               </view>
           </view>
       </view>

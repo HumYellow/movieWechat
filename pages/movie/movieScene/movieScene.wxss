@@ -3,8 +3,9 @@ page{background:#fff;}
 .cinemaBox{}
 .cinemaDesc{padding:20rpx;display:flex;border:1px solid rgba(43,162,69,.15);border-radius:3px;background:#fff;margin:370rpx 30rpx 10rpx;position:relative;z-index:1;}
 .cinemaBoxBg{position:absolute;left:0;top:0;width:100%;height:440rpx;background-size:100% auto; background-position:center top;background-repeat: no-repeat}
-.cinemaImg{width:120rpx;height:120rpx;border-radius:5px;}
-.cinemaBoxDesc{width:90%;padding-left:20rpx;}
+.cinemaImg{width:120rpx;height:120rpx;border-radius:5px;object-fit: cover;display:flex;justify-content: center; align-items: center;}
+.cinemaImg image{width:100%;height:100%;}
+.cinemaBoxDesc{padding-left:20rpx;flex:1;}
 .cinemaBoxMap{width:10%;font-size:24rpx;color:#999;display:flex;align-items: center;flex-flow:column}
 .cinemaBoxMap image{width:28rpx;height:34rpx;margin-top:5rpx;}
 .cinemaBoxTitle{font-size:32rpx;line-height:40rpx;color:#333;}

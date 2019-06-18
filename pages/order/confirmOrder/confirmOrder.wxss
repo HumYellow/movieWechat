@@ -22,10 +22,17 @@ page{background:#f8f8f8;}
 .discount-item:nth-child(1){border:none;}
 .discount-item-title{width:50%;background-repeat:no-repeat;background-position:left center;padding-left:50rpx;background-size:40rpx auto;font-size:28rpx;color:#333;}
 .discount-item-coupon .discount-item-title{background-image:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/order/voucher.png');}
-.discount-item-vip .discount-item-title{background-image:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/order/icon_vip.png');}
 .discount-item-desc{width:50%;text-align:right;font-size:24rpx;color:#63a4fd;}
+.useCoupon .noUse{color:#999;}
+.useCoupon .canUse{color:#6ab778}
+.discount-item-desc .useCard{display:flex;align-items: center; justify-content: flex-end}
+.balance{color:#6ab778;margin-right:20rpx}
+.discount-item-desc .useCard image{width: 28rpx;height:28rpx;}
 
-.confimOrderBox{position:fixed; bottom:0;left:0;padding:20rpx;width:100%;box-sizing: border-box;display:flex;background:#fff;}
+.confimOrderBox{position:fixed; bottom:0;left:0;padding:20rpx;width:100%;box-sizing: border-box;background:#fff;}
+.cardPay{display:flex;margin-bottom:20rpx;}
+.cardPay .discount-item-title{background-image:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/order/icon_vip.png');}
+.confimOrderBox .wxPay{display:flex;}
 .confimOrder-text{display:flex;font-size:24rpx;color:#666;align-items: flex-end;flex:1;}
 .confimOrder-text-item {height:100%;font-size:22rpx;color:#666;display:flex;align-items: center;}
 .confimOrder-text-price{color:#6ab778;font-size:32rpx;}

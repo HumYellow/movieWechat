@@ -4,7 +4,7 @@
     <view class="cardPopupBox">
         <view class="cardPopupTitle">
             请选择会员卡
-            <view class="noCard" bindtap='toBuy'>不使用会员卡</view>
+            <view class="noCard" bindtap='noCardBuy'>不使用会员卡</view>
         </view>
         <view class="cardBody">
             <view class="cardBody-item">
@@ -20,7 +20,7 @@
                       </view>
                 </picker>
             </view>
-            <view class="cardBody-item">
+            <view class="cardBody-item" wx:if='{{!cardList[cardListNo].pin}}'>
                 <view class="cardBody-key">密码:</view>
                 <input value="{{cardPassword}}" class="cardBody-value" type='' password="true" placeholder="请输入密码" bindinput="getPassword" />
             </view>

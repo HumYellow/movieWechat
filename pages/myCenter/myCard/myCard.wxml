@@ -1,8 +1,8 @@
 <!--pages/myCenter/myCard/myCard.wxml-->
-<view class="toBindCard">
+<!-- <view class="toBindCard">
     <view class="bindCardBox">会员卡</view>
     <view class="toAdd" bindtap='toBindCard'>去添加</view>
-</view>
+</view> -->
 <view class="cardList">
     <view class="cardBox" bindtap='toCardDetail' wx:for="{{cardList}}" wx:key="{{index}}" data-id="{{item.id}}">
         <view class="cardBoxMod">

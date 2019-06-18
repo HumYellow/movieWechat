@@ -101,7 +101,7 @@ Page({
     let data = {
       memberCardNumber: this.data.memberCardNumber,
       pinNumber: this.data.pinNumber,
-      memberId:this.data.cinemaId
+      cinemaId:this.data.cinemaId
     }
     app.request('post', url, data, (res) => {
       wx.showToast({

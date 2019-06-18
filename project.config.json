@@ -103,7 +103,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 32,
+			"current": 34,
 			"list": [
 				{
 					"id": 0,
@@ -155,10 +155,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 7,
 					"name": "订单确认",
 					"pathName": "pages/order/confirmOrder/confirmOrder",
-					"query": "",
+					"query": "orderId=327",
 					"scene": null
 				},
 				{
@@ -334,6 +334,20 @@
 					"name": "订单确认",
 					"pathName": "pages/order/confirmOrder/confirmOrder",
 					"query": "orderId=249",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单列表",
+					"pathName": "pages/order/orderList/orderList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 34,
+					"name": "订单详情",
+					"pathName": "pages/order/orderDetail/orderDetail",
+					"query": "orderId=359",
 					"scene": null
 				}
 			]

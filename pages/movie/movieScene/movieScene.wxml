@@ -1,7 +1,9 @@
 <!--pages/movie/movieScene/movieScene.wxml-->
 <view class="cinemaBox" wx:if="{{cinemaDetails}}">
   <view class="cinemaDesc">
-      <image class="cinemaImg shadowBox" mode='widthFix' src='{{cinemaDetails.img}}'></image>
+      <view class="cinemaImg shadowBox">
+          <image mode='aspectFill' src='{{cinemaDetails.img}}'></image>
+      </view>
       <view class="cinemaBoxDesc">
           <view class="cinemaBoxTitle">{{cinemaDetails.name}}</view>
           <view class="cinemaBoxAddress">{{cinemaDetails.address}}</view>

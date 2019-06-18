@@ -125,6 +125,15 @@ Page({
   vipToBuy:function(e){
     let card = e.detail.card
     console.info(card)
+    this.setData({
+      selectCard: card
+    })
+    this.toBuy()
+  },
+  noCardBuy: function () {
+    this.setData({
+      selectCard: {}
+    })
     this.toBuy()
   },
   toBuy: function () {//提交场次座位获取订单号
@@ -140,11 +149,15 @@ Page({
       for (let i = 0; i < selectSeatList.length; i++) {
         seatLabel += selectSeatList[i].line + ':' + selectSeatList[i].rank + ','
       }
+      console.info(this.data.selectCard)
       let data = {
         mpiId: this.data.mpiId,
         seatLabel: seatLabel.substring(0, seatLabel.length - 1),
-        quantity:selectSeatList.length
+        quantity:selectSeatList.length,
+        cardId: this.data.selectCard.id,
+        pinNumber: this.data.selectCard.cardPassword,
       }
+      console.info(data)
       app.request('post', url, data, (res) => {//获取订单ID
         this.toOrder(res.data.orderId)
       })

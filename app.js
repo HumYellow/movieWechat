@@ -242,7 +242,7 @@ App({
       text: code,
       width: 150,
       height: 150,
-      colorDark: "#6ab778",
+      colorDark: '#6ab778',
       colorLight: "#ffffff",
       correctLevel: QRCode.CorrectLevel.H,
     });

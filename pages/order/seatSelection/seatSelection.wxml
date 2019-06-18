@@ -74,4 +74,4 @@
       </view>
   </view>
 </view>
-<cardPopup cardPopupShow="{{cardPopupShow}}" bindclosePopup='closePopup' bindtoBuy='toBuy' cardList="{{cardList}}" bindvipToBuy='vipToBuy' cinemaName="{{sceneDetail.opiDetailInfo.cinemaName}}"></cardPopup>
+<cardPopup cardPopupShow="{{cardPopupShow}}" bindclosePopup='closePopup' bindnoCardBuy='noCardBuy' cardList="{{cardList}}" bindvipToBuy='vipToBuy' cinemaName="{{sceneDetail.opiDetailInfo.cinemaName}}"></cardPopup>

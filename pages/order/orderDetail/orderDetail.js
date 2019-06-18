@@ -82,8 +82,9 @@ Page({
       this.setData({
         orderDetail: res.data
       })
-
-      app.getQRCode(res.data.qrCodeParams)
+      //测试用写死二维码可删
+      let qrCodeParams = res.data.qrCodeParams ? res.data.qrCodeParams :'9089DCA28C9A2B5D686E10AFACE4CCDA'
+      app.getQRCode(qrCodeParams)
     })
   },
   toCinemaDetail: function () {

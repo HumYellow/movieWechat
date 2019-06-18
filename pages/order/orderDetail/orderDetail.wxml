@@ -27,16 +27,34 @@
         </view>
         <image class="orderDetailLine" mode='widthFix' src="/static/image/orderDetailLine.png"></image>
         <view class="QRcodeBox">
-            <!-- <image class="QRcode" mode='widthFix' src='/static/image/erweima.png'></image> -->
-            <canvas class='canvas' canvas-id='canvas'></canvas>
-            <view class="couponCode">取票码:{{orderDetail.bookingNumber}}</view>
-            <view class="couponCode c999">验票码:{{orderDetail.bookingCode}}</view>
+            <view class="{{orderDetail.busDetailStatus == 'success'?'opAll':'opHalf'}}" wx:if="{{orderDetail.busDetailStatus == 'success' || orderDetail.busDetailStatus == 'overtime' ||orderDetail.busDetailStatus == 'inspect' ||orderDetail.busDetailStatus == 'take' ||orderDetail.busDetailStatus == 'return'}}">
+                <canvas class='canvas' canvas-id='canvas'></canvas>
+                <view class="couponCode">取票码:{{orderDetail.bookingNumber?orderDetail.bookingNumber:'3436678'}}</view>
+                <view class="couponCode c999">验票码:{{orderDetail.bookingCode?orderDetail.bookingCode:'88ur634'}}</view>
+            </view>
+            <view wx:else class="noBill">
+                <view wx:if="{{orderDetail.busDetailStatus == 'paid'}}">
+                    <image mode="scaleToFill" src="https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/order/inTheTiket.png"></image>
+                    <view class="noBillText">出票中</view>
+                </view>
+                <view wx:if="{{orderDetail.busDetailStatus == 'cancel'}}">
+                    <image mode="scaleToFill" src="https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/order/fail.png"></image>
+                    <view class="noBillText">超时未支付，订单已取消</view>
+                </view>
+            </view>
+            <view class="stateImg">
+                <image wx:if="{{orderDetail.busDetailStatus == 'take'}}" mode="scaleToFill" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/order/refundedn.png'></image>
+                <image wx:if="{{orderDetail.busDetailStatus == 'inspect'}}" mode="scaleToFill" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/order/checkedTickets.png'></image>
+                <image wx:if="{{orderDetail.busDetailStatus == 'overtime'}}" mode="scaleToFill" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/order/expired.png'></image>
+                <image wx:if="{{orderDetail.busDetailStatus == 'success'}}" mode="scaleToFill" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/order/notUsed.png'></image>
+                <image wx:if="{{orderDetail.busDetailStatus == 'return'}}" mode="scaleToFill" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/order/refundedn.png'></image>
+            </view>
         </view>
         <image class="orderDetailLine" mode='widthFix' src="/static/image/orderDetailLine.png"></image>
         <view class="orderDetail-desc">
             <view class="orderDetail-desc-title">
-                  <view class="orderDetail-desc-titleBox1"> 实际金额</view>
-                  <view class="orderDetail-desc-titleBox2">￥{{orderDetail.dueFee2Yuan}}</view>
+                <view class="orderDetail-desc-titleBox1"> 实际金额</view>
+                <view class="orderDetail-desc-titleBox2">￥{{orderDetail.dueFee2Yuan}}</view>
             </view>
             <view class="orderDetail-desc-text">订单号: {{orderDetail.tradeNo}}</view>
             <view class="orderDetail-desc-text">购买时间: 2013-1-22  15:30:23</view>

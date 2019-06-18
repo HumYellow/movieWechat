@@ -45,7 +45,7 @@ Component({
   methods: {
     vipToBuy: function () {
       let cardPassword = this.data.cardPassword
-      if (cardPassword == '') {
+      if (cardPassword == '' && !this.properties.cardList[this.data.cardListNo].pin) {
         wx.showModal({
           title: '提示',
           content: '会员卡密码不能为空',
@@ -68,9 +68,9 @@ Component({
       }
 
     },
-    toBuy: function () {
+    noCardBuy: function () {
       this.closePopup()
-      this.triggerEvent('toBuy', {
+      this.triggerEvent('noCardBuy', {
         
       })
     },

@@ -6,14 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    discount1: ['敬请期待'],
-    discount2: ['无可用优惠券'],
-    discount3: ['敬请期待'],
     orderId:'',
     orderDetail:{},
     leftTime:'',
     getTime:'',
+    useCard:false,
+    couponList:[],
     couponPopupShow:false,
+    
   },
 
   /**
@@ -87,15 +87,39 @@ Page({
       },()=>{
         this.leftTimeFn()
       })
-      
+      if (this.data.orderDetail.cinemaMemberVO){
+          this.setData({
+            useCard:true
+          })
+      }
     })
   },
   toPay:function(e){
-    let orderId = this.data.orderId
-    let url = '/pages/order/orderDetail/orderDetail?orderId=' + orderId
-    wx.navigateTo({
-      url
+    console.info(this.data.useCard)
+    if(this.data.useCard){
+      this.cardPay()
+    } else {//暂时直接跳转
+      this.wxPay()
+      this.toOrderDetail()
+    }
+
+  },
+  cardPay: function () {
+    let orderId = this.data.orderId;
+    let url = '/order/payMent';
+
+    let data = {
+      orderId,
+      payMentType:1,
+    }
+    app.request('post', url, data, (res) => {
+      console.info(res.data)
+      this.toOrderDetail()
     })
+
+  },
+  wxPay:function(){
+
   },
   leftTimeFn: function () {
     let nowTime = new Date()
@@ -134,7 +158,6 @@ Page({
               }
             }
           })
-          clearTimeout(this.data.getTime)
           return
         } else {
           that.countDown(leftTime - 1000)
@@ -142,5 +165,61 @@ Page({
       }, 1000)
     })
     
-  }
+  },
+  tabUseCard:function(){
+    this.setData({
+      useCard: !this.data.useCard
+    })
+  },
+  toOrderDetail: function () {
+    let orderId = this.data.orderId;
+
+    let url = '/pages/order/orderDetail/orderDetail?orderId=' + orderId
+    wx.navigateTo({
+      url
+    })
+  },
+  selectCoupon:function(){
+    this.setData({
+      couponPopupShow:true
+    })
+  },
+
+  /**
+* p 参数是调用下单参数接口的返回值
+*/
+  _pay(p) {
+    if (!this.payInstance) {
+      this.payInstance = MidasPayApi.init({
+        env: p.sandbox, // 0或不传是正式，1是沙箱
+        autoDestroy: true
+      });
+    }
+    const params = {
+      openid: p.openid, //'oMYJr5Y5C0KmlAoXSHd1MpLo2ZCc',
+      offer_id: p.offerId,
+      pf: 'html5',
+      goodstokenurl: p.urlParams, 
+      zoneid: '1'
+    };
+    this.payInstance.launchPay(params, (result) => {
+      if (result.resultCode === 0) {
+        wx.showToast({
+          title: '支付成功',
+          icon: 'success'
+        });
+        this._confirmOrder(p.orderId);
+        this._updatePayStatus();
+      } else/* if (result.resultCode = -2)*/ {
+        // 取消支付
+        wx.showToast({
+          title: result.resultMsg || `支付异常:${result.resultCode}`,
+          icon: 'none',
+          mask: true
+        });
+      }
+      this.payInstance = null;
+      console.log(result)
+    });
+  },
 })
