@@ -7,7 +7,7 @@
 .msgCode{width:60%;}
 .getMsgCodeBox{width:40%;padding-left:20rpx;}
 .getMsgCode{font-size:28rpx;text-align:center;background:#999;color:#fff;height:100%;line-height:80rpx;border-radius:10rpx;}
-.getMsgCode.getMsgCodeTo{background:#63a4fd}
+.getMsgCode.getMsgCodeTo{background:#fff;border:1px solid #6ab778;color:#6ab778;border-radius:50rpx;}
 .agreeRules{font-size:24rpx;color:#666;width:100%;text-align:right;}
 .rulesLink{color:#63a4fd}
 

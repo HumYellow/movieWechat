@@ -1,5 +1,6 @@
 /* pages/myCenter/wantWacth/wantWatch.wxss */
 .movieList{padding:2rpx 20rpx;}
+.wantWacthNo{background:#e3efe6;color:#6ab778;display:flex;justify-content: center; align-items: center; font-size:26rpx;height:60rpx;}
 .movieList-item{display: flex;background:#fff;border-radius:5px;padding:10px;margin:10px 0;box-shadow: 2px 2px #f3f3f3}
 .movieList-item-pic{flex:0 0 135rpx;height:190rpx;border-radius:3px;}
 .movieList-item-desc{width:80%;display:flex;justify-content: center;}

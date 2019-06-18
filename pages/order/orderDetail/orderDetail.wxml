@@ -27,7 +27,7 @@
         </view>
         <image class="orderDetailLine" mode='widthFix' src="/static/image/orderDetailLine.png"></image>
         <view class="QRcodeBox">
-            <view class="{{orderDetail.busDetailStatus == 'success'?'opAll':'opHalf'}}" wx:if="{{orderDetail.busDetailStatus == 'success' || orderDetail.busDetailStatus == 'overtime' ||orderDetail.busDetailStatus == 'inspect' ||orderDetail.busDetailStatus == 'take' ||orderDetail.busDetailStatus == 'return'}}">
+            <view class="{{op?'opHalf':'opAll'}}" wx:if="{{orderDetail.busDetailStatus == 'success' || orderDetail.busDetailStatus == 'overtime' ||orderDetail.busDetailStatus == 'inspect' ||orderDetail.busDetailStatus == 'take' ||orderDetail.busDetailStatus == 'return'}}">
                 <canvas class='canvas' canvas-id='canvas'></canvas>
                 <view class="couponCode">取票码:{{orderDetail.bookingNumber?orderDetail.bookingNumber:'3436678'}}</view>
                 <view class="couponCode c999">验票码:{{orderDetail.bookingCode?orderDetail.bookingCode:'88ur634'}}</view>

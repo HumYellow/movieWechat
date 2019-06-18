@@ -20,9 +20,7 @@
               <view class="allPrice-key">票价</view>
               <view class="allPrice-value">{{orderDetail.dueFee2Yuan}}元</view>
           </view>
-          <view class="c666 fs22">
-              注意只享受一种优惠
-          </view>
+          <view class="c999 fs22">注:该影片只享受一种优惠</view>
       </view>
   </view>
   <image mode='widthFix' src="/static/image/orderDetailLine.png" class="orderDetailLine"></image>

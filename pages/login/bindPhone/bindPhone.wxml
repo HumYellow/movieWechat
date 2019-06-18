@@ -13,7 +13,7 @@
               <view wx:else class="getMsgCode">{{countdownData.sec}}</view>
           </view>
       </view>
-      <view class="agreeRules">表示同意<text class="rulesLink">《用户守则》</text></view>
+      <!-- <view class="agreeRules">表示同意<text class="rulesLink">《用户守则》</text></view> -->
   </view>
   <view class="subCode" bindtap='subCode'>确定</view>
 </view>

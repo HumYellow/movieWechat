@@ -82,9 +82,16 @@ Page({
       this.setData({
         orderDetail: res.data
       })
+      let a = this.data.orderDetail.busDetailStatus
+      if (a == 'overtime' || a == 'inspect' || a == 'take' || a == 'return') {
+          this.setData({
+            op: true
+          })
+      }
       //测试用写死二维码可删
-      let qrCodeParams = res.data.qrCodeParams ? res.data.qrCodeParams :'9089DCA28C9A2B5D686E10AFACE4CCDA'
-      app.getQRCode(qrCodeParams)
+      let qrCodeParams = res.data.qrCodeParams ? res.data.qrCodeParams : '9089DCA28C9A2B5D686E10AFACE4CCDA'
+      this.data.op ? app.getQRCode(qrCodeParams, '#d2e9d6') : app.getQRCode(qrCodeParams)
+      
     })
   },
   toCinemaDetail: function () {

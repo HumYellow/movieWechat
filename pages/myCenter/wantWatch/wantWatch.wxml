@@ -1,4 +1,7 @@
 <!--pages/myCenter/wantWacth/wantWatch.wxml-->
+<view class="wantWacthNo">
+    想看{{watchList.length}}部电影
+</view>
 <view class="movieList">
     <view class="movieList-item" wx:for="{{watchList}}" wx:key="watchList.id" bindtap="toMovieDetails" data-id="{{item.movieId}}">
         <image class="movieList-item-pic" src='{{item.img}}' mode='aspectFill'></image>

@@ -3,8 +3,10 @@ const util = require('/utils/util.js')
 const md5 = require('/utils/md5.js')
 const request = require('/utils/request.js')
 const QRCode = require('/utils/qrcode.js')
+const MidasPayApi = require('/midaspay/api/enterprisePay.js');
 App({
-  onLaunch: function () {
+  onLaunch: function (e) {//e.query为接受参数
+    console.info(e.query)
     let that = this
     this.getCityCode(this.globalData.defaultCity)//存默认城市
     this.locationCheck()
@@ -211,6 +213,7 @@ App({
         'Content-Type': 'application/json'
       },
       success: function (res) {
+        console.info(res.data)
         // success  
         var city = res.data.result.addressComponent.city;
         page.getCityCode(city)
@@ -237,16 +240,52 @@ App({
     wx.setStorageSync('cityCode', cityCode)
     wx.setStorageSync('cityNow', cityName)
   },
-  getQRCode: function (code) {
+  getQRCode: function (code, colorDark) {
     let qrcode = new QRCode('canvas', {
       text: code,
       width: 150,
       height: 150,
-      colorDark: '#6ab778',
+      colorDark: colorDark ? colorDark:'#6ab778',
       colorLight: "#ffffff",
       correctLevel: QRCode.CorrectLevel.H,
     });
     //qrcode.makeCode('aabbcc') 手动添加字符串
   },
 
+  _pay(p,callback) {
+    if (!this.payInstance) {
+      this.payInstance = MidasPayApi.init({
+        env: p.sandbox, // 0或不传是正式，1是沙箱
+        autoDestroy: true
+      });
+    }
+    const params = {
+      openid: p.openId, //'oMYJr5Y5C0KmlAoXSHd1MpLo2ZCc',
+      offer_id: p.offerId,
+      pf: 'html5',
+      goodstokenurl: p.urlParams,
+      zoneid: '1'
+    };
+    console.info(params)
+    this.payInstance.launchPay(params, (result) => {
+      console.info(result)
+      if (result.resultCode === 0) {
+        wx.showToast({
+          title: '支付成功',
+          icon: 'success'
+        });
+        if (callback) callback()
+        // this._confirmOrder(p.orderId);
+        // this._updatePayStatus();
+      } else/* if (result.resultCode = -2)*/ {
+        // 取消支付
+        wx.showToast({
+          title: result.resultMsg || '支付异常:${result.resultCode}',
+          icon: 'none',
+          mask: true
+        });
+      }
+      this.payInstance = null;
+    });
+  },
 })

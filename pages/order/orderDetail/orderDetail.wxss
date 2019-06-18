@@ -13,8 +13,8 @@ orderDetail-movie-seat-item{display:inline-block}
 .orderDetailLine{width:100%;height:auto;margin:0;display:block;}
 
 .QRcodeBox{display:flex;background:#fff;padding:50rpx 0;justify-content: center;flex-flow: column;align-items: center;position:relative;}
-.opAll{opacity: 1;}
-.opHalf{opacity: .5;}
+.opAll{opacity: 1 !important;}
+.opHalf{opacity: 0.5 !important;}
 .QRcodeBox .canvas{width:150px;height:150px;}
 .couponCode{color:#6ab778;font-size:24rpx;text-align:center;margin-top:10rpx;}
 .QRcodeBox .stateImg{position:absolute;width:98rpx;height:74rpx;right:50rpx;top:-20rpx;}
