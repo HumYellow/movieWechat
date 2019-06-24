@@ -8,13 +8,14 @@ page{background:#f8f8f8;}
 .movieDescBottom .allPrice{display:flex;}
 .allPrice-key{flex:1;text-align:left;color:#333;font-size:24rpx;}
 .allPrice-value{flex:1;text-align:right;color:#6ab778;font-size:24rpx;}
-.movieDesc{width:70%;box-sizing: border-box;padding-right:40rpx;}
-.movieName{font-size:32rpx;line-height:80rpx}
+.movieDesc{flex:1;box-sizing: border-box;padding-right:40rpx;}
+.movieName{font-size:32rpx;margin-bottom:20rpx;}
 .movieTime{font-size:24rpx;line-height:44rpx;color:#666}
 .cinemaDesc{font-size:24rpx;line-height:44rpx;color:#666}
 .cinemaSeat{font-size:24rpx;color:#999;line-height:50rpx;}
 .cinemaSeat text{margin-right:10rpx;}
-.moviePic{width:30%;border-radius:3px;}
+.moviePic{flex:0 0 134rpx;height:190rpx;border-radius:4px;overflow:hidden}
+.moviePic image{width:100%;height:100%;}
 .orderDetailLine{width:100%;display:block;position:relative;z-index:1;}
 
 .discountBox{background:#fff;border-radius:0 0 3px 3rpx;padding:0 30rpx;box-shadow:0px 0px 6px rgba(0,0,0,.1);margin-top:-1px;}

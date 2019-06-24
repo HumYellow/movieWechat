@@ -9,7 +9,12 @@ Component({
       type: Boolean,
       value: false,
       observer: function (newVal, oldVal, changedPath) {
-        if (newVal == true) this.getCouponList()
+        if (newVal == true){
+          this.setData({
+            couponList: {},
+          })
+          this.getCouponList()
+        }
       }
     },
     orderId: {
@@ -76,6 +81,9 @@ Component({
           duration: 3000,
           mask: true,
           success: function () {
+            _that.setData({
+              bindCoupon:''
+            })
             _that.selectCouponCallback()
           }
         })
@@ -83,7 +91,6 @@ Component({
       })
     },
     selectCoupon:function(e){
-      console.info(e)
       let _that = this
       let couponId = e.currentTarget.dataset.id
       let url = '/order/discount/useElecCoupon'
@@ -91,6 +98,16 @@ Component({
         orderId: this.properties.orderId,
         couponId,
         couponPass: this.data.bindCoupon
+      }
+      app.request('post', url, data, (res) => {
+        _that.selectCouponCallback()
+      })
+    },
+    delectCoupon:function(){
+      let _that = this
+      let url = '/order/discount/unuseElecCoupon'
+      let data = {
+        orderId: this.properties.orderId
       }
       app.request('post', url, data, (res) => {
         _that.selectCouponCallback()
@@ -109,7 +126,6 @@ Component({
         orderId: this.properties.orderId,
       }
       app.request('get', url, data, (res) => {
-        console.info(res.data)
         let couponList = res.data.couponVOList
         this.setData({
           couponList:res.data.couponVOList,

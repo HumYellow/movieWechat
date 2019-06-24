@@ -76,7 +76,7 @@
                         <view class="couponTest">{{item.remark}}</view>
                     </view>
                     <view class="couponAmount">
-                        {{item.amount}}元
+                        {{item.amount2Yuan}}元
                     </view>
                 </view>
                 <view class="couponDate">

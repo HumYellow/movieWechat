@@ -2,7 +2,7 @@
 <view class="leftTimeLine">
     支付剩余时间{{leftTime}}
 </view>
-<view class="confirmOrder">
+<view class="confirmOrder" wx:if="{{orderDetail}}">
   <view class="orderDetailBox">
       <view class="movieDescBox">
           <view class="movieDescTop">
@@ -14,12 +14,14 @@
                       <text wx:for="{{orderDetail.seatList}}" wx:key="index">{{item}}</text> 
                   </view>
               </view>
-              <image class="moviePic" mode="widthFix" src='{{orderDetail.movieImg}}'></image>
+              <view class="moviePic">
+                  <image wx:if="{{orderDetail.movieImg}}" mode="aspectFill" src='{{orderDetail.movieImg}}'></image>
+              </view>
           </view>
           <view class="movieDescBottom">
               <view class="allPrice">
                   <view class="allPrice-key">票价</view>
-                  <view class="allPrice-value">{{orderDetail.dueFee2Yuan}}元</view>
+                  <view class="allPrice-value">{{orderDetail.allFee2Yuan}}元</view>
               </view>
               <view class="c999 fs22">注:该影片只享受一种优惠</view>
           </view>
@@ -54,7 +56,7 @@
   </view>
   <view class="confimOrderBox">
       <view class="cardPay" wx:if="{{orderDetail.cinemaMemberVO}}">
-          <view class="discount-item-title">是否使用会员卡</view>
+          <view class="discount-item-title">是否使用会员卡支付</view>
           <view class="discount-item-desc">
               <view class="useCard" bindtap='tabUseCard'>
                   <view class="balance">余额{{orderDetail.cinemaMemberVO.balance2Yuan}}元</view>

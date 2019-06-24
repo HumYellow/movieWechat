@@ -8,6 +8,7 @@
 .couponList{padding:0 20rpx;height:50vh;box-sizing: border-box}
 .couponList-item{border-radius:5px;margin:0 5rpx 20rpx;box-shadow: 0px 0px 6px rgba(0,0,0,.1);}
 .couponDetail{background:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/couponBg.png') no-repeat; background-size:100% auto; display:flex;height:200rpx;justify-content: center;align-items: center;position:relative;}
+.exchangeBgDetail{background:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/exchangeBg.png') no-repeat; background-size:100% auto; display:flex;height:200rpx;justify-content: center;align-items: center;}
 .couponList.contUse .couponDetail{background-image: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/couponBg_no.png')}
 .noCoupon{color:#999;padding:100rpx 0;text-align:center;font-size:28rpx;}
 .couponIcon{width:150rpx;height:175rpx;}

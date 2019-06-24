@@ -28,13 +28,13 @@
                           <view class="couponTitle">低值券</view>
                           <view class="couponTest">{{item.remark}}</view>
                       </view>
-                      <view class="couponAmount">{{item.amount}}元</view>
+                      <view class="couponAmount">{{item.amount2Yuan}}元</view>
                       <image mode='scaleToFill' class="selectIcon" wx:if="{{item.busStatus=='W'}}" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/select_icon.png'></image>
                   </view>
                   <view class="couponDate">有效期：{{item.beginTime}} - {{item.endTime}}</view>
               </view>
             </view>
         </scroll-view>
-        <view class="noNeed">不使用任何优惠券</view>
+        <view class="noNeed" bindtap='delectCoupon'>不使用任何优惠券</view>
     </view>
 </popup>

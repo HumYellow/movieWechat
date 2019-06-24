@@ -128,6 +128,8 @@ Page({
     
   },
   getCantList: function () {
+    let number = this.data.number
+    let cantUseNo = this.data.cantUseNo
     let url = '/home/coupon/listData'
     let data = {
       validType: 0,

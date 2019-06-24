@@ -7,7 +7,7 @@ Page({
    */
   data: {
     orderId:'',
-    orderDetail:{},
+    orderDetail: null,
     leftTime:'',
     getTime:'',
     useCard:false,
@@ -89,7 +89,7 @@ Page({
       },()=>{
         this.leftTimeFn()
       })
-      if (this.data.orderDetail.cinemaMemberVO){
+      if (this.data.orderDetail.cinemaMemberVO && !this.data.orderDetail.couponVO){
           this.setData({
             useCard:true
           })
@@ -177,31 +177,59 @@ Page({
     
   },
   tabUseCard:function(){
-    this.setData({
-      useCard: !this.data.useCard
-    })
+    let _that = this
+    let useCard = this.data.useCard
+    if (!useCard && this.data.orderDetail.couponVO){
+      wx.showModal({
+        title: '提示',
+        content: '选择会员卡支付将会取消优惠券',
+        confirmText: "确认",
+        success: function (res) {
+          if (res.confirm) {
+            _that.delectCoupon()
+          } else if (res.cancel) {
+
+          }
+        }
+      })
+    } else {
+      this.setData({
+        useCard: !useCard
+      })
+
+    }
   },
   toOrderDetail: function () {
-
-    let url = '/wechatPay/queryOrder';
-    let data = {
-      orderId: this.data.orderId,
-    }
-    app.request('get', url, data, (res) => {
-      console.info(res.data)
-      // let orderId = this.data.orderId;
-      // let url = '/pages/order/orderDetail/orderDetail?orderId=' + orderId
-      // wx.navigateTo({
-      //   url
-      // })
+    let orderId = this.data.orderId;
+    let url = '/pages/order/orderDetail/orderDetail?orderId=' + orderId
+    wx.navigateTo({
+      url
     })
-
-    
   },
   selectCoupon:function(){
-    this.setData({
-      couponPopupShow:true
-    })
+    let _that = this
+    let useCard = this.data.useCard
+    if (useCard){
+      wx.showModal({
+        title: '提示',
+        content: '选择优惠券将会取消会员卡支付',
+        confirmText: "确认",
+        success: function (res) {
+          if (res.confirm) {
+               _that.setData({
+                useCard: false,
+                couponPopupShow: true
+              })
+          } else if (res.cancel) {
+            
+          }
+        }
+      })
+    } else {
+      _that.setData({
+        couponPopupShow: true
+      })
+    }
   },
   closePopup: function () {
     this.setData({
@@ -219,17 +247,28 @@ Page({
     })
   },
   selectCouponCallback: function () {
-    console.info(22)
+    wx.showLoading({
+      title: '加载中'
+    })
     this.setData({
-      orderDetail: {},
+      orderDetail: null,
       leftTime: '',
       getTime: '',
       useCard: false,
       couponPopupShow: false,
     })
-    console.info(33)
     this.getOrderDetail(this.data.orderId)
-  }
+  },
+  delectCoupon: function (callback) {
+    let _that = this
+    let url = '/order/discount/unuseElecCoupon'
+    let data = {
+      orderId: this.properties.orderId
+    }
+    app.request('post', url, data, (res) => {
+      _that.selectCouponCallback()
+    })
+  },
 
   
 })
