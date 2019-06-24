@@ -12,7 +12,7 @@
 .movieList-item-desc-box1{width:75%;padding:0 10px;line-height:20px;}
 .movieList-item-desc-box2{width:25%;}
 .movieList-item-desc-box1 .movieList-item-desc-name{font-size:16px;color:#333;font-weight:600;line-height:26px;}
-.movieList-item-desc-box1 .movieList-item-desc-perf{color:#666;font-size:12px;}
-.movieList-item-desc-box1 .movieList-item-desc-data{color:#999;font-size:12px;}
+.movieList-item-desc-box1 .movieList-item-desc-perf{color:#666;font-size:24rpx;}
+.movieList-item-desc-box1 .movieList-item-desc-data{color:#999;font-size:24rpx;}
 .movieList-item-desc-box2 .movieList-item-desc-score{color:#ff4d64; font-size:16px;margin:3px auto;text-align:center;width:100%;}
 .movieList-item-desc-box2 .movieList-item-desc-toBuy{background:#63a4fd;color:#fff;border-radius:20px;width:80%;height:22px;line-height:22px;text-align:center;font-size:12px;margin:5px auto;}

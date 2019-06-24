@@ -1,11 +1,12 @@
 const app = getApp()
 const util = require('./util.js')
 const md5 = require('./md5.js')
-const apiHttp = 'http://129.211.85.17:8031/wxspapi/v1'
+const apiHttp = 'https://test.wecinema.club/wxspapi/v1'
+const weikai = 'http://192.168.110.13:8031/wxspapi/v1'
 const caichengmei = 'http://192.168.110.16:8031/wxspapi/v1'
 const zhoujin = 'http://192.168.110.32:8031/wxspapi/v1'
 const request = {//请求封装
-  apiHttp: zhoujin,
+  apiHttp: weikai,
     appleKey: 'RWSF2JhLXNWkmygnsNb3yA4Ach8Pb6HNjkEH9GwZL49sC8bFg4n4k8j2jUuUFt9HSamb7fkUaVcQrBuvELv6a9Uyx2H4s58BtDz',
     wxRequest: function (method, url, data, callback, errFun) {
       let that = this
@@ -47,13 +48,13 @@ const request = {//请求封装
         },
         dataType: 'json',
         success: function (res) {
+          wx.hideLoading()
           if (res.data.errcode == '0000') {
             callback(res.data);
           } else if (res.data.errcode == '5001') {//未登录
             wx.redirectTo({
               url: "/pages/login/login/login"
             });
-            
           } else if (res.data.errcode == '5005') {//未绑定手机
             wx.redirectTo({
               url: "/pages/login/bindPhone/bindPhone"

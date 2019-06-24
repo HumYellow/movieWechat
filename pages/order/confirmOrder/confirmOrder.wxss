@@ -2,22 +2,22 @@
 page{background:#f8f8f8;}
 .leftTimeLine{background:#e3efe6;color:#6ab778;height:55rpx;font-size:26rpx;display:flex;justify-content: center; align-items: center;}
 .confirmOrder{padding:20rpx;}
-.movieDescBox{border-radius:7px 7px 0 0;padding:80rpx 40rpx 40rpx;border-left:4rpx solid #ededed;border-top:4rpx solid #ededed;border-right:4rpx solid #ededed;background:#fff;}
+.movieDescBox{border-radius:3px 3px 0 0;padding:30rpx;background:#fff;box-shadow:0px 0px 6px rgba(0,0,0,.1);margin-bottom:-1px;}
 .movieDescTop{display:flex;}
 .movieDescBottom{margin-top:50rpx;}
 .movieDescBottom .allPrice{display:flex;}
 .allPrice-key{flex:1;text-align:left;color:#333;font-size:24rpx;}
 .allPrice-value{flex:1;text-align:right;color:#6ab778;font-size:24rpx;}
-.movieDesc{width:70%}
+.movieDesc{width:70%;box-sizing: border-box;padding-right:40rpx;}
 .movieName{font-size:32rpx;line-height:80rpx}
-.movieTime{font-size:24rpx;line-height:44rpx;}
-.cinemaDesc{font-size:24rpx;line-height:44rpx;}
+.movieTime{font-size:24rpx;line-height:44rpx;color:#666}
+.cinemaDesc{font-size:24rpx;line-height:44rpx;color:#666}
 .cinemaSeat{font-size:24rpx;color:#999;line-height:50rpx;}
 .cinemaSeat text{margin-right:10rpx;}
 .moviePic{width:30%;border-radius:3px;}
-.orderDetailLine{width:100%;display:block;}
+.orderDetailLine{width:100%;display:block;position:relative;z-index:1;}
 
-.discountBox{border-left:4rpx solid #ededed;border-bottom:4rpx solid #ededed;border-right:4rpx solid #ededed;background:#fff;border-radius:0 0 7px 7px;padding:0 40rpx 20rpx;}
+.discountBox{background:#fff;border-radius:0 0 3px 3rpx;padding:0 30rpx;box-shadow:0px 0px 6px rgba(0,0,0,.1);margin-top:-1px;}
 .discount-item{border-top:2rpx solid #f4f4f4;display:flex;padding:30rpx 0;align-items: center;}
 .discount-item:nth-child(1){border:none;}
 .discount-item-title{width:50%;background-repeat:no-repeat;background-position:left center;padding-left:50rpx;background-size:40rpx auto;font-size:28rpx;color:#333;}
@@ -28,6 +28,10 @@ page{background:#f8f8f8;}
 .discount-item-desc .useCard{display:flex;align-items: center; justify-content: flex-end}
 .balance{color:#6ab778;margin-right:20rpx}
 .discount-item-desc .useCard image{width: 28rpx;height:28rpx;}
+
+.orderDescBox{border-radius:4rpx;background:#fff;padding:30rpx;margin:20rpx 0;}
+.orderDescBoxTitle{color:#333;font-size:24rpx;padding-bottom:20rpx;}
+.orderDescBoxBody{color:#999;font-size:22rpx;border-top:1px solid #f0f0f0;padding-top:20rpx;}
 
 .confimOrderBox{position:fixed; bottom:0;left:0;padding:20rpx;width:100%;box-sizing: border-box;background:#fff;}
 .cardPay{display:flex;margin-bottom:20rpx;}

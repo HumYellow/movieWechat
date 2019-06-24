@@ -2,26 +2,37 @@
 <popup popupShow="{{couponPopupShow}}" bindclosePopup='closePopup'>
     <view class="couponListBox">
         <view class="bindCoupon">
-            <input class="bindCouponInput" placeholder='请输入优惠券码' type='number' />
-            <view class="bindCouponBtn">验证绑定</view>
+        <input class="bindCouponInput" placeholder='请输入优惠券码' value='{{bindCoupon}}' bindinput='bindCouponInput' />
+            <view class="bindCouponBtn" bindtap='pushCouponCode'>验证绑定</view>
         </view>
         <view class="pageTitle">请选择优惠券</view>
         <scroll-view class="couponList" scroll-y>
-            <view class="couponList-item shadowBox2" wx:for="{{5}}" wx:key="index">
-                <view class="couponDetail">
-                    <image made='widthFix' class="couponIcon" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/icon_coupon.png'></image>
-                    <view class="couponDesc">
-                        <view class="couponTitle">低值券</view>
-                        <view class="couponTest">啦啦啦啦啦啦我是卖报的小行家</view>
-                    </view>
-                    <view class="couponAmount">
-                        5元
-                    </view>
-                    <image mode='scaleToFill' class="selectIcon" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/select_icon.png'></image>
-                </view>
-                <view class="couponDate">
-                    有效期：2020年8月8日
-                </view>
+          <view class="noCoupon" wx:if="{{couponList.length<=0}}">无可用优惠券</view>
+          <view wx:for="{{couponList}}" wx:key="index">
+              <view wx:if="{{item.cardType=='A'}}" class="couponList-item shadowBox2" bindtap='selectCoupon' data-id="{{item.couponId}}">
+                  <view class="exchangeBgDetail">
+                      <image made='widthFix' class="couponIcon" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/icon_coupon.png'></image>
+                      <view class="couponDesc">
+                          <view class="couponTitle">兑换券</view>
+                          <view class="couponTest">{{item.remark}}</view>
+                      </view>
+                      <view class="couponAmount">兑换券</view>
+                      <image mode='scaleToFill' class="selectIcon" wx:if="{{item.busStatus=='W'}}" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/select_icon.png'></image>
+                  </view>
+                  <view class="couponDate">有效期：{{item.beginTime}} - {{item.endTime}}</view>
+              </view>
+              <view wx:if="{{item.cardType=='D'}}" class="couponList-item shadowBox2" bindtap='selectCoupon' data-id="{{item.couponId}}">
+                  <view class="couponDetail">
+                      <image made='widthFix' class="couponIcon" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/icon_coupon.png'></image>
+                      <view class="couponDesc">
+                          <view class="couponTitle">低值券</view>
+                          <view class="couponTest">{{item.remark}}</view>
+                      </view>
+                      <view class="couponAmount">{{item.amount}}元</view>
+                      <image mode='scaleToFill' class="selectIcon" wx:if="{{item.busStatus=='W'}}" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/select_icon.png'></image>
+                  </view>
+                  <view class="couponDate">有效期：{{item.beginTime}} - {{item.endTime}}</view>
+              </view>
             </view>
         </scroll-view>
         <view class="noNeed">不使用任何优惠券</view>

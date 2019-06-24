@@ -25,6 +25,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {//查看是否带切换参数，如果不带正常请求
+    wx.showLoading({
+      title: '加载中'
+    })
     let listTabType = app.globalData.movieListType
     if (!listTabType)this.getMovieList()
     wx.stopPullDownRefresh()

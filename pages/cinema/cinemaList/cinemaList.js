@@ -38,6 +38,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中'
+    })
     this.getCinemaLine()
     this.getCountyList()
     this.getLabelList()
@@ -148,7 +151,7 @@ Page({
     let data = {}
     app.request('get', url, data, (res) => {
       let cinemaLineList = [{
-        name: '院线',
+        name: '全部院线',
         cinemaLineId: ''
       }]
       cinemaLineList = cinemaLineList.concat(res.data.cinemaLineVOList)
@@ -163,7 +166,7 @@ Page({
     app.request('get', url, data, (res) => {
       console.info(res.data.countyVOList)
       let countyList = [{
-        countyBriefName: '区域',
+        countyBriefName: '全部区域',
         countyCode: ''
       }]
       countyList = countyList.concat(res.data.countyVOList)
@@ -201,10 +204,9 @@ Page({
         that.getCinemaList()
       },
       fail(res) {
-        console.info('失败')
         wx.showModal({
           title: '提示',
-          content: '如果您不进行授权，无法使用此功能，点击确定去授权',
+          content: '如果您不进行授权，无法使用定位，点击确定去授权',
           success: function (res) {
             if (res.confirm) {
               console.log('用户点击确定')
@@ -267,7 +269,7 @@ Page({
     app.request('get', url, '', (res) => {
 
       let labelList = [{
-        name: '特色',
+        name: '全部特色',
         labelId: ''
       }]
       labelList = labelList.concat(res.data.labelList)

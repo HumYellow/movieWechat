@@ -2,18 +2,18 @@
 
 <popup popupShow="{{cardPopupShow}}" bindclosePopup='closePopup'>
     <view class="cardPopupBox">
-        <view class="cardPopupTitle">
+        <view class="cardPopupTitle" wx:if="{{popupType=='toPay'}}">
             请选择会员卡
             <view class="noCard" bindtap='noCardBuy'>不使用会员卡</view>
         </view>
         <view class="cardBody">
-            <view class="cardBody-item">
+            <view class="cardBody-item" wx:if="{{cinemaName}}">
                 <view class="cardBody-key">影院:</view>
                 <view class="cardBody-value">{{cinemaName}}</view>
             </view>
-            <view class="cardBody-item">
+            <view class="cardBody-item" wx:if="{{cardList.length>0}}">
                 <view class="cardBody-key">卡号:</view>
-                <view wx:if="{{cardList.length<=1}}" class="cardBody-value">{{cardList[0].cardNumber}}</view>
+                <view wx:if="{{cardList.length==1}}" class="cardBody-value">{{cardList[0].cardNumber}}</view>
                 <picker wx:else class="cardBody-value" bindchange="tabCard" value="{{index}}" range='{{cardList}}' range-key="cardNumber">
                       <view class="picker">{{cardList[cardListNo].cardNumber}}
                           <view class="cinemaListSelect-item-tip"></view>
@@ -25,6 +25,6 @@
                 <input value="{{cardPassword}}" class="cardBody-value" type='' password="true" placeholder="请输入密码" bindinput="getPassword" />
             </view>
         </view>
-        <view class="checkCard" bindtap='vipToBuy'>确认</view>
+        <view class="checkCard" bindtap='pushPassword'>确认</view>
     </view>
 </popup>

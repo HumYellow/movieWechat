@@ -3,46 +3,58 @@
     支付剩余时间{{leftTime}}
 </view>
 <view class="confirmOrder">
-  <view class="movieDescBox">
-      <view class="movieDescTop">
-          <view class="movieDesc">
-              <view class="movieName">{{orderDetail.movieName}}</view>
-              <view class="movieTime">{{orderDetail.playDate}} {{orderDetail.showTime}}~{{orderDetail.endTime}}</view>
-              <view class="cinemaDesc">{{orderDetail.cinemaName}} {{orderDetail.roomName}}</view>
-              <view class="cinemaSeat">
-                  <text wx:for="{{orderDetail.seatList}}" wx:key="index">{{item}}</text> 
+  <view class="orderDetailBox">
+      <view class="movieDescBox">
+          <view class="movieDescTop">
+              <view class="movieDesc">
+                  <view class="movieName">{{orderDetail.movieName}}</view>
+                  <view class="movieTime">{{orderDetail.playDate}} {{orderDetail.showTime}}~{{orderDetail.endTime}}</view>
+                  <view class="cinemaDesc">{{orderDetail.cinemaName}} {{orderDetail.roomName}}</view>
+                  <view class="cinemaSeat">
+                      <text wx:for="{{orderDetail.seatList}}" wx:key="index">{{item}}</text> 
+                  </view>
+              </view>
+              <image class="moviePic" mode="widthFix" src='{{orderDetail.movieImg}}'></image>
+          </view>
+          <view class="movieDescBottom">
+              <view class="allPrice">
+                  <view class="allPrice-key">票价</view>
+                  <view class="allPrice-value">{{orderDetail.dueFee2Yuan}}元</view>
+              </view>
+              <view class="c999 fs22">注:该影片只享受一种优惠</view>
+          </view>
+      </view>
+      <image mode='widthFix' src="/static/image/orderDetailLine.png" class="orderDetailLine"></image>
+      <view class="discountBox">
+          <view class="discount-item discount-item-coupon">
+              <view class="discount-item-title">优惠券</view>
+              <view class="discount-item-desc">
+                  <view class="useCoupon">
+                      <view class="canUse" bindtap='selectCoupon'>
+                        <view wx:if="{{orderDetail.couponVO}}">已优惠{{orderDetail.discountFee2Yuan}}元</view>
+                        <view wx:else>请选择优惠券</view>
+                      </view>
+                  </view>
               </view>
           </view>
-          <image class="moviePic" mode="widthFix" src='{{orderDetail.movieImg}}'></image>
-      </view>
-      <view class="movieDescBottom">
-          <view class="allPrice">
-              <view class="allPrice-key">票价</view>
-              <view class="allPrice-value">{{orderDetail.dueFee2Yuan}}元</view>
-          </view>
-          <view class="c999 fs22">注:该影片只享受一种优惠</view>
       </view>
   </view>
-  <image mode='widthFix' src="/static/image/orderDetailLine.png" class="orderDetailLine"></image>
-  <view class="discountBox">
-      <view class="discount-item discount-item-coupon">
-          <view class="discount-item-title">
-            优惠券
-            
-          </view>
-          <view class="discount-item-desc">
-              <view class="useCoupon">
-                  <view wx:if="{{couponList.length>0}}" class="canUse">请选择优惠券</view>
-                  <view wx:else class="noUse">无可用</view>
-              </view>
-          </view>
+  <view class="orderDescBox shadowBox">
+      <view class="orderDescBoxTitle">手机号 :    {{orderDetail.mobile}}</view>
+      <view class="orderDescBoxBody">手机号仅限于生成订单，不会发送短信</view>
+  </view>
+  <view class="orderDescBox shadowBox">
+      <view class="orderDescBoxTitle">购票须知</view>
+      <view class="orderDescBoxBody">
+          <view>1.请确认场次和时间无误，购买成功后将不予退换;</view>
+          <view>2.由于设备故障等不可抗力因素，存在少量场次取消的情况，会进行退款;</view>
+          <view>3.由于影院系统不稳定等因素，存在出票失败的情况，会进行退款;</view>
+          <view>4.取票码和验票码不再通过短信发送，可在“联影通-电影票”中查看.</view>
       </view>
   </view>
   <view class="confimOrderBox">
       <view class="cardPay" wx:if="{{orderDetail.cinemaMemberVO}}">
-          <view class="discount-item-title">
-            是否使用会员卡
-          </view>
+          <view class="discount-item-title">是否使用会员卡</view>
           <view class="discount-item-desc">
               <view class="useCard" bindtap='tabUseCard'>
                   <view class="balance">余额{{orderDetail.cinemaMemberVO.balance2Yuan}}元</view>
@@ -55,9 +67,7 @@
       </view>
       <view class="wxPay">
           <view class="confimOrder-text">
-              <view class="confimOrder-text-item">
-                  应付
-              </view>
+              <view class="confimOrder-text-item">应付</view>
               <view class="confimOrder-text-item confimOrder-text-price">{{orderDetail.dueFee2Yuan}}</view>
               <view class="confimOrder-text-item"> 元</view>
               <view class="confimOrder-text-item c999 ml20">
@@ -68,4 +78,4 @@
       </view>
   </view>
 </view>
-<couponPopup couponPopupShow="{{couponPopupShow}}"  bindclosePopup='closePopup'></couponPopup>
+<couponPopup couponPopupShow="{{couponPopupShow}}"  bindclosePopup='closePopup' orderId="{{orderId}}" bindselectCouponCallback='selectCouponCallback'></couponPopup>

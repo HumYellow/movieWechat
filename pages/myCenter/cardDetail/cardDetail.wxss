@@ -1,12 +1,24 @@
 /* pages/myCenter/cardDetail/cardDetail.wxss */
 .cardBox{padding:20rpx 80rpx 0;}
-.cardDetail{background: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/myCenter/cardBg.png') no-repeat;background-size:100% auto;color:#fff;padding:50rpx 30rpx 20rpx;}
-.cardTitle{position:relative;font-size:40rpx;}
-.cardNo{position:absolute;right:0;top:10rpx;font-size:24rpx;}
-.cardTime{font-size:24rpx;margin-top:40rpx;}
+.cardDetail{background: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/myCenter/cardBg.png') no-repeat;background-size:100% auto;color:#fff;padding:30rpx 30rpx 20rpx;}
+.cardTitle{position:relative;font-size:32rpx;}
+.balanceBox{position:absolute;right:0;top:10rpx;font-size:24rpx;}
+.checkBalance{display: flex;justify-content: center; align-items: center;}
+.triangle{content:'';width:0;margin-left:10rpx;height:0;
+	border-right:8rpx solid transparent;
+	border-left:8rpx solid transparent;
+	border-top:10rpx solid #fff;
+}
+.cardNo{font-size:22rpx;line-height:50rpx;}
+.cardTime{font-size:22rpx;margin-top:100rpx;}
+
+.cardRule{padding:30rpx;margin-bottom:30rpx;background:#fff;}
+.cardRuleTitle{color:#333;font-size:28rpx;}
+.cardRuleDesc{font-size:22rpx;color:#999;line-height:45rpx;margin-top:15rpx;}
 
 .cinemaListBox{background:#fff;}
-.cinemaList-title{text-align:center;padding:40rpx;border-bottom:2px solid #f8f8f8}
+.cinemaList-title{text-align:center;padding:30rpx;border-bottom:2px solid #f8f8f8;display:flex;align-items: center;}
+.cinemaList-title-item{width:50%;}
 .cinemaList-item{display:flex;justify-content: center;align-items: center;padding:40rpx;}
 .cinemaTitle{flex:1;}
 .cinemaName{color:#333;font-size:28rpx;}

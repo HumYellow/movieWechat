@@ -41,6 +41,7 @@ color: transparent;
 .c333{color:#333 !important;}
 .c666{color:#666 !important;}
 .c999{color:#999 !important;}
+.cLogo{color:#6ab778 !important;}
 
 .fs22{font-size:22rpx !important;}
 .fs24{font-size:24rpx !important;}
@@ -58,3 +59,8 @@ color: transparent;
 .ml30{margin-left:30rpx !important;}
 .ml40{margin-left:40rpx !important;}
 .ml50{margin-left:50rpx !important;}
+
+.textLeft{text-align:left !important;}
+.textRight{text-align:right !important;}
+
+.lastPage{text-align:center;color:#666;font-size:24rpx;width:100%;padding:30rpx 0;}

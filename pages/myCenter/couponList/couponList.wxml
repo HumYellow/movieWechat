@@ -1,8 +1,8 @@
 <!--pages/myCenter/couponList/couponList.wxml-->
 <view class="couponListBox">
     <view class="bindCoupon">
-        <input class="bindCouponInput" placeholder='请输入优惠券码' />
-        <view class="bindCouponBtn">验证绑定</view>
+        <input class="bindCouponInput" placeholder='请输入优惠券码' value='{{bindCoupon}}' bindinput='bindCouponInput' />
+        <view class="bindCouponBtn" bindtap='pushCouponCode'>验证绑定</view>
     </view>
     <view class="couponListTab">
         <view class="couponListTab-itemBox {{canUse?'select':''}}" bindtap='tabList' data-type='can'>
@@ -17,37 +17,73 @@
         </view>
     </view>
     <view class="couponList" wx:if="{{canUse}}">
-        <view class="couponList-item shadowBox2">
-            <view class="couponDetail">
-                <image made='widthFix' class="couponIcon" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/icon_coupon.png'></image>
-                <view class="couponDesc">
-                    <view class="couponTitle">低值券</view>
-                    <view class="couponTest">啦啦啦啦啦啦我是卖报的小行家</view>
+        <view wx:for="{{canUseList}}" wx:key="index">
+            <view wx:if="{{item.cardType=='A'}}" class="couponList-item shadowBox2">
+                <view class="exchangeBgDetail">
+                    <image made='widthFix' class="couponIcon" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/icon_coupon.png'></image>
+                    <view class="couponDesc">
+                        <view class="couponTitle">兑换券</view>
+                        <view class="couponTest">{{item.remark}}</view>
+                    </view>
+                    <view class="couponAmount">
+                        兑换券
+                    </view>
                 </view>
-                <view class="couponAmount">
-                    5元
+                <view class="couponDate">
+                    有效期：{{item.beginTime}} - {{item.endTime}}
                 </view>
             </view>
-            <view class="couponDate">
-                有效期：2020年8月8日
+            <view wx:elif="{{item.cardType=='D'}}" class="couponList-item shadowBox2">
+                <view class="couponDetail">
+                    <image made='widthFix' class="couponIcon" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/icon_coupon.png'></image>
+                    <view class="couponDesc">
+                        <view class="couponTitle">低值券</view>
+                        <view class="couponTest">{{item.remark}}</view>
+                    </view>
+                    <view class="couponAmount">
+                        {{item.amount}}元
+                    </view>
+                </view>
+                <view class="couponDate">
+                    有效期：{{item.beginTime}} - {{item.endTime}}
+                </view>
             </view>
         </view>
+        <view wx:if="{{canUseLast}}" class="lastPage">没有更多啦</view>
     </view>
     <view class="couponList contUse" wx:else>
-        <view class="couponList-item shadowBox2">
-            <view class="couponDetail">
-                <image made='widthFix' class="couponIcon" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/icon_coupon.png'></image>
-                <view class="couponDesc">
-                    <view class="couponTitle">低值券</view>
-                    <view class="couponTest">啦啦啦啦啦啦我是卖报的小行家</view>
+        <view  wx:for="{{cantUseList}}" wx:key="index">
+            <view wx:if="{{item.cardType=='A'}}" class="couponList-item shadowBox2">
+                <view class="exchangeBgDetail">
+                    <image made='widthFix' class="couponIcon" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/icon_coupon.png'></image>
+                    <view class="couponDesc">
+                        <view class="couponTitle">兑换券</view>
+                        <view class="couponTest">{{item.remark}}</view>
+                    </view>
+                    <view class="couponAmount">
+                        兑换券
+                    </view>
                 </view>
-                <view class="couponAmount">
-                    5元
+                <view class="couponDate">
+                    有效期：{{item.beginTime}} - {{item.endTime}}
                 </view>
             </view>
-            <view class="couponDate">
-                有效期：2020年8月8日
+            <view wx:elif="{{item.cardType=='D'}}" class="couponList-item shadowBox2">
+                <view class="couponDetail">
+                    <image made='widthFix' class="couponIcon" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/icon_coupon.png'></image>
+                    <view class="couponDesc">
+                        <view class="couponTitle">低值券</view>
+                        <view class="couponTest">{{item.remark}}</view>
+                    </view>
+                    <view class="couponAmount">
+                        {{item.amount}}元
+                    </view>
+                </view>
+                <view class="couponDate">
+                    有效期：{{item.beginTime}} - {{item.endTime}}
+                </view>
             </view>
         </view>
+        <view wx:if="{{cantUseLast}}" class="lastPage">没有更多啦</view>
     </view>
 </view>

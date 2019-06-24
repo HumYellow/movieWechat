@@ -7,6 +7,7 @@ const MidasPayApi = require('/midaspay/api/enterprisePay.js');
 App({
   onLaunch: function (e) {//e.query为接受参数
     console.info(e.query)
+    //this.setCityStorage('', e.query)
     let that = this
     this.getCityCode(this.globalData.defaultCity)//存默认城市
     this.locationCheck()
@@ -16,6 +17,42 @@ App({
     locationData: '', 
     cityCode:'',
     defaultCity:'上海'
+  },
+  removeArray :function (arr, _obj) {//删除数组中某个对象
+    var length = arr.length;
+    for (var i = 0; i < length; i++) {
+      if (this.isObjectValueEqual(arr[i], _obj)) {
+        if (i == 0) {
+          arr.shift(); //删除并返回数组的第一个元素
+          return arr;
+        }
+        else if (i == length - 1) {
+          arr.pop();  //删除并返回数组的最后一个元素
+          return arr;
+        }
+        else {
+          arr.splice(i, 1); //删除下标为i的元素
+          return arr;
+        }
+      }
+    }
+  },
+  isObjectValueEqual:  function(a, b) {//比对两个数组
+      //取对象a和b的属性名
+      var aProps = Object.getOwnPropertyNames(a);
+      var bProps = Object.getOwnPropertyNames(b);
+      //判断属性名的length是否一致
+      if(aProps.length != bProps.length) {
+        return false;
+      }
+      //循环取出属性名，再判断属性值是否一致
+      for (var i = 0; i < aProps.length; i++) {
+        var propName = aProps[i];
+        if (a[propName] !== b[propName]) {
+          return false;
+        }
+      }
+      return true;
   },
   request: function (method, url, data, callback, errFun) {//整合请求接口
     request.wxRequest(method, url, data, callback, errFun)
@@ -66,7 +103,7 @@ App({
                             wx.navigateBack()
                           }
                         } else {
-                          wx.navigateTo({
+                          wx.redirectTo({
                             url: "/pages/login/bindPhone/bindPhone"
                           });
                         }
@@ -275,8 +312,6 @@ App({
           icon: 'success'
         });
         if (callback) callback()
-        // this._confirmOrder(p.orderId);
-        // this._updatePayStatus();
       } else/* if (result.resultCode = -2)*/ {
         // 取消支付
         wx.showToast({
@@ -288,4 +323,44 @@ App({
       this.payInstance = null;
     });
   },
+  toSelfPage:function(url){
+    console.info(url)
+    let pageType = url.split('?')[0]
+    let dataStr = url.split('?')[1];
+    let link
+    if (pageType == 'movie') {
+      link = '/pages/movie/movieDetails/movieDetails'
+    } else if (pageType == 'cinema') {
+      link = '/pages/movie/movieScene/movieScene'
+    } else {
+      link = '/pages/index/index'
+    }
+    link = link + '?' + dataStr
+    wx.navigateTo({
+      url: link
+    })
+  },
+  linkToWap:function(url){//跳转H5页面，传链接
+    wx.navigateTo({
+      url: '/pages/wapLink/wapLink?url='+ url,
+      success: function (e) {
+        console.log(e);
+      },
+      fail: function (err) {
+        console.log(err);
+      }
+    })
+  },
+  toOther:function(appId,url){//跳转其他小程序
+    wx.navigateToMiniProgram({
+      appId: appId, // 要跳转的小程序的appid
+      path: url, // 跳转的目标页面
+      extarData: {
+        open: 'auth'
+      },
+      success(res) {
+        // 打开成功  
+      }
+    })
+  }
 })

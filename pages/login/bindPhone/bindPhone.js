@@ -137,7 +137,6 @@ Page({
       dynamicCode: this.data.msgCode
     }
     app.request('post', url, data, (res) => {
-      console.info(res)
       wx.showModal({
         title: '提示',
         content: '绑定成功！',

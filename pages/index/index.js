@@ -14,12 +14,23 @@ Page({
     movieListSoon:[]
   },
   //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+  bannerLink: function(e) {
+    console.info(e)
+    let link = e.currentTarget.dataset.link
+
+    console.info(link)
+    if (link.type == 1) {
+      app.toSelfPage(link.url)
+    } else if (link.type==2){
+      app.linkToWap(link.url)
+    } else if (link.type==3){
+      app.toOther(link.appId, link.url)
+    }
   },
   onLoad: function () {
+    wx.showLoading({
+      title:'加载中'
+    })
     this.getBannerList()
     this.getBannerList2()
     this.getHotMovie()

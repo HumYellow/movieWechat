@@ -10,13 +10,14 @@
 .couponListTab-itemBox.select .couponListTab-item{border-color:#6ab778;color:#6ab778}
 
 .couponList{padding:20rpx;}
-.couponList-item{border-radius:5px;}
+.couponList-item{border-radius:5px;margin:20rpx 0;}
+.exchangeBgDetail{background:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/exchangeBg.png') no-repeat; background-size:100% auto; display:flex;height:200rpx;justify-content: center;align-items: center;}
 .couponDetail{background:url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/couponBg.png') no-repeat; background-size:100% auto; display:flex;height:200rpx;justify-content: center;align-items: center;}
-.couponList.contUse .couponDetail{background-image: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/couponBg_no.png')}
+.couponList.contUse .couponDetail ,.couponList.contUse .exchangeBgDetail{background-image: url('https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/couponBg_no.png')}
 .couponIcon{width:150rpx;height:175rpx;}
 .couponDesc{flex:1;color:#fff;padding-right:20rpx;}
 .couponDesc .couponTitle{font-size:36rpx;}
 .couponDesc .couponTest{font-size:24rpx;}
-.couponAmount{border-left:1px dashed #fff;width:220rpx;height:100%;color:#fff; font-size:60rpx; display:flex; justify-content: center; align-items: center;}
+.couponAmount{border-left:1px dashed #fff;width:220rpx;height:100%;color:#fff; font-size:54rpx; display:flex; justify-content: center; align-items: center;}
 .couponDate{background:#fff;font-size:24rpx;color:#666;padding:20rpx;}
 .couponList.contUse .couponDate{color:#999;}

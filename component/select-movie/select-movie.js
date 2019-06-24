@@ -28,7 +28,7 @@ Component({
     movieMaskImg:'',
     movieMaskDelay:400,
     scrollListOver:false,
-    scrollLeft: 0, //设置滚动条位置
+    scrollLeft: 1000, //设置滚动条位置
     size: 0, //bindselectMovie
     i: 0, //当前电影的索引,下面的函数传递了事件对象后就不能传递其他参数了，所以只能放在data中传递
     isTouch:false,

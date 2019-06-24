@@ -29,6 +29,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let getTime = this.data.getTime
+    for (let i = 0; i < getTime.length; i++) {
+      clearTimeout(this.data.getTime[i])
+    }
+    wx.showLoading({
+      title: '加载中'
+    })
     this.setData({
       pageNo: 1,
       lastPage: false,

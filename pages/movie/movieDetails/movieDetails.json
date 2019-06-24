@@ -1,6 +1,5 @@
 {
   "usingComponents": {
     "scorePopup": "/component/scorePopup/scorePopup"
-  },
-  "enablePullDownRefresh": true
+  }
 }

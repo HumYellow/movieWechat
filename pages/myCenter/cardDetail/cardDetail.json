@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "cardPopup": "/component/cardPopup/cardPopup"
+  },
   "navigationBarTitleText": "会员卡"
 }

@@ -3,7 +3,7 @@
   <swiper autoplay='false' interval='5000' duration='300' circular='true' class='swiper-box' previous-margin="80rpx" next-margin="80rpx" bindchange="tabSwiper">
     <block wx:for="{{bannerList}}" wx:key="index" >
         <swiper-item class="swiper-item {{swiperSelect==index?'swiper-select':''}}">
-          <view class="swiper-itemBox">
+          <view class="swiper-itemBox" bindtap='bannerLink' data-index='{{index}}' data-link='{{item.recommendLinkVO}}'>
                 <image class="swiper-item-img" src="{{item.img}}" mode='widthFix' />
           </view>
         </swiper-item>
@@ -33,7 +33,7 @@
   </view>
 </view>
 <view class="picLink" data-id="{{movieListHot.id}}">
-  <image wx:for="{{bannerList2}}" wx:key="index" class="picLink-pic" mode='aspectFill' src="{{item.img}}"></image>
+  <image wx:for="{{bannerList2}}" wx:key="index" class="picLink-pic" mode='aspectFill' src="{{item.img}}" bindtap='bannerLink' data-index='{{index}}' data-link='{{item.recommendLinkVO}}'></image>
 </view>
 <view class="indexMovieMod">
   <view class="headTitle">

@@ -14,6 +14,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中'
+    })
     console.info(options)
     let orderId = options.orderId
     this.setData({
@@ -88,6 +91,7 @@ Page({
             op: true
           })
       }
+      console.info(res.data)
       //测试用写死二维码可删
       let qrCodeParams = res.data.qrCodeParams ? res.data.qrCodeParams : '9089DCA28C9A2B5D686E10AFACE4CCDA'
       this.data.op ? app.getQRCode(qrCodeParams, '#d2e9d6') : app.getQRCode(qrCodeParams)

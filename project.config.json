@@ -103,7 +103,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 34,
+			"current": 43,
 			"list": [
 				{
 					"id": 0,
@@ -162,10 +162,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 8,
 					"name": "剧照",
 					"pathName": "pages/movie/moviePic/moviePic",
-					"query": "",
+					"query": "movieId=6",
 					"scene": null
 				},
 				{
@@ -333,7 +333,7 @@
 					"id": 32,
 					"name": "订单确认",
 					"pathName": "pages/order/confirmOrder/confirmOrder",
-					"query": "orderId=249",
+					"query": "orderId=432",
 					"scene": null
 				},
 				{
@@ -348,6 +348,69 @@
 					"name": "订单详情",
 					"pathName": "pages/order/orderDetail/orderDetail",
 					"query": "orderId=359",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "会员卡详情",
+					"pathName": "pages/myCenter/cardDetail/cardDetail",
+					"query": "cardId=21",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "会员卡列表",
+					"pathName": "pages/myCenter/myCard/myCard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "会员卡详情",
+					"pathName": "pages/myCenter/cardDetail/cardDetail",
+					"query": "cardId=23",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "场次列表",
+					"pathName": "pages/movie/movieScene/movieScene",
+					"query": "cinemaId=4",
+					"scene": null
+				},
+				{
+					"id": 39,
+					"name": "图片详情",
+					"pathName": "pages/movie/moviePic/moviePic",
+					"query": "movieId=7",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "优惠券列表",
+					"pathName": "pages/myCenter/couponList/couponList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "优惠券",
+					"pathName": "pages/myCenter/couponList/couponList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "优惠券列表",
+					"pathName": "pages/myCenter/couponList/couponList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选座",
+					"pathName": "pages/order/seatSelection/seatSelection",
+					"query": "mpiId=1894",
 					"scene": null
 				}
 			]

@@ -1,22 +1,21 @@
-// pages/myCenter/myCard/myCard.js
-const app = getApp()
+// pages/wapLink/wapLink.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    cardList:[],
+    wapUrl:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '加载中'
+    console.info(options)
+    this.setData({
+      wapUrl: options.url
     })
-
   },
 
   /**
@@ -30,7 +29,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getCardList()
+
   },
 
   /**
@@ -66,31 +65,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  toBindCard: function (e) {
-    let url = '/pages/cinema/cinemaList/cinemaList'
-    app.toTabBar(url)
-    // wx.navigateTo({
-    //   url: url
-    // })
-  },
-  toCardDetail: function (e) {
-    let cardId = e.currentTarget.dataset.id
-    let url = '/pages/myCenter/cardDetail/cardDetail?cardId=' + cardId
-    wx.navigateTo({
-      url: url
-    })
-
-  },
-  getCardList: function () {
-    let url = "/home/vip/listData"
-    let data = {}
-    app.request('get', url, data, (res) => {
-      console.info(res.data)
-      this.setData({
-        cardList: res.data
-      })
-    })
-
-  },
+  }
 })

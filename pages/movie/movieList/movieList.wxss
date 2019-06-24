@@ -11,10 +11,14 @@ page{background:#f8f8f8;}
 .movieList-item-pic{flex:0 0 135rpx;height:190rpx;border-radius:3px;}
 .movieList-item-desc{width:80%;display:flex;justify-content: center;}
 .movieList-item-desc-box{}
-.movieList-item-desc-box1{width:75%;padding:0 20rpx;line-height:40rpx;}
+.movieList-item-desc-box1{width:75%;padding:0 20rpx;line-height:40rpx; box-sizing: border-box;}
 .movieList-item-desc-box2{width:25%;text-align:center;}
 .movieList-item-desc-box1 .movieList-item-desc-name{font-size:32rpx;color:#333;font-weight:600;line-height:52rpx;}
-.movieList-item-desc-box1 .movieList-item-desc-perf{color:#666;font-size:24rpx;}
+.movieList-item-desc-box1 .movieList-item-desc-score{color:#6ab778;display:inline-block;margin-left:10rpx;}
+.movieList-item-desc-box1 .movieList-item-desc-perf{color:#666;font-size:24rpx;white-space: nowrap; 
+  width: 100%; 
+  overflow: hidden;
+  text-overflow:ellipsis;}
 .movieList-item-desc-box1 .movieList-item-desc-data{color:#999;font-size:24rpx;margin-top:5rpx;}
 .movieList-item-desc-box2 .movieList-item-desc-score{color:#ff4d64; font-size:32rpx;height:50rpx;line-height:50rpx;text-align:center;width:100%;}
 .movieList-item-desc-toBuy{display:inline-block;background:#fff;border-radius:20px;padding:6rpx 25rpx;font-size:24rpx;margin:10rpx auto;left: 0;right: 0;}

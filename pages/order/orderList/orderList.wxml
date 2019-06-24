@@ -20,20 +20,13 @@
                           {{item.quantity}}张
                       </view> -->
                   </view>
-                  <view class="orderList-item-time">
-                      {{item.playDate}}
-                  </view>
+                  <view class="orderList-item-time">{{item.playDate}} {{item.showTime}}</view>
                   <view class="orderList-item-seat">
-                      <view class="orderList-item-seat-item">
-                        {{item.roomName}}
-                      </view>
-                      <view class="orderList-item-seat-item" wx:for="{{item.seatList}}" wx:key="index">
-                        {{item}}
+                      <view class="orderList-item-seat-item">{{item.roomName}}</view>
+                      <view class="orderList-item-seat-item" wx:for="{{item.seatList}}" wx:key="index">{{item}}
                       </view>
                   </view>
-                  <view class="orderList-item-time">
-                     共计支付 : ￥{{item.allFee2Yuan}}
-                  </view>
+                  <view class="orderList-item-time">共计支付 : ￥{{item.allFee2Yuan}}</view>
               </view>
               <view class="orderList-item-type">
                   <view class="orderList-item-toOrderDetail" wx:if="{{item.busStatus=='new'}}">去支付</view>

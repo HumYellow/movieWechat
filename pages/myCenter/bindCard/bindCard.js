@@ -97,6 +97,7 @@ Page({
     })
   },
   bindCard: function () {
+    wx.showLoading()
     let url = '/home/vip/member/validate';
     let data = {
       memberCardNumber: this.data.memberCardNumber,
@@ -107,7 +108,7 @@ Page({
       wx.showToast({
         title: '绑定成功',
         icon: 'success',
-        duration: 2000
+        duration: 4000
       })
       this.setData({
         memberCardNumber: null,

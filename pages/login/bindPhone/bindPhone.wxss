@@ -9,7 +9,7 @@
 .getMsgCode{font-size:28rpx;text-align:center;background:#999;color:#fff;height:100%;line-height:80rpx;border-radius:10rpx;}
 .getMsgCode.getMsgCodeTo{background:#fff;border:1px solid #6ab778;color:#6ab778;border-radius:50rpx;}
 .agreeRules{font-size:24rpx;color:#666;width:100%;text-align:right;}
-.rulesLink{color:#63a4fd}
+.rulesLink{color:#6ab778}
 
-.subCode ,.wxLogin{color:#fff;background:#63a4fd;font-size:32rpx; width:90%;border-radius:10rpx;text-align:center;height:80rpx;line-height:80rpx;margin:20rpx 0;}
+.subCode ,.wxLogin{border:1px solid #6ab778;color:#6ab778;font-size:32rpx; width:90%;border-radius:50rpx;text-align:center;height:80rpx;line-height:80rpx;margin:20rpx 0;}
 .wxLogin{background-color: #1AAD16;color: #FFF;}

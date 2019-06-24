@@ -1,6 +1,6 @@
 <!--pages/movie/movieScene/movieScene.wxml-->
 <view class="cinemaBox" wx:if="{{cinemaDetails}}">
-  <view class="cinemaDesc">
+  <view class="cinemaDesc shadowBox">
       <view class="cinemaImg shadowBox">
           <image mode='aspectFill' src='{{cinemaDetails.img}}'></image>
       </view>
@@ -8,7 +8,7 @@
           <view class="cinemaBoxTitle">{{cinemaDetails.name}}</view>
           <view class="cinemaBoxAddress">{{cinemaDetails.address}}</view>
           <view class="cinemaType">
-              <view class="cinemaType-item btnColor" wx:for="{{cinemaDetails.labelList}}" wx:key="index">{{item}}</view>
+              <view class="cinemaType-item" wx:for="{{cinemaDetails.labelList}}" wx:key="index">{{item}}</view>
           </view>
       </view>
       <view class="cinemaBoxMap" bindtap='toMap'>
@@ -21,11 +21,9 @@
     <view class="extendBox-item">
         <view class="extendItemBox">
             <view class="extendItemTitle">
-                影城卡
+                影城会员卡
             </view>
-            <view class="extendItemDetail">
-                balabala
-            </view>
+            <view class="extendItemDetail">开卡购票更优惠</view>
         </view>
         <view class="toBindCard" bindtap='toBindCard'>
             <view class="toBindCardText">去绑卡</view>
@@ -35,11 +33,9 @@
     <view class="extendBox-item">
         <view class="extendItemBox">
             <view class="extendItemTitle">
-                影城卡
+                活动专区
             </view>
-            <view class="extendItemDetail">
-                balabala小魔仙变身
-            </view>
+            <view class="extendItemDetail">银行，运营商特惠</view>
         </view>
         
     </view>
@@ -50,7 +46,10 @@
   </view>
   <view class="movieDescBox" wx:if="{{movie}}">
       <view class="movieDescBox-title">
-          <view class="movieName">{{movie.name}}</view>
+          <view class="movieName">{{movie.name}} 
+              <view class="cLogo">{{movie.generalMark}}</view>
+          </view>
+          <view class="movieDescBox-titleDesc">主演：{{movie.actors}}</view>
           <view class="movieDescBox-titleDesc">{{movie.duration}}分钟 | {{movie.type}} | {{movie.state}}</view>
       </view>
   </view>

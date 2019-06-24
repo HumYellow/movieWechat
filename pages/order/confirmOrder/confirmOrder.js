@@ -11,7 +11,6 @@ Page({
     leftTime:'',
     getTime:'',
     useCard:false,
-    couponList:[],
     couponPopupShow:false,
     
   },
@@ -20,6 +19,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中'
+    })
     let orderId = options.orderId
     this.setData({
       orderId
@@ -98,9 +100,9 @@ Page({
     console.info(this.data.useCard)
     if(this.data.useCard){
       this.cardPay()
-    } else {//暂时直接跳转
+    } else {
+      //this.falseOrder()//暂时直接跳转
       this.wxPay()
-      //this.toOrderDetail()
     }
 
   },
@@ -180,20 +182,54 @@ Page({
     })
   },
   toOrderDetail: function () {
-    let orderId = this.data.orderId;
 
-    let url = '/pages/order/orderDetail/orderDetail?orderId=' + orderId
-    wx.navigateTo({
-      url
+    let url = '/wechatPay/queryOrder';
+    let data = {
+      orderId: this.data.orderId,
+    }
+    app.request('get', url, data, (res) => {
+      console.info(res.data)
+      // let orderId = this.data.orderId;
+      // let url = '/pages/order/orderDetail/orderDetail?orderId=' + orderId
+      // wx.navigateTo({
+      //   url
+      // })
     })
+
+    
   },
   selectCoupon:function(){
     this.setData({
       couponPopupShow:true
     })
   },
+  closePopup: function () {
+    this.setData({
+      couponPopupShow: false
+    })
 
-  /**
-* p 参数是调用下单参数接口的返回值
-*/
+  },
+  falseOrder:function(){
+    let url = '/order/returnSuccessData';
+    let data = {
+      orderId:this.data.orderId
+    }
+    app.request('get', url, data, (res) => {
+      this.toOrderDetail()
+    })
+  },
+  selectCouponCallback: function () {
+    console.info(22)
+    this.setData({
+      orderDetail: {},
+      leftTime: '',
+      getTime: '',
+      useCard: false,
+      couponPopupShow: false,
+    })
+    console.info(33)
+    this.getOrderDetail(this.data.orderId)
+  }
+
+  
 })

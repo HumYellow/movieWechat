@@ -31,9 +31,7 @@
                 </view>
               </view>
               <view id="midLine" class="midLine" style="height:{{sceneDetail.opiRoomSeat.lineNum*seatWidth+5}}px;left:{{sceneDetail.opiRoomSeat.middleRank*seatWidth}}px"></view>
-              <view class="screenCenter" style="left:{{sceneDetail.opiRoomSeat.middleRank*seatWidth-150}}px;width:300px;">
-                  {{sceneDetail.opiDetailInfo.roomName}}银幕
-              </view>
+              <view class="screenCenter" style="left:{{sceneDetail.opiRoomSeat.middleRank*seatWidth-150}}px;width:300px;">{{sceneDetail.opiDetailInfo.roomName}}银幕</view>
           </view>
       </scroll-view>
       <view class="seatNumList">
@@ -62,16 +60,28 @@
               <view class="seatCouponList-item-box">
                   <view class="seatCouponList-item-desc">
                       <view class="seatNum">{{item.line}}排{{item.rank}}座</view>
-                      <view class="price">{{sceneDetail.opiDetailInfo.selfPrice2Yuan}}元</view>
+                      <view wx:if="{{sceneDetail.opiDetailInfo.vipPrice}}">
+                          <view class="price">{{sceneDetail.opiDetailInfo.vipPrice}}元</view>
+                          <view class="price initPrice">{{sceneDetail.opiDetailInfo.selfPrice2Yuan}}元</view>
+                      </view>
+                      <view wx:else>
+                          <view class="price">{{sceneDetail.opiDetailInfo.selfPrice2Yuan}}元</view>
+                      </view>
                   </view> 
                   <image class="seatCouponList-delect" mode="widthFix" src="/static/image/seat/delect.png"></image>
               </view>
         </view>
       </view>
       <view class="toBuyBox">
-        <view class="allAmount"><view class="allAmountText">合计</view>￥{{(sceneDetail.opiDetailInfo.selfPrice2Yuan*10*10)*selectSeatList.length/100}}</view>
-          <view class="toBuy" bindtap='lockingSeat'>确认选座</view>
+          <view class="allAmount" wx:if="{{sceneDetail.opiDetailInfo.vipPrice}}">
+              <view class="allAmountText">合计</view>￥{{(sceneDetail.opiDetailInfo.vipPrice*10*10)*selectSeatList.length/100}}
+              <view class="initPrice">￥{{(sceneDetail.opiDetailInfo.selfPrice2Yuan*10*10)*selectSeatList.length/100}}</view>
+          </view>
+          <view class="allAmount" wx:else>
+              <view class="allAmountText">合计</view>￥{{(sceneDetail.opiDetailInfo.selfPrice2Yuan*10*10)*selectSeatList.length/100}}
+          </view>
+          <view class="toBuy" bindtap='getCardList'>确认选座</view>
       </view>
   </view>
 </view>
-<cardPopup cardPopupShow="{{cardPopupShow}}" bindclosePopup='closePopup' bindnoCardBuy='noCardBuy' cardList="{{cardList}}" bindvipToBuy='vipToBuy' cinemaName="{{sceneDetail.opiDetailInfo.cinemaName}}"></cardPopup>
+<cardPopup popupType="toPay" cardPopupShow="{{cardPopupShow}}" bindclosePopup='closePopup' bindnoCardBuy='noCardBuy' cardList="{{cardList}}" bindpushPassword='pushPassword' cinemaName="{{sceneDetail.opiDetailInfo.cinemaName}}"></cardPopup>

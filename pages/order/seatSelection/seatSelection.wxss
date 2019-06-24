@@ -37,10 +37,13 @@
 .seatCouponList-item-box{display:flex;justify-content: center;align-items: center;}
 .seatCouponList-item .seatNum{font-size:28rpx; color:#333;}
 .seatCouponList-item .price{font-size:20rpx;color:#6ab778;}
+.seatCouponList-item .price.initPrice{font-size:20rpx;}
+.initPrice{color:#999 !important;text-decoration: line-through}
 .seatCouponList-delect{width:16rpx;height:16rpx;margin-left:8px;}
 
 .btBox{position:fixed;left:0;bottom:0;width:100%;background:#fff;}
 .toBuyBox{padding:20rpx;display:flex;align-items: center; box-sizing: border-box;border-top:1px solid #f2f2f2}
 .allAmount{flex:1;font-size:36rpx;margin-left:20rpx;color:#6ab778}
+.allAmount .initPrice{display:inline-block;}
 .allAmountText{color:#999;font-size:24rpx;display:inline-block;}
 .toBuy{flex:0 0 250rpx;padding:10rpx 0;text-align:center;color:#6ab778;border:1px solid #6ab778;border-radius:20px;margin:0 auto;font-size:28rpx;}

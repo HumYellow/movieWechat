@@ -22,7 +22,9 @@
     "pages/myCenter/wantWatch/wantWatch",
     "pages/myCenter/myCard/myCard",
     "pages/myCenter/bindCard/bindCard",
-    "pages/myCenter/cardDetail/cardDetail"
+    "pages/myCenter/cardDetail/cardDetail",
+    "pages/wapLink/wapLink",
+    "pages/myCenter/couponList/couponList"
   ],
   "window": {
     "backgroundTextStyle": "dark",

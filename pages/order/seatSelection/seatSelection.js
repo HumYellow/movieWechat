@@ -1,5 +1,4 @@
 const app = getApp()
-const filter = require('./../../../static/js/filter');
 Page({
   data: {
     mpiId:'',
@@ -13,18 +12,21 @@ Page({
     cardPassword: {},
     cardList:['33','44','55'],
     cardPopupShow:false,
+    
 
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中'
+    })
     let mpiId = options.mpiId
     this.setData({
       mpiId,
     })
     this.getScene(mpiId)
-    this.getCardList()
   },
   onShow:function(){
     
@@ -50,7 +52,7 @@ Page({
               }
               if (seatListLine[i].status == 'S') {//状态为S时取消选座
                 seatListLine[i].status = 'N'
-                selectSeatList.removeArray(setNum);
+                  app.removeArray(selectSeatList,setNum);
               } else if (seatListLine[i].status == 'N') {//状态为N时选座
                 if (this.seatLengthLimit()) {
                   seatListLine[i].status = 'S'
@@ -82,7 +84,7 @@ Page({
         for (let i = 0; i < seatListLine.length; i++) {
           if (seatListLine[i].seatRank == seatRank) {
             seatListLine[i].status = 'N'
-            selectSeatList.removeArray(setNum);
+            app.removeArray(selectSeatList,setNum);
           }
         }
       }
@@ -112,17 +114,7 @@ Page({
       return true
     }
   },
-  lockingSeat:function(){
-    let cardList = this.data.cardList
-    if (cardList.length>=1) {
-      this.setData({
-        cardPopupShow: true
-      })
-    }else{
-      this.toBuy()
-    }
-  },
-  vipToBuy:function(e){
+  pushPassword:function(e){
     let card = e.detail.card
     console.info(card)
     this.setData({
@@ -139,6 +131,7 @@ Page({
   toBuy: function () {//提交场次座位获取订单号
     let buyLimit = this.data.sceneDetail.opiDetailInfo.buyLimit
     let selectSeatList = this.data.selectSeatList
+    this.closePopup()
     //buyLimit = [1, 3, 4]
     if (buyLimit.indexOf(selectSeatList.length) > -1) {//检验选票数量是否符合规则
       wx.showLoading({
@@ -226,9 +219,17 @@ Page({
       mpiId: this.data.mpiId
     }
     app.request('get', url, data, (res) => {
+      let cardList = res.data
       this.setData({
-        cardList: res.data
+        cardList
       })
+      if (cardList.length >= 1) {
+        this.setData({
+          cardPopupShow: true
+        })
+      } else {
+        this.toBuy()
+      }
     })
 
   },

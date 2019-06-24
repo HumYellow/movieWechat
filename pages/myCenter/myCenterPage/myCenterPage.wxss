@@ -8,7 +8,7 @@ page{background:#fff;}
 .getOurCode{color:#6ab778;font-size:24rpx;width:260rpx;text-align:right;}
 
 .userType{display:flex;}
-.userType-item{color:#999;border:1px solid #999;font-size:20rpx;border-radius:10px;padding:2rpx 10rpx;margin:10rpx 10rpx 0 0;}
+.userType-item{color:#999;border:1px solid #eeeeee;font-size:20rpx;border-radius:10px;padding:2rpx 10rpx;margin:10rpx 10rpx 0 0;}
 
 
 .myCenterBox{display:flex;padding:60rpx 0;border-top:20rpx solid #f8f8f8;}

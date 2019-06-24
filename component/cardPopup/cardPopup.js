@@ -4,6 +4,15 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    popupType: {
+      type: String,
+      value: false,
+      observer: function (newVal, oldVal, changedPath) {
+
+
+      }
+
+    },
     cardPopupShow: {
       type: Boolean,
       value: false,
@@ -14,7 +23,7 @@ Component({
     },
     cardList: {
       type: Array,
-      value: [],
+      value: ['1'],
       observer: function (newVal, oldVal, changedPath) {
 
 
@@ -36,16 +45,16 @@ Component({
    */
   data: {
     cardListNo:0,
-    cardPassword:'',
+    cardPassword:null,
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    vipToBuy: function () {
+    pushPassword: function () {
       let cardPassword = this.data.cardPassword
-      if (cardPassword == '' && !this.properties.cardList[this.data.cardListNo].pin) {
+      if (!cardPassword && !this.properties.cardList[this.data.cardListNo].pin) {
         wx.showModal({
           title: '提示',
           content: '会员卡密码不能为空',
@@ -56,12 +65,10 @@ Component({
           }
         })
       } else {
-        this.closePopup()
         let cardList = this.properties.cardList
         let card = cardList[this.data.cardListNo]
         card.cardPassword = cardPassword
-        console.info(card)
-        this.triggerEvent('vipToBuy', {
+        this.triggerEvent('pushPassword', {
           card
         })
 

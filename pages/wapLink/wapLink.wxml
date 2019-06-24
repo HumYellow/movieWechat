@@ -1,0 +1,2 @@
+<!--pages/wapLink/wapLink.wxml-->
+<web-view src="{{wapUrl}}"></web-view>

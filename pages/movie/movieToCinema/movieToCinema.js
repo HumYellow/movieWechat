@@ -29,13 +29,18 @@ Page({
     countyListNo: 0,
     countyCode: '',
     cityList: [],
-    cinemaList: []
+    cinemaList: [],
+    labelList: [],
+    labelListNo: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中'
+    })
     let movieId = options.movieId
     this.setData({
       pageNo: 1,
@@ -48,6 +53,7 @@ Page({
     this.getCountyList()
     this.getCinemaList()
     this.getCityNow()
+    this.getLabelList()
     wx.stopPullDownRefresh()
   },
 
@@ -177,13 +183,27 @@ Page({
     app.request('get', url, data, (res) => {
       console.info(res.data.countyVOList)
       let countyList = [{
-        countyBriefName: '区域',
+        countyBriefName: '全部区域',
         countyCode: ''
       }]
       countyList = countyList.concat(res.data.countyVOList)
       this.setData({
         countyList
       })
+    })
+  },
+  getLabelList: function () {
+    let url = '/cinema/labelListData'
+    app.request('get', url, '', (res) => {
+      let labelList = [{
+        name: '全部特色',
+        labelId: ''
+      }]
+      labelList = labelList.concat(res.data.labelList)
+      this.setData({
+        labelList
+      })
+      console.info(this.data.labelList)
     })
   },
   tabSortType: function (e) {

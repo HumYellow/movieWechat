@@ -2,26 +2,38 @@
 <view class="cardBox">
     <view class="cardDetail">
         <view class="cardTitle">会员卡
-            <view class="cardNo">卡号：3131313131133</view>
+            <view class="balanceBox">
+                <view class="checkBalance" wx:if="{{balanceNumber}}">￥{{balanceNumber}}</view>
+                <view wx:else class="checkBalance" bindtap='checkBalance'>查看余额<view class="triangle"></view></view>
+            </view>
         </view>
-        <view class="cardTime">
-            有效期：2019-4-10
-        </view>
+        <view class="cardNo">卡号：{{cardDetail.cardNumber}}</view>
+        <view class="cardTime">有效期至：{{cardDetail.validDate}}</view>
+    </view>
+</view>
+<view class="cardRule">
+    <view class="cardRuleTitle">
+        会员卡说明
+    </view>
+    <view class="cardRuleDesc">
+        持卡消费可享受储值卡优惠价格购票（VIP、特殊场次除外）此卡具有储值功能，全国通用，跨城市使用时票价改签政策以当地影院为准。此卡年费10元，持卡每场限购8张优惠票，每日限购12张优惠票,持卡购票所享优惠不可与影城其他优惠同享。
     </view>
 </view>
 <view class="cinemaListBox">
     <view class="cinemaList-title">
-        <view class="fs32 c666">支持影院</view>
-        <view class="fs22 c999 mt10">全国33家</view>
+        <view class="cinemaList-title-item fs28 c333 textLeft">支持影院</view>
+        <view class="cinemaList-title-item fs22 c999 textRight">全国{{cardDetail.cinemaVOList.length}}家</view>
     </view>
     <view class="cinemaList">
-        <view class="cinemaList-item">
+        <view class="cinemaList-item" wx:for="{{cardDetail.cinemaVOList}}" wx:key="index">
             <view class="cinemaTitle">
-                <view class="cinemaName">海上明珠</view>
-                <view class="cinemaAddr">上海市长宁区略略略</view>
+                <view class="cinemaName">{{item.name}}</view>
+                <view class="cinemaAddr">{{item.address}}</view>
             </view>
-            <view class="cinemaRange">33km</view>
+            <!-- <view class="cinemaRange">33km</view> -->
         </view>
     
     </view>
 </view>
+
+<cardPopup cardPopupShow="{{cardPopupShow}}" bindclosePopup='closePopup' cardList="{{cardList}}" bindpushPassword='pushPassword'></cardPopup>

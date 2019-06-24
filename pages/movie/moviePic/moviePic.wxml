@@ -1,6 +1,6 @@
 <!--pages/movie/moviePic/moviePic.wxml-->
 <view class="moviePic">
-    <view class="moviePic-item" wx:for="{{picList}}" wx:key="picList.index">
-        <image class="videoAndPic" data-list="{{picList}}" data-src="{{item}}" src="{{item}}" mode='aspectFill' lazy-load="true" style="width:100%;height:100%" bindtap="imgYu"></image>
+    <view class="moviePic-item" wx:for="{{imgList}}" wx:key="picList.index">
+        <image class="videoAndPic" data-list="{{imgList}}" data-src="{{item}}" src="{{item}}" mode='aspectFill' lazy-load="true" style="width:100%;height:100%" bindtap="imgYu"></image>
     </view>
 </view>

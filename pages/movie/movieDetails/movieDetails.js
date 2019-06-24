@@ -20,6 +20,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中'
+    })
     let movieId = options.movieId
     this.setData({
       movieId
@@ -62,7 +65,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.onLoad()
+    //this.onLoad()
 
   },
 
@@ -125,7 +128,8 @@ Page({
     let url = "/photo/listData";
     let imgList = []
     let data = {
-      relatedId: movieId
+      relatedId: movieId,
+      type:2
     }
     app.request('get', url, data, (res) => {
       let picList = res.data.photoVOList

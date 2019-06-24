@@ -8,12 +8,12 @@
        <view class="cinemaListSelect-item-tip"></view>
     </view>
   </picker>
-  <picker class="cinemaListSelect-item" bindchange="tabCinemaLine" value="{{index}}" range='{{cinemaLineList}}'
+  <!-- <picker class="cinemaListSelect-item" bindchange="tabCinemaLine" value="{{index}}" range='{{cinemaLineList}}'
   range-key="{{'name'}}" data-type="{{cinemaLineList[cinemaLineNo].cinemaLineId}}">
     <view class="picker">{{cinemaLineList[cinemaLineNo].name}}
        <view class="cinemaListSelect-item-tip"></view>
     </view>
-  </picker>
+  </picker> -->
   <picker class="cinemaListSelect-item" bindchange="tabLabel" value="{{index}}" range='{{labelList}}'
   range-key="{{'name'}}" data-type="{{labelList[labelListNo].labelId}}">
     <view class="picker">{{labelList[labelListNo].name}}
@@ -57,8 +57,6 @@
         </view>
     </view>
 </view>
-<view wx:if="{{lastPage}}" class="lastPage">
-    没有更多啦
-</view>
+<view wx:if="{{lastPage}}" class="lastPage">没有更多啦</view>
 
 

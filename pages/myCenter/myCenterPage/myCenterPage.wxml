@@ -13,9 +13,9 @@
 
             </view>
         </view>
-        <view class="getOurCode">
-              获取无纸化验票号码 >
-        </view>
+        <!-- <view class="getOurCode">
+              获取无纸化验票码 >
+        </view> -->
     </view>
     <!-- <button wx:else class="loginBtn userName"
       open-type="getUserInfo"
