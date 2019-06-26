@@ -290,6 +290,7 @@ App({
   },
 
   _pay(p,callback) {
+    let _that = this
     if (!this.payInstance) {
       this.payInstance = MidasPayApi.init({
         env: p.sandbox, // 0或不传是正式，1是沙箱
@@ -307,11 +308,16 @@ App({
     this.payInstance.launchPay(params, (result) => {
       console.info(result)
       if (result.resultCode === 0) {
-        wx.showToast({
-          title: '支付成功',
-          icon: 'success'
-        });
-        if (callback) callback()
+        wx.showLoading({
+          title: '支付成功，出票中'
+        })
+        let url = '/wechatPay/queryOrder';
+        let data = {
+          orderId: p.orderId,
+        }
+        _that.request('get', url, data, (res) => {
+          if (callback) callback()
+        })
       } else/* if (result.resultCode = -2)*/ {
         // 取消支付
         wx.showToast({

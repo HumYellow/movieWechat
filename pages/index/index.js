@@ -28,6 +28,8 @@ Page({
     }
   },
   onLoad: function () {
+    wx.showShareMenu()
+    
     wx.showLoading({
       title:'加载中'
     })

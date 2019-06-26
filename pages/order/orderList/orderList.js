@@ -40,8 +40,8 @@ Page({
       pageNo: 1,
       lastPage: false,
       orderList: [],
-    })
-    this.getOrderList()
+    }, this.getOrderList())
+    
     wx.stopPullDownRefresh()
 
   },

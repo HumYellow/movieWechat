@@ -107,6 +107,9 @@ Page({
 
   },
   cardPay: function () {
+    wx.showLoading({
+      title: '支付中'
+    })
     let url = '/order/payMent';
     let data = {
       orderId: this.data.orderId,

@@ -1,5 +1,5 @@
 /* pages/order/orderDetail/orderDetail.wxss */
-.orderDetail{padding:20rpx;min-height:100ch;}
+.orderDetail{padding:20rpx;min-height:100vh;}
 .orderDetail-box{overflow:hidden;border-radius:5px;}
 .orderDetail-addr{font-size:24rpx;color:#999999;background:#fff url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAARCAYAAADpPU2iAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAARpJREFUeNpinDlzpjMDA4MBEE9JS0v7yUAAMAGxBRD3APGBWbNmqRPSwPj//38GoMJIIHseVCwDaNNCvBpAAKhJFUgtAGIrKJ0H1PgZm5PAACh5G0jZAXEzECcA8QWgIdY4bUAGQIXOUCfKAXEJ0LBevBqgmgRAFBCHAvEuIE4BanyMUwOSxhwg1QnEH4E4laAGqCY3ILUTxdN4FAdD/fMViJPx+YEFSPUBcS4QXwLiGKAfLjPhUKwHpE5CFfcDsSVIMUiOBYviTCA1GYhBkRYIVLgBWZ4FSaEYkJoGxMFQDyYDFT9FN5AFqtgJSC0BYkkgrgIqbMcVCMxSUlIgd64A4ldA7AdUvIxQ8n4ExE1AbA5UfJRQMAMEGABUf2l7uwEqFQAAAABJRU5ErkJggg==') no-repeat;padding:30rpx 40rpx;border-bottom:1px solid #f8f8f8;background-position:94% center;background-size:auto 25%;}
 

@@ -60,7 +60,7 @@
               <view class="seatCouponList-item-box">
                   <view class="seatCouponList-item-desc">
                       <view class="seatNum">{{item.line}}排{{item.rank}}座</view>
-                      <view wx:if="{{sceneDetail.opiDetailInfo.vipPrice}}">
+                      <view wx:if="{{sceneDetail.opiDetailInfo.hasVip}}">
                           <view class="price">{{sceneDetail.opiDetailInfo.vipPrice}}元</view>
                           <view class="price initPrice">{{sceneDetail.opiDetailInfo.selfPrice2Yuan}}元</view>
                       </view>
@@ -73,7 +73,7 @@
         </view>
       </view>
       <view class="toBuyBox">
-          <view class="allAmount" wx:if="{{sceneDetail.opiDetailInfo.vipPrice}}">
+          <view class="allAmount" wx:if="{{sceneDetail.opiDetailInfo.hasVip}}">
               <view class="allAmountText">合计</view>￥{{(sceneDetail.opiDetailInfo.vipPrice*10*10)*selectSeatList.length/100}}
               <view class="initPrice">￥{{(sceneDetail.opiDetailInfo.selfPrice2Yuan*10*10)*selectSeatList.length/100}}</view>
           </view>

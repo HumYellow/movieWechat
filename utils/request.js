@@ -1,12 +1,12 @@
 const app = getApp()
 const util = require('./util.js')
 const md5 = require('./md5.js')
-const apiHttp = 'https://test.wecinema.club/wxspapi/v1'
+const apiHttp = 'https://test.weicinema.com/wxspapi/v1'
 const weikai = 'http://192.168.110.13:8031/wxspapi/v1'
 const caichengmei = 'http://192.168.110.16:8031/wxspapi/v1'
 const zhoujin = 'http://192.168.110.32:8031/wxspapi/v1'
 const request = {//请求封装
-  apiHttp: weikai,
+    apiHttp: apiHttp,
     appleKey: 'RWSF2JhLXNWkmygnsNb3yA4Ach8Pb6HNjkEH9GwZL49sC8bFg4n4k8j2jUuUFt9HSamb7fkUaVcQrBuvELv6a9Uyx2H4s58BtDz',
     wxRequest: function (method, url, data, callback, errFun) {
       let that = this
@@ -84,7 +84,6 @@ const request = {//请求封装
               }
             })
           }
-          wx.hideLoading()
         },
         fail: function (err) {
           errFun(err);

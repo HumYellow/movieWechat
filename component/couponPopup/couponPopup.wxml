@@ -17,7 +17,7 @@
                           <view class="couponTest">{{item.remark}}</view>
                       </view>
                       <view class="couponAmount">兑换券</view>
-                      <image mode='scaleToFill' class="selectIcon" wx:if="{{item.busStatus=='W'}}" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/select_icon.png'></image>
+                      <image mode='scaleToFill' class="selectIcon" wx:if="{{item.busStatus=='W'}}" src='https://test-image-1258902934.cos.ap-shanghai.myqcloud.com/image/coupon/select_icon2.png'></image>
                   </view>
                   <view class="couponDate">有效期：{{item.beginTime}} - {{item.endTime}}</view>
               </view>
