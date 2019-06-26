@@ -309,7 +309,7 @@ App({
       console.info(result)
       if (result.resultCode === 0) {
         wx.showLoading({
-          title: '支付成功，出票中'
+          title: '支付中'
         })
         let url = '/wechatPay/queryOrder';
         let data = {

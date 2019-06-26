@@ -29,6 +29,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let _that = this
     let getTime = this.data.getTime
     for (let i = 0; i < getTime.length; i++) {
       clearTimeout(this.data.getTime[i])
@@ -40,7 +41,9 @@ Page({
       pageNo: 1,
       lastPage: false,
       orderList: [],
-    }, this.getOrderList())
+    }, function(){
+      this.getOrderList()
+    })
     
     wx.stopPullDownRefresh()
 
